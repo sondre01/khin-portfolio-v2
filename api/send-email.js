@@ -50,15 +50,15 @@ export default async function handler(req, res) {
                 html: `
                     <div style="font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background-color: #f8fafc; padding: 40px 20px; text-align: center;">
                         <div style="max-width: 580px; margin: 0 auto; background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03); overflow: hidden; text-align: left;">
-                            <!-- Header Accent Line (Brand Orange) -->
-                            <div style="height: 6px; background-color: #ff5e00;"></div>
+                            <!-- Header Accent Line (Monochrome Dark Accent) -->
+                            <div style="height: 6px; background-color: #0f172a;"></div>
                             
                             <!-- Main Content Padding -->
                             <div style="padding: 40px 35px;">
                                 <!-- Header Indicator -->
                                 <div style="display: flex; align-items: center; margin-bottom: 25px;">
-                                    <div style="width: 8px; height: 8px; background-color: #ff5e00; border-radius: 50%; margin-right: 8px;"></div>
-                                    <span style="font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; color: #ff5e00; font-family: monospace;">Telemetry: Message Dispatch</span>
+                                    <div style="width: 8px; height: 8px; background-color: #0f172a; border-radius: 50%; margin-right: 8px;"></div>
+                                    <span style="font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; color: #0f172a; font-family: monospace;">Telemetry: Message Dispatch</span>
                                 </div>
                                 
                                 <h1 style="font-size: 1.5rem; font-weight: 800; color: #0f172a; margin: 0 0 25px 0; letter-spacing: -0.5px; line-height: 1.25;">
@@ -77,7 +77,7 @@ export default async function handler(req, res) {
                                         <tr>
                                             <td style="padding: 8px 0; color: #64748b; font-weight: 600; vertical-align: top;">Email Address</td>
                                             <td style="padding: 8px 0;">
-                                                <a href="mailto:${email}" style="color: #ff5e00; text-decoration: none; font-weight: 700;">${email}</a>
+                                                <a href="mailto:${email}" style="color: #0f172a; text-decoration: none; font-weight: 700;">${email}</a>
                                             </td>
                                         </tr>
                                         ${phone ? `
@@ -100,7 +100,7 @@ export default async function handler(req, res) {
                                 <!-- Message Body -->
                                 <div style="margin-bottom: 35px;">
                                     <p style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: #94a3b8; letter-spacing: 1px; margin: 0 0 10px 0;">Message Content</p>
-                                    <div style="background-color: #ffffff; border-left: 3px solid #ff5e00; padding: 15px 20px; font-size: 0.95rem; line-height: 1.6; color: #334155; margin: 0; white-space: pre-wrap; font-family: inherit; font-style: italic;">
+                                    <div style="background-color: #ffffff; border-left: 3px solid #0f172a; padding: 15px 20px; font-size: 0.95rem; line-height: 1.6; color: #334155; margin: 0; white-space: pre-wrap; font-family: inherit; font-style: italic;">
                                         "${message}"
                                     </div>
                                 </div>

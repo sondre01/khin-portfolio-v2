@@ -4,16 +4,17 @@
 
 .home-section {
     width: 100%;
-    max-width: 1400px;
+    max-width: 1440px;
     height: 100dvh;
     min-height: 100dvh;
     margin: 0 auto;
-    padding: 20px 30px 10px 30px; /* Reduced section padding to maximize picture vertical space */
+    padding: 20px 48px 10px 48px; /* Aligned with 1440px header grid */
     box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
+    z-index: 1;
     overflow: hidden;
 }
 
@@ -122,9 +123,8 @@ body.dark-mode .hero-center-img {
     gap: 8px;
     padding: 40px 0 20px 0;
     box-sizing: border-box;
-    transform-origin: bottom left;
+    transform-origin: 0 0;
     will-change: transform;
-    transition: transform 1.1s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .hero-line-1 {
@@ -133,8 +133,8 @@ body.dark-mode .hero-center-img {
 
 /* 3-Line Hero Typography — Crisp Display Scale with GPU Transformation */
 .hero-line {
-    font-family: 'Inter', sans-serif;
-    font-size: clamp(1.15rem, 2.4vw, 2.2rem);
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(1.05rem, 1.45vw, 1.35rem);
     font-weight: 900;
     text-transform: uppercase;
     letter-spacing: 0.03em;
@@ -142,17 +142,30 @@ body.dark-mode .hero-center-img {
     padding: 0;
     opacity: 0;
     width: 100%;
-    max-width: clamp(300px, 36vw, 480px);
+    max-width: clamp(280px, 30vw, 400px);
     display: block;
     min-height: auto;
     text-align: left;
-    line-height: 1.08;
+    line-height: 1.25;
     color: #ffffff;
     text-shadow: 0 4px 20px rgba(0,0,0,0.6);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    transition: text-align 0.3s ease, color 0.3s ease, opacity 0.8s ease;
+    overflow: hidden;
+    transition: font-size 1.1s cubic-bezier(0.16, 1, 0.3, 1), 
+                max-width 1.1s cubic-bezier(0.16, 1, 0.3, 1), 
+                line-height 1.1s cubic-bezier(0.16, 1, 0.3, 1), 
+                letter-spacing 1.1s cubic-bezier(0.16, 1, 0.3, 1),
+                color 0.3s ease;
     will-change: transform, opacity;
+}
+
+.hero-line-inner {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(115%);
+    filter: blur(4px);
+    will-change: transform, opacity, filter;
 }
 
 .hero-line.hero-intro-text-centered {
@@ -164,20 +177,35 @@ body.dark-mode .hero-line {
     text-shadow: 0 4px 20px rgba(0,0,0,0.6);
 }
 
-/* Entrance Animations — Smooth Center Intro */
-@keyframes heroLineCenterIntro {
-    0%   { opacity: 0; transform: translateY(18px) scale(0.95); }
-    100% { opacity: 1; transform: translateY(0) scale(1); }
+/* Entrance Animations — Letters Rising Up from Bottom */
+@keyframes heroLettersRiseUp {
+    0% {
+        opacity: 0;
+        transform: translateY(115%);
+        filter: blur(4px);
+    }
+    40% {
+        opacity: 0.8;
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
 }
 
-.hero-line-1.hero-fade-item {
-    animation: heroLineCenterIntro 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
+.hero-fade-item {
+    opacity: 1 !important;
 }
-.hero-line-2.hero-fade-item {
-    animation: heroLineCenterIntro 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.25s forwards;
+
+.hero-line-1.hero-fade-item .hero-line-inner {
+    animation: heroLettersRiseUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
 }
-.hero-line-3.hero-fade-item {
-    animation: heroLineCenterIntro 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+.hero-line-2.hero-fade-item .hero-line-inner {
+    animation: heroLettersRiseUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.55s forwards;
+}
+.hero-line-3.hero-fade-item .hero-line-inner {
+    animation: heroLettersRiseUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.95s forwards;
 }
 
 .hero-container.hero-settled {
@@ -187,17 +215,26 @@ body.dark-mode .hero-line {
 /* Settled State: Permanent 100% Opacity & Refined Proportions in Bottom-Left */
 .hero-line.hero-settled,
 .hero-line.hero-line-shifted {
+    overflow: visible !important;
     animation: none !important;
     opacity: 1 !important;
     text-align: left !important;
     color: #ffffff !important;
-    font-size: clamp(1.05rem, 1.45vw, 1.35rem) !important;
-    max-width: clamp(260px, 28vw, 360px) !important;
-    line-height: 1.25 !important;
+    font-size: clamp(1.25rem, 2.4vw, 2.2rem) !important;
+    max-width: clamp(320px, 38vw, 520px) !important;
+    line-height: 1.12 !important;
     margin: 0 !important;
     padding: 0 !important;
     letter-spacing: 0.02em !important;
     text-shadow: 0 4px 20px rgba(0,0,0,0.6) !important;
+}
+
+.hero-line.hero-settled .hero-line-inner,
+.hero-line.hero-line-shifted .hero-line-inner {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
 }
 
 body.dark-mode .hero-line.hero-settled,
@@ -225,7 +262,7 @@ body.dark-mode .hero-line.hero-line-shifted {
     display: flex;
     align-items: center;
     gap: 8px;
-    font-family: 'Inter', sans-serif;
+    font-family: 'JetBrains Mono', monospace;
     font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 0.15em;
@@ -251,7 +288,7 @@ body.dark-mode .scroll-explore {
     position: absolute;
     top: 70px;
     bottom: 20px; /* Aligned with hero text 20px bottom level */
-    right: 40px;
+    right: 0;
     z-index: 4;
     width: 240px;
     overflow: hidden;
@@ -280,6 +317,7 @@ body.dark-mode .scroll-explore {
     margin-bottom: 14px;
     z-index: 5;
     flex-shrink: 0;
+    padding-right: 1px;
 }
 
 .hero-skills-title {
@@ -339,7 +377,7 @@ body.dark-mode .scroll-explore {
     align-items: center;
     justify-content: flex-end;
     gap: 10px;
-    padding: 3px 4px;
+    padding: 3px 2px 3px 6px;
     border-radius: 6px;
     background: transparent;
     transition: transform 0.25s ease;
@@ -458,23 +496,29 @@ body.dark-mode .scroll-explore {
     border-radius: 0;
     border: none !important;
     box-shadow: none !important;
+    outline: none !important;
     background: transparent !important;
-    transform: scale(1.15);
-    transition: transform 0.5s ease;
+    transform: none;
+    transition: transform 0.4s ease;
 
-    /* Layer 1: Symmetric Straight Vertical Linear Fade (Dissolves both left & right vertical side cut lines into background) */
-    /* Layer 2: Preserved Preferred Bottom Radial Curve */
-    -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 0) 4%, rgba(0, 0, 0, 0.15) 10%, rgba(0, 0, 0, 0.55) 18%, rgba(0, 0, 0, 1) 35%, rgba(0, 0, 0, 1) 65%, rgba(0, 0, 0, 0.55) 82%, rgba(0, 0, 0, 0.15) 90%, rgba(0, 0, 0, 0) 96%),
-                        radial-gradient(ellipse 62% 64% at 50% 40%, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 32%, rgba(0, 0, 0, 0.75) 60%, rgba(0, 0, 0, 0.2) 84%, rgba(0, 0, 0, 0) 97%);
-    mask-image: linear-gradient(to right, rgba(0, 0, 0, 0) 4%, rgba(0, 0, 0, 0.15) 10%, rgba(0, 0, 0, 0.55) 18%, rgba(0, 0, 0, 1) 35%, rgba(0, 0, 0, 1) 65%, rgba(0, 0, 0, 0.55) 82%, rgba(0, 0, 0, 0.15) 90%, rgba(0, 0, 0, 0) 96%),
-                radial-gradient(ellipse 62% 64% at 50% 40%, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 32%, rgba(0, 0, 0, 0.75) 60%, rgba(0, 0, 0, 0.2) 84%, rgba(0, 0, 0, 0) 97%);
-    -webkit-mask-composite: source-in, intersect;
-    mask-composite: intersect;
+    /* Hyper-Curvy Sweeping Vignette Mask (Identical to Main/Home Tab Hero Photo) */
+    -webkit-mask-image: radial-gradient(ellipse 58% 54% at 50% 36%, 
+                        rgba(0, 0, 0, 1) 0%, 
+                        rgba(0, 0, 0, 1) 32%, 
+                        rgba(0, 0, 0, 0.75) 60%, 
+                        rgba(0, 0, 0, 0.25) 82%, 
+                        rgba(0, 0, 0, 0) 98%);
+    mask-image: radial-gradient(ellipse 58% 54% at 50% 36%, 
+                rgba(0, 0, 0, 1) 0%, 
+                rgba(0, 0, 0, 1) 32%, 
+                rgba(0, 0, 0, 0.75) 60%, 
+                rgba(0, 0, 0, 0.25) 82%, 
+                rgba(0, 0, 0, 0) 98%);
 }
 
 .intro-card:hover .card-avatar,
 .def-card:hover .card-avatar {
-    transform: scale(1.15);
+    transform: none;
 }
 
 .card-content {
@@ -529,7 +573,7 @@ body.dark-mode .scroll-explore {
 }
 
 .social-link {
-    color: #ff5e00;
+    color: #ffffff;
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
                 color 0.3s ease, 
                 opacity 0.3s ease;
@@ -540,7 +584,7 @@ body.dark-mode .scroll-explore {
 
 .social-link:hover {
     transform: translateY(-4px) scale(1.12);
-    color: #ff7c30;
+    color: #cccccc;
     opacity: 1;
 }
 
@@ -551,23 +595,23 @@ body.dark-mode .scroll-explore {
     align-items: center;
     gap: 8px;
     background-color: var(--accent);
-    color: #ffffff;
+    color: #121212;
     border: none;
     padding: 12px 24px;
     border-radius: 30px;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
     margin-top: 15px;
     transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-    box-shadow: 0 4px 12px rgba(255, 94, 0, 0.25);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
 }
 
 .resume-btn:hover {
     background-color: var(--accent-hover);
     transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(255, 94, 0, 0.35);
+    box-shadow: 0 6px 16px rgba(255, 255, 255, 0.25);
 }
 
 /* Resume Modal Overlay */
@@ -645,7 +689,7 @@ body.dark-mode .scroll-explore {
 
 .resume-tab {
     flex: 1;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 0.9rem;
     font-weight: 600;
     padding: 10px 16px;
@@ -664,10 +708,10 @@ body.dark-mode .scroll-explore {
 }
 
 .resume-tab.active {
-    background-color: #ff5e00;
-    color: #ffffff;
-    border-color: #ff5e00;
-    box-shadow: 0 4px 12px rgba(255, 94, 0, 0.2);
+    background-color: #ffffff;
+    color: #121212;
+    border-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
 }
 
 .resume-tab:active {
@@ -716,20 +760,23 @@ body.dark-mode .scroll-explore {
 }
 
 .preview-header {
-    border-bottom: 2px solid #ff5e00;
+    border-bottom: 2px solid #ffffff;
     padding-bottom: 10px;
     margin-bottom: 12px;
 }
 
 .preview-name {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Oswald', sans-serif;
     font-size: 1.2rem;
     font-weight: 700;
     color: var(--text-primary);
     margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
 }
 
 .preview-title {
+    font-family: 'JetBrains Mono', monospace;
     font-size: 0.8rem;
     color: var(--accent);
     font-weight: 600;
@@ -742,13 +789,13 @@ body.dark-mode .scroll-explore {
 }
 
 .preview-section-title {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Oswald', sans-serif;
     font-size: 0.85rem;
     font-weight: 700;
     color: var(--text-primary);
     margin: 0 0 6px 0;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.04em;
 }
 
 .preview-item {
@@ -791,7 +838,7 @@ body.dark-mode .scroll-explore {
 }
 
 .action-btn {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 0.9rem;
     font-weight: 600;
     padding: 10px 16px;
@@ -815,12 +862,12 @@ body.dark-mode .scroll-explore {
 }
 
 .action-btn.primary {
-    background-color: #ff5e00;
-    color: #ffffff;
+    background-color: #ffffff;
+    color: #121212;
 }
 
 .action-btn.primary:hover {
-    background-color: #e05300;
+    background-color: #e0e0e0;
 }
 
 /* Minimal Statistics Row (Styled Cards) */
@@ -848,21 +895,21 @@ body.dark-mode .scroll-explore {
 
 .stat-item:hover {
     transform: translateY(-2px); /* Very subtle hover lift */
-    border-color: #ff5e00; /* Turns orange on hover */
+    border-color: #ffffff; /* Turns white on hover */
 }
 
 .stat-number {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'JetBrains Mono', monospace;
     font-size: 2.2rem;
-    font-weight: 800;
-    color: #ff5e00; /* Brand orange color */
+    font-weight: 700;
+    color: #ffffff; /* Monochrome white color */
     line-height: 1.1;
 }
 
 .stat-label {
-    font-family: 'Inter', sans-serif;
+    font-family: 'JetBrains Mono', monospace;
     font-size: 0.75rem;
-    font-weight: 600;
+    font-weight: 500;
     color: #666666;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -882,6 +929,7 @@ body.dark-mode .scroll-explore {
     align-items: center;
     justify-content: center;
     position: relative;
+    z-index: 1;
     border-top: 1px solid rgba(255, 255, 255, 0.08);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     background: linear-gradient(180deg, rgba(18, 18, 18, 0) 0%, rgba(30, 30, 30, 0.45) 50%, rgba(18, 18, 18, 0) 100%);
@@ -901,12 +949,12 @@ body.dark-mode .scroll-explore {
     padding: 0;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Oswald', sans-serif;
 }
 
 .separator-line-1 {
     font-size: clamp(1.4rem, 3.2vw, 2.6rem);
-    font-weight: 900;
+    font-weight: 700;
     color: #ffffff;
     line-height: 1.1;
     -webkit-font-smoothing: antialiased;
@@ -914,10 +962,10 @@ body.dark-mode .scroll-explore {
 
 .separator-line-2 {
     font-size: clamp(1.35rem, 3vw, 2.4rem);
-    font-weight: 900;
-    color: #ff5e00; /* Brand Accent Orange */
+    font-weight: 700;
+    color: #ffffff; /* Brand Monochrome White */
     line-height: 1.1;
-    text-shadow: 0 0 25px rgba(255, 94, 0, 0.3);
+    text-shadow: 0 0 25px rgba(255, 255, 255, 0.25);
     -webkit-font-smoothing: antialiased;
 }
 
@@ -927,8 +975,9 @@ body.dark-mode .scroll-explore {
     justify-content: center;
     gap: 8px;
     margin-top: 12px;
+    font-family: 'JetBrains Mono', monospace;
     font-size: 0.78rem;
-    font-weight: 700;
+    font-weight: 500;
     letter-spacing: 0.18em;
     color: rgba(255, 255, 255, 0.6);
 }

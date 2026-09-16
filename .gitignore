@@ -13,3 +13,8 @@ Thumbs.db
 
 # Reference videos
 video_ref/
+
+# Environment Variables & Secrets
+.env
+.env*.local
+.env.production

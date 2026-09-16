@@ -1,0 +1,1147 @@
+/* ==========================================================================
+   LEFT SIDEBAR NAVBAR & DATA/DEV CONTROLS
+   Sleek, retractable, glassmorphic sidebar with minimized rail mode,
+   sound engine, theme switcher, and interactive typing speed terminal.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Sidebar Layout & Container
+   -------------------------------------------------------------------------- */
+.left-sidebar-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 270px;
+    height: 100vh;
+    height: 100dvh;
+    z-index: 9999;
+    background: rgba(18, 18, 18, 0.94);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 6px 0 28px rgba(0, 0, 0, 0.35);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 24px 18px 20px 20px;
+    box-sizing: border-box;
+    transform: translateX(-105%);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+                width 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+                opacity 0.28s ease,
+                background-color 0.3s ease,
+                border-color 0.3s ease;
+    user-select: none;
+}
+
+/* Shown state triggered when scrolling past the separator banner */
+body.side-nav-visible .left-sidebar-nav {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* Minimized Rail Mode */
+.left-sidebar-nav.is-minimized {
+    width: 68px;
+    padding: 24px 10px 20px 10px;
+}
+
+/* Desktop Canvas Offset Transition */
+@media (min-width: 1100px) {
+    body {
+        transition: padding-left 0.34s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    body.side-nav-visible:not(.side-nav-minimized) {
+        padding-left: 270px;
+    }
+    body.side-nav-visible.side-nav-minimized {
+        padding-left: 68px;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   2. Middle Retract / Expand Arrow Button
+   -------------------------------------------------------------------------- */
+.sidebar-retract-btn {
+    position: absolute;
+    right: -13px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: #1e1e1e;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    color: #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10001;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    outline: none;
+    padding: 0;
+}
+
+.sidebar-retract-btn:hover {
+    background: #ffffff;
+    color: #000000;
+    border-color: #ffffff;
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 0 14px rgba(255, 255, 255, 0.35);
+}
+
+.sidebar-retract-btn svg {
+    width: 14px;
+    height: 14px;
+    stroke-width: 2.2;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.left-sidebar-nav.is-minimized .sidebar-retract-btn svg {
+    transform: rotate(180deg);
+}
+
+/* --------------------------------------------------------------------------
+   3. Sidebar Scrollable Content Area
+   -------------------------------------------------------------------------- */
+.sidenav-main-scroll {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 4px;
+    margin-right: -4px;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
+}
+
+.sidenav-main-scroll::-webkit-scrollbar {
+    width: 3px;
+}
+
+.sidenav-main-scroll::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.18);
+    border-radius: 3px;
+}
+
+/* --------------------------------------------------------------------------
+   4. Header 1: Logo & Name (khinandrei)
+   -------------------------------------------------------------------------- */
+.sidenav-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 4px 6px 18px 6px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    text-decoration: none;
+    color: #ffffff;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.sidenav-brand:hover {
+    opacity: 0.88;
+}
+
+.sidenav-brand-img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    border-radius: 6px;
+    flex-shrink: 0;
+}
+
+.sidenav-brand-name {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.98rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: #ffffff;
+    white-space: nowrap;
+    opacity: 1;
+    transition: opacity 0.2s ease, width 0.25s ease;
+}
+
+.left-sidebar-nav.is-minimized .sidenav-brand {
+    justify-content: center;
+    padding: 4px 0 16px 0;
+}
+
+.left-sidebar-nav.is-minimized .sidenav-brand-name {
+    opacity: 0;
+    width: 0;
+    margin: 0;
+    display: none;
+}
+
+/* --------------------------------------------------------------------------
+   5. Navigation Links & Items
+   -------------------------------------------------------------------------- */
+.sidenav-nav-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidenav-item {
+    position: relative;
+    width: 100%;
+}
+
+.sidenav-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    color: #b0b0b0;
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 500;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.sidenav-link:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.sidenav-link.active {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.09);
+    font-weight: 600;
+}
+
+.sidenav-link.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 16px;
+    background: #ffffff;
+    border-radius: 2px;
+}
+
+.sidenav-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    color: inherit;
+}
+
+.sidenav-icon svg {
+    width: 17px;
+    height: 17px;
+    stroke-width: 2;
+}
+
+.sidenav-text {
+    flex: 1 1 auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    transition: opacity 0.2s ease;
+}
+
+.left-sidebar-nav.is-minimized .sidenav-link {
+    justify-content: center;
+    padding: 10px 0;
+}
+
+.left-sidebar-nav.is-minimized .sidenav-text,
+.left-sidebar-nav.is-minimized .subtab-indicator-arrow {
+    display: none !important;
+}
+
+.left-sidebar-nav.is-minimized .sidenav-link.active::before {
+    left: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   6. Project Preview Sub-Tabs (Build & Collective Builds)
+   -------------------------------------------------------------------------- */
+.subtab-indicator-arrow {
+    width: 14px;
+    height: 14px;
+    stroke-width: 2;
+    transition: transform 0.25s ease;
+    opacity: 0.6;
+    padding: 2px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease, background-color 0.2s ease;
+}
+
+.subtab-indicator-arrow:hover {
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.sidenav-item.is-expanded .subtab-indicator-arrow {
+    transform: rotate(180deg);
+    opacity: 0.95;
+}
+
+.sidenav-subtabs-group {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transform: translateY(-4px);
+    transition: max-height 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                opacity 0.22s ease,
+                transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+                margin 0.25s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding-left: 32px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.sidenav-item.is-expanded .sidenav-subtabs-group {
+    max-height: 140px;
+    opacity: 1;
+    transform: translateY(0);
+    margin-top: 2px;
+    margin-bottom: 4px;
+}
+
+.sidenav-sublink {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    color: #9e9e9e;
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.81rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.sidenav-sublink:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.sidenav-sublink.active {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.sidenav-sublink-dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.sidenav-sublink:hover .sidenav-sublink-dot,
+.sidenav-sublink.active .sidenav-sublink-dot {
+    background: #ffffff;
+    transform: scale(1.3);
+}
+
+/* Minimized Mode: Keep sub-tabs completely closed */
+.left-sidebar-nav.is-minimized .sidenav-subtabs-group,
+.left-sidebar-nav.is-minimized .sidenav-item:hover .sidenav-subtabs-group {
+    display: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   7. Header 2: Data & Dev Divider
+   -------------------------------------------------------------------------- */
+.sidenav-header-2 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 16px 8px 8px 8px;
+    margin-top: 8px;
+}
+
+.sidenav-header-2 span,
+.sidenav-header-2 a,
+.sidenav-header-2-link {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #707070;
+    white-space: nowrap;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.sidenav-header-2 a:hover,
+.sidenav-header-2-link:hover,
+.sidenav-header-2.active span,
+.sidenav-header-2.active a,
+.sidenav-header-2.active .sidenav-header-2-link,
+.sidenav-header-2-link.active {
+    color: #ffffff;
+}
+
+.sidenav-header-2::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.left-sidebar-nav.is-minimized .sidenav-header-2 {
+    padding: 12px 0 6px 0;
+    justify-content: center;
+}
+
+.left-sidebar-nav.is-minimized .sidenav-header-2 span,
+.left-sidebar-nav.is-minimized .sidenav-header-2 a,
+.left-sidebar-nav.is-minimized .sidenav-header-2-link {
+    display: none;
+}
+
+.left-sidebar-nav.is-minimized .sidenav-header-2::after {
+    width: 24px;
+    flex: none;
+}
+
+/* --------------------------------------------------------------------------
+   8. Live Viewers Widget
+   -------------------------------------------------------------------------- */
+.sidenav-viewers-widget {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 10px;
+    margin: 14px 0 8px 0;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+}
+
+.sidenav-viewers-widget:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.sidenav-viewers-stack {
+    display: flex;
+    align-items: center;
+}
+
+.viewer-avatar {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #2a2a2a;
+    border: 1.5px solid #121212;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #b0b0b0;
+    margin-left: -6px;
+    box-sizing: border-box;
+    transition: transform 0.2s ease;
+}
+
+.viewer-avatar:first-child {
+    margin-left: 0;
+}
+
+.viewer-avatar svg {
+    width: 12px;
+    height: 12px;
+}
+
+.viewer-avatar.av-1 { background: #333333; color: #ffffff; }
+.viewer-avatar.av-2 { background: #262626; color: #cccccc; }
+.viewer-avatar.av-3 { background: #1c1c1c; color: #999999; }
+
+.sidenav-viewers-info {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
+}
+
+.viewers-badge-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.viewers-pulse-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: 0 0 6px #ffffff;
+    animation: viewerPulse 2.2s infinite ease-in-out;
+}
+
+@keyframes viewerPulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.35; transform: scale(0.85); }
+}
+
+.viewers-subtext {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    color: #888888;
+    letter-spacing: -0.01em;
+}
+
+.left-sidebar-nav.is-minimized .sidenav-viewers-widget {
+    padding: 8px 4px;
+    justify-content: center;
+    border-color: transparent;
+    background: transparent;
+}
+
+.left-sidebar-nav.is-minimized .sidenav-viewers-info {
+    display: none;
+}
+
+.left-sidebar-nav.is-minimized .viewer-avatar:not(:first-child) {
+    display: none;
+}
+
+/* --------------------------------------------------------------------------
+   9. Theme Segmented Group (with Sliding Highlight) & Independent Sound Button
+   -------------------------------------------------------------------------- */
+.sidenav-controls-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 12px 0 6px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    margin-top: 8px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Theme Segmented Group */
+.theme-segmented-group {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 18px;
+    padding: 2px;
+    flex: 1 1 auto;
+    min-width: 0;
+    height: 30px;
+    box-sizing: border-box;
+}
+
+/* Smooth Sliding Highlight Pill */
+.theme-slider-highlight {
+    position: absolute;
+    top: 2px;
+    bottom: 2px;
+    left: 0;
+    width: 0;
+    border-radius: 14px;
+    background: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+    transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+                width 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.theme-seg-btn {
+    position: relative;
+    z-index: 2;
+    flex: 1 1 0;
+    min-width: 0;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #8c8c8c;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.69rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    cursor: pointer;
+    padding: 0 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    white-space: nowrap;
+    transition: color 0.2s ease;
+    user-select: none;
+    border-radius: 14px;
+}
+
+.theme-seg-btn:hover {
+    color: #ffffff;
+}
+
+.theme-seg-btn.is-active {
+    color: #000000;
+    font-weight: 600;
+}
+
+.theme-seg-btn svg {
+    width: 14px;
+    height: 14px;
+    stroke-width: 2;
+    pointer-events: none;
+    display: block;
+}
+
+/* Independent Sound Toggle Button Beside */
+.sound-toggle-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 50%;
+    color: #8c8c8c;
+    cursor: pointer;
+    outline: none;
+    flex-shrink: 0;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    user-select: none;
+    box-sizing: border-box;
+}
+
+.sound-toggle-btn:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.09);
+    border-color: rgba(255, 255, 255, 0.22);
+}
+
+.sound-toggle-btn.is-active {
+    background: #ffffff;
+    color: #000000;
+    border-color: #ffffff;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+.sound-btn-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: inherit;
+}
+
+.sound-btn-icon svg {
+    width: 14px;
+    height: 14px;
+    stroke-width: 2;
+    display: block;
+}
+
+.left-sidebar-nav.is-minimized .sidenav-controls-row {
+    display: none;
+}
+
+/* --------------------------------------------------------------------------
+   10. Footer Inquiries Note
+   "for work, projects & other inquiries, write to gamboa.khinandrei@gmail.com"
+   -------------------------------------------------------------------------- */
+.sidenav-inquiries-footer {
+    padding-top: 12px;
+    margin-top: 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.sidenav-inquiries-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.69rem;
+    line-height: 1.45;
+    color: #6a6a6a;
+    margin: 0;
+}
+
+.sidenav-inquiries-link {
+    color: #9e9e9e;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    word-break: break-all;
+    transition: color 0.2s ease;
+}
+
+.sidenav-inquiries-link:hover {
+    color: #ffffff;
+}
+
+.left-sidebar-nav.is-minimized .sidenav-inquiries-footer {
+    display: none;
+}
+
+/* --------------------------------------------------------------------------
+   11. Tooltip for Minimized Rail Mode
+   -------------------------------------------------------------------------- */
+.sidenav-rail-tooltip {
+    position: fixed;
+    left: 78px;
+    background: #1e1e1e;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-6px);
+    transition: opacity 0.18s ease, transform 0.18s ease;
+    z-index: 10005;
+    white-space: nowrap;
+}
+
+.sidenav-rail-tooltip.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+/* --------------------------------------------------------------------------
+   12. Interactive Developer Typing Test Modal
+   -------------------------------------------------------------------------- */
+.typing-test-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.82);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 100000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.typing-test-modal-overlay.is-active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.typing-terminal-card {
+    width: 100%;
+    max-width: 680px;
+    background: #141414;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.75);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transform: scale(0.96);
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.typing-test-modal-overlay.is-active .typing-terminal-card {
+    transform: scale(1);
+}
+
+.typing-terminal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 18px;
+    background: #1b1b1b;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.terminal-dots-cluster {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.terminal-dot {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+}
+
+.dot-red { background: #ff5f56; }
+.dot-yellow { background: #ffbd2e; }
+.dot-green { background: #27c93f; }
+
+.terminal-title-text {
+    font-family: 'Fira Code', 'Courier New', monospace;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: #b0b0b0;
+    text-transform: uppercase;
+}
+
+.terminal-close-btn {
+    background: none;
+    border: none;
+    color: #888888;
+    font-size: 1.4rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0 4px;
+    transition: color 0.2s ease;
+}
+
+.terminal-close-btn:hover {
+    color: #ffffff;
+}
+
+.typing-telemetry-hud {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    padding: 14px 20px;
+    background: #0d0d0d;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hud-metric-box {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.hud-metric-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #777777;
+}
+
+.hud-metric-value {
+    font-family: 'Fira Code', 'Courier New', monospace;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.typing-code-display-area {
+    position: relative;
+    padding: 24px 20px;
+    min-height: 140px;
+    font-family: 'Fira Code', 'Courier New', monospace;
+    font-size: 1rem;
+    line-height: 1.65;
+    background: #121212;
+    color: #555555;
+    white-space: pre-wrap;
+    word-break: break-word;
+    cursor: text;
+}
+
+.typing-char {
+    position: relative;
+    transition: color 0.1s ease;
+}
+
+.typing-char.char-correct {
+    color: #ffffff;
+}
+
+.typing-char.char-incorrect {
+    color: #ff5252;
+    text-decoration: underline wavy;
+}
+
+.typing-char.char-current {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.2);
+    border-left: 2px solid #ffffff;
+    animation: typingBlink 1s infinite;
+}
+
+@keyframes typingBlink {
+    0%, 100% { border-color: #ffffff; }
+    50% { border-color: transparent; }
+}
+
+.typing-hidden-input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+}
+
+.typing-terminal-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 20px;
+    background: #171717;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.typing-instructions-hint {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.72rem;
+    color: #777777;
+}
+
+.typing-terminal-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.terminal-action-btn {
+    background: #242424;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.terminal-action-btn:hover {
+    background: #ffffff;
+    color: #000000;
+}
+
+/* --------------------------------------------------------------------------
+   13. Theme Modes Overrides
+   -------------------------------------------------------------------------- */
+
+/* Light Mode */
+body.theme-light {
+    --bg-page: #f6f7f9;
+    --bg-card: #ffffff;
+    --bg-header: rgba(255, 255, 255, 0.92);
+    --border-color: #d1d5db;
+    --border-focus: #111827;
+    --text-primary: #111827;
+    --text-secondary: #4b5563;
+    --text-muted: #6b7280;
+    --stat-bg: #f3f4f6;
+    --input-bg: #f9fafb;
+    --badge-bg: #e5e7eb;
+    --accent: #000000;
+    --accent-hover: #333333;
+    background-color: #f6f7f9 !important;
+    color: #111827 !important;
+}
+
+body.theme-light .left-sidebar-nav {
+    background: rgba(255, 255, 255, 0.95) !important;
+    border-right: 1px solid rgba(0, 0, 0, 0.1) !important;
+    box-shadow: 6px 0 28px rgba(0, 0, 0, 0.08) !important;
+}
+
+body.theme-light .sidenav-brand {
+    color: #000000 !important;
+    border-bottom-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+body.theme-light .sidenav-brand-name {
+    color: #000000 !important;
+}
+
+body.theme-light .sidenav-link {
+    color: #4b5563 !important;
+}
+
+body.theme-light .sidenav-header-2 span,
+body.theme-light .sidenav-header-2 a,
+body.theme-light .sidenav-header-2-link {
+    color: #6b7280 !important;
+}
+
+body.theme-light .sidenav-header-2:hover span,
+body.theme-light .sidenav-header-2:hover a,
+body.theme-light .sidenav-header-2-link:hover,
+body.theme-light .sidenav-header-2.active span,
+body.theme-light .sidenav-header-2.active a,
+body.theme-light .sidenav-header-2-link.active {
+    color: #000000 !important;
+}
+
+body.theme-light .sidenav-header-2::after {
+    background: rgba(0, 0, 0, 0.08) !important;
+}
+
+body.theme-light .sidenav-header-2:hover::after,
+body.theme-light .sidenav-header-2.active::after {
+    background: rgba(0, 0, 0, 0.2) !important;
+}
+
+body.theme-light .sidenav-link:hover {
+    color: #000000 !important;
+    background: rgba(0, 0, 0, 0.05) !important;
+}
+
+body.theme-light .sidenav-link.active {
+    color: #000000 !important;
+    background: rgba(0, 0, 0, 0.08) !important;
+}
+
+body.theme-light .sidenav-link.active::before {
+    background: #000000 !important;
+}
+
+body.theme-light .sidenav-sublink {
+    color: #6b7280 !important;
+}
+
+body.theme-light .sidenav-sublink:hover,
+body.theme-light .sidenav-sublink.active {
+    color: #000000 !important;
+}
+
+body.theme-light .sidebar-retract-btn {
+    background: #ffffff !important;
+    color: #111827 !important;
+    border-color: rgba(0, 0, 0, 0.15) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+body.theme-light .sidebar-retract-btn:hover {
+    background: #000000 !important;
+    color: #ffffff !important;
+}
+
+body.theme-light .viewers-badge-row {
+    color: #000000 !important;
+}
+
+body.theme-light .sidenav-controls-row {
+    border-top-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+body.theme-light .theme-segmented-group {
+    background: rgba(0, 0, 0, 0.05) !important;
+    border-color: rgba(0, 0, 0, 0.12) !important;
+}
+
+body.theme-light .theme-slider-highlight {
+    background: #000000 !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.16) !important;
+}
+
+body.theme-light .theme-seg-btn {
+    color: #555555 !important;
+}
+
+body.theme-light .theme-seg-btn:hover {
+    color: #000000 !important;
+}
+
+body.theme-light .theme-seg-btn.is-active {
+    color: #ffffff !important;
+}
+
+body.theme-light .sound-toggle-btn {
+    background: rgba(0, 0, 0, 0.05) !important;
+    border-color: rgba(0, 0, 0, 0.12) !important;
+    color: #555555 !important;
+}
+
+body.theme-light .sound-toggle-btn:hover {
+    color: #000000 !important;
+    background: rgba(0, 0, 0, 0.08) !important;
+}
+
+body.theme-light .sound-toggle-btn.is-active {
+    background: #000000 !important;
+    color: #ffffff !important;
+    border-color: #000000 !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.16) !important;
+}
+
+/* Night Mode (Pure AMOLED Black) */
+body.theme-night {
+    --bg-page: #000000;
+    --bg-card: #080808;
+    --bg-header: rgba(0, 0, 0, 0.95);
+    --border-color: #242424;
+    --border-focus: #ffffff;
+    --text-primary: #ffffff;
+    --text-secondary: #a0a0a0;
+    --text-muted: #707070;
+    --stat-bg: #0d0d0d;
+    --input-bg: #050505;
+    --badge-bg: #141414;
+    background-color: #000000 !important;
+    color: #ffffff !important;
+}
+
+body.theme-night .left-sidebar-nav {
+    background: rgba(0, 0, 0, 0.98) !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.12) !important;
+}
+
+body.theme-night .sidenav-controls-row {
+    border-top-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+body.theme-night .theme-segmented-group {
+    background: rgba(255, 255, 255, 0.06) !important;
+    border-color: rgba(255, 255, 255, 0.16) !important;
+}
+
+body.theme-night .theme-slider-highlight {
+    background: #ffffff !important;
+}
+
+body.theme-night .theme-seg-btn.is-active {
+    color: #000000 !important;
+}
+
+body.theme-night .sound-toggle-btn.is-active {
+    background: #ffffff !important;
+    color: #000000 !important;
+    border-color: #ffffff !important;
+}

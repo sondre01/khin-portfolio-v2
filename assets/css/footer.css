@@ -7,6 +7,8 @@
     padding: 0 0 36px 0;
     box-sizing: border-box;
     overflow: hidden;
+    position: relative;
+    z-index: 1;
 }
 
 /* Constrains footer elements to align strictly with the website's layout frame */
@@ -23,10 +25,10 @@
 
 /* Large Centered Name Header before the horizontal divider (Tall / Ultra-Condensed Display Grotesque) */
 .footer-name {
-    font-family: 'Six Caps', 'Antonio', 'Teko', 'Impact', sans-serif;
+    font-family: 'Oswald', sans-serif;
     font-size: clamp(3rem, 7.5vw, 6.8rem);
-    font-weight: 400;
-    letter-spacing: -0.07em !important;
+    font-weight: 700;
+    letter-spacing: 0.02em !important;
     text-transform: uppercase;
     text-align: center;
     color: var(--text-primary, #ffffff);
@@ -71,9 +73,9 @@
 }
 
 .footer-motto {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'JetBrains Mono', monospace;
     font-size: 0.82rem;
-    font-weight: 600;
+    font-weight: 500;
     color: var(--text-muted);
     margin: 0;
     text-transform: uppercase;
