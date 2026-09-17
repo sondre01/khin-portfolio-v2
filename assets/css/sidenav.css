@@ -712,33 +712,18 @@ body.side-nav-visible .left-sidebar-nav {
 }
 
 /* --------------------------------------------------------------------------
-   11. Tooltip for Minimized Rail Mode
+   11. Tooltips Disabled for Sidebar Navigation
    -------------------------------------------------------------------------- */
-.sidenav-rail-tooltip {
-    position: fixed;
-    left: 78px;
-    background: #1e1e1e;
-    color: #ffffff;
-    font-family: 'Inter', sans-serif;
-    font-size: 0.75rem;
-    font-weight: 600;
-    padding: 6px 10px;
-    border-radius: 6px;
-    border: 1px solid rgba(255, 255, 255, 0.16);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
-    pointer-events: none;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateX(-6px);
-    transition: opacity 0.18s ease, transform 0.18s ease;
-    z-index: 10005;
-    white-space: nowrap;
-}
-
+.left-sidebar-nav [data-tooltip]::before,
+.left-sidebar-nav [data-tooltip]::after,
+.left-sidebar-nav [data-tooltip]:hover::before,
+.left-sidebar-nav [data-tooltip]:hover::after,
+.sidenav-rail-tooltip,
 .sidenav-rail-tooltip.is-visible {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(0);
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
 }
 
 /* --------------------------------------------------------------------------

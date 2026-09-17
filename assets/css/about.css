@@ -494,7 +494,8 @@ body.dark-mode .about-photo.photo-dark {
 
 .about-github-container {
     width: 100%;
-    margin-top: 48px;
+    max-width: 1060px;
+    margin: 0 auto;
     box-sizing: border-box;
 }
 
@@ -502,33 +503,28 @@ body.dark-mode .about-photo.photo-dark {
     margin-top: 0;
 }
 
+/* Card removed per design, container resets */
 .github-heatmap-card {
-    background: #151515;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 16px;
-    padding: 28px 32px;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 0;
     box-sizing: border-box;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    box-shadow: none;
     position: relative;
-    overflow: hidden;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    overflow: visible;
 }
 
-.github-heatmap-card:hover {
-    border-color: rgba(255, 255, 255, 0.3);
-    box-shadow: 0 14px 38px rgba(0, 0, 0, 0.45), 0 0 20px rgba(255, 255, 255, 0.05);
-}
-
-/* Card Header */
+/* Header */
 .github-heatmap-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     gap: 16px;
-    margin-bottom: 24px;
-    padding-bottom: 18px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    margin-bottom: 20px;
+    padding-bottom: 0;
+    border-bottom: none;
 }
 
 .github-header-info {
@@ -557,12 +553,25 @@ body.dark-mode .about-photo.photo-dark {
 
 .github-title {
     font-family: 'Oswald', sans-serif;
-    font-size: 1.4rem;
+    font-size: 2rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.02em;
     color: #ffffff;
     margin: 0;
+    line-height: 1.2;
+}
+
+.github-title-link {
+    color: #ffffff;
+    text-decoration: none;
+    cursor: pointer;
+    transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.github-title-link:hover {
+    color: #ffffff;
+    opacity: 0.85;
 }
 
 .github-subtitle {
@@ -588,33 +597,41 @@ body.dark-mode .about-photo.photo-dark {
 .github-profile-link {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    padding: 8px 16px;
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: #e0e0e0;
+    gap: 6px;
+    padding: 2px 0;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    color: #b0b0b0;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.85rem;
+    font-size: 0.95rem;
     font-weight: 500;
     text-decoration: none;
-    transition: all 0.25s ease;
+    cursor: pointer;
+    transition: color 0.2s ease;
 }
 
 .github-profile-link:hover {
-    background: rgba(255, 255, 255, 0.12);
-    border-color: #ffffff;
+    background: transparent;
+    border-color: transparent;
     color: #ffffff;
-    transform: translateY(-2px);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-color: rgba(255, 255, 255, 0.4);
+    transform: none;
 }
 
-.github-profile-link svg {
+.github-profile-link svg,
+.github-profile-link .github-external-icon {
     width: 14px;
     height: 14px;
-    transition: transform 0.2s ease;
+    color: #777777;
+    transition: transform 0.2s ease, color 0.2s ease;
 }
 
-.github-profile-link:hover svg {
+.github-profile-link:hover svg,
+.github-profile-link:hover .github-external-icon {
+    color: #ffffff;
     transform: translate(2px, -2px);
 }
 
@@ -650,7 +667,7 @@ body.dark-mode .about-photo.photo-dark {
 .github-calendar-svg {
     display: block;
     width: 100%;
-    max-width: 900px;
+    max-width: 1060px;
     margin: 0 auto;
     height: auto;
 }
@@ -705,8 +722,8 @@ body.dark-mode .about-photo.photo-dark {
     justify-content: flex-end;
     align-items: center;
     margin-top: 14px;
-    padding-top: 12px;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 0;
+    border-top: none;
 }
 
 .github-status-pill {
@@ -811,25 +828,22 @@ body.dark-mode .about-photo.photo-dark {
 
 @media (max-width: 768px) {
     .about-github-container {
-        margin-top: 32px;
-    }
-
-    .github-heatmap-card {
-        padding: 20px 18px;
+        margin-top: 24px;
     }
 
     .github-title {
-        font-size: 1.2rem;
+        font-size: 1.5rem;
     }
 
     .github-heatmap-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 14px;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
     }
 
     .github-calendar-svg {
-        min-width: 740px;
+        min-width: 820px;
     }
 }
 

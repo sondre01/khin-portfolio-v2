@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Oswald:wght@500;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Oswald:wght@500;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="assets/css/home.css?v=20260916_27">
     <link rel="stylesheet" href="assets/css/index.css?v=20260916_40">
@@ -77,10 +77,10 @@
     <!-- Header / Navigation -->
     <header class="header section header-load-hidden">
         <div class="header-inner">
-            <div class="logo-myname" data-tooltip="Sondre • Personal Brand Logo" data-tooltip-pos="bottom">
+            <a href="#home" class="logo-myname" id="top-brand-link" aria-label="khinandrei - Home">
                 <img src="./data/logo/logo-box (1).png" alt="Sondre">
                 <p>khinandrei</p>
-            </div>
+            </a>
 
 
             <!-- Header Controls (3-Bars Documents Menu Button) -->
@@ -103,7 +103,7 @@
 
         <div class="sidenav-main-scroll">
             <!-- Header 1: Logo & Name (khinandrei) -->
-            <a href="#home" class="sidenav-brand" id="sidenav-brand-link" title="khinandrei">
+            <a href="#home" class="sidenav-brand" id="sidenav-brand-link">
                 <img src="./data/logo/logo-box (1).png" alt="Sondre" class="sidenav-brand-img">
                 <span class="sidenav-brand-name">khinandrei</span>
             </a>
@@ -112,7 +112,7 @@
             <ul class="sidenav-nav-list">
                 <!-- 1. Profile overview -->
                 <li class="sidenav-item">
-                    <a href="#about" class="sidenav-link" data-nav-target="about" data-tooltip="Profile overview">
+                    <a href="#about" class="sidenav-link" data-nav-target="about">
                         <span class="sidenav-icon"><i data-lucide="user"></i></span>
                         <span class="sidenav-text">Profile overview</span>
                     </a>
@@ -120,36 +120,23 @@
 
                 <!-- 2. Academic Core to Industry Scale -->
                 <li class="sidenav-item">
-                    <a href="#education" class="sidenav-link" data-nav-target="education" data-tooltip="Academic Core to Industry Scale">
+                    <a href="#education" class="sidenav-link" data-nav-target="education">
                         <span class="sidenav-icon"><i data-lucide="trending-up"></i></span>
                         <span class="sidenav-text">Academic Core to Industry Scale</span>
                     </a>
                 </li>
 
-                <!-- 3. Project preview with sub-tabs (Build & Collective Builds) -->
-                <li class="sidenav-item has-subtabs" id="sidenav-projects-item">
-                    <a href="#work" class="sidenav-link" data-nav-target="work" data-tooltip="Project preview">
+                <!-- 3. Projects -->
+                <li class="sidenav-item" id="sidenav-projects-item">
+                    <a href="#work" class="sidenav-link" data-nav-target="work">
                         <span class="sidenav-icon"><i data-lucide="folder-git-2"></i></span>
-                        <span class="sidenav-text">Project preview</span>
-                        <span class="subtab-arrow-trigger" id="subtabArrowTrigger" title="Toggle Sub-tabs">
-                            <i data-lucide="chevron-down" class="subtab-indicator-arrow"></i>
-                        </span>
+                        <span class="sidenav-text">Projects</span>
                     </a>
-                    <div class="sidenav-subtabs-group">
-                        <a href="#builds-grid" class="sidenav-sublink" data-subtab-target="builds-grid">
-                            <span class="sidenav-sublink-dot"></span>
-                            <span>Build</span>
-                        </a>
-                        <a href="#collective-grid" class="sidenav-sublink" data-subtab-target="collective-grid">
-                            <span class="sidenav-sublink-dot"></span>
-                            <span>Collective Builds</span>
-                        </a>
-                    </div>
                 </li>
 
                 <!-- 4. Certifications -->
                 <li class="sidenav-item">
-                    <a href="#certifications" class="sidenav-link" data-nav-target="certifications" data-tooltip="Certifications">
+                    <a href="#certifications" class="sidenav-link" data-nav-target="certifications">
                         <span class="sidenav-icon"><i data-lucide="award"></i></span>
                         <span class="sidenav-text">Certifications</span>
                     </a>
@@ -157,7 +144,7 @@
 
                 <!-- 5. GitHub contribution -->
                 <li class="sidenav-item">
-                    <a href="#about-github-container" class="sidenav-link" data-nav-target="about-github-container" data-tooltip="GitHub contribution">
+                    <a href="#about-github-container" class="sidenav-link" data-nav-target="about-github-container">
                         <span class="sidenav-icon"><i data-lucide="git-commit"></i></span>
                         <span class="sidenav-text">GitHub contribution</span>
                     </a>
@@ -165,7 +152,7 @@
 
                 <!-- 6. Contact -->
                 <li class="sidenav-item">
-                    <a href="#contact" class="sidenav-link" data-nav-target="contact" data-tooltip="Contact">
+                    <a href="#contact" class="sidenav-link" data-nav-target="contact">
                         <span class="sidenav-icon"><i data-lucide="mail"></i></span>
                         <span class="sidenav-text">Contact</span>
                     </a>
@@ -174,14 +161,14 @@
 
             <!-- Header 2: Data & Dev (Clickable Header, Replaces Standalone Button) -->
             <div class="sidenav-header-2" id="sidenav-header-2">
-                <a href="#data-dev" class="sidenav-header-2-link" id="sidenav-data-dev-tab" data-nav-target="data-dev" data-tooltip="Data & Dev">Data &amp; Dev</a>
+                <a href="#data-dev" class="sidenav-header-2-link" id="sidenav-data-dev-tab" data-nav-target="data-dev">Data &amp; Dev</a>
             </div>
 
             <!-- Data & Dev Items -->
             <ul class="sidenav-nav-list">
                 <!-- Got questions? -->
                 <li class="sidenav-item">
-                    <a href="#contact" class="sidenav-link" data-nav-target="got-questions" data-tooltip="Got questions?">
+                    <a href="#contact" class="sidenav-link" data-nav-target="got-questions">
                         <span class="sidenav-icon"><i data-lucide="message-square"></i></span>
                         <span class="sidenav-text">Got questions?</span>
                     </a>
@@ -189,15 +176,15 @@
 
                 <!-- Typing Test -->
                 <li class="sidenav-item">
-                    <a href="javascript:void(0)" class="sidenav-link" id="sidenav-typing-test-btn" data-tooltip="Typing Test">
+                    <a href="javascript:void(0)" class="sidenav-link" id="sidenav-typing-test-btn">
                         <span class="sidenav-icon"><i data-lucide="terminal"></i></span>
                         <span class="sidenav-text">Typing Test</span>
                     </a>
                 </li>
             </ul>
 
-            <!-- Live Viewers: 3 silhouettes + +number people viewing -->
-            <div class="sidenav-viewers-widget" data-tooltip="Real-time visitors currently viewing portfolio">
+            <!-- Live Viewers: Real-Time Active Visitors -->
+            <div class="sidenav-viewers-widget" aria-label="Real-time live visitors">
                 <div class="sidenav-viewers-stack">
                     <span class="viewer-avatar av-1"><i data-lucide="user"></i></span>
                     <span class="viewer-avatar av-2"><i data-lucide="user"></i></span>
@@ -206,9 +193,9 @@
                 <div class="sidenav-viewers-info">
                     <div class="viewers-badge-row">
                         <span class="viewers-pulse-dot"></span>
-                        <span>+<span id="live-viewers-counter">14</span></span>
+                        <span id="live-viewers-counter">1</span>
                     </div>
-                    <span class="viewers-subtext">people viewing</span>
+                    <span class="viewers-subtext" id="live-viewers-subtext">person viewing</span>
                 </div>
             </div>
 
@@ -217,19 +204,19 @@
                 <!-- Group Button with Sliding Highlight (Icons for Default, Light, Night) -->
                 <div class="theme-segmented-group" id="themeSegmentedGroup" role="radiogroup" aria-label="Theme Selection">
                     <span class="theme-slider-highlight" id="themeSliderHighlight"></span>
-                    <button type="button" class="theme-seg-btn is-active" data-theme-set="default" role="radio" aria-checked="true" title="Default Theme" data-tooltip="Default Theme">
+                    <button type="button" class="theme-seg-btn is-active" data-theme-set="default" role="radio" aria-checked="true" title="Default Theme">
                         <i data-lucide="monitor"></i>
                     </button>
-                    <button type="button" class="theme-seg-btn" data-theme-set="light" role="radio" aria-checked="false" title="Light Mode" data-tooltip="Light Mode">
+                    <button type="button" class="theme-seg-btn" data-theme-set="light" role="radio" aria-checked="false" title="Light Mode">
                         <i data-lucide="sun"></i>
                     </button>
-                    <button type="button" class="theme-seg-btn" data-theme-set="night" role="radio" aria-checked="false" title="Night Mode" data-tooltip="Night Mode">
+                    <button type="button" class="theme-seg-btn" data-theme-set="night" role="radio" aria-checked="false" title="Night Mode">
                         <i data-lucide="moon"></i>
                     </button>
                 </div>
 
                 <!-- Independent Sound Toggle Button Beside (Icon-Only) -->
-                <button type="button" class="sound-toggle-btn" id="soundToggleBtn" aria-label="Toggle sound" title="Sound: OFF" data-tooltip="Sound" data-sound-enabled="false">
+                <button type="button" class="sound-toggle-btn" id="soundToggleBtn" aria-label="Toggle sound" title="Sound: OFF" data-sound-enabled="false">
                     <span class="sound-btn-icon" id="soundBtnIcon"><i data-lucide="volume-x"></i></span>
                 </button>
             </div>
@@ -528,7 +515,6 @@
             <!-- Career Trajectory: Academic Core to Industry Scale (Area Graph & Growth Flow) -->
             <section class="section trajectory-section scroll-reveal" id="education">
                 <div class="section-title-wrap">
-                    <div class="section-badge">GROWTH TRAJECTORY &bull; CAREER EVOLUTION</div>
                     <h2 class="section-title">Academic Core to Industry Scale</h2>
                     <p class="section-subtitle">The evolutionary path bridging engineering academia, enterprise IT operations, autonomous freelancing, and immediate career opportunities.</p>
                 </div>
@@ -1366,10 +1352,10 @@
                 </div>
             </section>
 
-            <!-- Works (Projects) -->
+            <!-- Projects -->
             <section class="section work-section scroll-reveal" id="work">
                 <div class="work-header-wrap">
-                    <h2>Works (Projects)</h2>
+                    <h2>Projects</h2>
                     <!-- Work Projects Tabs: Solo Builds vs Collective Builds -->
                     <div class="work-tabs-nav" role="tablist" aria-label="Work Projects Categorization">
                         <button type="button" class="work-tab-btn active" role="tab" aria-selected="true" aria-controls="builds-pane" id="work-tab-builds" data-tab="builds">
@@ -2279,38 +2265,40 @@
 
             <!-- GitHub Contributions Section -->
             <section class="section github-section scroll-reveal" id="about-github-container">
-<!-- GitHub 2026 Contributions Heatmap -->
-        <div class="about-github-container">
-            <div class="github-heatmap-card">
-                <div class="github-heatmap-header">
-                    <div class="github-header-info">
-                        <h3 class="github-title">GitHub</h3>
+                <!-- GitHub 2026 Contributions Heatmap -->
+                <div class="about-github-container">
+                    <div class="github-heatmap-header">
+                        <div class="github-header-info">
+                            <h2 class="github-title">
+                                <a href="https://github.com/sondre01" target="_blank" rel="noopener noreferrer" class="github-title-link" title="Visit Khin's GitHub (@sondre01)">GitHub</a>
+                            </h2>
+                        </div>
+                        <a href="https://github.com/sondre01" target="_blank" rel="noopener noreferrer" class="github-profile-link" title="Visit Khin's GitHub Profile (@sondre01)">
+                            <span>@sondre01</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="github-external-icon"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                        </a>
                     </div>
-                    <a href="https://github.com/sondre01" target="_blank" rel="noopener noreferrer" class="github-profile-link" title="Visit Khin's GitHub Profile (@sondre01)">
-                        <span>@sondre01</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="github-external-icon"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-                    </a>
-                </div>
 
-                <!-- Heatmap SVG Grid -->
-                <div class="github-heatmap-wrapper">
-                    <svg id="github-heatmap-svg" class="github-calendar-svg" viewBox="0 0 845 132" xmlns="http://www.w3.org/2000/svg" aria-label="2026 GitHub Contributions Heatmap for @sondre01"></svg>
-                </div>
+                    <!-- Heatmap SVG Grid -->
+                    <div class="github-heatmap-wrapper">
+                        <svg id="github-heatmap-svg" class="github-calendar-svg" viewBox="0 0 845 132" xmlns="http://www.w3.org/2000/svg" aria-label="2026 GitHub Contributions Heatmap for @sondre01"></svg>
+                    </div>
 
-                <!-- Heatmap Footer & Legend -->
-                <div class="github-heatmap-footer">
-                    <div class="github-legend">
-                        <div class="github-legend-cells">
-                            <span class="github-legend-box level-0" title="0 contributions"></span>
-                            <span class="github-legend-box level-1" title="1-2 contributions"></span>
-                            <span class="github-legend-box level-2" title="3-5 contributions"></span>
-                            <span class="github-legend-box level-3" title="6-9 contributions"></span>
-                            <span class="github-legend-box level-4" title="10+ contributions"></span>
+                    <!-- Heatmap Footer & Legend -->
+                    <div class="github-heatmap-footer">
+                        <div class="github-legend">
+                            <span>Less</span>
+                            <div class="github-legend-cells">
+                                <span class="github-legend-box level-0" title="0 contributions"></span>
+                                <span class="github-legend-box level-1" title="1-2 contributions"></span>
+                                <span class="github-legend-box level-2" title="3-5 contributions"></span>
+                                <span class="github-legend-box level-3" title="6-9 contributions"></span>
+                                <span class="github-legend-box level-4" title="10+ contributions"></span>
+                            </div>
+                            <span>More</span>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
             </section>
         </main>
 
@@ -2318,83 +2306,76 @@
     <section class="section contact-section scroll-reveal" id="contact">
         <div class="contact-hero-card">
             <h2>Let's Connect</h2>
-            <div class="contact-card">
-                <div class="contact-grid">
-                    <!-- Left: Contact Details -->
-                    <div class="contact-column">
-                        <div class="contact-info-list">
-                            <!-- Email -->
-                            <a href="mailto:gamboa.khinandrei@gmail.com" class="contact-info-item">
-                                <div class="contact-info-icon">
-                                    <i data-lucide="mail" style="width: 20px; height: 20px;"></i>
-                                </div>
-                                <div class="contact-info-content">
-                                    <span class="contact-info-label">Email</span>
-                                    <span class="contact-info-value">gamboa.khinandrei@gmail.com</span>
-                                </div>
-                            </a>
+            <div class="contact-grid">
+                <!-- Left: Contact Details -->
+                <div class="contact-column">
+                    <div class="contact-info-list">
+                        <!-- LinkedIn -->
+                        <a href="https://www.linkedin.com/in/khinandreigamboa" target="_blank" rel="noopener noreferrer" class="contact-info-link" title="LinkedIn Khin Andrei">
+                            <i data-lucide="linkedin"></i>
+                            <span>linkedin\khinandrei</span>
+                            <i data-lucide="arrow-up-right" class="contact-arrow-icon"></i>
+                        </a>
 
-                            <!-- Location -->
-                            <div class="contact-info-item">
-                                <div class="contact-info-icon">
-                                    <i data-lucide="map-pin" style="width: 20px; height: 20px;"></i>
-                                </div>
-                                <div class="contact-info-content">
-                                    <span class="contact-info-label">Location</span>
-                                    <span class="contact-info-value">Manila, Philippines</span>
-                                </div>
+                        <!-- Credly -->
+                        <a href="https://www.credly.com/users/gamboa-khin-andrei" target="_blank" rel="noopener noreferrer" class="contact-info-link" title="Credly Verified Badges">
+                            <span class="contact-icon-space" aria-hidden="true"></span>
+                            <span>credly\khinandrei</span>
+                            <i data-lucide="arrow-up-right" class="contact-arrow-icon"></i>
+                        </a>
+
+                        <!-- Facebook -->
+                        <a href="https://www.facebook.com/khinandrei.gmb" target="_blank" rel="noopener noreferrer" class="contact-info-link" title="Facebook @khinandrei">
+                            <i data-lucide="facebook"></i>
+                            <span>@khinandrei</span>
+                            <i data-lucide="arrow-up-right" class="contact-arrow-icon"></i>
+                        </a>
+
+                        <!-- Instagram -->
+                        <a href="https://www.instagram.com/khinandrei.gmb/?hl=en" target="_blank" rel="noopener noreferrer" class="contact-info-link" title="Instagram @khinandrei.gmb">
+                            <i data-lucide="instagram"></i>
+                            <span>@khinandrei.gmb</span>
+                            <i data-lucide="arrow-up-right" class="contact-arrow-icon"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right: Form -->
+                <div class="contact-column form-col">
+                    <form id="contact-form" class="contact-form">
+                        <div class="form-group">
+                            <label for="contact-name">Full Name</label>
+                            <input type="text" id="contact-name" name="name" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group-row">
+                            <div class="form-group">
+                                <label for="contact-email">Email Address</label>
+                                <input type="email" id="contact-email" name="email" class="form-control" placeholder="Your Email Address" required>
                             </div>
-
-                            <!-- Availability -->
-                            <div class="contact-info-item">
-                                <div class="contact-info-icon">
-                                    <i data-lucide="briefcase" style="width: 20px; height: 20px;"></i>
-                                </div>
-                                <div class="contact-info-content">
-                                    <span class="contact-info-label">Availability</span>
-                                    <span class="contact-info-value">Open to Internships & Entry-Level Data Roles</span>
-                                </div>
+                            <div class="form-group">
+                                <label for="contact-phone">Contact No.</label>
+                                <input type="tel" id="contact-phone" name="phone" class="form-control" placeholder="Numbers only" required>
                             </div>
                         </div>
-                    </div>
+                        <div class="form-group">
+                            <label for="contact-subject">Subject</label>
+                            <input type="text" id="contact-subject" name="subject" class="form-control" placeholder="What is this regarding?">
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-message">Message</label>
+                            <textarea id="contact-message" name="message" class="form-control" placeholder="Write your message here..." required></textarea>
+                        </div>
+                        
+                        <div id="contact-status" class="form-status"></div>
 
-                    <!-- Right: Form -->
-                    <div class="contact-column form-col">
-                        <form id="contact-form" class="contact-form">
-                            <div class="form-group">
-                                <label for="contact-name">Full Name</label>
-                                <input type="text" id="contact-name" name="name" class="form-control" placeholder="Your Name" required>
-                            </div>
-                            <div class="form-group-row">
-                                <div class="form-group">
-                                    <label for="contact-email">Email Address</label>
-                                    <input type="email" id="contact-email" name="email" class="form-control" placeholder="Your Email Address" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="contact-phone">Contact No.</label>
-                                    <input type="tel" id="contact-phone" name="phone" class="form-control" placeholder="Numbers only (e.g. 09123456789)" required>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="contact-subject">Subject</label>
-                                <input type="text" id="contact-subject" name="subject" class="form-control" placeholder="What is this regarding?">
-                            </div>
-                            <div class="form-group">
-                                <label for="contact-message">Message</label>
-                                <textarea id="contact-message" name="message" class="form-control" placeholder="Write your message here..." required></textarea>
-                            </div>
-                            
-                            <div id="contact-status" class="form-status"></div>
-
-                            <div class="submit-btn-wrapper">
-                                <button type="submit" id="contact-submit-btn" class="submit-btn">
-                                    <span>Send Message</span>
-                                    <i data-lucide="send" style="width: 16px; height: 16px;"></i>
-                                    <div class="spinner"></div>
-                                </button>
-                            </div>
-                        </form>
-                    </div>
+                        <div class="submit-btn-wrapper">
+                            <button type="submit" id="contact-submit-btn" class="submit-btn">
+                                <span>Send Message</span>
+                                <i data-lucide="send" style="width: 16px; height: 16px;"></i>
+                                <div class="spinner"></div>
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -2408,17 +2389,9 @@
             <div class="footer-content">
                 <p class="footer-copyright">&copy; 2026 Khin Andrei Gamboa</p>
                 <p class="footer-motto">Built with passion &bull; Focused on performance</p>
-                <div class="footer-socials">
-                    <a href="https://github.com/sondre01" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                        <i data-lucide="github"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/khinandreigamboa" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                        <i data-lucide="linkedin"></i>
-                    </a>
-                    <a href="#contact" aria-label="Email">
-                        <i data-lucide="mail"></i>
-                    </a>
-                </div>
+                <a href="https://www.google.com/maps/search/?api=1&query=Pasig,+Philippines" target="_blank" rel="noopener noreferrer" class="footer-location" title="View Pasig, Philippines on Google Maps">
+                    Pasig, Philippines
+                </a>
             </div>
         </div>
     </footer>
@@ -2476,12 +2449,15 @@
             <!-- Document Title -->
             <h3 class="doc-vp-title" id="docVpActiveTitle">RESUME</h3>
 
-            <!-- Actions: Download -->
+            <!-- Actions: Download & Close -->
             <div class="doc-vp-actions">
                 <a id="docVpDownloadBtn" href="./data/documents/resume/khin-andrei-gamboa-resume.pdf" download="khin-andrei-gamboa-resume.pdf" class="doc-vp-download-btn" title="Download PDF">
                     <i data-lucide="download" style="width: 15px; height: 15px;"></i>
                     <span>Download</span>
                 </a>
+                <button type="button" class="doc-vp-close-btn" id="docVpCloseBtn" aria-label="Close document viewport" title="Close [ESC]">
+                    <i data-lucide="x" style="width: 18px; height: 18px;"></i>
+                </button>
             </div>
         </header>
 
@@ -2692,6 +2668,21 @@
             if (docVpCloseBtn) {
                 docVpCloseBtn.addEventListener('click', closeEverything);
             }
+
+            // Outside click (clicking in the corner space revealing the main website) to close
+            document.addEventListener('mousedown', function(e) {
+                if (whiteTabOverlay && whiteTabOverlay.classList.contains('active')) {
+                    if (customDocViewport && customDocViewport.classList.contains('active')) {
+                        if (!customDocViewport.contains(e.target)) {
+                            closeThemedViewportToDocs();
+                        }
+                    } else {
+                        if (!whiteTabOverlay.contains(e.target) && (!navDocsBtn || !navDocsBtn.contains(e.target))) {
+                            closeWhiteTab();
+                        }
+                    }
+                }
+            });
 
             // Keyboard accessibility (ESC)
             window.addEventListener('keydown', function(e) {
@@ -2981,6 +2972,11 @@
             const SUPABASE_URL = 'https://ljtbqadymticlgsenjpo.supabase.co';
             const SUPABASE_ANON_KEY = 'sb_publishable_QYoHIwTZYDczxMpucXaw9g_bBY6Obu7';
             const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+            window.supabaseClient = supabase;
+
+            if (typeof window.initLiveViewersPresence === 'function') {
+                window.initLiveViewersPresence(supabase);
+            }
 
             // Easing function: Ease Out Quad for smooth counting
             function animateValue(obj, start, end, duration, suffix = "") {
@@ -4090,8 +4086,6 @@
                     { id: 'contact', selector: '.sidenav-link[data-nav-target="contact"]' },
                     { id: 'about-github-container', selector: '.sidenav-link[data-nav-target="about-github-container"]' },
                     { id: 'certifications', selector: '.sidenav-link[data-nav-target="certifications"]' },
-                    { id: 'collective-grid', selector: '.sidenav-sublink[data-subtab-target="collective-grid"]', parent: '.sidenav-link[data-nav-target="work"]' },
-                    { id: 'builds-grid', selector: '.sidenav-sublink[data-subtab-target="builds-grid"]', parent: '.sidenav-link[data-nav-target="work"]' },
                     { id: 'work', selector: '.sidenav-link[data-nav-target="work"]' },
                     { id: 'education', selector: '.sidenav-link[data-nav-target="education"]' },
                     { id: 'about', selector: '.sidenav-link[data-nav-target="about"]' }
@@ -4120,16 +4114,88 @@
             }
 
             /* ==========================================================================
-               5. Live Viewers Counter Fluctuation
+               5. Real-Time Accurate Live Viewers Presence Tracking (Supabase Realtime)
                ========================================================================== */
-            const viewersCountEl = document.getElementById('live-viewers-counter');
-            let viewerCount = 14;
-            setInterval(() => {
-                if (!viewersCountEl) return;
-                const delta = Math.random() > 0.45 ? 1 : -1;
-                viewerCount = Math.min(21, Math.max(11, viewerCount + delta));
-                viewersCountEl.textContent = viewerCount;
-            }, 9000);
+            function initLiveViewersPresence(client) {
+                const counterEl = document.getElementById('live-viewers-counter');
+                const subtextEl = document.getElementById('live-viewers-subtext') || document.querySelector('.viewers-subtext');
+                const avatarStack = document.querySelector('.sidenav-viewers-stack');
+                if (!counterEl) return;
+
+                // Stable device visitor ID ensures multiple tabs from the same device/browser count as 1 viewer
+                let visitorId = localStorage.getItem('khin_portfolio_vid');
+                if (!visitorId) {
+                    visitorId = 'v_' + Math.random().toString(36).substring(2, 10) + Date.now().toString(36);
+                    localStorage.setItem('khin_portfolio_vid', visitorId);
+                }
+
+                function updateViewersDisplay(count) {
+                    const safeCount = Math.max(1, count || 1);
+                    counterEl.textContent = safeCount;
+                    if (subtextEl) {
+                        subtextEl.textContent = safeCount === 1 ? 'person viewing' : 'people viewing';
+                    }
+                    if (avatarStack) {
+                        const avatars = avatarStack.querySelectorAll('.viewer-avatar');
+                        avatars.forEach((av, idx) => {
+                            av.style.display = idx < safeCount ? 'flex' : 'none';
+                        });
+                    }
+                }
+
+                // Initial baseline: 1 person viewing (the current active visitor)
+                updateViewersDisplay(1);
+
+                const activeClient = client || window.supabaseClient;
+                if (!activeClient) return;
+
+                try {
+                    const channel = activeClient.channel('portfolio_live_presence', {
+                        config: {
+                            presence: {
+                                key: visitorId
+                            }
+                        }
+                    });
+
+                    function handlePresenceSync() {
+                        const state = channel.presenceState();
+                        // Count unique connected devices/browsers
+                        const uniqueCount = Object.keys(state).length;
+                        updateViewersDisplay(uniqueCount);
+                    }
+
+                    channel
+                        .on('presence', { event: 'sync' }, handlePresenceSync)
+                        .on('presence', { event: 'join' }, handlePresenceSync)
+                        .on('presence', { event: 'leave' }, handlePresenceSync)
+                        .subscribe(async (status) => {
+                            if (status === 'SUBSCRIBED') {
+                                await channel.track({
+                                    online_at: new Date().toISOString()
+                                });
+                            }
+                        });
+
+                    // Graceful untrack when closing the tab or window
+                    window.addEventListener('beforeunload', () => {
+                        try {
+                            channel.untrack();
+                        } catch (e) {}
+                    });
+                } catch (err) {
+                    console.warn('Realtime presence fallback active:', err);
+                }
+            }
+
+            window.initLiveViewersPresence = initLiveViewersPresence;
+
+            // Trigger immediately if client is already loaded, otherwise it will be triggered on supabaseScript.onload
+            if (window.supabaseClient) {
+                initLiveViewersPresence(window.supabaseClient);
+            } else {
+                initLiveViewersPresence(null);
+            }
 
             /* ==========================================================================
                6. Web Audio API Sound Engine
@@ -4485,7 +4551,7 @@
     </script>
 
 
-    <!-- Works (Projects) Tab Switching Script -->
+    <!-- Projects Tab Switching Script -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const workTabs = document.querySelectorAll('.work-tab-btn');
