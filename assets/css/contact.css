@@ -420,25 +420,39 @@ body.dark-mode .contact-form textarea.form-control {
 
     .contact-grid {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 28px;
     }
 
     .contact-column {
-        padding-top: 24px;
+        padding-top: 20px;
     }
 
     .contact-info-list {
         height: auto;
         min-height: auto;
-        gap: 18px;
+        gap: 0;
         padding-bottom: 0;
     }
 
+    /* Minimalist Horizontal Lines between Socials like a row */
+    .contact-info-link {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+        padding: 14px 0 !important;
+        width: 100% !important;
+    }
+
+    .contact-info-link:last-child {
+        border-bottom: none !important;
+        padding-bottom: 8px !important;
+    }
+
+    /* Minimalist Horizontal Line Divider between Socials and Send Message */
     .contact-column.form-col {
         padding-left: 0;
         border-left: none;
-        border-top: 1px solid rgba(255, 255, 255, 0.12);
-        padding-top: 40px;
+        border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
+        padding-top: 32px;
+        margin-top: 8px;
     }
 
     .form-group-row {
@@ -490,6 +504,13 @@ body.theme-light .contact-grid {
 
 body.theme-light .contact-column.form-col {
     border-left-color: rgba(10, 10, 10, 0.1) !important;
+    border-top-color: rgba(10, 10, 10, 0.1) !important;
+}
+
+@media (max-width: 992px) {
+    body.theme-light .contact-info-link {
+        border-bottom-color: rgba(10, 10, 10, 0.08) !important;
+    }
 }
 
 body.theme-light .contact-info-link {

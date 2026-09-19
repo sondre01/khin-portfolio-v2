@@ -531,21 +531,127 @@
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
+    .certifications-marquee-container {
+        padding: 10px 0 20px 0;
+    }
+
     .cert-card {
-        width: 100%;
-        max-width: 340px;
-        height: 420px;
+        width: min(88vw, 340px) !important;
+        flex: 0 0 min(88vw, 340px) !important;
+        height: 425px !important;
+        box-sizing: border-box !important;
     }
 
     .cert-card-front {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 14px;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 10px !important;
+        padding: 15px !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
     }
 
     .cert-img-wrapper {
-        width: 100%;
-        height: 140px;
+        width: 100% !important;
+        height: 125px !important;
+        flex: 0 0 125px !important;
+        border-radius: 8px !important;
+    }
+
+    .cert-content {
+        height: auto !important;
+        flex: 1 1 auto !important;
+        min-height: 0 !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+    }
+
+    .cert-title {
+        font-size: 1.02rem !important;
+        line-height: 1.25 !important;
+        margin-bottom: 3px !important;
+    }
+
+    .cert-meta-row {
+        gap: 6px !important;
+        margin-bottom: 5px !important;
+        flex-wrap: nowrap !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+    }
+
+    .cert-date {
+        font-size: 0.72rem !important;
+        white-space: nowrap !important;
+    }
+
+    .cert-cred-tag {
+        font-size: 0.6rem !important;
+        max-width: 130px !important;
+        padding: 2px 5px !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+    }
+
+    .cert-desc {
+        font-size: 0.78rem !important;
+        line-height: 1.38 !important;
+        margin: 0 0 6px 0 !important;
+        -webkit-line-clamp: 3 !important;
+        line-clamp: 3 !important;
+    }
+
+    .cert-footer {
+        padding-top: 6px !important;
+        margin-top: auto !important;
+    }
+
+    .cert-card-back {
+        padding: 15px !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+    }
+
+    .cert-back-header {
+        gap: 6px !important;
+        padding-bottom: 6px !important;
+        margin-bottom: 6px !important;
+    }
+
+    .cert-back-title {
+        font-size: 0.82rem !important;
+    }
+
+    .cert-back-body {
+        gap: 6px !important;
+    }
+
+    .cert-back-about {
+        font-size: 0.74rem !important;
+        line-height: 1.38 !important;
+        text-align: left !important;
+    }
+
+    .cert-skills-heading {
+        font-size: 0.7rem !important;
+        margin-top: 2px !important;
+        margin-bottom: 3px !important;
+    }
+
+    .cert-skills-tags {
+        gap: 4px !important;
+    }
+
+    .skill-pill {
+        font-size: 0.64rem !important;
+        padding: 2px 6px !important;
     }
 }
 

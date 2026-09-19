@@ -74,19 +74,19 @@
     background: transparent !important;
     transform: none !important;
 
-    /* Seamless Curvy Vignette Mask (Identical to Main/Home Tab Hero Photo) */
-    -webkit-mask-image: radial-gradient(ellipse 58% 54% at 50% 36%, 
+    /* Softened Vignette Mask (Preserves full shoulders, barong, and details without excessive cropping) */
+    -webkit-mask-image: radial-gradient(ellipse 76% 66% at 50% 38%, 
                         rgba(0, 0, 0, 1) 0%, 
-                        rgba(0, 0, 0, 1) 32%, 
-                        rgba(0, 0, 0, 0.75) 60%, 
-                        rgba(0, 0, 0, 0.25) 82%, 
-                        rgba(0, 0, 0, 0) 98%);
-    mask-image: radial-gradient(ellipse 58% 54% at 50% 36%, 
+                        rgba(0, 0, 1) 52%, 
+                        rgba(0, 0, 0, 0.85) 75%, 
+                        rgba(0, 0, 0, 0.3) 90%, 
+                        rgba(0, 0, 0, 0) 100%);
+    mask-image: radial-gradient(ellipse 76% 66% at 50% 38%, 
                 rgba(0, 0, 0, 1) 0%, 
-                rgba(0, 0, 0, 1) 32%, 
-                rgba(0, 0, 0, 0.75) 60%, 
-                rgba(0, 0, 0, 0.25) 82%, 
-                rgba(0, 0, 0, 0) 98%);
+                rgba(0, 0, 1) 52%, 
+                rgba(0, 0, 0, 0.85) 75%, 
+                rgba(0, 0, 0, 0.3) 90%, 
+                rgba(0, 0, 0, 0) 100%);
 }
 
 .about-profile-col .intro-card:hover,
@@ -313,11 +313,22 @@ body.dark-mode .about-photo.photo-dark {
 @media (max-width: 992px) {
     .about-combined-card {
         flex-direction: column; /* Stacks vertically on tablet/mobile */
+        width: 100% !important;
+        box-sizing: border-box !important;
     }
     
     .about-desc-content {
-        padding: 30px 24px;
-        order: 1; /* Keep description first when stacked */
+        padding: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        order: 1;
+    }
+    
+    .about-desc-content p {
+        text-align: left !important;
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
     }
     
     .about-img-content {
@@ -989,20 +1000,20 @@ body.theme-light .about-profile-col .photo-light {
     display: block !important;
 }
 
-/* ONLY IN LIGHT MODE: About Avatar Cutout (Hyper-Curvy Vignette Mask) */
+/* ONLY IN LIGHT MODE: About Avatar Cutout (Softened Vignette Mask) */
 body.theme-light .about-profile-col .card-avatar {
-    -webkit-mask-image: radial-gradient(ellipse 58% 54% at 50% 36%, 
+    -webkit-mask-image: radial-gradient(ellipse 76% 66% at 50% 38%, 
                         rgba(0, 0, 0, 1) 0%, 
-                        rgba(0, 0, 1) 32%, 
-                        rgba(0, 0, 0, 0.75) 60%, 
-                        rgba(0, 0, 0, 0.25) 82%, 
-                        rgba(0, 0, 0, 0) 98%) !important;
-    mask-image: radial-gradient(ellipse 58% 54% at 50% 36%, 
+                        rgba(0, 0, 1) 52%, 
+                        rgba(0, 0, 0, 0.85) 75%, 
+                        rgba(0, 0, 0, 0.3) 90%, 
+                        rgba(0, 0, 0, 0) 100%) !important;
+    mask-image: radial-gradient(ellipse 76% 66% at 50% 38%, 
                 rgba(0, 0, 0, 1) 0%, 
-                rgba(0, 0, 1) 32%, 
-                rgba(0, 0, 0, 0.75) 60%, 
-                rgba(0, 0, 0, 0.25) 82%, 
-                rgba(0, 0, 0, 0) 98%) !important;
+                rgba(0, 0, 1) 52%, 
+                rgba(0, 0, 0, 0.85) 75%, 
+                rgba(0, 0, 0, 0.3) 90%, 
+                rgba(0, 0, 0, 0) 100%) !important;
     filter: none !important;
     box-shadow: none !important;
     background: transparent !important;

@@ -1,13 +1,13 @@
 /* Import section-specific stylesheets */
-@import "home.css?v=20260919_17";
-@import "about.css?v=20260919_17";
-@import "skills.css?v=20260919_17";
-@import "certifications.css?v=20260919_17";
-@import "education.css?v=20260919_17";
-@import "work.css?v=20260919_17";
-@import "contact.css?v=20260919_17";
-@import "footer.css?v=20260919_17";
-@import "sidenav.css?v=20260919_17";
+@import "home.css?v=20260919_18";
+@import "about.css?v=20260919_18";
+@import "skills.css?v=20260919_18";
+@import "certifications.css?v=20260919_18";
+@import "education.css?v=20260919_18";
+@import "work.css?v=20260919_18";
+@import "contact.css?v=20260919_18";
+@import "footer.css?v=20260919_18";
+@import "sidenav.css?v=20260919_18";
 
 /* ==========================================================================
    THEME VARIABLES & TOKENS
@@ -2046,7 +2046,7 @@ body.dark-mode .row-expand-toggle-btn:hover {
     .intro-card,
     .def-card {
         width: 100% !important;
-        max-width: 320px !important;
+        max-width: min(360px, 92vw) !important;
         height: auto !important;
         display: flex !important;
         flex-direction: column !important;
@@ -2061,10 +2061,10 @@ body.dark-mode .row-expand-toggle-btn:hover {
     
     .about-profile-col .card-img-container,
     .card-img-container {
-        width: min(270px, 75vw) !important;
+        width: min(330px, 86vw) !important;
         height: auto !important;
         aspect-ratio: 853 / 1280 !important;
-        max-height: 380px !important;
+        max-height: 440px !important;
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
@@ -2084,18 +2084,65 @@ body.dark-mode .row-expand-toggle-btn:hover {
         object-position: center top !important;
         margin: 0 auto !important;
         display: block !important;
-        -webkit-mask-image: radial-gradient(ellipse 58% 54% at 50% 36%, 
+        -webkit-mask-image: radial-gradient(ellipse 76% 66% at 50% 38%, 
                             rgba(0, 0, 0, 1) 0%, 
-                            rgba(0, 0, 1) 32%, 
-                            rgba(0, 0, 0, 0.75) 60%, 
-                            rgba(0, 0, 0, 0.25) 82%, 
-                            rgba(0, 0, 0, 0) 98%) !important;
-        mask-image: radial-gradient(ellipse 58% 54% at 50% 36%, 
+                            rgba(0, 0, 1) 52%, 
+                            rgba(0, 0, 0, 0.85) 75%, 
+                            rgba(0, 0, 0, 0.3) 90%, 
+                            rgba(0, 0, 0, 0) 100%) !important;
+        mask-image: radial-gradient(ellipse 76% 66% at 50% 38%, 
                     rgba(0, 0, 0, 1) 0%, 
-                    rgba(0, 0, 1) 32%, 
-                    rgba(0, 0, 0, 0.75) 60%, 
-                    rgba(0, 0, 0, 0.25) 82%, 
-                    rgba(0, 0, 0, 0) 98%) !important;
+                    rgba(0, 0, 1) 52%, 
+                    rgba(0, 0, 0, 0.85) 75%, 
+                    rgba(0, 0, 0, 0.3) 90%, 
+                    rgba(0, 0, 0, 0) 100%) !important;
+    }
+
+    /* Profile Overview Bio & Stats: Strict containment within mobile frame */
+    .about-section {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 28px 16px 32px 16px !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
+    }
+
+    .about-grid-layout,
+    .about-overview-col,
+    .about-combined-card,
+    .about-desc-content {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    .about-desc-content h2 {
+        font-size: clamp(1.45rem, 5.2vw, 1.85rem) !important;
+        margin-top: 8px !important;
+        margin-bottom: 12px !important;
+        line-height: 1.25 !important;
+        word-break: break-word !important;
+    }
+
+    .about-desc-content p {
+        font-size: 0.96rem !important;
+        line-height: 1.65 !important;
+        text-align: left !important;
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
+        margin: 0 !important;
+    }
+
+    .about-metrics-strip {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        margin-top: 20px !important;
+        padding-top: 18px !important;
     }
     
     /* Search overlay mobile refinements */

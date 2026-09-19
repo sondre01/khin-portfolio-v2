@@ -1140,16 +1140,16 @@ body.theme-light .card-avatar {
         box-sizing: border-box !important;
     }
 
-    /* 2. Hero Presentation Image: Perfectly Centered, Full Upper-Body Framing */
+    /* 2. Hero Presentation Image: Perfectly Fitting, Full Upper-Body Framing & Maximized Spaces */
     .hero-center-img-wrapper {
         position: absolute !important;
-        top: 45% !important;
+        top: 48% !important;
         left: 50% !important;
-        transform: translate(-50%, -50%) scale(0.96) !important;
+        transform: translate(-50%, -50%) scale(0.98) !important;
         width: 100% !important;
         max-width: 100% !important;
-        height: 74% !important;
-        max-height: calc(100dvh - 160px) !important;
+        height: 82% !important;
+        max-height: calc(100dvh - 120px) !important;
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
@@ -1159,7 +1159,7 @@ body.theme-light .card-avatar {
         overflow: visible !important;
     }
 
-    /* Scale 1.0 (No desktop 1.15 over-zoom on mobile) for full shoulder/toga visibility */
+    /* Scale 1.0 for full shoulder/toga visibility without awkward cropping */
     .hero-center-img-wrapper.hero-img-revealed {
         opacity: 1 !important;
         visibility: visible !important;
@@ -1168,7 +1168,7 @@ body.theme-light .card-avatar {
 
     .hero-center-img {
         width: auto !important;
-        max-width: min(90vw, 360px) !important;
+        max-width: min(94vw, 420px) !important;
         height: 100% !important;
         max-height: 100% !important;
         object-fit: contain !important;
@@ -1177,25 +1177,37 @@ body.theme-light .card-avatar {
         margin: 0 auto !important;
     }
 
-    /* 3. Signature Hyper-Curvy Vignette Mask (Preserved on Mobile) */
+    /* 3. Mobile Vignette Masks: Dark Mode Deep Vignette & Light Mode Signature Smiley Curve */
     .hero-center-img,
     #hero-center-img,
     body.dark-mode .hero-center-img,
     body.theme-default .hero-center-img,
-    body.theme-night .hero-center-img,
-    body.theme-light .hero-center-img {
-        -webkit-mask-image: radial-gradient(ellipse 58% 54% at 50% 36%, 
+    body.theme-night .hero-center-img {
+        -webkit-mask-image: radial-gradient(ellipse 70% 64% at 50% 36%, 
                             rgba(0, 0, 0, 1) 0%, 
-                            rgba(0, 0, 1) 28%, 
-                            rgba(0, 0, 0, 0.7) 55%, 
-                            rgba(0, 0, 0, 0.2) 80%, 
+                            rgba(0, 0, 1) 36%, 
+                            rgba(0, 0, 0, 0.8) 64%, 
+                            rgba(0, 0, 0, 0.22) 84%, 
                             rgba(0, 0, 0, 0) 98%) !important;
-        mask-image: radial-gradient(ellipse 58% 54% at 50% 36%, 
+        mask-image: radial-gradient(ellipse 70% 64% at 50% 36%, 
                     rgba(0, 0, 0, 1) 0%, 
-                    rgba(0, 0, 1) 28%, 
-                    rgba(0, 0, 0, 0.7) 55%, 
-                    rgba(0, 0, 0, 0.2) 80%, 
+                    rgba(0, 0, 1) 36%, 
+                    rgba(0, 0, 0, 0.8) 64%, 
+                    rgba(0, 0, 0, 0.22) 84%, 
                     rgba(0, 0, 0, 0) 98%) !important;
+    }
+
+    body.theme-light .hero-center-img {
+        -webkit-mask-image: radial-gradient(ellipse 90% 52% at 50% 38%, 
+                            rgba(0, 0, 0, 1) 0%, 
+                            rgba(0, 0, 1) 62%, 
+                            rgba(0, 0, 0, 0.6) 78%, 
+                            rgba(0, 0, 0, 0) 90%) !important;
+        mask-image: radial-gradient(ellipse 90% 52% at 50% 38%, 
+                    rgba(0, 0, 0, 1) 0%, 
+                    rgba(0, 0, 1) 62%, 
+                    rgba(0, 0, 0, 0.6) 78%, 
+                    rgba(0, 0, 0, 0) 90%) !important;
     }
 
     /* 4. Bottom Hero Typography Placement */

@@ -1069,6 +1069,8 @@
         margin: 0;
         width: 100%;
         padding: 22px 18px 24px 18px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+        box-sizing: border-box;
     }
     .drawer-header-row {
         flex-direction: column;
@@ -1226,6 +1228,7 @@ body.theme-light .milestone-step-desc {
 body.theme-light .trajectory-details-drawer {
     background: #f8fafc;
     border-top-color: rgba(0, 0, 0, 0.1);
+    border-bottom-color: rgba(0, 0, 0, 0.1);
 }
 body.theme-light .milestone-action-badge {
     color: #4b5563;
