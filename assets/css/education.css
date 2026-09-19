@@ -129,15 +129,22 @@
 .trajectory-svg-wrap {
     width: 100%;
     position: relative;
-    overflow-x: auto;
-    overflow-y: hidden;
-    -webkit-overflow-scrolling: touch;
+    overflow: hidden;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.trajectory-svg-wrap::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
 }
 
 .trajectory-svg {
     display: block;
     width: 100%;
-    min-width: 700px;
+    max-width: 100%;
     height: auto;
 }
 
@@ -388,16 +395,79 @@
 
 @media (max-width: 768px) {
     .trajectory-section {
-        padding: 50px 20px;
+        padding: 40px 16px;
     }
 
     .trajectory-graph-panel {
         padding: 0;
         border-radius: 14px;
+        overflow: hidden;
     }
 
     .trajectory-graph-top {
-        padding: 18px 16px 14px 16px;
+        padding: 16px 12px 10px 12px;
+    }
+
+    .trajectory-graph-header {
+        gap: 8px;
+        margin-bottom: 8px;
+        padding-bottom: 8px;
+    }
+
+    .trajectory-live-text {
+        font-size: clamp(0.64rem, 2.4vw, 0.72rem);
+        letter-spacing: 0.02em;
+    }
+
+    .trajectory-graph-axis {
+        font-size: clamp(0.64rem, 2.4vw, 0.72rem);
+    }
+
+    /* Entire Graph Seen as a Whole: Zero Horizontal Scrollbars */
+    .trajectory-svg-wrap {
+        width: 100% !important;
+        position: relative !important;
+        overflow: hidden !important;
+        overflow-x: hidden !important;
+        scrollbar-width: none !important;
+        -ms-overflow-style: none !important;
+    }
+
+    .trajectory-svg-wrap::-webkit-scrollbar {
+        display: none !important;
+        width: 0 !important;
+        height: 0 !important;
+    }
+
+    .trajectory-svg {
+        display: block !important;
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+        height: auto !important;
+    }
+
+    .trajectory-stage-label {
+        font-size: 18px !important;
+        font-weight: 700 !important;
+        letter-spacing: 0.04em !important;
+    }
+
+    .trajectory-grid-label {
+        font-size: 13px !important;
+        letter-spacing: 0.03em !important;
+    }
+
+    .trajectory-curve-path {
+        stroke-width: 4.5px !important;
+    }
+
+    .trajectory-projected-path {
+        stroke-width: 2.5px !important;
+    }
+
+    .trajectory-drop-line {
+        stroke-width: 1.5px !important;
     }
 
     .trajectory-milestones-strip {

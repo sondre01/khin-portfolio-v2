@@ -854,8 +854,27 @@ body.dark-mode .about-photo.photo-dark {
         gap: 12px;
     }
 
+    .github-heatmap-wrapper {
+        width: 100% !important;
+        overflow: hidden !important;
+        overflow-x: hidden !important;
+        scrollbar-width: none !important;
+        -ms-overflow-style: none !important;
+        padding-bottom: 0 !important;
+    }
+
+    .github-heatmap-wrapper::-webkit-scrollbar {
+        display: none !important;
+        width: 0 !important;
+        height: 0 !important;
+    }
+
     .github-calendar-svg {
-        min-width: 820px;
+        display: block !important;
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+        height: auto !important;
     }
 }
 

@@ -1,13 +1,13 @@
 /* Import section-specific stylesheets */
-@import "home.css?v=20260919_18";
-@import "about.css?v=20260919_18";
-@import "skills.css?v=20260919_18";
-@import "certifications.css?v=20260919_18";
-@import "education.css?v=20260919_18";
-@import "work.css?v=20260919_18";
-@import "contact.css?v=20260919_18";
-@import "footer.css?v=20260919_18";
-@import "sidenav.css?v=20260919_18";
+@import "home.css?v=20260919_19";
+@import "about.css?v=20260919_19";
+@import "skills.css?v=20260919_19";
+@import "certifications.css?v=20260919_19";
+@import "education.css?v=20260919_19";
+@import "work.css?v=20260919_19";
+@import "contact.css?v=20260919_19";
+@import "footer.css?v=20260919_19";
+@import "sidenav.css?v=20260919_19";
 
 /* ==========================================================================
    THEME VARIABLES & TOKENS
