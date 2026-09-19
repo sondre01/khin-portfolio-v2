@@ -15,8 +15,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Oswald:wght@500;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/home.css?v=20260919_14">
-    <link rel="stylesheet" href="assets/css/index.css?v=20260919_14">
+    <link rel="stylesheet" href="assets/css/home.css?v=20260919_15">
+    <link rel="stylesheet" href="assets/css/index.css?v=20260919_15">
     <style>
         /* Dark Mode Project Cards Dual-Theme */
         body.dark-mode .project-flip-card[data-card-theme="light"],
@@ -214,11 +214,16 @@
         </button>
 
         <div class="sidenav-main-scroll">
-            <!-- Header 1: Logo & Name (khinandrei) -->
-            <a href="#home" class="sidenav-brand" id="sidenav-brand-link">
-                <img src="./data/logo/logo-box (1).png" alt="Sondre" class="sidenav-brand-img">
-                <span class="sidenav-brand-name">khinandrei</span>
-            </a>
+            <!-- Header 1: Logo & Name (khinandrei) + Mobile Close Button -->
+            <div class="sidenav-brand-row">
+                <a href="#home" class="sidenav-brand" id="sidenav-brand-link">
+                    <img src="./data/logo/logo-box (1).png" alt="Sondre" class="sidenav-brand-img">
+                    <span class="sidenav-brand-name">khinandrei</span>
+                </a>
+                <button type="button" class="sidenav-mobile-close-btn" id="sidenavMobileCloseBtn" aria-label="Close navigation" title="Close Menu">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
 
             <!-- Navigation Links List -->
             <ul class="sidenav-nav-list">
@@ -287,12 +292,28 @@
                     </a>
                 </li>
 
-                <!-- Typing Test (Ctrl+T) -->
-                <li class="sidenav-item">
+                <!-- Typing Test (Desktop only) -->
+                <li class="sidenav-item sidenav-desktop-only">
                     <a href="javascript:void(0)" class="sidenav-link" id="sidenav-typing-test-btn" title="Typing Test (Ctrl+T)">
                         <span class="sidenav-icon"><i data-lucide="terminal"></i></span>
                         <span class="sidenav-text">Typing Test</span>
                         <kbd class="sidenav-shortcut-kbd">Ctrl+T</kbd>
+                    </a>
+                </li>
+
+                <!-- Mobile Only: Resume (Replaces Typing Test on Mobile) -->
+                <li class="sidenav-item sidenav-mobile-only">
+                    <a href="javascript:void(0)" class="sidenav-link sidenav-mobile-doc-link" data-doc-target="resume" id="sidenavMobileResumeBtn" title="Resume">
+                        <span class="sidenav-icon"><i data-lucide="file-text"></i></span>
+                        <span class="sidenav-text">Resume</span>
+                    </a>
+                </li>
+
+                <!-- Mobile Only: Cover Letter (Replaces Typing Test on Mobile) -->
+                <li class="sidenav-item sidenav-mobile-only">
+                    <a href="javascript:void(0)" class="sidenav-link sidenav-mobile-doc-link" data-doc-target="cover_letter" id="sidenavMobileCoverBtn" title="Cover Letter">
+                        <span class="sidenav-icon"><i data-lucide="file-check"></i></span>
+                        <span class="sidenav-text">Cover Letter</span>
                     </a>
                 </li>
             </ul>
@@ -341,6 +362,8 @@
             <p class="sidenav-inquiries-text">for work, projects & other inquiries, write to <a href="mailto:gamboa.khinandrei@gmail.com" class="sidenav-inquiries-link">gamboa.khinandrei@gmail.com</a></p>
         </div>
     </aside>
+    <!-- Mobile Navigation Backdrop Overlay -->
+    <div id="sidenav-mobile-backdrop" class="sidenav-mobile-backdrop" aria-hidden="true"></div>
 
     <!-- Floating Rail Tooltip for Minimized Mode -->
     <div id="sidenav-rail-tooltip" class="sidenav-rail-tooltip"></div>
@@ -2620,8 +2643,8 @@
         </div>
     </div>
 
-    <!-- Mobile Floating Navigation Dock -->
-    <nav class="mobile-nav-dock">
+    <!-- Mobile Floating Navigation Dock (Hidden in favor of top header logo + 3-bar and sidebar drawer) -->
+    <nav class="mobile-nav-dock" style="display: none !important;">
         <a href="#home" class="nav-link active" aria-label="Home">
             <i data-lucide="home"></i>
             <span class="mobile-nav-label">Home</span>
@@ -2837,8 +2860,25 @@
 
             // Bind triggers
             if (navDocsBtn) {
-                navDocsBtn.addEventListener('click', openWhiteTab);
+                navDocsBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const separatorBanner = document.querySelector('.section-separator-banner');
+                    const isMobile = window.innerWidth <= 768;
+                    const isPastBanner = separatorBanner && (separatorBanner.getBoundingClientRect().top <= 130);
+
+                    if (isMobile && isPastBanner) {
+                        // Once scrolled to/past End-To-End Data Analytics & AI on mobile, 3-bar accesses the sidebar!
+                        if (typeof window.toggleMobileSidebarNav === 'function') {
+                            window.toggleMobileSidebarNav();
+                        }
+                    } else {
+                        // At top or on desktop, 3-bar accesses Resume & Cover Letter
+                        openWhiteTab();
+                    }
+                });
             }
+            window.openDocumentViewport = openThemedViewport;
+            window.openWhiteTabDocs = openWhiteTab;
             if (docTabCloseBtn) {
                 docTabCloseBtn.addEventListener('click', closeWhiteTab);
             }
@@ -4255,8 +4295,83 @@
 
                         targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     }
+
+                    // Auto-close mobile sidebar drawer on navigation
+                    if (isMobileDevice()) {
+                        closeMobileSidebarNav();
+                    }
                 });
             });
+
+            /* ==========================================================================
+               Mobile Sidebar Navigation Drawer Controls
+               ========================================================================== */
+            const mobileBackdrop = document.getElementById('sidenav-mobile-backdrop');
+            const mobileCloseBtn = document.getElementById('sidenavMobileCloseBtn');
+
+            function isMobileDevice() {
+                return window.innerWidth <= 768;
+            }
+
+            function openMobileSidebarNav() {
+                body.classList.add('mobile-nav-active');
+                if (sidebarNav) sidebarNav.classList.add('mobile-open');
+                if (mobileBackdrop) mobileBackdrop.classList.add('active');
+                playUiSound(720, 0.025);
+                if (window.lucide) lucide.createIcons();
+            }
+
+            function closeMobileSidebarNav() {
+                body.classList.remove('mobile-nav-active');
+                if (sidebarNav) sidebarNav.classList.remove('mobile-open');
+                if (mobileBackdrop) mobileBackdrop.classList.remove('active');
+                playUiSound(600, 0.02);
+            }
+
+            function toggleMobileSidebarNav() {
+                if (body.classList.contains('mobile-nav-active')) {
+                    closeMobileSidebarNav();
+                } else {
+                    openMobileSidebarNav();
+                }
+            }
+
+            window.toggleMobileSidebarNav = toggleMobileSidebarNav;
+            window.closeMobileSidebarNav = closeMobileSidebarNav;
+
+            if (mobileCloseBtn) {
+                mobileCloseBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    closeMobileSidebarNav();
+                });
+            }
+
+            if (mobileBackdrop) {
+                mobileBackdrop.addEventListener('click', () => {
+                    closeMobileSidebarNav();
+                });
+            }
+
+            // Mobile-only Document Links (Resume & Cover Letter replacing Typing Test in sidebar)
+            document.querySelectorAll('.sidenav-mobile-doc-link').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const docTarget = btn.getAttribute('data-doc-target') || 'resume';
+                    closeMobileSidebarNav();
+                    setTimeout(() => {
+                        if (typeof window.openDocumentViewport === 'function') {
+                            window.openDocumentViewport(docTarget);
+                        }
+                    }, 150);
+                });
+            });
+
+            // Auto-close mobile sidebar on window resize if resized to desktop
+            window.addEventListener('resize', () => {
+                if (!isMobileDevice() && body.classList.contains('mobile-nav-active')) {
+                    closeMobileSidebarNav();
+                }
+            }, { passive: true });
 
             // Initial hash check and hashchange listener
             if (window.location.hash === '#data-dev' || window.location.hash === '#data-dev-view') {

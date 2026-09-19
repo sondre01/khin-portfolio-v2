@@ -136,17 +136,41 @@ body.side-nav-visible .left-sidebar-nav {
 /* --------------------------------------------------------------------------
    4. Header 1: Logo & Name (khinandrei)
    -------------------------------------------------------------------------- */
+.sidenav-brand-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
 .sidenav-brand {
     display: flex;
     align-items: center;
     gap: 12px;
     padding: 4px 6px 18px 6px;
-    margin-bottom: 12px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     text-decoration: none;
     color: #ffffff;
     cursor: pointer;
     transition: opacity 0.2s ease;
+    flex: 1;
+}
+
+.sidenav-mobile-only {
+    display: none !important;
+}
+
+.sidenav-desktop-only {
+    display: list-item !important;
+}
+
+.sidenav-mobile-close-btn {
+    display: none !important;
+}
+
+.sidenav-mobile-backdrop {
+    display: none;
 }
 
 .sidenav-brand:hover {
@@ -1067,8 +1091,174 @@ body.dark-mode .typing-char.char-correct {
     user-select: none;
 }
 
-/* Responsive Scaling for Typing Viewport */
+/* Responsive Scaling for Mobile Navigation & Typing Viewport */
 @media (max-width: 768px) {
+    /* 1. Show mobile-only items, hide desktop-only items */
+    .sidenav-desktop-only {
+        display: none !important;
+    }
+    .sidenav-mobile-only {
+        display: list-item !important;
+    }
+    .sidenav-shortcut-kbd {
+        display: none !important;
+    }
+
+    /* 2. Middle retract arrow and rail tooltip NEVER appear on mobile */
+    .sidebar-retract-btn {
+        display: none !important;
+    }
+    .sidenav-rail-tooltip {
+        display: none !important;
+    }
+
+    /* 3. The minimized rail NEVER appears on mobile - always full drawer layout */
+    .left-sidebar-nav,
+    .left-sidebar-nav.is-minimized {
+        width: min(300px, 86vw) !important;
+        padding: 20px 16px 20px 18px !important;
+    }
+
+    .left-sidebar-nav.is-minimized .sidenav-text,
+    .left-sidebar-nav.is-minimized .sidenav-brand-name,
+    .left-sidebar-nav.is-minimized .sidenav-inquiries-footer {
+        display: block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+
+    .left-sidebar-nav.is-minimized .sidenav-brand {
+        justify-content: flex-start !important;
+        padding: 4px 6px 16px 6px !important;
+    }
+
+    .left-sidebar-nav.is-minimized .sidenav-link {
+        justify-content: flex-start !important;
+        padding: 10px 12px !important;
+    }
+
+    .left-sidebar-nav.is-minimized .sidenav-header-2 {
+        display: flex !important;
+        justify-content: flex-start !important;
+        padding: 18px 8px 6px 8px !important;
+    }
+
+    .left-sidebar-nav.is-minimized .sidenav-header-2 a,
+    .left-sidebar-nav.is-minimized .sidenav-header-2 span,
+    .left-sidebar-nav.is-minimized .sidenav-header-2-link {
+        display: inline-block !important;
+    }
+
+    .left-sidebar-nav.is-minimized .sidenav-viewers-widget {
+        display: flex !important;
+        padding: 10px 10px !important;
+    }
+
+    .left-sidebar-nav.is-minimized .sidenav-viewers-info {
+        display: flex !important;
+    }
+
+    .left-sidebar-nav.is-minimized .viewer-avatar:not(:first-child) {
+        display: flex !important;
+    }
+
+    .left-sidebar-nav.is-minimized .sidenav-controls-row {
+        display: flex !important;
+    }
+
+    /* 4. Left sidebar is completely hidden by default on mobile (scrolling past banner does NOT show it) */
+    .left-sidebar-nav,
+    body.side-nav-visible:not(.mobile-nav-active) .left-sidebar-nav {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        bottom: 0 !important;
+        height: 100vh !important;
+        height: 100dvh !important;
+        transform: translateX(-105%) !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+        z-index: 100000 !important;
+        box-shadow: 10px 0 35px rgba(0, 0, 0, 0.6) !important;
+        transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.26s ease, visibility 0.26s !important;
+    }
+
+    /* 5. Left sidebar drawer open state on mobile */
+    body.mobile-nav-active .left-sidebar-nav,
+    .left-sidebar-nav.mobile-open {
+        transform: translateX(0) !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+    }
+
+    /* 6. Mobile Backdrop Overlay */
+    .sidenav-mobile-backdrop {
+        display: block;
+        position: fixed;
+        inset: 0;
+        width: 100vw;
+        height: 100vh;
+        height: 100dvh;
+        background: rgba(0, 0, 0, 0.65);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        z-index: 99999;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: opacity 0.28s ease, visibility 0.28s ease;
+    }
+
+    body.mobile-nav-active .sidenav-mobile-backdrop,
+    .sidenav-mobile-backdrop.active {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+
+    /* 7. Mobile Close Button in Sidebar Brand Header */
+    .sidenav-mobile-close-btn {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 50%;
+        color: #ffffff;
+        cursor: pointer;
+        padding: 0;
+        transition: background-color 0.2s ease, transform 0.2s ease;
+        outline: none;
+    }
+
+    .sidenav-mobile-close-btn svg,
+    .sidenav-mobile-close-btn i {
+        width: 16px;
+        height: 16px;
+        stroke: #ffffff;
+        stroke-width: 2.2;
+    }
+
+    .sidenav-mobile-close-btn:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: scale(1.06);
+    }
+
+    body.theme-light .sidenav-mobile-close-btn {
+        background: rgba(0, 0, 0, 0.06);
+        border-color: rgba(0, 0, 0, 0.16);
+        color: #000000;
+    }
+
+    body.theme-light .sidenav-mobile-close-btn svg,
+    body.theme-light .sidenav-mobile-close-btn i {
+        stroke: #000000;
+    }
+
     .typing-viewport-container {
         top: 10px;
         left: 10px;

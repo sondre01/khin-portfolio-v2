@@ -532,7 +532,8 @@
 /* Mobile Responsive */
 @media (max-width: 768px) {
     .cert-card {
-        width: 320px;
+        width: 100%;
+        max-width: 340px;
         height: 420px;
     }
 
