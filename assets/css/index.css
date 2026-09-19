@@ -1,13 +1,13 @@
 /* Import section-specific stylesheets */
-@import "home.css?v=20260919_19";
-@import "about.css?v=20260919_19";
-@import "skills.css?v=20260919_19";
-@import "certifications.css?v=20260919_19";
-@import "education.css?v=20260919_19";
-@import "work.css?v=20260919_19";
-@import "contact.css?v=20260919_19";
-@import "footer.css?v=20260919_19";
-@import "sidenav.css?v=20260919_19";
+@import "home.css?v=20260919_20";
+@import "about.css?v=20260919_20";
+@import "skills.css?v=20260919_20";
+@import "certifications.css?v=20260919_20";
+@import "education.css?v=20260919_20";
+@import "work.css?v=20260919_20";
+@import "contact.css?v=20260919_20";
+@import "footer.css?v=20260919_20";
+@import "sidenav.css?v=20260919_20";
 
 /* ==========================================================================
    THEME VARIABLES & TOKENS
@@ -2014,12 +2014,18 @@ body.dark-mode .row-expand-toggle-btn:hover {
         gap: 24px;
     }
     
-    /* Typography scale-down for home landing text on mobile */
-    .hero-line,
+    /* Typography scale for home landing text on mobile */
+    .hero-line {
+        font-size: clamp(1.3rem, 5.6vw, 1.7rem) !important;
+        line-height: 1.18 !important;
+        max-width: 100% !important;
+    }
+
     .hero-line.hero-settled,
     .hero-line.hero-line-shifted {
-        font-size: clamp(1.1rem, 4.6vw, 1.35rem) !important;
-        line-height: 1.18 !important;
+        font-size: clamp(1.55rem, 7.2vw, 2.25rem) !important;
+        line-height: 1.12 !important;
+        white-space: nowrap !important;
         max-width: 100% !important;
     }
 

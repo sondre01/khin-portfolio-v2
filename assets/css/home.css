@@ -1220,8 +1220,8 @@ body.theme-light .card-avatar {
         flex-direction: column !important;
         align-items: flex-start !important;
         justify-content: flex-end !important;
-        gap: 5px !important;
-        padding: 0 4px 16px 4px !important;
+        gap: 6px !important;
+        padding: 0 4px 20px 4px !important;
         box-sizing: border-box !important;
         pointer-events: none !important;
     }
@@ -1230,24 +1230,45 @@ body.theme-light .card-avatar {
         pointer-events: auto;
     }
 
-    .hero-line,
-    .hero-line.hero-settled,
-    .hero-line.hero-line-shifted {
+    .hero-line {
         font-family: 'Oswald', sans-serif !important;
-        font-size: clamp(1.1rem, 4.6vw, 1.35rem) !important;
+        font-size: clamp(1.3rem, 5.6vw, 1.7rem) !important;
         font-weight: 800 !important;
         line-height: 1.18 !important;
         max-width: 100% !important;
-        text-align: left !important;
-        letter-spacing: 0.02em !important;
+        letter-spacing: 0.025em !important;
         margin: 0 !important;
         padding: 0 !important;
         text-shadow: 0 2px 14px rgba(0, 0, 0, 0.9), 0 0 4px rgba(0, 0, 0, 0.7) !important;
     }
 
+    .hero-line.hero-intro-text-centered {
+        text-align: center !important;
+        margin: 0 auto !important;
+    }
+
+    /* Enlarge prominently when settled in bottom-left */
+    .hero-line.hero-settled,
+    .hero-line.hero-line-shifted {
+        font-family: 'Oswald', sans-serif !important;
+        font-size: clamp(1.55rem, 7.2vw, 2.25rem) !important;
+        font-weight: 800 !important;
+        line-height: 1.12 !important;
+        max-width: 100% !important;
+        text-align: left !important;
+        letter-spacing: 0.02em !important;
+        white-space: nowrap !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        text-shadow: 0 2px 16px rgba(0, 0, 0, 0.92), 0 0 6px rgba(0, 0, 0, 0.75) !important;
+    }
+
     body.theme-light .hero-line,
     body.theme-light .hero-line.hero-settled,
-    body.theme-light .hero-line.hero-line-shifted {
+    body.theme-light .hero-line.hero-line-shifted,
+    body.light-mode .hero-line,
+    body.light-mode .hero-line.hero-settled,
+    body.light-mode .hero-line.hero-line-shifted {
         color: #0f172a !important;
         text-shadow: 0 1px 6px rgba(255, 255, 255, 0.95), 0 0 1px rgba(255, 255, 255, 0.8) !important;
     }
@@ -1282,10 +1303,23 @@ body.theme-light .card-avatar {
         max-height: calc(100dvh - 160px) !important;
     }
 
-    .hero-line,
+    .hero-line {
+        font-size: 1.25rem !important;
+    }
+
     .hero-line.hero-settled,
     .hero-line.hero-line-shifted {
-        font-size: 1.05rem !important;
+        font-size: 1.45rem !important;
+        line-height: 1.12 !important;
+        white-space: nowrap !important;
+    }
+}
+
+@media (max-width: 330px) {
+    .hero-line.hero-settled,
+    .hero-line.hero-line-shifted {
+        font-size: 1.3rem !important;
+        white-space: nowrap !important;
     }
 }
 
