@@ -15,8 +15,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Oswald:wght@500;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/home.css?v=20260919_20">
-    <link rel="stylesheet" href="assets/css/index.css?v=20260919_20">
+    <link rel="stylesheet" href="assets/css/home.css?v=20260919_21">
+    <link rel="stylesheet" href="assets/css/index.css?v=20260919_21">
     <style>
         /* Dark Mode Project Cards Dual-Theme */
         body.dark-mode .project-flip-card[data-card-theme="light"],
@@ -151,17 +151,15 @@
             border: none !important;
         }
 
-        /* Profile Avatar Vignette: Softened to preserve full shoulders and attire */
+        /* Signature Vertically Oval Vignette Mask on Avatar (Default & Dark Modes) */
         .card-avatar,
         #about-card-avatar,
         .about-profile-col .card-avatar,
         body.dark-mode .card-avatar,
         body.theme-default .card-avatar,
-        body.theme-night .card-avatar,
-        body.theme-light .card-avatar,
-        body.theme-light .about-profile-col .card-avatar {
-            -webkit-mask-image: radial-gradient(ellipse 76% 66% at 50% 38%, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 1) 52%, rgba(0, 0, 0, 0.85) 75%, rgba(0, 0, 0, 0.3) 90%, rgba(0, 0, 0, 0) 100%) !important;
-            mask-image: radial-gradient(ellipse 76% 66% at 50% 38%, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 1) 52%, rgba(0, 0, 0, 0.85) 75%, rgba(0, 0, 0, 0.3) 90%, rgba(0, 0, 0, 0) 100%) !important;
+        body.theme-night .card-avatar {
+            -webkit-mask-image: radial-gradient(ellipse 58% 54% at 50% 36%, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 1) 32%, rgba(0, 0, 0, 0.75) 60%, rgba(0, 0, 0, 0.25) 82%, rgba(0, 0, 0, 0) 98%) !important;
+            mask-image: radial-gradient(ellipse 58% 54% at 50% 36%, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 1) 32%, rgba(0, 0, 0, 0.75) 60%, rgba(0, 0, 0, 0.25) 82%, rgba(0, 0, 0, 0) 98%) !important;
             filter: none !important;
             box-shadow: none !important;
             background: transparent !important;
@@ -178,8 +176,8 @@
             body.dark-mode .hero-center-img,
             body.theme-default .hero-center-img,
             body.theme-night .hero-center-img {
-                -webkit-mask-image: radial-gradient(ellipse 70% 64% at 50% 36%, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 1) 36%, rgba(0, 0, 0, 0.8) 64%, rgba(0, 0, 0, 0.22) 84%, rgba(0, 0, 0, 0) 98%) !important;
-                mask-image: radial-gradient(ellipse 70% 64% at 50% 36%, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 1) 36%, rgba(0, 0, 0, 0.8) 64%, rgba(0, 0, 0, 0.22) 84%, rgba(0, 0, 0, 0) 98%) !important;
+                -webkit-mask-image: radial-gradient(ellipse 58% 54% at 50% 36%, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 1) 28%, rgba(0, 0, 0, 0.7) 55%, rgba(0, 0, 0, 0.2) 80%, rgba(0, 0, 0, 0) 98%) !important;
+                mask-image: radial-gradient(ellipse 58% 54% at 50% 36%, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 1) 28%, rgba(0, 0, 0, 0.7) 55%, rgba(0, 0, 0, 0.2) 80%, rgba(0, 0, 0, 0) 98%) !important;
             }
         }
     </style>

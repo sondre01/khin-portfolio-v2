@@ -1177,23 +1177,23 @@ body.theme-light .card-avatar {
         margin: 0 auto !important;
     }
 
-    /* 3. Mobile Vignette Masks: Dark Mode Deep Vignette & Light Mode Signature Smiley Curve */
+    /* 3. Mobile Vignette Masks: Dark/Default Vertically Oval Vignette & Light Mode Signature Smiley Curve */
     .hero-center-img,
     #hero-center-img,
     body.dark-mode .hero-center-img,
     body.theme-default .hero-center-img,
     body.theme-night .hero-center-img {
-        -webkit-mask-image: radial-gradient(ellipse 70% 64% at 50% 36%, 
+        -webkit-mask-image: radial-gradient(ellipse 58% 54% at 50% 36%, 
                             rgba(0, 0, 0, 1) 0%, 
-                            rgba(0, 0, 1) 36%, 
-                            rgba(0, 0, 0, 0.8) 64%, 
-                            rgba(0, 0, 0, 0.22) 84%, 
+                            rgba(0, 0, 1) 28%, 
+                            rgba(0, 0, 0, 0.7) 55%, 
+                            rgba(0, 0, 0, 0.2) 80%, 
                             rgba(0, 0, 0, 0) 98%) !important;
-        mask-image: radial-gradient(ellipse 70% 64% at 50% 36%, 
+        mask-image: radial-gradient(ellipse 58% 54% at 50% 36%, 
                     rgba(0, 0, 0, 1) 0%, 
-                    rgba(0, 0, 1) 36%, 
-                    rgba(0, 0, 0, 0.8) 64%, 
-                    rgba(0, 0, 0, 0.22) 84%, 
+                    rgba(0, 0, 1) 28%, 
+                    rgba(0, 0, 0, 0.7) 55%, 
+                    rgba(0, 0, 0, 0.2) 80%, 
                     rgba(0, 0, 0, 0) 98%) !important;
     }
 

@@ -74,19 +74,19 @@
     background: transparent !important;
     transform: none !important;
 
-    /* Softened Vignette Mask (Preserves full shoulders, barong, and details without excessive cropping) */
-    -webkit-mask-image: radial-gradient(ellipse 76% 66% at 50% 38%, 
+    /* Signature Vertically Oval Vignette Mask */
+    -webkit-mask-image: radial-gradient(ellipse 58% 54% at 50% 36%, 
                         rgba(0, 0, 0, 1) 0%, 
-                        rgba(0, 0, 1) 52%, 
-                        rgba(0, 0, 0, 0.85) 75%, 
-                        rgba(0, 0, 0, 0.3) 90%, 
-                        rgba(0, 0, 0, 0) 100%);
-    mask-image: radial-gradient(ellipse 76% 66% at 50% 38%, 
+                        rgba(0, 0, 1) 32%, 
+                        rgba(0, 0, 0, 0.75) 60%, 
+                        rgba(0, 0, 0, 0.25) 82%, 
+                        rgba(0, 0, 0, 0) 98%);
+    mask-image: radial-gradient(ellipse 58% 54% at 50% 36%, 
                 rgba(0, 0, 0, 1) 0%, 
-                rgba(0, 0, 1) 52%, 
-                rgba(0, 0, 0, 0.85) 75%, 
-                rgba(0, 0, 0, 0.3) 90%, 
-                rgba(0, 0, 0, 0) 100%);
+                rgba(0, 0, 1) 32%, 
+                rgba(0, 0, 0, 0.75) 60%, 
+                rgba(0, 0, 0, 0.25) 82%, 
+                rgba(0, 0, 0, 0) 98%);
 }
 
 .about-profile-col .intro-card:hover,
@@ -1019,20 +1019,20 @@ body.theme-light .about-profile-col .photo-light {
     display: block !important;
 }
 
-/* ONLY IN LIGHT MODE: About Avatar Cutout (Softened Vignette Mask) */
+/* ONLY IN LIGHT MODE: About Avatar Cutout (Vertically Oval Vignette Mask) */
 body.theme-light .about-profile-col .card-avatar {
-    -webkit-mask-image: radial-gradient(ellipse 76% 66% at 50% 38%, 
+    -webkit-mask-image: radial-gradient(ellipse 58% 54% at 50% 36%, 
                         rgba(0, 0, 0, 1) 0%, 
-                        rgba(0, 0, 1) 52%, 
-                        rgba(0, 0, 0, 0.85) 75%, 
-                        rgba(0, 0, 0, 0.3) 90%, 
-                        rgba(0, 0, 0, 0) 100%) !important;
-    mask-image: radial-gradient(ellipse 76% 66% at 50% 38%, 
+                        rgba(0, 0, 1) 32%, 
+                        rgba(0, 0, 0, 0.75) 60%, 
+                        rgba(0, 0, 0, 0.25) 82%, 
+                        rgba(0, 0, 0, 0) 98%) !important;
+    mask-image: radial-gradient(ellipse 58% 54% at 50% 36%, 
                 rgba(0, 0, 0, 1) 0%, 
-                rgba(0, 0, 1) 52%, 
-                rgba(0, 0, 0, 0.85) 75%, 
-                rgba(0, 0, 0, 0.3) 90%, 
-                rgba(0, 0, 0, 0) 100%) !important;
+                rgba(0, 0, 1) 32%, 
+                rgba(0, 0, 0, 0.75) 60%, 
+                rgba(0, 0, 0, 0.25) 82%, 
+                rgba(0, 0, 0, 0) 98%) !important;
     filter: none !important;
     box-shadow: none !important;
     background: transparent !important;

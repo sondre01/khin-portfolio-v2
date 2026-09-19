@@ -1,13 +1,13 @@
 /* Import section-specific stylesheets */
-@import "home.css?v=20260919_20";
-@import "about.css?v=20260919_20";
-@import "skills.css?v=20260919_20";
-@import "certifications.css?v=20260919_20";
-@import "education.css?v=20260919_20";
-@import "work.css?v=20260919_20";
-@import "contact.css?v=20260919_20";
-@import "footer.css?v=20260919_20";
-@import "sidenav.css?v=20260919_20";
+@import "home.css?v=20260919_21";
+@import "about.css?v=20260919_21";
+@import "skills.css?v=20260919_21";
+@import "certifications.css?v=20260919_21";
+@import "education.css?v=20260919_21";
+@import "work.css?v=20260919_21";
+@import "contact.css?v=20260919_21";
+@import "footer.css?v=20260919_21";
+@import "sidenav.css?v=20260919_21";
 
 /* ==========================================================================
    THEME VARIABLES & TOKENS
@@ -2090,18 +2090,18 @@ body.dark-mode .row-expand-toggle-btn:hover {
         object-position: center top !important;
         margin: 0 auto !important;
         display: block !important;
-        -webkit-mask-image: radial-gradient(ellipse 76% 66% at 50% 38%, 
+        -webkit-mask-image: radial-gradient(ellipse 58% 54% at 50% 36%, 
                             rgba(0, 0, 0, 1) 0%, 
-                            rgba(0, 0, 1) 52%, 
-                            rgba(0, 0, 0, 0.85) 75%, 
-                            rgba(0, 0, 0, 0.3) 90%, 
-                            rgba(0, 0, 0, 0) 100%) !important;
-        mask-image: radial-gradient(ellipse 76% 66% at 50% 38%, 
+                            rgba(0, 0, 1) 32%, 
+                            rgba(0, 0, 0, 0.75) 60%, 
+                            rgba(0, 0, 0, 0.25) 82%, 
+                            rgba(0, 0, 0, 0) 98%) !important;
+        mask-image: radial-gradient(ellipse 58% 54% at 50% 36%, 
                     rgba(0, 0, 0, 1) 0%, 
-                    rgba(0, 0, 1) 52%, 
-                    rgba(0, 0, 0, 0.85) 75%, 
-                    rgba(0, 0, 0, 0.3) 90%, 
-                    rgba(0, 0, 0, 0) 100%) !important;
+                    rgba(0, 0, 1) 32%, 
+                    rgba(0, 0, 0, 0.75) 60%, 
+                    rgba(0, 0, 0, 0.25) 82%, 
+                    rgba(0, 0, 0, 0) 98%) !important;
     }
 
     /* Profile Overview Bio & Stats: Strict containment within mobile frame */
