@@ -1,13 +1,13 @@
 /* Import section-specific stylesheets */
-@import "home.css?v=20260919_16";
-@import "about.css?v=20260919_16";
-@import "skills.css?v=20260919_16";
-@import "certifications.css?v=20260919_16";
-@import "education.css?v=20260919_16";
-@import "work.css?v=20260919_16";
-@import "contact.css?v=20260919_16";
-@import "footer.css?v=20260919_16";
-@import "sidenav.css?v=20260919_16";
+@import "home.css?v=20260919_17";
+@import "about.css?v=20260919_17";
+@import "skills.css?v=20260919_17";
+@import "certifications.css?v=20260919_17";
+@import "education.css?v=20260919_17";
+@import "work.css?v=20260919_17";
+@import "contact.css?v=20260919_17";
+@import "footer.css?v=20260919_17";
+@import "sidenav.css?v=20260919_17";
 
 /* ==========================================================================
    THEME VARIABLES & TOKENS
@@ -2084,6 +2084,18 @@ body.dark-mode .row-expand-toggle-btn:hover {
         object-position: center top !important;
         margin: 0 auto !important;
         display: block !important;
+        -webkit-mask-image: radial-gradient(ellipse 58% 54% at 50% 36%, 
+                            rgba(0, 0, 0, 1) 0%, 
+                            rgba(0, 0, 1) 32%, 
+                            rgba(0, 0, 0, 0.75) 60%, 
+                            rgba(0, 0, 0, 0.25) 82%, 
+                            rgba(0, 0, 0, 0) 98%) !important;
+        mask-image: radial-gradient(ellipse 58% 54% at 50% 36%, 
+                    rgba(0, 0, 0, 1) 0%, 
+                    rgba(0, 0, 1) 32%, 
+                    rgba(0, 0, 0, 0.75) 60%, 
+                    rgba(0, 0, 0, 0.25) 82%, 
+                    rgba(0, 0, 0, 0) 98%) !important;
     }
     
     /* Search overlay mobile refinements */

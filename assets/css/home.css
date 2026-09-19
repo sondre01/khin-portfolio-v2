@@ -1092,10 +1092,10 @@ body.theme-light .photo-light {
     display: block !important;
 }
 
-/* ONLY IN LIGHT MODE: Hero Image & Avatar Cutout Handling (Smiley Curve Bottom Vignette Mask) */
+/* ONLY IN LIGHT MODE: Hero Image & Avatar Cutout Handling (Hyper-Curvy Vignette Mask) */
 body.theme-light .hero-center-img {
-    -webkit-mask-image: radial-gradient(ellipse 90% 52% at 50% 38%, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 1) 64%, rgba(0, 0, 0, 0) 100%) !important;
-    mask-image: radial-gradient(ellipse 90% 52% at 50% 38%, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 1) 64%, rgba(0, 0, 0, 0) 100%) !important;
+    -webkit-mask-image: radial-gradient(ellipse 58% 54% at 50% 36%, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 1) 28%, rgba(0, 0, 0, 0.7) 55%, rgba(0, 0, 0, 0.2) 80%, rgba(0, 0, 0, 0) 98%) !important;
+    mask-image: radial-gradient(ellipse 58% 54% at 50% 36%, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 1) 28%, rgba(0, 0, 0, 0.7) 55%, rgba(0, 0, 0, 0.2) 80%, rgba(0, 0, 0, 0) 98%) !important;
     filter: none !important;
     box-shadow: none !important;
     background: transparent !important;
@@ -1103,8 +1103,8 @@ body.theme-light .hero-center-img {
 }
 
 body.theme-light .card-avatar {
-    -webkit-mask-image: radial-gradient(ellipse 90% 52% at 50% 38%, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 1) 64%, rgba(0, 0, 0, 0) 100%) !important;
-    mask-image: radial-gradient(ellipse 90% 52% at 50% 38%, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 1) 64%, rgba(0, 0, 0, 0) 100%) !important;
+    -webkit-mask-image: radial-gradient(ellipse 58% 54% at 50% 36%, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 1) 32%, rgba(0, 0, 0, 0.75) 60%, rgba(0, 0, 0, 0.25) 82%, rgba(0, 0, 0, 0) 98%) !important;
+    mask-image: radial-gradient(ellipse 58% 54% at 50% 36%, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 1) 32%, rgba(0, 0, 0, 0.75) 60%, rgba(0, 0, 0, 0.25) 82%, rgba(0, 0, 0, 0) 98%) !important;
     filter: none !important;
     box-shadow: none !important;
     background: transparent !important;
@@ -1177,33 +1177,25 @@ body.theme-light .card-avatar {
         margin: 0 auto !important;
     }
 
-    /* 3. Refined Mobile Vignette Mask — Crisp Face & Shoulders with Smooth Feathered Base */
+    /* 3. Signature Hyper-Curvy Vignette Mask (Preserved on Mobile) */
+    .hero-center-img,
+    #hero-center-img,
     body.dark-mode .hero-center-img,
     body.theme-default .hero-center-img,
-    body.theme-night .hero-center-img {
-        -webkit-mask-image: radial-gradient(ellipse 70% 64% at 50% 36%, 
-                            rgba(0, 0, 0, 1) 0%, 
-                            rgba(0, 0, 1) 38%, 
-                            rgba(0, 0, 0, 0.8) 62%, 
-                            rgba(0, 0, 0, 0.22) 84%, 
-                            rgba(0, 0, 0, 0) 98%) !important;
-        mask-image: radial-gradient(ellipse 70% 64% at 50% 36%, 
-                    rgba(0, 0, 0, 1) 0%, 
-                    rgba(0, 0, 1) 38%, 
-                    rgba(0, 0, 0, 0.8) 62%, 
-                    rgba(0, 0, 0, 0.22) 84%, 
-                    rgba(0, 0, 0, 0) 98%) !important;
-    }
-
+    body.theme-night .hero-center-img,
     body.theme-light .hero-center-img {
-        -webkit-mask-image: radial-gradient(ellipse 85% 58% at 50% 38%, 
+        -webkit-mask-image: radial-gradient(ellipse 58% 54% at 50% 36%, 
                             rgba(0, 0, 0, 1) 0%, 
-                            rgba(0, 0, 1) 68%, 
-                            rgba(0, 0, 0, 0) 100%) !important;
-        mask-image: radial-gradient(ellipse 85% 58% at 50% 38%, 
+                            rgba(0, 0, 1) 28%, 
+                            rgba(0, 0, 0, 0.7) 55%, 
+                            rgba(0, 0, 0, 0.2) 80%, 
+                            rgba(0, 0, 0, 0) 98%) !important;
+        mask-image: radial-gradient(ellipse 58% 54% at 50% 36%, 
                     rgba(0, 0, 0, 1) 0%, 
-                    rgba(0, 0, 1) 68%, 
-                    rgba(0, 0, 0, 0) 100%) !important;
+                    rgba(0, 0, 1) 28%, 
+                    rgba(0, 0, 0, 0.7) 55%, 
+                    rgba(0, 0, 0, 0.2) 80%, 
+                    rgba(0, 0, 0, 0) 98%) !important;
     }
 
     /* 4. Bottom Hero Typography Placement */

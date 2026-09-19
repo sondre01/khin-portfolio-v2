@@ -989,10 +989,20 @@ body.theme-light .about-profile-col .photo-light {
     display: block !important;
 }
 
-/* ONLY IN LIGHT MODE: About Avatar Cutout (Smiley Curve Bottom Vignette Mask) */
+/* ONLY IN LIGHT MODE: About Avatar Cutout (Hyper-Curvy Vignette Mask) */
 body.theme-light .about-profile-col .card-avatar {
-    -webkit-mask-image: radial-gradient(ellipse 90% 52% at 50% 38%, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 1) 64%, rgba(0, 0, 0, 0) 100%) !important;
-    mask-image: radial-gradient(ellipse 90% 52% at 50% 38%, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 1) 64%, rgba(0, 0, 0, 0) 100%) !important;
+    -webkit-mask-image: radial-gradient(ellipse 58% 54% at 50% 36%, 
+                        rgba(0, 0, 0, 1) 0%, 
+                        rgba(0, 0, 1) 32%, 
+                        rgba(0, 0, 0, 0.75) 60%, 
+                        rgba(0, 0, 0, 0.25) 82%, 
+                        rgba(0, 0, 0, 0) 98%) !important;
+    mask-image: radial-gradient(ellipse 58% 54% at 50% 36%, 
+                rgba(0, 0, 0, 1) 0%, 
+                rgba(0, 0, 1) 32%, 
+                rgba(0, 0, 0, 0.75) 60%, 
+                rgba(0, 0, 0, 0.25) 82%, 
+                rgba(0, 0, 0, 0) 98%) !important;
     filter: none !important;
     box-shadow: none !important;
     background: transparent !important;
