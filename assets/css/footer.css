@@ -148,3 +148,31 @@
         margin-bottom: 20px;
     }
 }
+
+/* ==========================================================================
+   FOOTER SECTION LIGHT MODE OVERRIDES (Reverse Color Distribution)
+   ========================================================================== */
+body.theme-light .footer-name {
+    color: #0a0a0a !important;
+    -webkit-text-fill-color: #0a0a0a !important;
+}
+
+body.theme-light .footer-divider {
+    background-color: var(--border-color, #d5dce6) !important;
+}
+
+body.theme-light .footer-copyright {
+    color: #475569 !important;
+}
+
+body.theme-light .footer-motto {
+    color: #475569 !important;
+}
+
+body.theme-light .footer-location {
+    color: #1e293b !important;
+}
+
+body.theme-light .footer-location:hover {
+    color: #0a0a0a !important;
+}

@@ -547,3 +547,181 @@
         height: 140px;
     }
 }
+
+/* ==========================================================================
+   CERTIFICATIONS SECTION LIGHT MODE OVERRIDES (Reverse Color Distribution)
+   ========================================================================== */
+body.theme-light .certifications-section h2 {
+    color: #0a0a0a !important;
+    -webkit-text-fill-color: #0a0a0a !important;
+}
+
+body.theme-light .cert-card-front,
+body.theme-light .cert-card-back {
+    background-color: var(--bg-card, #eceff3) !important;
+    border: 1px solid var(--border-color, #d5dce6) !important;
+    box-shadow: var(--card-shadow) !important;
+}
+
+body.theme-light .cert-card:hover .cert-card-front,
+body.theme-light .cert-card:hover .cert-card-back {
+    border-color: #0a0a0a !important;
+    box-shadow: var(--card-shadow-hover) !important;
+}
+
+body.theme-light .cert-img-wrapper {
+    background: #dfe4ec !important;
+    border: 1px solid #d5dce6 !important;
+}
+
+body.theme-light .cert-badge-tag {
+    background: #000000 !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45) !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.6px !important;
+    z-index: 5 !important;
+}
+
+body.theme-light .cert-issuer {
+    color: #475569 !important;
+}
+
+body.theme-light .cert-title {
+    color: #0a0a0a !important;
+}
+
+body.theme-light .cert-date {
+    color: #475569 !important;
+}
+
+body.theme-light .cert-cred-tag {
+    color: #0a0a0a !important;
+    -webkit-text-fill-color: #0a0a0a !important;
+    background: var(--badge-bg, #dde2ea) !important;
+    border-color: #d5dce6 !important;
+    font-weight: 600 !important;
+}
+
+body.theme-light .cert-cred-tag svg,
+body.theme-light .cert-cred-tag i {
+    color: #0a0a0a !important;
+    stroke: #0a0a0a !important;
+}
+
+body.theme-light .cert-desc {
+    color: #1e293b !important;
+}
+
+body.theme-light .cert-footer {
+    border-top-color: rgba(10, 10, 10, 0.08) !important;
+}
+
+body.theme-light .cert-flip-hint {
+    color: #475569 !important;
+}
+
+body.theme-light .cert-card:hover .cert-flip-hint {
+    color: #0a0a0a !important;
+}
+
+body.theme-light .cert-link {
+    color: #0a0a0a !important;
+    -webkit-text-fill-color: #0a0a0a !important;
+    font-weight: 700 !important;
+    opacity: 1 !important;
+}
+
+body.theme-light .cert-link span {
+    color: #0a0a0a !important;
+    -webkit-text-fill-color: #0a0a0a !important;
+    font-weight: 700 !important;
+}
+
+body.theme-light .cert-link svg,
+body.theme-light .cert-link i {
+    color: #0a0a0a !important;
+    stroke: #0a0a0a !important;
+    stroke-width: 2.2px !important;
+}
+
+body.theme-light .cert-link:hover {
+    color: #000000 !important;
+    -webkit-text-fill-color: #000000 !important;
+    opacity: 0.75 !important;
+    transform: translateX(3px);
+}
+
+body.theme-light .cert-link:hover span {
+    color: #000000 !important;
+    -webkit-text-fill-color: #000000 !important;
+}
+
+body.theme-light .cert-link:hover svg,
+body.theme-light .cert-link:hover i {
+    color: #000000 !important;
+    stroke: #000000 !important;
+}
+
+body.theme-light .cert-back-header {
+    border-bottom-color: rgba(10, 10, 10, 0.08) !important;
+}
+
+body.theme-light .cert-back-title {
+    color: #0a0a0a !important;
+}
+
+body.theme-light .cert-back-title i {
+    color: #0a0a0a !important;
+}
+
+body.theme-light .cert-flip-back-btn {
+    background: var(--badge-bg, #dde2ea) !important;
+    border: 1px solid #d5dce6 !important;
+    color: #0a0a0a !important;
+}
+
+body.theme-light .cert-flip-back-btn:hover {
+    background: #0a0a0a !important;
+    border-color: #0a0a0a !important;
+    color: #ffffff !important;
+}
+
+body.theme-light .cert-back-about {
+    color: #1e293b !important;
+}
+
+body.theme-light .cert-back-about strong {
+    color: #0a0a0a !important;
+}
+
+body.theme-light .cert-skills-heading {
+    color: #0a0a0a !important;
+    -webkit-text-fill-color: #0a0a0a !important;
+    font-weight: 700 !important;
+}
+
+body.theme-light .skill-pill {
+    background: var(--badge-bg, #dde2ea) !important;
+    border: 1px solid #d5dce6 !important;
+    color: #0a0a0a !important;
+}
+
+body.theme-light .cert-modal-container {
+    background: var(--bg-card, #eceff3) !important;
+    border: 1px solid #d5dce6 !important;
+    box-shadow: 0 25px 60px rgba(10, 10, 10, 0.22) !important;
+}
+
+body.theme-light .cert-modal-close {
+    background: #0a0a0a !important;
+    color: #ffffff !important;
+    border-color: #0a0a0a !important;
+    box-shadow: 0 4px 15px rgba(10, 10, 10, 0.2) !important;
+}
+
+body.theme-light .cert-modal-caption {
+    color: #0a0a0a !important;
+}

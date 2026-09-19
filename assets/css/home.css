@@ -47,8 +47,8 @@
 /* Centered Hero Image Wrapper & Revealed State Styles */
 .hero-center-img-wrapper {
     position: absolute;
-    top: calc(50% + 30px); /* Centered in visual space below fixed 60px header */
-    left: 50%;
+    top: calc(50% - 10px); /* Lifted upward to maximize upper space and eliminate empty headroom */
+    left: 50%; /* Truly centered in visual canvas */
     transform: translate(-50%, -50%) scale(0.95);
     z-index: 2;
     display: flex;
@@ -69,6 +69,12 @@
                 visibility 0.8s ease;
 }
 
+@media (max-width: 1024px) {
+    .hero-center-img-wrapper {
+        left: 50% !important; /* Perfect center across all viewport sizes */
+    }
+}
+
 .hero-center-img {
     max-height: 96vh;
     max-width: 100%;
@@ -82,7 +88,7 @@
     outline: none !important;
     background: transparent !important;
 
-    /* Hyper-Curvy Sweeping U-Shaped Bottom Oval Vignette Mask */
+    /* Hyper-Curvy Sweeping U-Shaped Bottom Oval Vignette Mask (Dark Mode Default) */
     -webkit-mask-image: radial-gradient(ellipse 58% 54% at 50% 36%, 
                         rgba(0, 0, 0, 1) 0%, 
                         rgba(0, 0, 0, 1) 28%, 
@@ -102,7 +108,7 @@ body.dark-mode .hero-center-img {
     filter: none !important;
 }
 
-/* Revealed State: Fades and scales in smoothly over 0.8s */
+/* Revealed State: Fades and scales in smoothly over 0.8s at original size */
 .hero-center-img-wrapper.hero-img-revealed {
     opacity: 1;
     visibility: visible;
@@ -922,8 +928,8 @@ body.dark-mode .scroll-explore {
 .section-separator-banner {
     width: 100%;
     max-width: none;
-    margin: 80px 0 40px 0;
-    padding: 60px 40px;
+    margin: 48px 0 20px 0;
+    padding: 36px 40px;
     box-sizing: border-box;
     display: flex;
     align-items: center;
@@ -1000,4 +1006,110 @@ body.dark-mode .scroll-explore {
         transform: translateY(2px);
     }
 }
+
+/* ==========================================================================
+   HOME SECTION LIGHT MODE OVERRIDES (Reverse Color Distribution)
+   ========================================================================== */
+body.theme-light .home-section {
+    background: transparent;
+}
+
+body.theme-light .hero-line,
+body.theme-light .hero-line.hero-settled,
+body.theme-light .hero-line.hero-line-shifted,
+body.theme-light .hero-lead-text,
+body.theme-light .hero-title-main {
+    color: #0a0a0a !important;
+    text-shadow: none !important;
+    -webkit-text-fill-color: #0a0a0a !important;
+}
+
+body.theme-light .scroll-explore {
+    color: #475569 !important;
+}
+
+body.theme-light .hero-skills-title {
+    color: #475569 !important;
+}
+
+body.theme-light .hero-skill-name {
+    color: #0a0a0a !important;
+}
+
+body.theme-light .hero-skill-icon,
+body.theme-light .hero-skill-icon * {
+    stroke: #0a0a0a !important;
+}
+
+body.theme-light .hero-skill-item:hover .hero-skill-icon,
+body.theme-light .hero-skill-item:hover .hero-skill-icon * {
+    stroke: #000000 !important;
+}
+
+body.theme-light .hero-skill-tech-logo {
+    filter: brightness(0) opacity(0.85);
+}
+
+body.theme-light .hero-skill-item:hover .hero-skill-tech-logo {
+    filter: brightness(0) opacity(1);
+}
+
+body.theme-light .section-separator-banner {
+    border-top: 1px solid rgba(10, 10, 10, 0.08) !important;
+    border-bottom: 1px solid rgba(10, 10, 10, 0.08) !important;
+    background: linear-gradient(180deg, rgba(248, 249, 250, 0) 0%, rgba(236, 239, 243, 0.5) 50%, rgba(248, 249, 250, 0) 100%) !important;
+}
+
+body.theme-light .separator-line-1,
+body.theme-light .separator-line-2 {
+    color: #0a0a0a !important;
+    text-shadow: none !important;
+    -webkit-text-fill-color: #0a0a0a !important;
+}
+
+body.theme-light .separator-scroll-caption {
+    color: #475569 !important;
+}
+
+body.theme-light .separator-chevron {
+    stroke: #475569 !important;
+}
+
+/* Photo Display Switching (Default / Dark Mode vs Light Mode) */
+.photo-light {
+    display: none !important;
+}
+
+.photo-dark {
+    display: block !important;
+}
+
+body.theme-light .photo-dark {
+    display: none !important;
+}
+
+body.theme-light .photo-light {
+    display: block !important;
+}
+
+/* ONLY IN LIGHT MODE: Hero Image & Avatar Cutout Handling (Smiley Curve Bottom Vignette Mask) */
+body.theme-light .hero-center-img {
+    -webkit-mask-image: radial-gradient(ellipse 90% 52% at 50% 38%, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 1) 64%, rgba(0, 0, 0, 0) 100%) !important;
+    mask-image: radial-gradient(ellipse 90% 52% at 50% 38%, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 1) 64%, rgba(0, 0, 0, 0) 100%) !important;
+    filter: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    border: none !important;
+}
+
+body.theme-light .card-avatar {
+    -webkit-mask-image: radial-gradient(ellipse 90% 52% at 50% 38%, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 1) 64%, rgba(0, 0, 0, 0) 100%) !important;
+    mask-image: radial-gradient(ellipse 90% 52% at 50% 38%, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 1) 64%, rgba(0, 0, 0, 0) 100%) !important;
+    filter: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    border: none !important;
+}
+
+
 

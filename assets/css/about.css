@@ -6,7 +6,7 @@
     width: 100%;
     max-width: 1440px;
     margin: 0 auto;
-    padding: 80px 48px 40px 48px;
+    padding: 32px 48px 40px 48px;
     box-sizing: border-box;
     position: relative;
     z-index: 1;
@@ -15,7 +15,7 @@
 .about-grid-layout {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     gap: 48px;
     width: 100%;
 }
@@ -25,17 +25,17 @@
     width: auto;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
+    align-items: center;
+    justify-content: flex-start;
 }
 
 .about-profile-col .intro-card {
     height: 100%;
-    width: auto;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
+    align-items: center;
+    justify-content: flex-start;
     overflow: visible !important;
     background: transparent !important;
     border: none !important;
@@ -49,12 +49,13 @@
     aspect-ratio: 853 / 1280;
     flex: none;
     display: flex;
-    align-items: center;
-    justify-content: flex-start;
+    align-items: flex-start;
+    justify-content: center;
     overflow: visible !important;
     background: transparent !important;
     border: none !important;
     box-shadow: none !important;
+    margin: 0 auto;
 }
 
 .about-profile-col .card-avatar {
@@ -64,8 +65,8 @@
     max-height: 100%;
     display: block;
     object-fit: contain;
-    object-position: left center;
-    margin: 0;
+    object-position: center top;
+    margin: -25px auto 0 auto;
     border-radius: 0;
     border: none !important;
     box-shadow: none !important;
@@ -103,13 +104,13 @@
 
 @media (max-width: 992px) {
     .about-section {
-        padding: 50px 24px 30px 24px;
+        padding: 28px 24px 30px 24px;
     }
     
     .about-grid-layout {
         flex-direction: column;
         align-items: center;
-        gap: 32px;
+        gap: 28px;
     }
     
     .about-profile-col {
@@ -129,8 +130,8 @@
     }
 
     .about-profile-col .card-avatar {
-        object-position: center;
-        margin: 0 auto;
+        object-position: center top;
+        margin: -15px auto 0 auto;
     }
 }
 
@@ -847,3 +848,153 @@ body.dark-mode .about-photo.photo-dark {
     }
 }
 
+/* ==========================================================================
+   ABOUT & GITHUB SECTION LIGHT MODE OVERRIDES (Reverse Color Distribution)
+   ========================================================================== */
+body.theme-light .about-section h2,
+body.theme-light .about-desc-content h2 {
+    color: #0a0a0a !important;
+    -webkit-text-fill-color: #0a0a0a !important;
+}
+
+body.theme-light .about-desc-content p {
+    color: #1e293b !important;
+    -webkit-text-fill-color: #1e293b !important;
+}
+
+body.theme-light .about-metric-val {
+    color: #0a0a0a !important;
+    -webkit-text-fill-color: #0a0a0a !important;
+}
+
+body.theme-light .about-metric-label {
+    color: #475569 !important;
+    -webkit-text-fill-color: #475569 !important;
+}
+
+body.theme-light .about-metric-divider {
+    background-color: rgba(10, 10, 10, 0.12) !important;
+}
+
+/* GitHub Heatmap Light Theme */
+body.theme-light .github-title,
+body.theme-light .github-title-link {
+    color: #0a0a0a !important;
+    -webkit-text-fill-color: #0a0a0a !important;
+}
+
+body.theme-light .github-subtitle {
+    color: #475569 !important;
+}
+
+body.theme-light .github-total-badge {
+    color: #0a0a0a !important;
+    background: var(--badge-bg, #dde2ea) !important;
+    border: 1px solid var(--border-color, #d5dce6) !important;
+}
+
+body.theme-light .github-profile-link {
+    color: #334155 !important;
+}
+
+body.theme-light .github-profile-link:hover {
+    color: #0a0a0a !important;
+    text-decoration-color: rgba(10, 10, 10, 0.4) !important;
+}
+
+body.theme-light .github-profile-link svg,
+body.theme-light .github-profile-link .github-external-icon {
+    color: #475569 !important;
+}
+
+body.theme-light .github-profile-link:hover svg,
+body.theme-light .github-profile-link:hover .github-external-icon {
+    color: #0a0a0a !important;
+}
+
+body.theme-light .github-calendar-svg text.heatmap-label {
+    fill: #475569 !important;
+}
+
+body.theme-light .heatmap-day-cell:hover {
+    stroke: #0a0a0a !important;
+}
+
+body.theme-light .heatmap-day-cell.level-0 {
+    fill: #d8dee7 !important;
+}
+
+body.theme-light .heatmap-day-cell.level-1 {
+    fill: #94a3b8 !important;
+}
+
+body.theme-light .heatmap-day-cell.level-2 {
+    fill: #64748b !important;
+}
+
+body.theme-light .heatmap-day-cell.level-3 {
+    fill: #334155 !important;
+}
+
+body.theme-light .heatmap-day-cell.level-4 {
+    fill: #0a0a0a !important;
+    filter: none !important;
+}
+
+body.theme-light .github-status-pill {
+    color: #475569 !important;
+}
+
+body.theme-light .github-legend {
+    color: #475569 !important;
+}
+
+body.theme-light .github-legend-box.level-0 {
+    background: #d8dee7 !important;
+}
+
+body.theme-light .github-legend-box.level-1 {
+    background: #94a3b8 !important;
+}
+
+body.theme-light .github-legend-box.level-2 {
+    background: #64748b !important;
+}
+
+body.theme-light .github-legend-box.level-3 {
+    background: #334155 !important;
+}
+
+body.theme-light .github-legend-box.level-4 {
+    background: #0a0a0a !important;
+}
+
+body.theme-light .github-heatmap-tooltip {
+    background: var(--bg-card, #eceff3) !important;
+    border: 1px solid var(--border-color, #d5dce6) !important;
+    box-shadow: 0 8px 24px rgba(10, 10, 10, 0.14) !important;
+    color: #0a0a0a !important;
+}
+
+body.theme-light .github-heatmap-tooltip strong {
+    color: #0a0a0a !important;
+}
+
+/* Photo Display Switching for About Profile Card */
+body.theme-light .about-profile-col .photo-dark {
+    display: none !important;
+}
+
+body.theme-light .about-profile-col .photo-light {
+    display: block !important;
+}
+
+/* ONLY IN LIGHT MODE: About Avatar Cutout (Smiley Curve Bottom Vignette Mask) */
+body.theme-light .about-profile-col .card-avatar {
+    -webkit-mask-image: radial-gradient(ellipse 90% 52% at 50% 38%, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 1) 64%, rgba(0, 0, 0, 0) 100%) !important;
+    mask-image: radial-gradient(ellipse 90% 52% at 50% 38%, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 1) 64%, rgba(0, 0, 0, 0) 100%) !important;
+    filter: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    border: none !important;
+}

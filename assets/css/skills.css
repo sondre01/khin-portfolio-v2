@@ -448,3 +448,97 @@ body.dark-mode .skills-tab.active svg {
         gap: 20px;
     }
 }
+
+/* ==========================================================================
+   SKILLS SECTION LIGHT MODE OVERRIDES (Reverse Color Distribution)
+   ========================================================================== */
+body.theme-light .skills-section h2 {
+    color: #0a0a0a !important;
+    -webkit-text-fill-color: #0a0a0a !important;
+}
+
+body.theme-light .skills-card-header {
+    border-bottom-color: rgba(10, 10, 10, 0.08) !important;
+}
+
+body.theme-light .skills-card-header svg {
+    color: #0a0a0a !important;
+}
+
+body.theme-light .skills-card-header h3 {
+    color: #0a0a0a !important;
+    -webkit-text-fill-color: #0a0a0a !important;
+}
+
+body.theme-light .skills-subcategory h4 {
+    color: #0a0a0a !important;
+    border-color: #0a0a0a !important;
+}
+
+body.theme-light .skills-list li {
+    color: #1e293b !important;
+}
+
+body.theme-light .skills-list li strong {
+    color: #0a0a0a !important;
+}
+
+body.theme-light .skills-list li::before {
+    color: #0a0a0a !important;
+}
+
+body.theme-light .skill-detail {
+    color: #475569 !important;
+}
+
+body.theme-light .skill-name {
+    color: #0a0a0a !important;
+}
+
+body.theme-light .skills-tabs {
+    background-color: var(--badge-bg, #dde2ea) !important;
+    border: 1px solid var(--border-color, #d5dce6) !important;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.04) !important;
+}
+
+body.theme-light .skills-tab {
+    color: #475569 !important;
+}
+
+body.theme-light .skills-tab svg {
+    color: #475569 !important;
+}
+
+body.theme-light .skills-tab:hover {
+    color: #0a0a0a !important;
+}
+
+body.theme-light .skills-tab:hover svg {
+    color: #0a0a0a !important;
+}
+
+body.theme-light .skills-tab.active {
+    background-color: #ffffff !important;
+    color: #0a0a0a !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+}
+
+body.theme-light .skills-tab.active svg {
+    color: #0a0a0a !important;
+}
+
+body.theme-light .skills-content-pane .skills-card {
+    background: var(--bg-card, #eceff3) !important;
+    border: 1px solid var(--border-color, #d5dce6) !important;
+    box-shadow: var(--card-shadow) !important;
+}
+
+body.theme-light .skills-content-pane .skills-card:hover {
+    border-color: #0a0a0a !important;
+    box-shadow: var(--card-shadow-hover) !important;
+}
+
+body.theme-light .skill-tooltip {
+    background-color: #0a0a0a !important;
+    color: #ffffff !important;
+}

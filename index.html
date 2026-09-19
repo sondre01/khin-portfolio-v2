@@ -15,57 +15,151 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Oswald:wght@500;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/home.css?v=20260916_27">
-    <link rel="stylesheet" href="assets/css/index.css?v=20260916_40">
+    <link rel="stylesheet" href="assets/css/home.css?v=20260919_14">
+    <link rel="stylesheet" href="assets/css/index.css?v=20260919_14">
     <style>
-        /* Strict High-Contrast Typography: Light Cards -> Dark Black (#121212), Dark Cards -> Crisp Solid White (#ffffff) */
-        .project-flip-card[data-card-theme="light"],
-        .project-flip-card[data-card-theme="light"] *,
-        .project-flip-card:not([data-card-theme="dark"]),
-        .project-flip-card:not([data-card-theme="dark"]) * {
+        /* Dark Mode Project Cards Dual-Theme */
+        body.dark-mode .project-flip-card[data-card-theme="light"],
+        body.dark-mode .project-flip-card[data-card-theme="light"] *,
+        body.dark-mode .project-flip-card:not([data-card-theme="dark"]),
+        body.dark-mode .project-flip-card:not([data-card-theme="dark"]) * {
             color: #121212 !important;
             -webkit-text-fill-color: #121212 !important;
             text-shadow: none !important;
         }
 
-        .project-flip-card[data-card-theme="dark"],
-        .project-flip-card[data-card-theme="dark"] * {
+        body.dark-mode .project-flip-card[data-card-theme="dark"],
+        body.dark-mode .project-flip-card[data-card-theme="dark"] * {
             color: #ffffff !important;
             -webkit-text-fill-color: #ffffff !important;
             text-shadow: none !important;
         }
 
-        /* Hover states */
-        .project-flip-card[data-card-theme="light"] .work-tag:hover,
-        .project-flip-card[data-card-theme="light"] .doc-link-btn:hover,
-        .project-flip-card:not([data-card-theme="dark"]) .work-tag:hover,
-        .project-flip-card:not([data-card-theme="dark"]) .doc-link-btn:hover {
+        /* Hover states in Dark Mode */
+        body.dark-mode .project-flip-card[data-card-theme="light"] .work-tag:hover,
+        body.dark-mode .project-flip-card[data-card-theme="light"] .doc-link-btn:hover,
+        body.dark-mode .project-flip-card:not([data-card-theme="dark"]) .work-tag:hover,
+        body.dark-mode .project-flip-card:not([data-card-theme="dark"]) .doc-link-btn:hover {
             color: #ffffff !important;
             -webkit-text-fill-color: #ffffff !important;
             background-color: #121212 !important;
             border-color: #121212 !important;
         }
 
-        .project-flip-card[data-card-theme="light"] .doc-link-btn:hover i,
-        .project-flip-card[data-card-theme="light"] .doc-link-btn:hover svg,
-        .project-flip-card:not([data-card-theme="dark"]) .doc-link-btn:hover i,
-        .project-flip-card:not([data-card-theme="dark"]) .doc-link-btn:hover svg {
+        body.dark-mode .project-flip-card[data-card-theme="light"] .doc-link-btn:hover i,
+        body.dark-mode .project-flip-card[data-card-theme="light"] .doc-link-btn:hover svg,
+        body.dark-mode .project-flip-card:not([data-card-theme="dark"]) .doc-link-btn:hover i,
+        body.dark-mode .project-flip-card:not([data-card-theme="dark"]) .doc-link-btn:hover svg {
             color: #ffffff !important;
             stroke: #ffffff !important;
         }
 
-        .project-flip-card[data-card-theme="dark"] .work-tag:hover,
-        .project-flip-card[data-card-theme="dark"] .doc-link-btn:hover {
+        body.dark-mode .project-flip-card[data-card-theme="dark"] .work-tag:hover,
+        body.dark-mode .project-flip-card[data-card-theme="dark"] .doc-link-btn:hover {
             color: #0d1117 !important;
             -webkit-text-fill-color: #0d1117 !important;
             background-color: #ffffff !important;
             border-color: #ffffff !important;
         }
 
-        .project-flip-card[data-card-theme="dark"] .doc-link-btn:hover i,
-        .project-flip-card[data-card-theme="dark"] .doc-link-btn:hover svg {
+        body.dark-mode .project-flip-card[data-card-theme="dark"] .doc-link-btn:hover i,
+        body.dark-mode .project-flip-card[data-card-theme="dark"] .doc-link-btn:hover svg {
             color: #0d1117 !important;
             stroke: #0d1117 !important;
+        }
+
+        /* LIGHT MODE REVERSE COLOR DISTRIBUTION:
+           All project cards regardless of attribute have a slightly darker shaded background (#eceff3)
+           and 100% crisp solid black / dark text */
+        body.theme-light .project-flip-card,
+        body.theme-light .project-flip-card *,
+        body.theme-light .project-flip-card[data-card-theme="dark"],
+        body.theme-light .project-flip-card[data-card-theme="dark"] *,
+        body.theme-light .project-flip-card[data-card-theme="light"],
+        body.theme-light .project-flip-card[data-card-theme="light"] * {
+            color: #0a0a0a !important;
+            -webkit-text-fill-color: #0a0a0a !important;
+            text-shadow: none !important;
+        }
+
+        body.theme-light .project-flip-card,
+        body.theme-light .project-flip-card[data-card-theme="dark"],
+        body.theme-light .project-flip-card[data-card-theme="light"] {
+            background-color: var(--bg-card, #eceff3) !important;
+            border: 1px solid var(--border-color, #d5dce6) !important;
+            box-shadow: var(--card-shadow) !important;
+        }
+
+        body.theme-light .project-flip-card:hover,
+        body.theme-light .project-flip-card.is-revealed,
+        body.theme-light .project-flip-card[data-card-theme="dark"]:hover,
+        body.theme-light .project-flip-card[data-card-theme="dark"].is-revealed,
+        body.theme-light .project-flip-card[data-card-theme="light"]:hover,
+        body.theme-light .project-flip-card[data-card-theme="light"].is-revealed {
+            background-color: var(--bg-card, #eceff3) !important;
+            border-color: var(--border-focus, #0a0a0a) !important;
+            box-shadow: var(--card-shadow-hover) !important;
+        }
+
+        body.theme-light .project-flip-card .project-card-back .work-tag,
+        body.theme-light .project-flip-card .project-card-back .doc-link-btn,
+        body.theme-light .project-flip-card .project-verify-btn {
+            background-color: var(--badge-bg, #dde2ea) !important;
+            border: 1px solid var(--border-color, #d5dce6) !important;
+            color: #0a0a0a !important;
+            -webkit-text-fill-color: #0a0a0a !important;
+        }
+
+        body.theme-light .project-flip-card .project-card-back .doc-link-btn i,
+        body.theme-light .project-flip-card .project-card-back .doc-link-btn svg {
+            color: #0a0a0a !important;
+            stroke: #0a0a0a !important;
+        }
+
+        body.theme-light .project-flip-card .project-card-back .work-tag:hover,
+        body.theme-light .project-flip-card .project-card-back .doc-link-btn:hover,
+        body.theme-light .project-flip-card .project-verify-btn:hover {
+            background-color: #0a0a0a !important;
+            border-color: #0a0a0a !important;
+            color: #ffffff !important;
+            -webkit-text-fill-color: #ffffff !important;
+        }
+
+        body.theme-light .project-flip-card .project-card-back .doc-link-btn:hover i,
+        body.theme-light .project-flip-card .project-card-back .doc-link-btn:hover svg {
+            color: #ffffff !important;
+            stroke: #ffffff !important;
+        }
+
+        /* ==========================================================================
+           ONLY IN LIGHT MODE: Smiley Curve Bottom Vignette Mask (Zero Ashy Effect)
+           Head, hair, ears, chest, hands remain 100% crisp, while the bottom edge
+           gracefully sweeps in a natural, smooth smiley curve into the canvas.
+           ========================================================================== */
+        body.theme-light .hero-center-img,
+        body.theme-light .card-avatar,
+        body.theme-light .about-profile-col .card-avatar {
+            -webkit-mask-image: radial-gradient(ellipse 90% 52% at 50% 38%, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 1) 64%, rgba(0, 0, 0, 0) 100%) !important;
+            mask-image: radial-gradient(ellipse 90% 52% at 50% 38%, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 1) 64%, rgba(0, 0, 0, 0) 100%) !important;
+            filter: none !important;
+            box-shadow: none !important;
+            background: transparent !important;
+            border: none !important;
+        }
+
+        /* Dark / Night Mode: Smooth radial vignette feathering into dark background */
+        body.dark-mode .hero-center-img,
+        body.theme-default .hero-center-img,
+        body.theme-night .hero-center-img {
+            -webkit-mask-image: radial-gradient(ellipse 58% 54% at 50% 36%, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 28%, rgba(0, 0, 0, 0.7) 55%, rgba(0, 0, 0, 0.2) 80%, rgba(0, 0, 0, 0) 98%) !important;
+            mask-image: radial-gradient(ellipse 58% 54% at 50% 36%, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 28%, rgba(0, 0, 0, 0.7) 55%, rgba(0, 0, 0, 0.2) 80%, rgba(0, 0, 0, 0) 98%) !important;
+        }
+
+        body.dark-mode .card-avatar,
+        body.theme-default .card-avatar,
+        body.theme-night .card-avatar {
+            -webkit-mask-image: radial-gradient(ellipse 58% 54% at 50% 36%, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 1) 32%, rgba(0, 0, 0, 0.75) 60%, rgba(0, 0, 0, 0.25) 82%, rgba(0, 0, 0, 0) 98%) !important;
+            mask-image: radial-gradient(ellipse 58% 54% at 50% 36%, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 1) 32%, rgba(0, 0, 0, 0.75) 60%, rgba(0, 0, 0, 0.25) 82%, rgba(0, 0, 0, 0) 98%) !important;
         }
     </style>
     <!-- Lucide Icons CDN -->
@@ -73,6 +167,24 @@
 </head>
 
 <body class="dark-mode">
+    <script>
+        window.__portfolioInitialTheme = (function() {
+            try {
+                var initialTheme = localStorage.getItem('khin_portfolio_theme') || 'default';
+                if (initialTheme === 'light') {
+                    document.body.classList.remove('dark-mode');
+                    document.body.classList.add('theme-light');
+                } else if (initialTheme === 'night') {
+                    document.body.classList.add('theme-night');
+                } else {
+                    document.body.classList.add('theme-default');
+                }
+                return initialTheme;
+            } catch(e) {
+                return 'default';
+            }
+        })();
+    </script>
 
     <!-- Header / Navigation -->
     <header class="header section header-load-hidden">
@@ -166,19 +278,21 @@
 
             <!-- Data & Dev Items -->
             <ul class="sidenav-nav-list">
-                <!-- Got questions? -->
+                <!-- Got questions? (Ctrl+Q) -->
                 <li class="sidenav-item">
-                    <a href="#contact" class="sidenav-link" data-nav-target="got-questions">
+                    <a href="#contact" class="sidenav-link" data-nav-target="got-questions" id="sidenav-got-questions-btn" title="Got questions? (Ctrl+Q)">
                         <span class="sidenav-icon"><i data-lucide="message-square"></i></span>
                         <span class="sidenav-text">Got questions?</span>
+                        <kbd class="sidenav-shortcut-kbd">Ctrl+Q</kbd>
                     </a>
                 </li>
 
-                <!-- Typing Test -->
+                <!-- Typing Test (Ctrl+T) -->
                 <li class="sidenav-item">
-                    <a href="javascript:void(0)" class="sidenav-link" id="sidenav-typing-test-btn">
+                    <a href="javascript:void(0)" class="sidenav-link" id="sidenav-typing-test-btn" title="Typing Test (Ctrl+T)">
                         <span class="sidenav-icon"><i data-lucide="terminal"></i></span>
                         <span class="sidenav-text">Typing Test</span>
+                        <kbd class="sidenav-shortcut-kbd">Ctrl+T</kbd>
                     </a>
                 </li>
             </ul>
@@ -242,7 +356,16 @@
 
             <!-- Centered Hero Presentation Image (Reveals after text settlement) -->
             <div class="hero-center-img-wrapper" id="hero-center-img-wrapper">
-                <img src="data/image/front-toga.jpg" alt="Khin Andrei Gamboa" class="hero-center-img" id="hero-center-img">
+                <img src="data/image/front-toga.jpg" data-dark="data/image/front-toga.jpg" data-light="data/image/front-toga-transparent.png" alt="Khin Andrei Gamboa" class="hero-center-img" id="hero-center-img">
+                <script>
+                    (function() {
+                        var isL = (window.__portfolioInitialTheme === 'light') || (localStorage.getItem('khin_portfolio_theme') === 'light');
+                        if (isL) {
+                            var el = document.getElementById('hero-center-img');
+                            if (el) el.src = 'data/image/front-toga-transparent.png';
+                        }
+                    })();
+                </script>
             </div>
 
             <div class="hero-container" id="hero-container">
@@ -468,7 +591,16 @@
             <div class="about-profile-col">
                 <div class="intro-card">
                     <div class="card-img-container">
-                        <img src="data/image/front-barong.jpg" alt="Khin Andrei Gamboa" class="card-avatar">
+                        <img src="data/image/front-barong.jpg" data-dark="data/image/front-barong.jpg" data-light="data/image/front-barong-transparent.png" alt="Khin Andrei Gamboa" class="card-avatar" id="about-card-avatar">
+                        <script>
+                            (function() {
+                                var isL = (window.__portfolioInitialTheme === 'light') || (localStorage.getItem('khin_portfolio_theme') === 'light');
+                                if (isL) {
+                                    var el = document.getElementById('about-card-avatar');
+                                    if (el) el.src = 'data/image/front-barong-transparent.png';
+                                }
+                            })();
+                        </script>
                     </div>
                 </div>
             </div>
@@ -2416,6 +2548,9 @@
         </div>
     </div><!-- End #data-dev-view -->
 
+    <!-- Full-Screen Frosted Backdrop for Document Previews (Blurs spaces around curvy boxes) -->
+    <div id="doc-backdrop-overlay" class="doc-backdrop-overlay" aria-hidden="true"></div>
+
     <!-- Elevated White Tab Document Selection Sheet ("Above the Main Web") -->
     <div id="doc-white-tab-overlay" class="doc-white-tab-overlay" aria-modal="true" role="dialog" aria-label="Documents Menu">
         <!-- Top Exit Button Only (Minimalist Exit) -->
@@ -2557,15 +2692,62 @@
             lastDockScrollY = window.scrollY;
         });
 
-        // Permanent Dark Theme Configuration
-        document.body.classList.add('dark-mode');
-        localStorage.setItem('theme', 'dark');
+        // Dynamic theme management handled via applyTheme and user selection
+
+        // ==========================================================================
+        // Documents System: 3-Bars Menu -> White Tab Overlay -> Themed Viewport
+        // ==========================================================================
+        // ==========================================================================
+        // Main Web Scroll Lock Controller for All Preview Modals
+        // ==========================================================================
+        window.lockMainWebScroll = function() {
+            document.body.classList.add('preview-scroll-locked');
+            document.documentElement.classList.add('preview-scroll-locked');
+            document.body.style.overflow = 'hidden';
+            document.documentElement.style.overflow = 'hidden';
+        };
+
+        window.unlockMainWebScroll = function() {
+            const typingModal = document.getElementById('typingTestOverlay');
+            const customDocViewport = document.getElementById('custom-doc-viewport');
+            const whiteTabOverlay = document.getElementById('doc-white-tab-overlay');
+
+            const isTypingOpen = typingModal && typingModal.classList.contains('is-active');
+            const isDocVpOpen = customDocViewport && customDocViewport.classList.contains('active');
+            const isWhiteTabOpen = whiteTabOverlay && whiteTabOverlay.classList.contains('active');
+
+            if (!isTypingOpen && !isDocVpOpen && !isWhiteTabOpen) {
+                document.body.classList.remove('preview-scroll-locked');
+                document.documentElement.classList.remove('preview-scroll-locked');
+                document.body.style.overflow = '';
+                document.documentElement.style.overflow = '';
+            }
+        };
+
+        // Prevent wheel & touchmove scrolling on the main web behind previews
+        function preventMainScrollDuringPreview(e) {
+            if (!document.body.classList.contains('preview-scroll-locked')) return;
+
+            // Allow internal scrolling inside the modal's scrollable elements
+            const scrollableTarget = e.target.closest('.doc-tab-body, .doc-white-tab-overlay');
+            if (scrollableTarget) {
+                if (scrollableTarget.scrollHeight > scrollableTarget.clientHeight) {
+                    return;
+                }
+            }
+            // Block scrolling of the underlying main web
+            e.preventDefault();
+        }
+
+        window.addEventListener('wheel', preventMainScrollDuringPreview, { passive: false });
+        window.addEventListener('touchmove', preventMainScrollDuringPreview, { passive: false });
 
         // ==========================================================================
         // Documents System: 3-Bars Menu -> White Tab Overlay -> Themed Viewport
         // ==========================================================================
         (function initDocumentsSystem() {
             const navDocsBtn = document.getElementById('navDocsMenuBtn');
+            const docBackdrop = document.getElementById('doc-backdrop-overlay');
             const whiteTabOverlay = document.getElementById('doc-white-tab-overlay');
             const docTabCloseBtn = document.getElementById('docTabCloseBtn');
             const customDocViewport = document.getElementById('custom-doc-viewport');
@@ -2590,8 +2772,9 @@
 
             function openWhiteTab() {
                 if (!whiteTabOverlay) return;
+                if (docBackdrop) docBackdrop.classList.add('active');
                 whiteTabOverlay.classList.add('active');
-                document.body.style.overflow = 'hidden';
+                window.lockMainWebScroll();
                 if (window.lucide && typeof window.lucide.createIcons === 'function') {
                     window.lucide.createIcons();
                 }
@@ -2601,14 +2784,16 @@
                 if (!whiteTabOverlay) return;
                 whiteTabOverlay.classList.remove('active');
                 if (!customDocViewport || !customDocViewport.classList.contains('active')) {
-                    document.body.style.overflow = '';
+                    if (docBackdrop) docBackdrop.classList.remove('active');
                 }
+                window.unlockMainWebScroll();
             }
 
             function closeEverything() {
                 if (customDocViewport) customDocViewport.classList.remove('active');
                 if (whiteTabOverlay) whiteTabOverlay.classList.remove('active');
-                document.body.style.overflow = '';
+                if (docBackdrop) docBackdrop.classList.remove('active');
+                window.unlockMainWebScroll();
             }
 
             function setViewportDocument(docKey) {
@@ -2628,8 +2813,9 @@
             function openThemedViewport(docKey) {
                 if (!customDocViewport) return;
                 setViewportDocument(docKey);
+                if (docBackdrop) docBackdrop.classList.add('active');
                 customDocViewport.classList.add('active');
-                document.body.style.overflow = 'hidden';
+                window.lockMainWebScroll();
                 if (window.lucide && typeof window.lucide.createIcons === 'function') {
                     window.lucide.createIcons();
                 }
@@ -2638,10 +2824,14 @@
             function closeThemedViewportToDocs() {
                 if (!customDocViewport) return;
                 customDocViewport.classList.remove('active');
-                // Ensure white tab overlay remains visible behind viewport
+                // Ensure white tab overlay & backdrop remain visible behind viewport
                 if (whiteTabOverlay) {
                     whiteTabOverlay.classList.add('active');
-                    document.body.style.overflow = 'hidden';
+                    if (docBackdrop) docBackdrop.classList.add('active');
+                    window.lockMainWebScroll();
+                } else {
+                    if (docBackdrop) docBackdrop.classList.remove('active');
+                    window.unlockMainWebScroll();
                 }
             }
 
@@ -2669,11 +2859,23 @@
                 docVpCloseBtn.addEventListener('click', closeEverything);
             }
 
+            // Backdrop click handler (clicking the blurred space around the curvy box closes)
+            if (docBackdrop) {
+                docBackdrop.addEventListener('click', function(e) {
+                    if (e.target !== docBackdrop) return;
+                    if (customDocViewport && customDocViewport.classList.contains('active')) {
+                        closeThemedViewportToDocs();
+                    } else if (whiteTabOverlay && whiteTabOverlay.classList.contains('active')) {
+                        closeWhiteTab();
+                    }
+                });
+            }
+
             // Outside click (clicking in the corner space revealing the main website) to close
             document.addEventListener('mousedown', function(e) {
                 if (whiteTabOverlay && whiteTabOverlay.classList.contains('active')) {
                     if (customDocViewport && customDocViewport.classList.contains('active')) {
-                        if (!customDocViewport.contains(e.target)) {
+                        if (!customDocViewport.contains(e.target) && (!navDocsBtn || !navDocsBtn.contains(e.target))) {
                             closeThemedViewportToDocs();
                         }
                     } else {
@@ -3756,48 +3958,39 @@
         });
     </script>
 
-    <!-- Interactive Developer Typing Test Modal -->
-    <div class="typing-test-modal-overlay" id="typingTestOverlay" aria-hidden="true">
-        <div class="typing-terminal-card" role="dialog" aria-modal="true">
-            <div class="typing-terminal-header">
-                <div class="terminal-dots-cluster">
-                    <span class="terminal-dot dot-red"></span>
-                    <span class="terminal-dot dot-yellow"></span>
-                    <span class="terminal-dot dot-green"></span>
-                </div>
-                <div class="terminal-title-text">Data &amp; Dev // Speed Terminal</div>
-                <button class="terminal-close-btn" id="terminalCloseBtn" aria-label="Close Terminal">&times;</button>
-            </div>
+    <!-- Interactive Developer Typing Test Modal (Minimalist Viewport Overlay) -->
+    <div class="typing-test-modal-overlay" id="typingTestOverlay" aria-modal="true" role="dialog" aria-label="Typing Speed Test" aria-hidden="true">
+        <div class="typing-viewport-container">
+            <!-- Top Right Minimalist Exit Button (Matching Resume/Cover Letter) -->
+            <button type="button" class="typing-exit-btn" id="terminalCloseBtn" aria-label="Close typing test" title="Exit [ESC or Ctrl+T]">
+                <i data-lucide="x"></i>
+            </button>
 
-            <div class="typing-telemetry-hud">
-                <div class="hud-metric-box">
-                    <span class="hud-metric-label">WPM</span>
-                    <span class="hud-metric-value" id="typing-wpm-val">0</span>
+            <!-- Minimalist Centered Workspace -->
+            <div class="typing-minimal-body">
+                <!-- Subtle Minimalist Telemetry Bar (No bulky boxes) -->
+                <div class="typing-minimal-telemetry">
+                    <span class="typing-telemetry-item"><span id="typing-wpm-val" class="typing-stat-val">0</span> <span class="typing-stat-unit">wpm</span></span>
+                    <span class="typing-telemetry-sep">·</span>
+                    <span class="typing-telemetry-item"><span id="typing-acc-val" class="typing-stat-val">100</span><span class="typing-stat-unit">% acc</span></span>
+                    <span class="typing-telemetry-sep">·</span>
+                    <span class="typing-telemetry-item"><span id="typing-time-val" class="typing-stat-val">0.0</span><span class="typing-stat-unit">s</span></span>
                 </div>
-                <div class="hud-metric-box">
-                    <span class="hud-metric-label">Accuracy</span>
-                    <span class="hud-metric-value" id="typing-acc-val">100%</span>
-                </div>
-                <div class="hud-metric-box">
-                    <span class="hud-metric-label">Time</span>
-                    <span class="hud-metric-value" id="typing-time-val">0.0s</span>
-                </div>
-                <div class="hud-metric-box">
-                    <span class="hud-metric-label">Progress</span>
-                    <span class="hud-metric-value" id="typing-prog-val">0%</span>
-                </div>
-            </div>
 
-            <div class="typing-code-display-area" id="typingCodeDisplay" tabindex="0">
-                <!-- Spans injected via JavaScript -->
-            </div>
-            <textarea class="typing-hidden-input" id="typingHiddenInput" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
+                <!-- Centered Code Typing Display Area (Middle of Screen) -->
+                <div class="typing-code-display-area" id="typingCodeDisplay" tabindex="0" role="textbox" aria-label="Type snippet here">
+                    <!-- Spans injected via JavaScript -->
+                </div>
+                <input type="text" class="typing-hidden-input" id="typingHiddenInput" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" aria-hidden="true">
 
-            <div class="typing-terminal-footer">
-                <span class="typing-instructions-hint" id="typingInstructionsHint">Click terminal &amp; type code snippet. Esc to close.</span>
-                <div class="typing-terminal-actions">
-                    <button class="terminal-action-btn" id="typingNewSnippetBtn">Next Snippet</button>
-                    <button class="terminal-action-btn" id="typingRestartBtn">Restart</button>
+                <!-- Minimal Status Hint / Completion Message -->
+                <div class="typing-status-message" id="typingInstructionsHint">type to begin · esc / ctrl+t to exit</div>
+
+                <!-- Minimalist Action Links: Pure Clickable Letters / Words -->
+                <div class="typing-letter-actions">
+                    <button type="button" class="typing-letter-btn" id="typingRestartBtn">restart</button>
+                    <span class="typing-letter-sep">/</span>
+                    <button type="button" class="typing-letter-btn" id="typingNewSnippetBtn">next quote</button>
                 </div>
             </div>
         </div>
@@ -4313,10 +4506,15 @@
                 savedTheme = themeName;
                 body.classList.remove('theme-default', 'theme-light', 'theme-night');
                 if (themeName === 'light') {
+                    body.classList.remove('dark-mode');
                     body.classList.add('theme-light');
                 } else if (themeName === 'night') {
+                    body.classList.remove('theme-light');
+                    body.classList.add('dark-mode');
                     body.classList.add('theme-night');
                 } else {
+                    body.classList.remove('theme-light');
+                    body.classList.add('dark-mode');
                     body.classList.add('theme-default');
                 }
 
@@ -4332,6 +4530,18 @@
                 if (activeBtn) {
                     updateThemeSlider(activeBtn, animate);
                 }
+
+                // Dynamically swap personal photos for Light Mode (Zero black background, zero ashy effect)
+                const isLight = (themeName === 'light');
+                const heroImg = document.getElementById('hero-center-img');
+                if (heroImg) {
+                    heroImg.src = isLight ? 'data/image/front-toga-transparent.png' : 'data/image/front-toga.jpg';
+                }
+                const aboutImg = document.getElementById('about-card-avatar') || document.querySelector('.card-avatar');
+                if (aboutImg) {
+                    aboutImg.src = isLight ? 'data/image/front-barong-transparent.png' : 'data/image/front-barong.jpg';
+                }
+
                 localStorage.setItem('khin_portfolio_theme', themeName);
             }
 
@@ -4363,7 +4573,7 @@
             });
 
             /* ==========================================================================
-               8. Interactive Developer Typing Test Modal
+               8. Interactive Developer Typing Test Modal (Minimalist Viewport)
                ========================================================================== */
             const typingModal = document.getElementById('typingTestOverlay');
             const openTypingBtn = document.getElementById('sidenav-typing-test-btn');
@@ -4373,79 +4583,168 @@
             const wpmEl = document.getElementById('typing-wpm-val');
             const accEl = document.getElementById('typing-acc-val');
             const timeEl = document.getElementById('typing-time-val');
-            const progEl = document.getElementById('typing-prog-val');
             const instructionsHint = document.getElementById('typingInstructionsHint');
             const nextSnippetBtn = document.getElementById('typingNewSnippetBtn');
             const restartBtn = document.getElementById('typingRestartBtn');
 
-            const codeSnippets = [
-                "SELECT model_id, COUNT(*) AS inferences, AVG(latency_ms) FROM data_lake GROUP BY model_id ORDER BY inferences DESC;",
-                "import torch\nmodel = TransformerEngine(dim=512, heads=8)\noutputs = model.forward(tensor_batch)",
-                "const pipeline = new DataStream({ buffer: 1024, mode: 'realtime' });\nawait pipeline.sanitize().loadToWarehouse();",
-                "ALTER TABLE health_telemetry ADD INDEX idx_device_timestamp (device_id, recorded_at);"
+            const motivationalQuotes = [
+                "The distance between your reality and your dream is called execution.",
+                "Build in silence and let the quality of your craft make the noise.",
+                "Never downgrade your ambition just to fit someone else's expectations.",
+                "Every master was once a beginner who refused to walk away.",
+                "The only limit to your impact is the depth of your conviction.",
+                "Turn the obsession with the outcome into an obsession with the craft.",
+                "Dreams do not work unless you show up when nobody is watching.",
+                "The best way to predict your future is to architect it yourself.",
+                "Stay relentless until the things you wished for become things you did.",
+                "Doubt kills more dreams than failure ever will; keep building.",
+                "You do not find your limits by staying comfortable; you find them by pushing forward.",
+                "Fall in love with the unglamorous hours and the results will take care of themselves.",
+                "The work you do when nobody is looking is what everyone will celebrate later.",
+                "Stop waiting for the right moment; make the current moment the right one.",
+                "Consistency will always outperform talent when talent forgets to show up.",
+                "Your future is being created by what you do today, not what you plan for tomorrow.",
+                "Do not be afraid to start small; just be afraid of never starting at all.",
+                "Mastery is not an accident; it is the daily discipline of showing up.",
+                "The price of regret is always heavier than the price of discipline.",
+                "Be so relentless at what you do that your dedication cannot be ignored.",
+                "Discomfort is the currency you pay to purchase your own growth.",
+                "A goal without relentless execution is just a daydream.",
+                "Focus on becoming undeniable rather than seeking temporary validation.",
+                "The courage to continue when it gets hard is what separates the few from the many.",
+                "You are only one disciplined decision away from a completely different trajectory.",
+                "Do not let the fear of a long journey prevent you from taking the first step.",
+                "Success belongs to those who stay committed long after the mood has left them.",
+                "Trade the comfort of today for the capability of tomorrow.",
+                "Great things never come from staying inside the comfort zone.",
+                "Keep your vision clear, your standards high, and your momentum unstoppable.",
+                "A dream does not ask for permission, and neither should the pursuit of it.",
+                "The hardest battles are fought in the quiet moments before anyone notices.",
+                "Do what is difficult today so your future self can thank you tomorrow.",
+                "Small daily disciplines compounded over time create monumental transformations.",
+                "Never let the noise of other people's doubts drown out your inner drive.",
+                "The person who moves a mountain begins by carrying away small stones."
             ];
 
-            let currentSnippetIndex = 0;
-            let currentSnippetText = codeSnippets[0];
+            let quotesDeck = [];
+            let lastLoadedQuote = null;
+
+            function getNextNonRepetitiveQuote() {
+                if (quotesDeck.length === 0) {
+                    quotesDeck = [...motivationalQuotes];
+                    // Fisher-Yates shuffle
+                    for (let i = quotesDeck.length - 1; i > 0; i--) {
+                        const j = Math.floor(Math.random() * (i + 1));
+                        [quotesDeck[i], quotesDeck[j]] = [quotesDeck[j], quotesDeck[i]];
+                    }
+                    // Guarantee no immediate repetition across deck reshuffles
+                    if (lastLoadedQuote && quotesDeck.length > 1 && quotesDeck[quotesDeck.length - 1] === lastLoadedQuote) {
+                        [quotesDeck[quotesDeck.length - 1], quotesDeck[0]] = [quotesDeck[0], quotesDeck[quotesDeck.length - 1]];
+                    }
+                }
+                lastLoadedQuote = quotesDeck.pop();
+                return lastLoadedQuote;
+            }
+
+            let currentSnippetText = getNextNonRepetitiveQuote();
             let startTime = null;
             let timerInterval = null;
+            let autoAdvanceTimer = null;
+            let autoAdvanceCountdownInterval = null;
             let totalKeystrokes = 0;
-            let correctKeystrokes = 0;
             let isTestFinished = false;
 
-            function loadSnippet(idx) {
-                currentSnippetIndex = idx % codeSnippets.length;
-                currentSnippetText = codeSnippets[currentSnippetIndex];
+            function loadNextQuote() {
+                currentSnippetText = getNextNonRepetitiveQuote();
                 resetTypingTest();
+            }
+
+            function loadSnippet() {
+                loadNextQuote();
             }
 
             function resetTypingTest() {
                 if (timerInterval) clearInterval(timerInterval);
+                if (autoAdvanceTimer) clearTimeout(autoAdvanceTimer);
+                if (autoAdvanceCountdownInterval) clearInterval(autoAdvanceCountdownInterval);
+                autoAdvanceTimer = null;
+                autoAdvanceCountdownInterval = null;
                 startTime = null;
                 timerInterval = null;
                 totalKeystrokes = 0;
-                correctKeystrokes = 0;
                 isTestFinished = false;
 
                 if (wpmEl) wpmEl.textContent = '0';
-                if (accEl) accEl.textContent = '100%';
-                if (timeEl) timeEl.textContent = '0.0s';
-                if (progEl) progEl.textContent = '0%';
-                if (instructionsHint) instructionsHint.textContent = 'Click terminal & type code snippet. Esc to close.';
+                if (accEl) accEl.textContent = '100';
+                if (timeEl) timeEl.textContent = '0.0';
+                if (instructionsHint) instructionsHint.innerHTML = 'type to begin · esc / ctrl+t to exit';
 
                 if (hiddenInput) {
                     hiddenInput.value = '';
                     hiddenInput.disabled = false;
+                    setTimeout(() => hiddenInput.focus(), 30);
                 }
 
                 renderSnippetCharacters('');
-                if (hiddenInput) hiddenInput.focus();
             }
 
             function renderSnippetCharacters(typed) {
-                if (!displayArea) return;
+                if (!displayArea) return 0;
                 displayArea.innerHTML = '';
 
+                let globalCharIndex = 0;
                 let correctCount = 0;
-                for (let i = 0; i < currentSnippetText.length; i++) {
-                    const span = document.createElement('span');
-                    span.className = 'typing-char';
-                    const targetChar = currentSnippetText[i];
-                    span.textContent = targetChar;
+                const words = currentSnippetText.split(' ');
 
-                    if (i < typed.length) {
-                        if (typed[i] === targetChar) {
-                            span.classList.add('char-correct');
-                            correctCount++;
-                        } else {
-                            span.classList.add('char-incorrect');
+                words.forEach((word, wordIdx) => {
+                    const wordContainer = document.createElement('span');
+                    wordContainer.className = 'typing-word';
+
+                    for (let j = 0; j < word.length; j++) {
+                        const charSpan = document.createElement('span');
+                        charSpan.className = 'typing-char';
+                        const targetChar = word[j];
+                        charSpan.textContent = targetChar;
+
+                        if (globalCharIndex < typed.length) {
+                            if (typed[globalCharIndex] === targetChar) {
+                                charSpan.classList.add('char-correct');
+                                correctCount++;
+                            } else {
+                                charSpan.classList.add('char-incorrect');
+                            }
+                        } else if (globalCharIndex === typed.length) {
+                            charSpan.classList.add('char-current');
                         }
-                    } else if (i === typed.length) {
-                        span.classList.add('char-current');
+
+                        wordContainer.appendChild(charSpan);
+                        globalCharIndex++;
                     }
 
-                    displayArea.appendChild(span);
-                }
+                    displayArea.appendChild(wordContainer);
+
+                    // Add space between words
+                    if (wordIdx < words.length - 1) {
+                        const spaceSpan = document.createElement('span');
+                        spaceSpan.className = 'typing-char typing-space';
+                        spaceSpan.textContent = ' ';
+
+                        if (globalCharIndex < typed.length) {
+                            if (typed[globalCharIndex] === ' ') {
+                                spaceSpan.classList.add('char-correct');
+                                correctCount++;
+                            } else {
+                                spaceSpan.classList.add('char-incorrect');
+                            }
+                        } else if (globalCharIndex === typed.length) {
+                            spaceSpan.classList.add('char-current');
+                        }
+
+                        displayArea.appendChild(spaceSpan);
+                        globalCharIndex++;
+                    }
+                });
+
                 return correctCount;
             }
 
@@ -4457,49 +4756,76 @@
                 if (!startTime && val.length > 0) {
                     startTime = performance.now();
                     timerInterval = setInterval(updateTimerHUD, 100);
+                    if (instructionsHint) instructionsHint.textContent = 'typing...';
                 }
 
                 totalKeystrokes++;
                 playUiSound(1100 + (Math.random() * 200), 0.015, 'sine', 0.03);
 
                 const correctCount = renderSnippetCharacters(val);
-                correctKeystrokes = correctCount;
 
                 // Update WPM & Accuracy HUD
                 const elapsedSeconds = startTime ? (performance.now() - startTime) / 1000 : 0;
                 const elapsedMinutes = elapsedSeconds / 60;
                 const wpm = elapsedMinutes > 0 ? Math.round((correctCount / 5) / elapsedMinutes) : 0;
                 const accuracy = val.length > 0 ? Math.max(0, Math.round((correctCount / val.length) * 100)) : 100;
-                const progress = Math.min(100, Math.round((val.length / currentSnippetText.length) * 100));
 
                 if (wpmEl) wpmEl.textContent = wpm;
-                if (accEl) accEl.textContent = `${accuracy}%`;
-                if (progEl) progEl.textContent = `${progress}%`;
+                if (accEl) accEl.textContent = accuracy;
 
                 // Check completion
                 if (val.length >= currentSnippetText.length) {
                     isTestFinished = true;
                     if (timerInterval) clearInterval(timerInterval);
                     hiddenInput.disabled = true;
-                    if (instructionsHint) {
-                        instructionsHint.innerHTML = `<strong>Completed!</strong> Score: ${wpm} WPM with ${accuracy}% accuracy. Click "Next Snippet" to test again.`;
-                    }
+
                     // Victory chime
                     playUiSound(920, 0.08, 'sine', 0.08);
                     setTimeout(() => playUiSound(1380, 0.12, 'sine', 0.08), 90);
+
+                    // 3-second auto-advance with live countdown
+                    let countdownSec = 3;
+                    if (instructionsHint) {
+                        instructionsHint.innerHTML = `<strong>completed</strong> · score: ${wpm} wpm · ${accuracy}% acc · next quote in ${countdownSec}s`;
+                    }
+
+                    if (autoAdvanceCountdownInterval) clearInterval(autoAdvanceCountdownInterval);
+                    autoAdvanceCountdownInterval = setInterval(() => {
+                        countdownSec--;
+                        if (countdownSec > 0) {
+                            if (instructionsHint) {
+                                instructionsHint.innerHTML = `<strong>completed</strong> · score: ${wpm} wpm · ${accuracy}% acc · next quote in ${countdownSec}s`;
+                            }
+                        } else {
+                            clearInterval(autoAdvanceCountdownInterval);
+                            autoAdvanceCountdownInterval = null;
+                        }
+                    }, 1000);
+
+                    if (autoAdvanceTimer) clearTimeout(autoAdvanceTimer);
+                    autoAdvanceTimer = setTimeout(() => {
+                        if (autoAdvanceCountdownInterval) clearInterval(autoAdvanceCountdownInterval);
+                        loadNextQuote();
+                    }, 3000);
                 }
             }
 
             function updateTimerHUD() {
                 if (!startTime || !timeEl) return;
                 const elapsed = (performance.now() - startTime) / 1000;
-                timeEl.textContent = `${elapsed.toFixed(1)}s`;
+                timeEl.textContent = elapsed.toFixed(1);
             }
 
             function openTypingModal() {
                 if (!typingModal) return;
                 typingModal.classList.add('is-active');
                 typingModal.setAttribute('aria-hidden', 'false');
+                if (typeof window.lockMainWebScroll === 'function') {
+                    window.lockMainWebScroll();
+                }
+                if (window.lucide) {
+                    window.lucide.createIcons();
+                }
                 resetTypingTest();
                 playUiSound(720, 0.03);
             }
@@ -4509,44 +4835,192 @@
                 typingModal.classList.remove('is-active');
                 typingModal.setAttribute('aria-hidden', 'true');
                 if (timerInterval) clearInterval(timerInterval);
+                if (autoAdvanceTimer) clearTimeout(autoAdvanceTimer);
+                if (autoAdvanceCountdownInterval) clearInterval(autoAdvanceCountdownInterval);
+                if (typeof window.unlockMainWebScroll === 'function') {
+                    window.unlockMainWebScroll();
+                }
             }
 
             if (openTypingBtn) openTypingBtn.addEventListener('click', openTypingModal);
             if (closeTypingBtn) closeTypingBtn.addEventListener('click', closeTypingModal);
+
             if (typingModal) {
                 typingModal.addEventListener('click', (e) => {
-                    if (e.target === typingModal) closeTypingModal();
+                    // If clicking outside the typing-viewport-container (the blurred backdrop space around the curvy box)
+                    if (!e.target.closest('.typing-viewport-container')) {
+                        closeTypingModal();
+                        return;
+                    }
+                    // If clicking the close button or exit icon
+                    if (e.target.closest('#terminalCloseBtn') || e.target.closest('.typing-exit-btn')) {
+                        closeTypingModal();
+                        return;
+                    }
+                    // If clicking restart or next snippet buttons, let them handle it
+                    if (e.target.closest('#typingRestartBtn') || e.target.closest('#typingNewSnippetBtn')) {
+                        return;
+                    }
+                    // Clicking anywhere else refocuses the hidden input so user never loses focus
+                    if (hiddenInput && !isTestFinished) {
+                        hiddenInput.focus();
+                    }
                 });
             }
-            if (displayArea) {
-                displayArea.addEventListener('click', () => {
-                    if (hiddenInput) hiddenInput.focus();
-                });
-            }
+
             if (hiddenInput) {
                 hiddenInput.addEventListener('input', handleTypingInput);
+                hiddenInput.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        if (isTestFinished) {
+                            loadNextQuote();
+                        }
+                    }
+                });
             }
+
             if (nextSnippetBtn) {
-                nextSnippetBtn.addEventListener('click', () => {
-                    loadSnippet(currentSnippetIndex + 1);
+                nextSnippetBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    loadNextQuote();
                     playUiSound(600, 0.02);
                 });
             }
+
             if (restartBtn) {
-                restartBtn.addEventListener('click', () => {
+                restartBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
                     resetTypingTest();
                     playUiSound(600, 0.02);
                 });
             }
 
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && typingModal && typingModal.classList.contains('is-active')) {
+            /* ==========================================================================
+               9. Global Keyboard Shortcuts: Got questions? (Ctrl+Q) & Typing Test (Ctrl+T)
+               ========================================================================== */
+            function triggerGotQuestionsShortcut() {
+                // Close typing test modal if active
+                closeTypingModal();
+
+                // Close custom themed doc viewer if active
+                const docViewport = document.getElementById('custom-doc-viewport');
+                if (docViewport && docViewport.classList.contains('active')) {
+                    docViewport.classList.remove('active');
+                }
+                const whiteTabDocOverlay = document.getElementById('doc-white-tab-overlay');
+                if (whiteTabDocOverlay && whiteTabDocOverlay.classList.contains('active')) {
+                    whiteTabDocOverlay.classList.remove('active');
+                }
+                const docBackdrop = document.getElementById('doc-backdrop-overlay');
+                if (docBackdrop && docBackdrop.classList.contains('active')) {
+                    docBackdrop.classList.remove('active');
+                }
+                if (typeof window.unlockMainWebScroll === 'function') {
+                    window.unlockMainWebScroll();
+                }
+
+                // If currently inside Data & Dev view, restore main portfolio view
+                if (currentView === 'data-dev') {
+                    showKhinAndreiView('#contact');
+                }
+
+                // Smooth scroll to contact section
+                const contactSec = document.getElementById('contact');
+                if (contactSec) {
+                    contactSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+
+                // Highlight "Got questions?" link in the sidebar
+                const gotQuestionsLink = document.querySelector('.sidenav-link[data-nav-target="got-questions"]');
+                if (gotQuestionsLink) {
+                    document.querySelectorAll('.sidenav-link, .sidenav-sublink').forEach(l => l.classList.remove('active'));
+                    gotQuestionsLink.classList.add('active');
+                }
+
+                // Focus contact form input
+                const nameInput = document.getElementById('contact-name');
+                if (nameInput) {
+                    setTimeout(() => {
+                        nameInput.focus();
+                    }, 450);
+                }
+
+                playUiSound(600, 0.02);
+            }
+
+            function triggerTypingTestShortcut() {
+                const isTypingOpen = typingModal && typingModal.classList.contains('is-active');
+                if (isTypingOpen) {
                     closeTypingModal();
+                    playUiSound(540, 0.02);
+                } else {
+                    // Close custom document viewer if active
+                    const docViewport = document.getElementById('custom-doc-viewport');
+                    if (docViewport && docViewport.classList.contains('active')) {
+                        docViewport.classList.remove('active');
+                    }
+                    const whiteTabDocOverlay = document.getElementById('doc-white-tab-overlay');
+                    if (whiteTabDocOverlay && whiteTabDocOverlay.classList.contains('active')) {
+                        whiteTabDocOverlay.classList.remove('active');
+                    }
+                    const docBackdrop = document.getElementById('doc-backdrop-overlay');
+                    if (docBackdrop && docBackdrop.classList.contains('active')) {
+                        docBackdrop.classList.remove('active');
+                    }
+                    openTypingModal();
+                }
+            }
+
+            window.addEventListener('keydown', (e) => {
+                const isCtrl = e.ctrlKey || e.metaKey;
+                if (!isCtrl || e.altKey || e.shiftKey) return;
+
+                const key = (e.key || '').toLowerCase();
+                const code = e.code || '';
+
+                if (key === 'q' || code === 'KeyQ') {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    triggerGotQuestionsShortcut();
+                    return;
+                }
+
+                if (key === 't' || code === 'KeyT') {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    triggerTypingTestShortcut();
+                    return;
+                }
+            }, true);
+
+            document.addEventListener('keydown', (e) => {
+                if (!typingModal || !typingModal.classList.contains('is-active')) return;
+
+                if (e.key === 'Escape') {
+                    closeTypingModal();
+                    return;
+                }
+
+                if (e.key === 'Tab') {
+                    e.preventDefault();
+                    resetTypingTest();
+                    return;
+                }
+
+                // If Ctrl/Cmd is held down, do not process as typing
+                if (e.ctrlKey || e.metaKey) return;
+
+                // Auto-focus input on any typed key if focus was elsewhere
+                if (hiddenInput && !isTestFinished && document.activeElement !== hiddenInput) {
+                    if (e.key.length === 1 || e.key === 'Backspace') {
+                        hiddenInput.focus();
+                    }
                 }
             });
 
             // Initial load of first code snippet
-            loadSnippet(0);
+            loadNextQuote();
         });
     </script>
 

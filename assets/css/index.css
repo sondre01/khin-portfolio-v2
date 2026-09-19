@@ -1,13 +1,13 @@
 /* Import section-specific stylesheets */
-@import "home.css?v=20260916_21";
-@import "about.css?v=20260916_21";
-@import "skills.css?v=20260916_21";
-@import "certifications.css?v=20260916_21";
-@import "education.css?v=20260916_30";
-@import "work.css?v=20260916_33";
-@import "contact.css?v=20260916_21";
-@import "footer.css?v=20260916_21";
-@import "sidenav.css?v=20260916_24";
+@import "home.css?v=20260919_14";
+@import "about.css?v=20260919_14";
+@import "skills.css?v=20260919_14";
+@import "certifications.css?v=20260919_14";
+@import "education.css?v=20260919_14";
+@import "work.css?v=20260919_14";
+@import "contact.css?v=20260919_14";
+@import "footer.css?v=20260919_14";
+@import "sidenav.css?v=20260919_14";
 
 /* ==========================================================================
    THEME VARIABLES & TOKENS
@@ -61,6 +61,37 @@ body, body.dark-mode {
     
     --card-shadow: none;
     --card-shadow-hover: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+body.theme-light {
+    /* Reverse Color Distribution Light Theme Tokens (Refined, Pleasant & High-Contrast) */
+    --accent: #0f172a;
+    --accent-hover: #1e293b;
+    --accent-rgba: rgba(15, 23, 42, 0.08);
+
+    --bg-page: #f8f9fa;             /* Gentle, clean off-white canvas (easy on eyes) */
+    --bg-card: #eceff3;             /* Tactile, slightly darker shade than canvas for all cards */
+    --bg-header: rgba(248, 249, 250, 0.94);
+    --border-color: #d5dce6;        /* Crisp, clear defining border */
+    --border-subtle: #e2e7ef;
+    --border-focus: #0a0a0a;
+
+    --text-primary: #0a0a0a;        /* Deep pure black text - 100% crisp and readable */
+    --text-secondary: #1e293b;      /* Dark slate body text */
+    --text-muted: #475569;          /* High-legibility slate captions */
+
+    --modal-overlay: rgba(15, 23, 42, 0.55);
+    --vercel-logo-filter: none;
+
+    --stat-bg: #eceff3;
+    --input-bg: #ffffff;
+    --badge-bg: #dde2ea;            /* Deeper shaded tone for badges, tags, and chips */
+
+    --card-shadow: 0 2px 8px rgba(15, 23, 42, 0.04), 0 1px 3px rgba(15, 23, 42, 0.03);
+    --card-shadow-hover: 0 10px 25px rgba(15, 23, 42, 0.08), 0 4px 10px rgba(15, 23, 42, 0.04);
+
+    background-color: #f8f9fa !important;
+    color: #0a0a0a !important;
 }
 
 /* ==========================================================================
@@ -300,16 +331,44 @@ body.dark-mode .nav-link:hover {
     opacity: 0.88;
 }
 
-/* Logo picture size & styling matching sidenav brand */
+/* Logo picture size & styling matching sidenav brand with thin outer line */
 .logo-myname img {
     width: 28px;
     height: 28px;
     object-fit: contain;
     border-radius: 6px;
     flex-shrink: 0;
-    border: none;
-    box-shadow: none;
-    transition: opacity 0.2s ease;
+    box-sizing: border-box;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+    transition: opacity 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+body.theme-light .logo-myname img,
+body.theme-light .sidenav-brand-img {
+    border: 1px solid rgba(10, 10, 10, 0.28) !important;
+    box-shadow: 0 1px 4px rgba(10, 10, 10, 0.08) !important;
+}
+
+body.theme-light .logo-myname:hover img,
+body.theme-light .sidenav-brand:hover .sidenav-brand-img {
+    border-color: #0a0a0a !important;
+    box-shadow: 0 2px 6px rgba(10, 10, 10, 0.16) !important;
+}
+
+body.dark-mode .logo-myname img,
+body.dark-mode .sidenav-brand-img,
+body.theme-night .logo-myname img,
+body.theme-night .sidenav-brand-img {
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4) !important;
+}
+
+body.dark-mode .logo-myname:hover img,
+body.dark-mode .sidenav-brand:hover .sidenav-brand-img,
+body.theme-night .logo-myname:hover img,
+body.theme-night .sidenav-brand:hover .sidenav-brand-img {
+    border-color: rgba(255, 255, 255, 0.6) !important;
 }
 
 .logo-myname p {
@@ -503,7 +562,7 @@ body.dark-mode .skills-list li strong {
 }
 
 body.dark-mode p,
-body.dark-mode span:not(.stat-number):not(.roadmap-time):not(.work-duration):not(.project-role):not(.badge-dot):not(.work-tag),
+body.dark-mode span:not(.stat-number):not(.roadmap-time):not(.work-duration):not(.project-role):not(.badge-dot):not(.work-tag):not(.work-tab-label):not(.work-tab-badge):not(.work-tab-icon):not(.cert-badge-tag):not(.cert-cred-tag):not(.cert-link):not(.cert-link *):not(.drawer-tab-idx):not(.drawer-tab-text):not(.drawer-tab-btn):not(.drawer-tab-btn *):not(.drawer-domains-heading *):not(.milestone-step-index):not(.milestone-step-phase):not(.drawer-tag-pill):not(.drawer-pane-tagline):not(.drawer-impact-text),
 body.dark-mode li,
 body.dark-mode .card-description,
 body.dark-mode .intro-description,
@@ -669,6 +728,443 @@ body.dark-mode .form-status.error {
     color: #f87171 !important;
     background-color: rgba(248, 113, 113, 0.1) !important;
     border-color: #ef4444 !important;
+}
+
+/* ==========================================================================
+   GLOBAL LIGHT MODE THEME OVERRIDES (Clean, Balanced & High-Contrast)
+   ========================================================================== */
+body.theme-light {
+    background-color: var(--bg-page) !important;
+    color: var(--text-primary) !important;
+}
+
+/* Base Cards & Surface Containers (Slightly Darker Shade than Canvas) */
+body.theme-light .modal-box,
+body.theme-light .skills-card,
+body.theme-light .roadmap-card,
+body.theme-light .work-card,
+body.theme-light .project-flip-card,
+body.theme-light .cert-card-front,
+body.theme-light .cert-card-back,
+body.theme-light .trajectory-graph-panel,
+body.theme-light .trajectory-details-drawer,
+body.theme-light .drawer-pane-card,
+body.theme-light .about-modal-box {
+    background-color: var(--bg-card) !important;
+    border: 1px solid var(--border-color) !important;
+    box-shadow: var(--card-shadow) !important;
+}
+
+body.theme-light .intro-card,
+body.theme-light .def-card,
+body.theme-light .about-combined-card,
+body.theme-light .contact-card {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+body.theme-light .skills-card:hover,
+body.theme-light .roadmap-card:hover,
+body.theme-light .work-card:hover,
+body.theme-light .project-flip-card:hover,
+body.theme-light .cert-card:hover .cert-card-front,
+body.theme-light .cert-card:hover .cert-card-back {
+    box-shadow: var(--card-shadow-hover) !important;
+    border-color: var(--border-focus) !important;
+}
+
+body.theme-light .intro-card:hover,
+body.theme-light .def-card:hover,
+body.theme-light .about-combined-card:hover,
+body.theme-light .contact-card:hover {
+    box-shadow: none !important;
+    border-color: transparent !important;
+    transform: none !important;
+}
+
+/* Full-Bleed Section Dividers */
+body.theme-light .about-section::after,
+body.theme-light .main-content-container > section::after,
+body.theme-light .contact-section::after {
+    background-color: rgba(10, 10, 10, 0.08) !important;
+}
+
+/* Global Typography: Headings & Display Titles (Pure Black / Ultra-Dark) */
+body.theme-light h1,
+body.theme-light h2,
+body.theme-light h3,
+body.theme-light h4,
+body.theme-light h5,
+body.theme-light h6,
+body.theme-light .card-name,
+body.theme-light .preview-name,
+body.theme-light .preview-section-title,
+body.theme-light .preview-item-title,
+body.theme-light .about-modal-title,
+body.theme-light .skills-list li strong,
+body.theme-light .project-back-title,
+body.theme-light .cert-title {
+    color: #0a0a0a !important;
+    -webkit-text-fill-color: #0a0a0a !important;
+    text-shadow: none !important;
+}
+
+/* Global Typography: Readable Body, Paragraphs & Descriptions (Dark Slate) */
+body.theme-light p,
+body.theme-light span:not(.stat-number):not(.roadmap-time):not(.work-duration):not(.project-role):not(.badge-dot):not(.work-tag):not(.menu-bar-line):not(.theme-slider-highlight):not(.terminal-dot):not(.pulse-beacon):not(.dot-red):not(.dot-yellow):not(.dot-green):not(.github-legend-box):not(.viewer-avatar):not(.viewers-pulse-dot):not(.sound-btn-icon):not(.typing-char):not(.typing-stat-val):not(.typing-stat-unit):not(.typing-telemetry-sep):not(.typing-letter-sep):not(.typing-word):not(.work-tab-label):not(.work-tab-badge):not(.work-tab-icon):not(.cert-badge-tag):not(.cert-cred-tag):not(.cert-link):not(.cert-link *):not(.sidenav-shortcut-kbd):not(.drawer-tab-idx):not(.drawer-tab-text):not(.drawer-tab-btn):not(.drawer-tab-btn *):not(.drawer-domains-heading *):not(.milestone-step-index):not(.milestone-step-phase):not(.drawer-tag-pill):not(.drawer-pane-tagline):not(.drawer-impact-text),
+body.theme-light li,
+body.theme-light .card-description,
+body.theme-light .intro-description,
+body.theme-light .preview-item-sub,
+body.theme-light .preview-item-description,
+body.theme-light .skill-name,
+body.theme-light .skills-list li,
+body.theme-light .roadmap-subtitle,
+body.theme-light .roadmap-desc,
+body.theme-light .work-card-desc,
+body.theme-light .project-back-desc,
+body.theme-light .cert-desc,
+body.theme-light .contact-intro,
+body.theme-light .form-group label {
+    color: #1e293b !important;
+    -webkit-text-fill-color: #1e293b !important;
+    text-shadow: none !important;
+}
+
+/* Stat Items & Badges */
+body.theme-light .stat-item,
+body.theme-light .roadmap-logo {
+    background-color: var(--bg-card) !important;
+    border: 1px solid var(--border-color) !important;
+    color: #0a0a0a !important;
+    box-shadow: var(--card-shadow) !important;
+}
+
+body.theme-light .stat-item:hover {
+    border-color: var(--border-focus) !important;
+    box-shadow: var(--card-shadow-hover) !important;
+}
+
+body.theme-light .stat-number {
+    color: #0a0a0a !important;
+    -webkit-text-fill-color: #0a0a0a !important;
+}
+
+body.theme-light .stat-label {
+    color: #475569 !important;
+    -webkit-text-fill-color: #475569 !important;
+}
+
+body.theme-light .academic-tag,
+body.theme-light .work-tag {
+    background-color: var(--badge-bg) !important;
+    color: #0a0a0a !important;
+    -webkit-text-fill-color: #0a0a0a !important;
+    border: 1px solid var(--border-color) !important;
+}
+
+body.theme-light .work-card:hover .work-tag,
+body.theme-light .project-flip-card .work-tag:hover {
+    background-color: #0a0a0a !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    border-color: #0a0a0a !important;
+}
+
+body.theme-light .infra-badge {
+    border: 1px solid var(--border-color) !important;
+    background-color: var(--badge-bg) !important;
+}
+
+body.theme-light .infra-badge img[alt="Vercel Logo"] {
+    filter: none !important;
+}
+
+/* Form Controls & Floating Labels */
+body.theme-light .form-group label {
+    color: var(--text-muted) !important;
+}
+
+body.theme-light .form-group:focus-within label {
+    color: var(--text-primary) !important;
+}
+
+body.theme-light .form-control {
+    background-color: transparent !important;
+    background: transparent !important;
+    border: none !important;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.18) !important;
+    border-radius: 0 !important;
+    color: var(--text-primary) !important;
+    -webkit-text-fill-color: var(--text-primary) !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+body.theme-light .form-control:hover {
+    border-bottom-color: rgba(15, 23, 42, 0.45) !important;
+}
+
+body.theme-light .form-control:focus {
+    border-color: transparent !important;
+    border-bottom-color: var(--text-primary) !important;
+}
+
+body.theme-light .form-control::placeholder {
+    color: #94a3b8 !important;
+}
+
+body.theme-light .form-control:-webkit-autofill,
+body.theme-light .form-control:-webkit-autofill:hover,
+body.theme-light .form-control:-webkit-autofill:focus,
+body.theme-light .form-control:-webkit-autofill:active {
+    -webkit-text-fill-color: #0f172a !important;
+    -webkit-box-shadow: 0 0 0px 1000px #f8f9fa inset !important;
+}
+
+/* Expandable Card Toggle Buttons */
+body.theme-light .card-expand-toggle-btn {
+    color: var(--text-primary) !important;
+}
+
+body.theme-light .card-expand-toggle-btn:hover {
+    color: var(--text-primary) !important;
+    background-color: rgba(15, 23, 42, 0.07) !important;
+}
+
+/* Modal Close & Action Buttons */
+body.theme-light .modal-close-btn,
+body.theme-light .about-modal-close-btn {
+    color: var(--text-muted) !important;
+}
+
+body.theme-light .modal-close-btn:hover,
+body.theme-light .about-modal-close-btn:hover {
+    background-color: var(--border-color) !important;
+    color: var(--text-primary) !important;
+}
+
+/* Form Status Messages */
+body.theme-light .form-status.success {
+    color: #15803d !important;
+    background-color: rgba(34, 197, 94, 0.1) !important;
+    border-color: #86efac !important;
+}
+
+body.theme-light .form-status.error {
+    color: #b91c1c !important;
+    background-color: rgba(239, 68, 68, 0.1) !important;
+    border-color: #fca5a5 !important;
+}
+
+/* Document Viewport Modal & Resume Light Mode Overrides (Black Background, White Text) */
+body.theme-light .custom-doc-viewport {
+    background-color: #0b0e14 !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.7), 0 4px 18px rgba(0, 0, 0, 0.3) !important;
+}
+
+body.theme-light .doc-vp-topbar {
+    background: #000000 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+body.theme-light .doc-vp-back-btn {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    background: transparent !important;
+}
+
+body.theme-light .doc-vp-back-btn svg,
+body.theme-light .doc-vp-back-btn i {
+    stroke: #ffffff !important;
+    color: #ffffff !important;
+}
+
+body.theme-light .doc-vp-back-btn:hover {
+    background: rgba(255, 255, 255, 0.12) !important;
+    color: #ffffff !important;
+    border-color: #ffffff !important;
+}
+
+body.theme-light .doc-vp-title {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+body.theme-light .doc-vp-download-btn {
+    background: #ffffff !important;
+    color: #000000 !important;
+    -webkit-text-fill-color: #000000 !important;
+    border: 1px solid #ffffff !important;
+}
+
+body.theme-light .doc-vp-download-btn svg,
+body.theme-light .doc-vp-download-btn i {
+    stroke: #000000 !important;
+    color: #000000 !important;
+}
+
+body.theme-light .doc-vp-download-btn:hover {
+    background: #e2e8f0 !important;
+    color: #000000 !important;
+}
+
+body.theme-light .doc-vp-close-btn {
+    color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+}
+
+body.theme-light .doc-vp-close-btn svg,
+body.theme-light .doc-vp-close-btn i {
+    stroke: #ffffff !important;
+    color: #ffffff !important;
+}
+
+body.theme-light .doc-vp-close-btn:hover {
+    color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.22) !important;
+    border-color: #ffffff !important;
+}
+
+body.theme-light .doc-vp-body {
+    background: #0b0e14 !important;
+}
+
+/* Elevated Document Overlay (Resume / Cover Letter Selection) in Light Mode */
+body.theme-light .doc-white-tab-overlay {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.14) !important;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.7), 0 4px 18px rgba(0, 0, 0, 0.3) !important;
+}
+
+body.theme-light .doc-tab-exit-btn {
+    color: #ffffff !important;
+}
+
+body.theme-light .doc-tab-exit-btn svg,
+body.theme-light .doc-tab-exit-btn i {
+    stroke: #ffffff !important;
+    color: #ffffff !important;
+}
+
+body.theme-light .doc-word-btn {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    -webkit-text-stroke: 1.5px #ffffff !important;
+}
+
+body.theme-light .doc-word-btn:hover {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+body.theme-light .doc-vertical-menu:hover .doc-word-btn:not(:hover) {
+    opacity: 0.35 !important;
+}
+
+/* Resume Preview Container in Light Mode */
+body.theme-light .resume-preview-container {
+    background-color: #0b0e14 !important;
+    border: 1px solid rgba(255, 255, 255, 0.14) !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.4) !important;
+}
+
+body.theme-light .resume-preview-container * {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+/* Developer Typing Test Modal & Viewport in Light Mode (Solid Black with Pure White Typography) */
+body.theme-light .typing-viewport-container {
+    background-color: #000000 !important;
+    background: #000000 !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    color: #ffffff !important;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.7), 0 4px 18px rgba(0, 0, 0, 0.25) !important;
+}
+
+body.theme-light .typing-exit-btn {
+    color: #ffffff !important;
+}
+
+body.theme-light .typing-exit-btn svg,
+body.theme-light .typing-exit-btn i {
+    stroke: #ffffff !important;
+}
+
+body.theme-light .typing-char {
+    color: rgba(255, 255, 255, 0.28) !important;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.28) !important;
+}
+
+body.theme-light .typing-char.char-correct {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    font-weight: 700 !important;
+}
+
+body.theme-light .typing-char.char-incorrect {
+    color: #ef4444 !important;
+    -webkit-text-fill-color: #ef4444 !important;
+}
+
+body.theme-light .typing-char.char-current {
+    color: rgba(255, 255, 255, 0.85) !important;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.85) !important;
+}
+
+body.theme-light .typing-stat-val {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+body.theme-light .typing-stat-unit,
+body.theme-light .typing-telemetry-sep {
+    color: rgba(255, 255, 255, 0.35) !important;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.35) !important;
+}
+
+body.theme-light .typing-status-message,
+body.theme-light .typing-status-message strong {
+    color: rgba(255, 255, 255, 0.45) !important;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.45) !important;
+}
+
+body.theme-light .typing-letter-btn {
+    color: rgba(255, 255, 255, 0.42) !important;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.42) !important;
+}
+
+body.theme-light .typing-letter-btn:hover {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+body.theme-light .typing-letter-sep {
+    color: rgba(255, 255, 255, 0.2) !important;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Global Search Light Theme Overrides */
+body.theme-light .search-kbd {
+    background-color: var(--badge-bg) !important;
+    border-color: var(--border-color) !important;
+    color: #475569 !important;
+}
+
+body.theme-light .suggestion-match-highlight {
+    background-color: rgba(10, 10, 10, 0.1) !important;
+    color: #0a0a0a !important;
 }
 
 /* ==========================================================================
@@ -1973,6 +2469,52 @@ body.theme-light .data-dev-back-btn:hover {
 }
 
 /* ==========================================================================
+   SCROLL LOCK & FROSTED BACKDROP FOR PREVIEW MODALS
+   (Blurs spaces around curvy boxes & freezes main website)
+   ========================================================================== */
+html.preview-scroll-locked,
+body.preview-scroll-locked {
+    overflow: hidden !important;
+    height: 100% !important;
+    touch-action: none !important;
+}
+
+body.preview-scroll-locked #khinandrei-portfolio-view,
+body.preview-scroll-locked .left-sidebar-nav,
+body.preview-scroll-locked .header {
+    filter: blur(6px);
+    pointer-events: none;
+    user-select: none;
+    transition: filter 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.doc-backdrop-overlay {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 99990;
+    background: rgba(0, 0, 0, 0.72);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.35s;
+    will-change: opacity, backdrop-filter;
+}
+
+.doc-backdrop-overlay.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+body.theme-light .doc-backdrop-overlay {
+    background: rgba(15, 23, 42, 0.52) !important;
+}
+
+/* ==========================================================================
    ELEVATED WHITE TAB DOCUMENT OVERLAY ("Above the Main Web")
    ========================================================================== */
 .doc-white-tab-overlay {
@@ -1983,7 +2525,7 @@ body.theme-light .data-dev-back-btn:hover {
     bottom: 16px;
     width: auto;
     height: auto;
-    z-index: 10000;
+    z-index: 99995;
     background-color: #ffffff;
     color: #121212;
     display: flex;
@@ -2119,7 +2661,7 @@ body.theme-light .data-dev-back-btn:hover {
     bottom: 16px;
     width: auto;
     height: auto;
-    z-index: 10050;
+    z-index: 99998;
     background-color: #0b0e14;
     color: #ffffff;
     display: flex;
