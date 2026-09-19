@@ -1140,16 +1140,16 @@ body.theme-light .card-avatar {
         box-sizing: border-box !important;
     }
 
-    /* 2. Hero Presentation Image: Perfectly Fitting, Full Upper-Body Framing & Maximized Spaces */
+    /* 2. Hero Presentation Image: Truly Centered in Mobile Viewport */
     .hero-center-img-wrapper {
         position: absolute !important;
-        top: 48% !important;
+        top: 50% !important;
         left: 50% !important;
         transform: translate(-50%, -50%) scale(0.98) !important;
         width: 100% !important;
         max-width: 100% !important;
-        height: 82% !important;
-        max-height: calc(100dvh - 120px) !important;
+        height: 86% !important;
+        max-height: calc(100dvh - 90px) !important;
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
@@ -1172,7 +1172,7 @@ body.theme-light .card-avatar {
         height: 100% !important;
         max-height: 100% !important;
         object-fit: contain !important;
-        object-position: center top !important;
+        object-position: center center !important;
         display: block !important;
         margin: 0 auto !important;
     }
@@ -1294,13 +1294,15 @@ body.theme-light .card-avatar {
 /* Extra Small Phones Refinements (<= 360px) */
 @media (max-width: 360px) {
     .hero-center-img-wrapper {
-        top: 42% !important;
-        height: 68% !important;
+        top: 50% !important;
+        height: 82% !important;
+        max-height: calc(100dvh - 90px) !important;
     }
 
     .hero-center-img {
-        max-width: 86vw !important;
-        max-height: calc(100dvh - 160px) !important;
+        max-width: 90vw !important;
+        max-height: 100% !important;
+        object-position: center center !important;
     }
 
     .hero-line {
