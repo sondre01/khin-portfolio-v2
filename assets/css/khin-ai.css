@@ -1,0 +1,728 @@
+/* ==========================================================================
+   KHIN.AI - Minimal Floating Portfolio AI Assistant
+   Sticky in bottom-right corner, synchronized with left sidebar navbar.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Master Widget Container (Fixed Sticky Bottom-Right)
+   -------------------------------------------------------------------------- */
+.khin-ai-widget {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 9995;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    
+    /* Synchronized Visibility: Hidden by default, reveals only when left sidebar is active */
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(22px) scale(0.92);
+    transition: opacity 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+                visibility 0.38s;
+}
+
+/* Shown state synchronized exactly with body.side-nav-visible */
+body.side-nav-visible .khin-ai-widget {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
+}
+
+/* --------------------------------------------------------------------------
+   2. Floating Launcher Trigger Button
+   -------------------------------------------------------------------------- */
+.khin-ai-launcher {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(18, 18, 22, 0.88);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 999px;
+    padding: 7px 16px 7px 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45), 
+                0 0 18px rgba(255, 94, 0, 0.18),
+                inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.25s ease,
+                border-color 0.25s ease,
+                background-color 0.25s ease;
+    color: #ffffff;
+    outline: none;
+}
+
+.khin-ai-launcher:hover {
+    transform: translateY(-3px) scale(1.03);
+    border-color: rgba(255, 94, 0, 0.65);
+    box-shadow: 0 14px 38px rgba(0, 0, 0, 0.5), 
+                0 0 24px rgba(255, 94, 0, 0.38),
+                inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.khin-ai-launcher:active {
+    transform: translateY(-1px) scale(0.98);
+}
+
+/* Logo Box inside Launcher */
+.khin-ai-launcher-logo {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border: 1px solid rgba(255, 94, 0, 0.4);
+    box-shadow: 0 0 10px rgba(255, 94, 0, 0.28);
+    overflow: hidden;
+}
+
+.khin-ai-launcher-logo img,
+.khin-ai-launcher-logo svg {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+/* Brand Text & Live Pulse */
+.khin-ai-launcher-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13.5px;
+    font-weight: 600;
+    letter-spacing: -0.2px;
+    color: #ffffff;
+}
+
+.khin-ai-launcher-label .brand-ai {
+    color: #ff5e00;
+    font-weight: 700;
+}
+
+.khin-ai-pulse-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #10b981;
+    box-shadow: 0 0 8px #10b981;
+    display: inline-block;
+    animation: livePulse 2s infinite ease-in-out;
+}
+
+@keyframes livePulse {
+    0% { transform: scale(0.9); opacity: 0.8; box-shadow: 0 0 4px #10b981; }
+    50% { transform: scale(1.2); opacity: 1; box-shadow: 0 0 10px #10b981; }
+    100% { transform: scale(0.9); opacity: 0.8; box-shadow: 0 0 4px #10b981; }
+}
+
+/* Launcher Close State (When Window is Open) */
+.khin-ai-launcher-close-icon {
+    display: none;
+    width: 20px;
+    height: 20px;
+    color: #e2e8f0;
+}
+
+.khin-ai-widget.is-open .khin-ai-launcher {
+    background: rgba(28, 28, 34, 0.94);
+    border-color: rgba(255, 255, 255, 0.25);
+    padding: 10px 14px;
+}
+
+.khin-ai-widget.is-open .khin-ai-launcher-logo,
+.khin-ai-widget.is-open .khin-ai-launcher-label {
+    display: none;
+}
+
+.khin-ai-widget.is-open .khin-ai-launcher-close-icon {
+    display: block;
+}
+
+/* --------------------------------------------------------------------------
+   3. Chat Window Container
+   -------------------------------------------------------------------------- */
+.khin-ai-window {
+    position: absolute;
+    bottom: 58px;
+    right: 0;
+    width: 380px;
+    height: 540px;
+    max-height: calc(100vh - 100px);
+    max-height: calc(100dvh - 100px);
+    background: rgba(18, 18, 22, 0.96);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 20px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55),
+                0 0 35px rgba(255, 94, 0, 0.12),
+                inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transform-origin: bottom right;
+    
+    /* Animation state */
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: scale(0.9) translateY(14px);
+    transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                visibility 0.3s;
+}
+
+.khin-ai-widget.is-open .khin-ai-window {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: scale(1) translateY(0);
+}
+
+/* --------------------------------------------------------------------------
+   4. Window Header
+   -------------------------------------------------------------------------- */
+.khin-ai-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 18px;
+    background: rgba(26, 26, 32, 0.92);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    user-select: none;
+}
+
+.khin-ai-header-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.khin-ai-header-avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    background: #000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 94, 0, 0.4);
+    box-shadow: 0 0 12px rgba(255, 94, 0, 0.3);
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.khin-ai-header-avatar img,
+.khin-ai-header-avatar svg {
+    width: 26px;
+    height: 26px;
+    object-fit: contain;
+}
+
+.khin-ai-header-titles {
+    display: flex;
+    flex-direction: column;
+}
+
+.khin-ai-header-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14.5px;
+    font-weight: 600;
+    color: #ffffff;
+    line-height: 1.2;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.khin-ai-header-title .brand-ai {
+    color: #ff5e00;
+}
+
+.khin-ai-header-sub {
+    font-size: 11px;
+    color: #94a3b8;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 2px;
+}
+
+.khin-ai-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.khin-ai-hdr-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #94a3b8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    outline: none;
+}
+
+.khin-ai-hdr-btn:hover {
+    background: rgba(255, 255, 255, 0.14);
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* --------------------------------------------------------------------------
+   5. Chat Conversation Body
+   -------------------------------------------------------------------------- */
+.khin-ai-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar for Chat */
+.khin-ai-body::-webkit-scrollbar {
+    width: 5px;
+}
+.khin-ai-body::-webkit-scrollbar-track {
+    background: transparent;
+}
+.khin-ai-body::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 4px;
+}
+.khin-ai-body::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 94, 0, 0.4);
+}
+
+/* Starter Welcome Hero Inside Chat */
+.khin-ai-welcome-box {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px dashed rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
+    padding: 14px 16px;
+    font-size: 12.5px;
+    color: #cbd5e1;
+    line-height: 1.5;
+}
+
+.khin-ai-welcome-box strong {
+    color: #ffffff;
+}
+
+.khin-ai-chips-label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #64748b;
+    margin: 4px 0 2px 2px;
+}
+
+/* Prompt Suggestion Chips Track */
+.khin-ai-chips-track {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.khin-ai-chip {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 999px;
+    padding: 5px 11px;
+    font-size: 11.5px;
+    color: #e2e8f0;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.2s ease;
+    outline: none;
+}
+
+.khin-ai-chip:hover {
+    background: rgba(255, 94, 0, 0.18);
+    border-color: rgba(255, 94, 0, 0.5);
+    color: #ffffff;
+    transform: translateY(-1px);
+}
+
+/* Message Bubble Items */
+.khin-ai-msg {
+    display: flex;
+    gap: 10px;
+    max-width: 90%;
+    animation: fadeInMsg 0.25s ease-out forwards;
+}
+
+@keyframes fadeInMsg {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.khin-ai-msg.user {
+    align-self: flex-end;
+    flex-direction: row-reverse;
+}
+
+.khin-ai-msg.bot {
+    align-self: flex-start;
+}
+
+/* Message Avatar */
+.khin-ai-msg-avatar {
+    width: 26px;
+    height: 26px;
+    border-radius: 8px;
+    background: #000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 94, 0, 0.3);
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.khin-ai-msg-avatar img,
+.khin-ai-msg-avatar svg {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+}
+
+/* Bubble Content */
+.khin-ai-bubble {
+    padding: 10px 14px;
+    border-radius: 16px;
+    font-size: 13px;
+    line-height: 1.55;
+    word-break: break-word;
+}
+
+.khin-ai-msg.user .khin-ai-bubble {
+    background: linear-gradient(135deg, #2a2a35, #1e1e26);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    color: #ffffff;
+    border-bottom-right-radius: 4px;
+}
+
+.khin-ai-msg.bot .khin-ai-bubble {
+    background: rgba(30, 30, 38, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #e2e8f0;
+    border-bottom-left-radius: 4px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.khin-ai-bubble p {
+    margin: 0 0 6px 0;
+}
+.khin-ai-bubble p:last-child {
+    margin-bottom: 0;
+}
+
+.khin-ai-bubble strong {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.khin-ai-bubble ul {
+    margin: 6px 0 6px 18px;
+    padding: 0;
+}
+
+.khin-ai-bubble li {
+    margin-bottom: 4px;
+}
+
+/* Interactive Action Buttons Attached to Bot Responses */
+.khin-ai-actions-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 8px;
+}
+
+.khin-ai-action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: rgba(255, 94, 0, 0.15);
+    border: 1px solid rgba(255, 94, 0, 0.35);
+    color: #ffa166;
+    border-radius: 8px;
+    padding: 4px 10px;
+    font-size: 11px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    outline: none;
+}
+
+.khin-ai-action-btn:hover {
+    background: #ff5e00;
+    border-color: #ff5e00;
+    color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(255, 94, 0, 0.3);
+}
+
+/* Typing Indicator Animation */
+.khin-ai-typing {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 8px 12px;
+}
+
+.khin-ai-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #ff5e00;
+    opacity: 0.4;
+    animation: typingBounce 1.4s infinite ease-in-out;
+}
+
+.khin-ai-dot:nth-child(1) { animation-delay: 0s; }
+.khin-ai-dot:nth-child(2) { animation-delay: 0.2s; }
+.khin-ai-dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes typingBounce {
+    0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+    30% { transform: translateY(-5px); opacity: 1; }
+}
+
+/* --------------------------------------------------------------------------
+   6. Input Footer Area
+   -------------------------------------------------------------------------- */
+.khin-ai-footer {
+    padding: 12px 14px;
+    background: rgba(22, 22, 28, 0.94);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.khin-ai-form {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+}
+
+.khin-ai-input {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    padding: 9px 14px;
+    font-size: 13px;
+    color: #ffffff;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.khin-ai-input::placeholder {
+    color: #64748b;
+}
+
+.khin-ai-input:focus {
+    border-color: rgba(255, 94, 0, 0.6);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 0 3px rgba(255, 94, 0, 0.15);
+}
+
+.khin-ai-send-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: #ff5e00;
+    border: none;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+    outline: none;
+}
+
+.khin-ai-send-btn:hover {
+    background: #ff7524;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(255, 94, 0, 0.4);
+}
+
+.khin-ai-send-btn:active {
+    transform: translateY(0) scale(0.95);
+}
+
+.khin-ai-send-btn:disabled {
+    background: rgba(255, 255, 255, 0.1);
+    color: #64748b;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.khin-ai-disclaimer {
+    font-size: 10px;
+    color: #64748b;
+    text-align: center;
+    margin-top: 6px;
+    user-select: none;
+}
+
+/* --------------------------------------------------------------------------
+   7. Light Theme Adaptations (body.theme-light)
+   -------------------------------------------------------------------------- */
+body.theme-light .khin-ai-launcher {
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(10, 10, 10, 0.14);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12), 
+                0 0 16px rgba(255, 94, 0, 0.15);
+    color: #0a0a0a;
+}
+
+body.theme-light .khin-ai-launcher:hover {
+    border-color: rgba(255, 94, 0, 0.7);
+    box-shadow: 0 14px 38px rgba(0, 0, 0, 0.18), 
+                0 0 22px rgba(255, 94, 0, 0.3);
+}
+
+body.theme-light .khin-ai-launcher-label {
+    color: #0a0a0a;
+}
+
+body.theme-light .khin-ai-window {
+    background: rgba(255, 255, 255, 0.98);
+    border: 1px solid rgba(10, 10, 10, 0.12);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18),
+                0 0 35px rgba(255, 94, 0, 0.1);
+}
+
+body.theme-light .khin-ai-header {
+    background: rgba(245, 247, 250, 0.96);
+    border-bottom: 1px solid rgba(10, 10, 10, 0.08);
+}
+
+body.theme-light .khin-ai-header-title {
+    color: #0a0a0a;
+}
+
+body.theme-light .khin-ai-header-sub {
+    color: #64748b;
+}
+
+body.theme-light .khin-ai-hdr-btn {
+    background: rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    color: #475569;
+}
+
+body.theme-light .khin-ai-hdr-btn:hover {
+    background: rgba(0, 0, 0, 0.1);
+    color: #0a0a0a;
+}
+
+body.theme-light .khin-ai-welcome-box {
+    background: rgba(0, 0, 0, 0.03);
+    border-color: rgba(0, 0, 0, 0.12);
+    color: #334155;
+}
+
+body.theme-light .khin-ai-welcome-box strong {
+    color: #0a0a0a;
+}
+
+body.theme-light .khin-ai-chip {
+    background: rgba(0, 0, 0, 0.05);
+    border-color: rgba(0, 0, 0, 0.1);
+    color: #334155;
+}
+
+body.theme-light .khin-ai-chip:hover {
+    background: rgba(255, 94, 0, 0.12);
+    border-color: rgba(255, 94, 0, 0.4);
+    color: #ff5e00;
+}
+
+body.theme-light .khin-ai-msg.user .khin-ai-bubble {
+    background: linear-gradient(135deg, #1e293b, #0f172a);
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    color: #ffffff;
+}
+
+body.theme-light .khin-ai-msg.bot .khin-ai-bubble {
+    background: #f1f5f9;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    color: #1e293b;
+}
+
+body.theme-light .khin-ai-bubble strong {
+    color: #0a0a0a;
+}
+
+body.theme-light .khin-ai-footer {
+    background: rgba(248, 250, 252, 0.96);
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+body.theme-light .khin-ai-input {
+    background: #ffffff;
+    border-color: rgba(0, 0, 0, 0.14);
+    color: #0a0a0a;
+}
+
+body.theme-light .khin-ai-input:focus {
+    background: #ffffff;
+    border-color: #ff5e00;
+}
+
+body.theme-light .khin-ai-action-btn {
+    background: rgba(255, 94, 0, 0.1);
+    border-color: rgba(255, 94, 0, 0.3);
+    color: #ea580c;
+}
+
+body.theme-light .khin-ai-action-btn:hover {
+    background: #ff5e00;
+    border-color: #ff5e00;
+    color: #ffffff;
+}
+
+/* --------------------------------------------------------------------------
+   8. Responsive Media Queries
+   -------------------------------------------------------------------------- */
+@media (max-width: 480px) {
+    .khin-ai-widget {
+        bottom: 16px;
+        right: 16px;
+    }
+
+    .khin-ai-window {
+        bottom: 54px;
+        right: -4px;
+        width: calc(100vw - 28px);
+        max-width: 360px;
+        height: calc(100dvh - 120px);
+        max-height: 520px;
+    }
+}

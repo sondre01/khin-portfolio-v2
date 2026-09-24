@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+    <defs>
+        <!-- AI Glowing Radiant Gradient (Portfolio signature accent: #ff5e00) -->
+        <linearGradient id="khinAiOrange" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#ff944d"/>
+            <stop offset="50%" stop-color="#ff5e00"/>
+            <stop offset="100%" stop-color="#d63d00"/>
+        </linearGradient>
+
+        <!-- Monogram Dynamic Fill Gradient (Clean Silver-White to Platinum) -->
+        <linearGradient id="khinMarkGradDark" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#ffffff"/>
+            <stop offset="100%" stop-color="#e2e4e9"/>
+        </linearGradient>
+
+        <!-- Outer Squircle Background Gradient -->
+        <linearGradient id="khinAiBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#1c1c21"/>
+            <stop offset="100%" stop-color="#0e0e12"/>
+        </linearGradient>
+
+        <!-- Subtle AI Glow Filter -->
+        <filter id="khinAiGlow" x="-30%" y="-30%" width="160%" height="160%">
+            <feGaussianBlur stdDeviation="8" result="blur"/>
+            <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+        </filter>
+        
+        <!-- Soft Shadow for Shapes -->
+        <filter id="khinMarkShadow" x="-15%" y="-15%" width="130%" height="130%">
+            <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.45"/>
+        </filter>
+    </defs>
+
+    <style>
+        .khin-mark-path {
+            fill: #f5f6f8;
+            transition: fill 0.3s ease;
+        }
+        .theme-light .khin-mark-path,
+        body.theme-light .khin-mark-path {
+            fill: #11141a;
+        }
+        .khin-ai-star {
+            fill: url(#khinAiOrange);
+            filter: drop-shadow(0 0 10px rgba(255, 94, 0, 0.7));
+            animation: pulseStar 3s ease-in-out infinite alternate;
+            transform-origin: 410px 90px;
+        }
+        @keyframes pulseStar {
+            0% { transform: scale(0.96); filter: drop-shadow(0 0 6px rgba(255, 94, 0, 0.5)); }
+            100% { transform: scale(1.06); filter: drop-shadow(0 0 14px rgba(255, 94, 0, 0.9)); }
+        }
+    </style>
+
+    <!-- 1. Sleek Squircle Backdrop (Optional container / can be disabled with transparent fill) -->
+    <rect width="500" height="500" rx="108" fill="url(#khinAiBgGrad)" class="khin-ai-bg" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
+
+    <!-- 2. The Iconic KH Monogram (< - /) with Architectural Precision -->
+    <g class="khin-mark-group" filter="url(#khinMarkShadow)">
+        <!-- Chevron (<): Left Wing -->
+        <!-- Upper diagonal stroke with chamfered top -->
+        <polygon class="khin-mark-path" points="268,62 170,62 8,245 106,245" />
+        <!-- Lower diagonal stroke with chamfered bottom -->
+        <polygon class="khin-mark-path" points="8,255 106,255 214,440 162,472 88,400" />
+        <!-- Precise Solid Chevron Vertex (<) -->
+        <path class="khin-mark-path" d="M 172,62 L 270,62 L 110,248 L 214,442 L 158,474 L 8,252 Z" />
+
+        <!-- Horizontal Crossbar (-) Left Segment -->
+        <polygon class="khin-mark-path" points="112,216 338,216 352,284 112,284" />
+
+        <!-- Horizontal Crossbar (-) Right Segment (with negative space gap for the slash) -->
+        <polygon class="khin-mark-path" points="426,216 496,216 496,284 412,284" />
+
+        <!-- Slanted Forward Slash (/) crossing between bar segments with chamfered tips -->
+        <path class="khin-mark-path" d="M 388,52 L 476,52 L 372,448 L 332,474 L 298,446 Z" />
+    </g>
+
+    <!-- 3. Unique AI Signature: Radiant Generative Sparkle ✦ at Top-Right Apex of the Slash -->
+    <g class="khin-ai-star">
+        <!-- 4-Point Radiant AI Star (Inspired by Gemini/Copilot/Claude spark, customized with Khin geometry) -->
+        <path d="M 426,28 C 426,56 444,68 472,68 C 444,68 426,80 426,108 C 426,80 408,68 380,68 C 408,68 426,56 426,28 Z" fill="url(#khinAiOrange)"/>
+        <!-- Radiant Star Diamond Core -->
+        <circle cx="426" cy="68" r="4.5" fill="#ffffff"/>
+        
+        <!-- Micro Cybernetic Satellite Spark ✦ -->
+        <path d="M 462,110 C 462,118 468,122 476,122 C 468,122 462,126 462,134 C 462,126 456,122 448,122 C 456,122 462,118 462,110 Z" fill="#ff944d" opacity="0.85"/>
+    </g>
+</svg>
