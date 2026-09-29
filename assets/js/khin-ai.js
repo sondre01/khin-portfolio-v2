@@ -218,7 +218,22 @@
         }
 
         // 5. Projects
-        if (/project|portfolio|work|built|fovb|kilo bot|etl pipeline|tollgate|xvidia|resto|pos/i.test(query)) {
+        if (/project|portfolio|work|built|early bird|earlybird|job hunt|job scraper|ticket|ticketing|fovb|kilo bot|etl pipeline|tollgate|xvidia|resto|pos/i.test(query)) {
+            if (/early bird|earlybird|job hunt|job scraper/i.test(query)) {
+                return {
+                    text: `<strong>Khin Early Bird (Ongoing Solo Build)</strong><br><em>Role: Lead AI & Automation Engineer</em><br><br>Automated daily job crawler ingesting live postings from LinkedIn, Jobstreet, and Indeed. Uses Gemini AI to parse unstructured descriptions, scores candidate qualification alignment across Dev, IT, and Data roles, strictly segregates OJT/internships from full-time jobs, and dispatches automated daily alerts to gamboa.khinandrei@gmail.com.`,
+                    actions: [{ label: "View in Projects Section", action: "navigate", target: "#work" }]
+                };
+            }
+            if (/ticket|ticketing/i.test(query)) {
+                return {
+                    text: `<strong>Web-Based Ticketing System</strong><br><em>Role: Full-Stack Software Engineer</em><br><br>Enterprise IT support ticketing system featuring secure JWT authentication, role-based access control (RBAC), real-time ticket triage, and automated notifications deployed live on Vercel.`,
+                    actions: [
+                        { label: "Open Live App", action: "open_url", url: "https://khin-ticketing-system.vercel.app/" },
+                        { label: "View in Projects Section", action: "navigate", target: "#work" }
+                    ]
+                };
+            }
             if (/social media|etl pipeline/i.test(query)) {
                 return {
                     text: `<strong>Social Media ETL Pipeline</strong><br><em>Role: Data Pipeline & ETL Engineer</em><br><br>An automated pipeline written in Python that ingests social metrics, handles data cleaning and validation, and loads structured data into PostgreSQL for trend analytics.`,
@@ -257,17 +272,17 @@
             }
 
             return {
-                text: `Khin has shipped <strong>6 key featured projects</strong>:<br><br>1. <strong>Social Media ETL Pipeline</strong> (Python, PostgreSQL, Data Ingestion)<br>2. <strong>FOVB-AIOT Capstone</strong> (Cloud Telemetry, Computer Vision)<br>3. <strong>AI Kilo Bot</strong> (Robotic Sorting & Machine Learning)<br>4. <strong>RFID Tollgate System</strong> (Relational DB & Hardware Interfacing)<br>5. <strong>Xvidia Shop</strong> (E-Commerce SQL Analytics)<br>6. <strong>GG Resto POS Dashboard</strong> (Restaurant Revenue Analytics)`,
+                text: `Khin has shipped and is actively building <strong>featured solo & collective systems</strong>:<br><br>1. <strong>Khin Early Bird</strong> (Gemini AI, Multi-Source Job Hunt Crawler, Daily Email Digests)<br>2. <strong>Web-Based Ticketing System</strong> (Node.js, RBAC, Vercel Live)<br>3. <strong>Social Media ETL Pipeline</strong> (Python, PostgreSQL, Data Ingestion)<br>4. <strong>FOVB-AIOT Capstone</strong> (Cloud Telemetry, Computer Vision)<br>5. <strong>AI Kilo Bot</strong> (Robotic Sorting & Machine Learning)<br>6. <strong>RFID Tollgate System</strong> (Relational DB & Hardware Interfacing)<br>7. <strong>Xvidia Shop</strong> (E-Commerce SQL Analytics)<br>8. <strong>GG Resto POS Dashboard</strong> (Restaurant Revenue Analytics)`,
                 actions: [
                     { label: "Jump to Projects Section", action: "navigate", target: "#work" }
                 ]
             };
         }
 
-        // 6. Certifications & Qualifications
-        if (/certif(y|ication|icate)|datacamp|cisco|ibm|tesda|credly|credentials|qualification/i.test(query)) {
+        // 6. Certifications, Qualifications & Scholarships
+        if (/certif(y|ication|icate)|datacamp|cisco|ibm|tesda|credly|credentials|qualification|scholar(ship)?|pilipinas|dep\b/i.test(query)) {
             return {
-                text: `Khin holds industry-verified credentials:<br><br>• <strong>DataCamp Associate Data Engineer</strong><br>  Timed assessment credential (ID: <code>DEA0017096233010</code>, Exp: Aug 2028).<br>• <strong>DataCamp Associate Data Engineer in SQL</strong><br>  Comprehensive 28-hour curriculum (ID: <code>5255ec7f...</code>).<br>• <strong>Cisco Python Essentials 1 & 2</strong><br>  Algorithmic programming and OOP.<br>• <strong>IBM SkillsBuild & TESDA Data Fundamentals</strong><br>  Data cleaning, analysis, and ethical management.`,
+                text: `Khin holds industry-verified credentials and scholarship honors:<br><br>• <strong>Data Engineering Pilipinas Scholar</strong><br>  Sponsored grantee of Data Engineering Pilipinas (DEP), awarded free premium DataCamp access for data engineering mastery.<br>• <strong>DataCamp Associate Data Engineer</strong><br>  Timed assessment credential (ID: <code>DEA0017096233010</code>, Exp: Aug 2028).<br>• <strong>DataCamp Associate Data Engineer in SQL</strong><br>  Comprehensive 28-hour curriculum (ID: <code>5255ec7f...</code>).<br>• <strong>Cisco Python Essentials 1 & 2</strong><br>  Algorithmic programming and OOP.<br>• <strong>IBM SkillsBuild & TESDA Data Fundamentals</strong><br>  Data cleaning, analysis, and ethical management.`,
                 actions: [
                     { label: "View Certifications", action: "navigate", target: "#certifications" },
                     { label: "Verify DataCamp Cert", action: "open_url", url: "https://www.datacamp.com/certificate/DEA0017096233010" },

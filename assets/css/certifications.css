@@ -832,3 +832,154 @@ body.theme-light .cert-modal-close {
 body.theme-light .cert-modal-caption {
     color: #0a0a0a !important;
 }
+
+/* ==========================================================================
+   DATA ENGINEERING PILIPINAS SCHOLARSHIP ACKNOWLEDGMENT
+   Minimal, elevated credential recognition bar beneath the rolling marquee
+   ========================================================================== */
+.cert-scholarship-bar {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 28px;
+    padding: 16px 22px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 14px;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: border-color 0.3s ease, background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    backdrop-filter: blur(8px);
+}
+
+.cert-scholarship-bar:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.22);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.scholarship-logo-card {
+    width: 54px;
+    height: 54px;
+    min-width: 54px;
+    border-radius: 12px;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    box-sizing: border-box;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.3);
+    flex-shrink: 0;
+}
+
+.scholarship-logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+    display: block;
+}
+
+.scholarship-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex: 1;
+}
+
+.scholarship-badge-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.scholarship-name {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.96rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: -0.2px;
+}
+
+.scholarship-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #38bdf8;
+    background: rgba(56, 189, 248, 0.1);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+.scholarship-badge i,
+.scholarship-badge svg {
+    width: 12px;
+    height: 12px;
+}
+
+.scholarship-narrative {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.72);
+    margin: 0;
+}
+
+.scholarship-narrative strong {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+/* Light Theme Overrides */
+body.theme-light .cert-scholarship-bar {
+    background: #ffffff !important;
+    border: 1px solid var(--border-color, #d5dce6) !important;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05) !important;
+}
+
+body.theme-light .cert-scholarship-bar:hover {
+    border-color: #0a0a0a !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1) !important;
+}
+
+body.theme-light .scholarship-name {
+    color: #0a0a0a !important;
+}
+
+body.theme-light .scholarship-badge {
+    color: #0284c7 !important;
+    background: rgba(2, 132, 199, 0.08) !important;
+    border-color: rgba(2, 132, 199, 0.25) !important;
+}
+
+body.theme-light .scholarship-narrative {
+    color: #475569 !important;
+}
+
+body.theme-light .scholarship-narrative strong {
+    color: #0a0a0a !important;
+}
+
+@media (max-width: 640px) {
+    .cert-scholarship-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 16px;
+    }
+    .scholarship-badge-row {
+        gap: 6px;
+    }
+}
