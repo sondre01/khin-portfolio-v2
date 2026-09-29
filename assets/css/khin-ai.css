@@ -1,10 +1,11 @@
 /* ==========================================================================
-   KHIN.AI - Minimal Floating Portfolio AI Assistant
-   Sticky in bottom-right corner, synchronized with left sidebar navbar.
+   KHIN.AI - Elevated Minimalist Portfolio AI Assistant
+   Presented in a clean, elevated minimalist modal viewport matching
+   the typing test and documents preview system.
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   1. Master Widget Container (Fixed Sticky Bottom-Right)
+   1. Floating Launcher Button (Sticky in Bottom-Right Corner)
    -------------------------------------------------------------------------- */
 .khin-ai-widget {
     position: fixed;
@@ -12,8 +13,6 @@
     right: 24px;
     z-index: 9995;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    
-    /* Synchronized Visibility: Hidden by default, reveals only when left sidebar is active */
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
@@ -23,7 +22,6 @@
                 visibility 0.38s;
 }
 
-/* Shown state synchronized exactly with body.side-nav-visible */
 body.side-nav-visible .khin-ai-widget {
     opacity: 1;
     visibility: visible;
@@ -31,9 +29,6 @@ body.side-nav-visible .khin-ai-widget {
     transform: translateY(0) scale(1);
 }
 
-/* --------------------------------------------------------------------------
-   2. Floating Launcher Trigger Button
-   -------------------------------------------------------------------------- */
 .khin-ai-launcher {
     display: flex;
     align-items: center;
@@ -69,7 +64,6 @@ body.side-nav-visible .khin-ai-widget {
     transform: translateY(-1px) scale(0.98);
 }
 
-/* Logo Box inside Launcher */
 .khin-ai-launcher-logo {
     width: 32px;
     height: 32px;
@@ -84,14 +78,12 @@ body.side-nav-visible .khin-ai-widget {
     overflow: hidden;
 }
 
-.khin-ai-launcher-logo img,
 .khin-ai-launcher-logo svg {
     width: 24px;
     height: 24px;
     object-fit: contain;
 }
 
-/* Brand Text & Live Pulse */
 .khin-ai-launcher-label {
     display: flex;
     align-items: center;
@@ -124,605 +116,662 @@ body.side-nav-visible .khin-ai-widget {
     100% { transform: scale(0.9); opacity: 0.8; box-shadow: 0 0 4px #10b981; }
 }
 
-/* Launcher Close State (When Window is Open) */
-.khin-ai-launcher-close-icon {
-    display: none;
-    width: 20px;
-    height: 20px;
-    color: #e2e8f0;
-}
-
-.khin-ai-widget.is-open .khin-ai-launcher {
-    background: rgba(28, 28, 34, 0.94);
-    border-color: rgba(255, 255, 255, 0.25);
-    padding: 10px 14px;
-}
-
-.khin-ai-widget.is-open .khin-ai-launcher-logo,
-.khin-ai-widget.is-open .khin-ai-launcher-label {
-    display: none;
-}
-
-.khin-ai-widget.is-open .khin-ai-launcher-close-icon {
-    display: block;
-}
-
 /* --------------------------------------------------------------------------
-   3. Chat Window Container
+   2. Minimalist Modal Overlay & Viewport (Matching Typing Test exactly)
    -------------------------------------------------------------------------- */
-.khin-ai-window {
-    position: absolute;
-    bottom: 58px;
-    right: 0;
-    width: 380px;
-    height: 540px;
-    max-height: calc(100vh - 100px);
-    max-height: calc(100dvh - 100px);
-    background: rgba(18, 18, 22, 0.96);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    border-radius: 20px;
-    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55),
-                0 0 35px rgba(255, 94, 0, 0.12),
-                inset 0 1px 0 rgba(255, 255, 255, 0.12);
+.khin-ai-modal-overlay {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.72);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    z-index: 100000;
     display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    transform-origin: bottom right;
-    
-    /* Animation state */
+    align-items: center;
+    justify-content: center;
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transform: scale(0.9) translateY(14px);
-    transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-                visibility 0.3s;
+    transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.35s;
+    will-change: opacity, backdrop-filter;
 }
 
-.khin-ai-widget.is-open .khin-ai-window {
+.khin-ai-modal-overlay.is-active {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
-    transform: scale(1) translateY(0);
 }
 
-/* --------------------------------------------------------------------------
-   4. Window Header
-   -------------------------------------------------------------------------- */
-.khin-ai-header {
+body.theme-light .khin-ai-modal-overlay {
+    background: rgba(15, 23, 42, 0.52) !important;
+}
+
+/* Floating Elevated Curved Viewport Container */
+.khin-ai-viewport-container {
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    width: auto;
+    height: auto;
+    background-color: #ffffff;
+    color: #0a0a0a;
+    border-radius: 30px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.45), 0 4px 18px rgba(0, 0, 0, 0.15);
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    padding: 14px 18px;
-    background: rgba(26, 26, 32, 0.92);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    user-select: none;
+    justify-content: center;
+    overflow: hidden;
+    transform: translateY(18px) scale(0.99);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: default;
 }
 
-.khin-ai-header-brand {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+.khin-ai-modal-overlay.is-active .khin-ai-viewport-container {
+    transform: translateY(0) scale(1);
 }
 
-.khin-ai-header-avatar {
-    width: 34px;
-    height: 34px;
-    border-radius: 10px;
-    background: #000000;
+/* Minimalist Top-Right Exit Button */
+.khin-ai-exit-btn {
+    position: absolute;
+    top: 32px;
+    right: 42px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #0a0a0a;
+    padding: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid rgba(255, 94, 0, 0.4);
-    box-shadow: 0 0 12px rgba(255, 94, 0, 0.3);
-    flex-shrink: 0;
-    overflow: hidden;
+    border-radius: 50%;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+    z-index: 50;
+    outline: none;
 }
 
-.khin-ai-header-avatar img,
-.khin-ai-header-avatar svg {
-    width: 26px;
-    height: 26px;
-    object-fit: contain;
+.khin-ai-exit-btn:hover {
+    transform: rotate(90deg) scale(1.1);
+    opacity: 0.7;
 }
 
-.khin-ai-header-titles {
+.khin-ai-exit-btn svg,
+.khin-ai-exit-btn i {
+    width: 32px;
+    height: 32px;
+    stroke: #0a0a0a;
+    stroke-width: 2.2px;
+}
+
+/* --------------------------------------------------------------------------
+   3. Minimalist Centered Workspace Body
+   -------------------------------------------------------------------------- */
+.khin-ai-minimal-body {
+    flex: 1;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 44px 32px 36px;
+    box-sizing: border-box;
+    position: relative;
+    height: 100%;
 }
 
-.khin-ai-header-title {
-    font-family: 'Poppins', sans-serif;
-    font-size: 14.5px;
-    font-weight: 600;
-    color: #ffffff;
-    line-height: 1.2;
+/* Minimalist Telemetry Bar at top */
+.khin-ai-minimal-telemetry {
     display: flex;
     align-items: center;
-    gap: 6px;
+    justify-content: center;
+    gap: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    color: rgba(10, 10, 10, 0.45);
+    user-select: none;
 }
 
-.khin-ai-header-title .brand-ai {
+.khin-ai-telemetry-brand {
+    font-weight: 700;
+    color: #0a0a0a;
+}
+
+.khin-ai-telemetry-brand .brand-ai {
     color: #ff5e00;
 }
 
-.khin-ai-header-sub {
-    font-size: 11px;
-    color: #94a3b8;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    margin-top: 2px;
+.khin-ai-telemetry-sep {
+    color: rgba(10, 10, 10, 0.25);
 }
 
-.khin-ai-header-actions {
-    display: flex;
+.khin-ai-telemetry-status {
+    display: inline-flex;
     align-items: center;
-    gap: 6px;
-}
-
-.khin-ai-hdr-btn {
-    width: 30px;
-    height: 30px;
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    color: #94a3b8;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-    outline: none;
-}
-
-.khin-ai-hdr-btn:hover {
-    background: rgba(255, 255, 255, 0.14);
-    color: #ffffff;
-    border-color: rgba(255, 255, 255, 0.2);
+    gap: 7px;
 }
 
 /* --------------------------------------------------------------------------
-   5. Chat Conversation Body
+   4. Center Stage & "Got questions?" Disappearing Prompt
+   (Formatted identically to Developer Typing Test)
    -------------------------------------------------------------------------- */
-.khin-ai-body {
+.khin-ai-center-stage {
     flex: 1;
-    overflow-y: auto;
-    padding: 16px;
     display: flex;
     flex-direction: column;
-    gap: 14px;
-    scroll-behavior: smooth;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 860px;
+    margin: 0 auto;
+    position: relative;
 }
 
-/* Custom Scrollbar for Chat */
-.khin-ai-body::-webkit-scrollbar {
-    width: 5px;
-}
-.khin-ai-body::-webkit-scrollbar-track {
-    background: transparent;
-}
-.khin-ai-body::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: 4px;
-}
-.khin-ai-body::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 94, 0, 0.4);
-}
-
-/* Starter Welcome Hero Inside Chat */
-.khin-ai-welcome-box {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px dashed rgba(255, 255, 255, 0.12);
-    border-radius: 14px;
-    padding: 14px 16px;
-    font-size: 12.5px;
-    color: #cbd5e1;
-    line-height: 1.5;
-}
-
-.khin-ai-welcome-box strong {
-    color: #ffffff;
-}
-
-.khin-ai-chips-label {
-    font-size: 11px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    color: #64748b;
-    margin: 4px 0 2px 2px;
-}
-
-/* Prompt Suggestion Chips Track */
-.khin-ai-chips-track {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-}
-
-.khin-ai-chip {
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 999px;
-    padding: 5px 11px;
-    font-size: 11.5px;
-    color: #e2e8f0;
-    cursor: pointer;
-    user-select: none;
-    transition: all 0.2s ease;
-    outline: none;
-}
-
-.khin-ai-chip:hover {
-    background: rgba(255, 94, 0, 0.18);
-    border-color: rgba(255, 94, 0, 0.5);
-    color: #ffffff;
-    transform: translateY(-1px);
-}
-
-/* Message Bubble Items */
-.khin-ai-msg {
-    display: flex;
-    gap: 10px;
-    max-width: 90%;
-    animation: fadeInMsg 0.25s ease-out forwards;
-}
-
-@keyframes fadeInMsg {
-    from { opacity: 0; transform: translateY(6px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.khin-ai-msg.user {
-    align-self: flex-end;
-    flex-direction: row-reverse;
-}
-
-.khin-ai-msg.bot {
-    align-self: flex-start;
-}
-
-/* Message Avatar */
-.khin-ai-msg-avatar {
-    width: 26px;
-    height: 26px;
-    border-radius: 8px;
-    background: #000000;
+.khin-ai-prompt-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 20px 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid rgba(255, 94, 0, 0.3);
-    flex-shrink: 0;
-    margin-top: 2px;
+    cursor: text;
 }
 
-.khin-ai-msg-avatar img,
-.khin-ai-msg-avatar svg {
-    width: 18px;
-    height: 18px;
-    object-fit: contain;
+/* The signature "Got questions?" prompt matching typewriting text font, size and transparency */
+.khin-ai-got-questions-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: clamp(1.25rem, 2.3vw, 1.85rem);
+    line-height: 1.8;
+    font-weight: 500;
+    text-transform: none;
+    letter-spacing: normal;
+    color: #94a3b8;
+    pointer-events: none;
+    transition: opacity 0.15s ease, visibility 0.15s ease;
+    user-select: none;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
 }
 
-/* Bubble Content */
-.khin-ai-bubble {
-    padding: 10px 14px;
-    border-radius: 16px;
-    font-size: 13px;
-    line-height: 1.55;
-    word-break: break-word;
+/* Caret blinking before "Got questions?" matching .typing-char.char-current in typewriting */
+.khin-ai-cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1.15em;
+    background-color: #0a0a0a;
+    border-radius: 1px;
+    margin-right: 4px;
+    vertical-align: middle;
+    animation: typingCaretBlink 0.9s infinite;
 }
 
-.khin-ai-msg.user .khin-ai-bubble {
-    background: linear-gradient(135deg, #2a2a35, #1e1e26);
-    border: 1px solid rgba(255, 255, 255, 0.16);
-    color: #ffffff;
-    border-bottom-right-radius: 4px;
+/* When untyped: hide native browser input caret so only the single static cursor is visible */
+.khin-ai-prompt-wrapper:not(.has-typed) .khin-ai-hero-input {
+    caret-color: transparent !important;
 }
 
-.khin-ai-msg.bot .khin-ai-bubble {
-    background: rgba(30, 30, 38, 0.9);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: #e2e8f0;
-    border-bottom-left-radius: 4px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+/* When the user starts typing, "Got questions?" smoothly disappears without shifting position! */
+.khin-ai-prompt-wrapper.has-typed .khin-ai-got-questions-text {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
 }
 
-.khin-ai-bubble p {
-    margin: 0 0 6px 0;
-}
-.khin-ai-bubble p:last-child {
-    margin-bottom: 0;
+/* The Minimalist Input Field matching typing test text styling */
+.khin-ai-hero-input {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 860px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin: 0 auto;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: clamp(1.25rem, 2.3vw, 1.85rem);
+    line-height: 1.8;
+    font-weight: 600;
+    color: #0a0a0a;
+    text-align: center;
+    outline: none;
+    caret-color: #0a0a0a;
 }
 
-.khin-ai-bubble strong {
-    color: #ffffff;
+/* --------------------------------------------------------------------------
+   5. Conversation Q&A Area (Shown after question is submitted)
+   -------------------------------------------------------------------------- */
+.khin-ai-qa-area {
+    width: 100%;
+    max-width: 820px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    margin: 10px auto;
+    overflow-y: auto;
+    max-height: 52vh;
+    padding-right: 8px;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+    text-align: left;
+    box-sizing: border-box;
+}
+
+.khin-ai-qa-area::-webkit-scrollbar {
+    width: 4px;
+}
+
+.khin-ai-qa-area::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+.khin-ai-user-query-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #ff5e00;
+    background: rgba(255, 94, 0, 0.08);
+    border: 1px solid rgba(255, 94, 0, 0.2);
+    padding: 6px 16px;
+    border-radius: 999px;
+    align-self: center;
+}
+
+.khin-ai-bot-answer-box {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(0.95rem, 1.4vw, 1.12rem);
+    line-height: 1.7;
+    color: #1e293b;
+    font-weight: 500;
+    background: rgba(15, 23, 42, 0.03);
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    border-radius: 20px;
+    padding: 24px 28px;
+    width: 100%;
+    box-sizing: border-box;
+    animation: fadeInAnswer 0.3s ease;
+}
+
+@keyframes fadeInAnswer {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.khin-ai-bot-answer-box strong {
+    color: #0a0a0a;
+    font-weight: 700;
+}
+
+.khin-ai-bot-answer-box a {
+    color: #ff5e00;
+    text-decoration: underline;
     font-weight: 600;
 }
 
-.khin-ai-bubble ul {
-    margin: 6px 0 6px 18px;
-    padding: 0;
+.khin-ai-bot-answer-box code {
+    font-family: 'JetBrains Mono', monospace;
+    background: rgba(0, 0, 0, 0.06);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.85em;
 }
 
-.khin-ai-bubble li {
-    margin-bottom: 4px;
+/* Typing / Thinking animation */
+.khin-ai-typing-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 16px 20px;
 }
 
-/* Interactive Action Buttons Attached to Bot Responses */
+.khin-ai-typing-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #ff5e00;
+    animation: typingBlink 1.4s infinite both;
+}
+
+.khin-ai-typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.khin-ai-typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes typingBlink {
+    0%, 80%, 100% { transform: scale(0.6); opacity: 0.3; }
+    40% { transform: scale(1.1); opacity: 1; }
+}
+
+/* Interactive Action Buttons inside answer */
 .khin-ai-actions-row {
     display: flex;
     flex-wrap: wrap;
-    gap: 6px;
-    margin-top: 8px;
+    gap: 8px;
+    margin-top: 18px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .khin-ai-action-btn {
     display: inline-flex;
     align-items: center;
-    gap: 5px;
-    background: rgba(255, 94, 0, 0.15);
-    border: 1px solid rgba(255, 94, 0, 0.35);
-    color: #ffa166;
-    border-radius: 8px;
-    padding: 4px 10px;
-    font-size: 11px;
-    font-weight: 500;
+    gap: 6px;
+    padding: 7px 14px;
+    border-radius: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    font-weight: 700;
+    background: #0a0a0a;
+    color: #ffffff;
+    text-decoration: none;
+    border: none;
     cursor: pointer;
     transition: all 0.2s ease;
-    text-decoration: none;
-    outline: none;
 }
 
 .khin-ai-action-btn:hover {
     background: #ff5e00;
-    border-color: #ff5e00;
     color: #ffffff;
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(255, 94, 0, 0.3);
-}
-
-/* Typing Indicator Animation */
-.khin-ai-typing {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    padding: 8px 12px;
-}
-
-.khin-ai-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: #ff5e00;
-    opacity: 0.4;
-    animation: typingBounce 1.4s infinite ease-in-out;
-}
-
-.khin-ai-dot:nth-child(1) { animation-delay: 0s; }
-.khin-ai-dot:nth-child(2) { animation-delay: 0.2s; }
-.khin-ai-dot:nth-child(3) { animation-delay: 0.4s; }
-
-@keyframes typingBounce {
-    0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
-    30% { transform: translateY(-5px); opacity: 1; }
 }
 
 /* --------------------------------------------------------------------------
-   6. Input Footer Area
+   6. Minimal Status Hint & Action Links (Matching Typing Test exactly)
    -------------------------------------------------------------------------- */
-.khin-ai-footer {
-    padding: 12px 14px;
-    background: rgba(22, 22, 28, 0.94);
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
+.khin-ai-status-hint {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    color: rgba(10, 10, 10, 0.45);
+    margin-top: 24px;
+    min-height: 22px;
+    user-select: none;
+    transition: color 0.2s ease;
 }
 
-.khin-ai-form {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    position: relative;
+.khin-ai-status-hint strong {
+    color: #0a0a0a;
+    font-weight: 600;
 }
 
-.khin-ai-input {
-    flex: 1;
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 12px;
-    padding: 9px 14px;
-    font-size: 13px;
-    color: #ffffff;
-    font-family: inherit;
-    outline: none;
-    transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.khin-ai-input::placeholder {
-    color: #64748b;
-}
-
-.khin-ai-input:focus {
-    border-color: rgba(255, 94, 0, 0.6);
-    background: rgba(255, 255, 255, 0.08);
-    box-shadow: 0 0 0 3px rgba(255, 94, 0, 0.15);
-}
-
-.khin-ai-send-btn {
-    width: 36px;
-    height: 36px;
-    border-radius: 10px;
-    background: #ff5e00;
-    border: none;
-    color: #ffffff;
-    display: flex;
+.khin-ai-action-links {
+    display: inline-flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
-    flex-shrink: 0;
-    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
-    outline: none;
-}
-
-.khin-ai-send-btn:hover {
-    background: #ff7524;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 14px rgba(255, 94, 0, 0.4);
-}
-
-.khin-ai-send-btn:active {
-    transform: translateY(0) scale(0.95);
-}
-
-.khin-ai-send-btn:disabled {
-    background: rgba(255, 255, 255, 0.1);
-    color: #64748b;
-    cursor: not-allowed;
-    box-shadow: none;
-}
-
-.khin-ai-disclaimer {
-    font-size: 10px;
-    color: #64748b;
-    text-align: center;
-    margin-top: 6px;
+    gap: 16px;
+    margin-top: 28px;
     user-select: none;
 }
 
-/* --------------------------------------------------------------------------
-   7. Light Theme Adaptations (body.theme-light)
-   -------------------------------------------------------------------------- */
-body.theme-light .khin-ai-launcher {
-    background: rgba(255, 255, 255, 0.92);
-    border: 1px solid rgba(10, 10, 10, 0.14);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12), 
-                0 0 16px rgba(255, 94, 0, 0.15);
+.khin-ai-letter-btn {
+    background: transparent;
+    border: none;
+    padding: 6px 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.88rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: rgba(10, 10, 10, 0.45);
+    cursor: pointer;
+    text-transform: lowercase;
+    transition: color 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
+    outline: none;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    text-decoration-color: rgba(10, 10, 10, 0.2);
+}
+
+.khin-ai-letter-btn:hover {
     color: #0a0a0a;
+    text-decoration-color: #0a0a0a;
+    transform: translateY(-1px);
+}
+
+.khin-ai-letter-sep {
+    color: rgba(10, 10, 10, 0.2);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.88rem;
+}
+
+/* --------------------------------------------------------------------------
+   7. Theme Consistency Across Modes (Default, Light, Night)
+   -------------------------------------------------------------------------- */
+
+/* Light Mode: Floating Launcher Button (Bottom Right) */
+body.theme-light .khin-ai-launcher {
+    background: rgba(255, 255, 255, 0.94) !important;
+    backdrop-filter: blur(18px) !important;
+    -webkit-backdrop-filter: blur(18px) !important;
+    border: 1px solid rgba(0, 0, 0, 0.14) !important;
+    color: #0a0a0a !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), 
+                0 0 18px rgba(255, 94, 0, 0.16),
+                inset 0 1px 0 rgba(255, 255, 255, 1) !important;
 }
 
 body.theme-light .khin-ai-launcher:hover {
-    border-color: rgba(255, 94, 0, 0.7);
-    box-shadow: 0 14px 38px rgba(0, 0, 0, 0.18), 
-                0 0 22px rgba(255, 94, 0, 0.3);
+    background: #ffffff !important;
+    border-color: rgba(255, 94, 0, 0.65) !important;
+    box-shadow: 0 14px 38px rgba(0, 0, 0, 0.14), 
+                0 0 24px rgba(255, 94, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 1) !important;
 }
 
-body.theme-light .khin-ai-launcher-label {
-    color: #0a0a0a;
+body.theme-light .khin-ai-launcher-logo {
+    background: #f8fafc !important;
+    border: 1px solid rgba(255, 94, 0, 0.5) !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08), 0 0 10px rgba(255, 94, 0, 0.2) !important;
 }
 
-body.theme-light .khin-ai-window {
-    background: rgba(255, 255, 255, 0.98);
-    border: 1px solid rgba(10, 10, 10, 0.12);
-    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18),
-                0 0 35px rgba(255, 94, 0, 0.1);
+body.theme-light .khin-ai-launcher-logo svg .khin-ai-logo-monogram {
+    fill: #0a0a0a !important;
 }
 
-body.theme-light .khin-ai-header {
-    background: rgba(245, 247, 250, 0.96);
-    border-bottom: 1px solid rgba(10, 10, 10, 0.08);
+body.theme-light .khin-ai-launcher-logo svg .khin-ai-sparkle-core {
+    fill: #ffffff !important;
 }
 
-body.theme-light .khin-ai-header-title {
-    color: #0a0a0a;
+body.theme-light .khin-ai-launcher-label,
+body.theme-light .khin-ai-launcher-label span {
+    color: #0a0a0a !important;
 }
 
-body.theme-light .khin-ai-header-sub {
-    color: #64748b;
+body.theme-light .khin-ai-launcher-label .brand-ai {
+    color: #ff5e00 !important;
 }
 
-body.theme-light .khin-ai-hdr-btn {
-    background: rgba(0, 0, 0, 0.05);
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    color: #475569;
+/* Light Mode: Modal Viewport (Solid Black with Pure White Typography, matching Typing Test) */
+body.theme-light .khin-ai-viewport-container {
+    background-color: #000000 !important;
+    background: #000000 !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    color: #ffffff !important;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.7), 0 4px 18px rgba(0, 0, 0, 0.25) !important;
 }
 
-body.theme-light .khin-ai-hdr-btn:hover {
-    background: rgba(0, 0, 0, 0.1);
-    color: #0a0a0a;
+body.theme-light .khin-ai-exit-btn {
+    color: #ffffff !important;
 }
 
-body.theme-light .khin-ai-welcome-box {
-    background: rgba(0, 0, 0, 0.03);
-    border-color: rgba(0, 0, 0, 0.12);
-    color: #334155;
+body.theme-light .khin-ai-exit-btn svg,
+body.theme-light .khin-ai-exit-btn i {
+    stroke: #ffffff !important;
 }
 
-body.theme-light .khin-ai-welcome-box strong {
-    color: #0a0a0a;
+body.theme-light .khin-ai-got-questions-text {
+    color: rgba(255, 255, 255, 0.28) !important;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.28) !important;
 }
 
-body.theme-light .khin-ai-chip {
-    background: rgba(0, 0, 0, 0.05);
-    border-color: rgba(0, 0, 0, 0.1);
-    color: #334155;
+body.theme-light .khin-ai-cursor {
+    background-color: #ffffff !important;
 }
 
-body.theme-light .khin-ai-chip:hover {
-    background: rgba(255, 94, 0, 0.12);
-    border-color: rgba(255, 94, 0, 0.4);
-    color: #ff5e00;
+body.theme-light .khin-ai-hero-input {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
 }
 
-body.theme-light .khin-ai-msg.user .khin-ai-bubble {
-    background: linear-gradient(135deg, #1e293b, #0f172a);
-    border: 1px solid rgba(0, 0, 0, 0.15);
-    color: #ffffff;
+body.theme-light .khin-ai-prompt-wrapper.has-typed .khin-ai-hero-input {
+    caret-color: #ffffff !important;
 }
 
-body.theme-light .khin-ai-msg.bot .khin-ai-bubble {
-    background: #f1f5f9;
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    color: #1e293b;
+body.theme-light .khin-ai-telemetry-brand {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
 }
 
-body.theme-light .khin-ai-bubble strong {
-    color: #0a0a0a;
+body.theme-light .khin-ai-telemetry-status,
+body.theme-light .khin-ai-status-hint {
+    color: rgba(255, 255, 255, 0.45) !important;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.45) !important;
 }
 
-body.theme-light .khin-ai-footer {
-    background: rgba(248, 250, 252, 0.96);
-    border-top: 1px solid rgba(0, 0, 0, 0.08);
+body.theme-light .khin-ai-status-hint strong {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
 }
 
-body.theme-light .khin-ai-input {
-    background: #ffffff;
-    border-color: rgba(0, 0, 0, 0.14);
-    color: #0a0a0a;
+body.theme-light .khin-ai-letter-btn {
+    color: rgba(255, 255, 255, 0.42) !important;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.42) !important;
+    text-decoration-color: rgba(255, 255, 255, 0.2) !important;
 }
 
-body.theme-light .khin-ai-input:focus {
-    background: #ffffff;
-    border-color: #ff5e00;
+body.theme-light .khin-ai-letter-btn:hover {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    text-decoration-color: #ffffff !important;
 }
 
-body.theme-light .khin-ai-action-btn {
-    background: rgba(255, 94, 0, 0.1);
-    border-color: rgba(255, 94, 0, 0.3);
-    color: #ea580c;
+body.theme-light .khin-ai-letter-sep {
+    color: rgba(255, 255, 255, 0.2) !important;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.2) !important;
 }
 
-body.theme-light .khin-ai-action-btn:hover {
-    background: #ff5e00;
-    border-color: #ff5e00;
-    color: #ffffff;
+body.theme-light .khin-ai-bot-answer-box {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-color: rgba(255, 255, 255, 0.12) !important;
+    color: #e2e8f0 !important;
+}
+
+body.theme-light .khin-ai-bot-answer-box strong {
+    color: #ffffff !important;
+}
+
+/* Night Mode: (OLED Pure Black) Launcher Button (Bottom Right) */
+body.theme-night .khin-ai-launcher {
+    background: rgba(0, 0, 0, 0.94) !important;
+    border: 1px solid rgba(255, 255, 255, 0.14) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 
+                0 0 18px rgba(255, 94, 0, 0.22),
+                inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+    color: #ffffff !important;
+}
+
+body.theme-night .khin-ai-launcher:hover {
+    border-color: rgba(255, 94, 0, 0.75) !important;
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.9), 
+                0 0 26px rgba(255, 94, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+}
+
+body.theme-night .khin-ai-launcher-logo {
+    background: #000000 !important;
+    border: 1px solid rgba(255, 94, 0, 0.55) !important;
+    box-shadow: 0 0 12px rgba(255, 94, 0, 0.35) !important;
+}
+
+body.theme-night .khin-ai-launcher-logo svg .khin-ai-logo-monogram {
+    fill: #ffffff !important;
+}
+
+body.theme-night .khin-ai-launcher-label,
+body.theme-night .khin-ai-launcher-label span {
+    color: #ffffff !important;
 }
 
 /* --------------------------------------------------------------------------
-   8. Responsive Media Queries
+   8. Mobile Responsiveness (Matching Typing Test exactly)
    -------------------------------------------------------------------------- */
-@media (max-width: 480px) {
-    .khin-ai-widget {
-        bottom: 16px;
-        right: 16px;
+@media (max-width: 768px) {
+    .khin-ai-viewport-container {
+        top: 10px;
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+        border-radius: 20px;
     }
 
-    .khin-ai-window {
-        bottom: 54px;
-        right: -4px;
-        width: calc(100vw - 28px);
-        max-width: 360px;
-        height: calc(100dvh - 120px);
-        max-height: 520px;
+    .khin-ai-exit-btn {
+        top: 20px;
+        right: 20px;
+    }
+
+    .khin-ai-exit-btn svg,
+    .khin-ai-exit-btn i {
+        width: 26px;
+        height: 26px;
+    }
+
+    .khin-ai-minimal-body {
+        padding: 24px 16px;
+    }
+
+    .khin-ai-got-questions-text {
+        font-size: clamp(1.05rem, 4vw, 1.35rem);
+        line-height: 1.65;
+    }
+
+    .khin-ai-hero-input {
+        font-size: clamp(1.05rem, 4vw, 1.35rem);
+        line-height: 1.65;
+        padding: 0;
+    }
+
+    .khin-ai-status-hint {
+        margin-top: 18px;
+    }
+
+    .khin-ai-action-links {
+        gap: 12px;
+        margin-top: 20px;
+    }
+
+    .khin-ai-letter-btn {
+        font-size: 0.8rem;
+        padding: 4px 6px;
+    }
+
+    .khin-ai-qa-area {
+        max-height: 48vh;
+    }
+
+    .khin-ai-bot-answer-box {
+        padding: 18px 16px;
+        font-size: 0.92rem;
     }
 }

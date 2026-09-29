@@ -4,7 +4,7 @@
  * 
  * Strict Domain Scope: Only answers about Khin Andrei Gamboa, his skills,
  * projects, certifications, education, career, contact, and this website.
- * Sticky in bottom-right corner, synchronized with left sidebar navbar.
+ * Presented in an elevated minimalist modal viewport matching typing test.
  * ==========================================================================
  */
 
@@ -17,7 +17,7 @@
     const KHIN_KNOWLEDGE = {
         name: "Khin Andrei Gamboa",
         alias: "Sondre",
-        role: "Aspiring Data Specialist / Associate Data Engineer",
+        role: "Aspiring Software Developer / Associate Data Engineer",
         location: "Philippines",
         email: "gamboa.khinandrei@gmail.com",
         linkedin: "https://www.linkedin.com/in/khinandreigamboa",
@@ -31,7 +31,7 @@
             summary: "Graduate of Computer Engineering at Rizal Technological University with a strong academic foundation in computing architecture, algorithmic data manipulation, systems hardware, and distributed networking."
         },
 
-        overview: "Khin Andrei is a Computer Engineering graduate and adaptable Data Specialist based in the Philippines. He builds end-to-end data solutions across the complete data lifecycle—from engineering resilient ETL/ELT pipelines and database architectures to extracting strategic analytical insights, designing interactive business intelligence dashboards, and developing applied AI models.",
+        overview: "Khin Andrei is a Computer Engineering graduate, adaptable Software Developer, and Data Engineer based in the Philippines. He builds end-to-end software and data solutions across the complete engineering lifecycle—from developing responsive applications and engineering resilient ETL/ELT pipelines to extracting strategic analytical insights, designing interactive business intelligence dashboards, and developing applied AI models.",
 
         stats: {
             projectsShipped: "8",
@@ -98,105 +98,85 @@
                 verifyUrl: "https://www.datacamp.com/certificate/DEA0017096233010"
             },
             {
-                title: "Associate Data Engineer in SQL (Track)",
-                issuer: "DataCamp",
+                title: "Associate Data Engineer in SQL",
+                issuer: "DataCamp Track",
                 id: "5255ec7f1484d5f2be75802567507ec4d31dd4a4",
-                validity: "Completed Aug 30, 2026 • 28-Hour Comprehensive Track",
-                desc: "Comprehensive 28-hour course track covering SQL database design, ETL/ELT pipelines, data cleaning, schema optimization, and warehousing.",
+                validity: "28 hours curriculum completed",
+                desc: "Curriculum validating advanced PostgreSQL querying, complex subqueries, window functions, relational database normalization, and query performance optimization.",
                 verifyUrl: "https://www.datacamp.com/completed/statement-of-accomplishment/track/5255ec7f1484d5f2be75802567507ec4d31dd4a4"
             },
             {
                 title: "Python Essentials 1 & 2",
-                issuer: "Cisco Networking Academy / Python Institute",
-                desc: "Industry curriculum covering Python fundamentals, algorithmic problem solving, data structures, and object-oriented programming."
+                issuer: "Cisco Networking Academy",
+                desc: "Comprehensive dual certifications covering procedural programming, object-oriented concepts, algorithm design, data structures, and standard library modules in Python.",
+                verifyUrl: "https://www.credly.com/users/gamboa-khin-andrei"
             },
             {
-                title: "Data Fundamentals",
+                title: "Working with Data Fundamentals",
                 issuer: "IBM SkillsBuild & TESDA",
-                desc: "Foundational certification covering data analytics, data lifecycle management, visualization techniques, and ethical AI/data handling."
-            }
-        ],
-
-        experience: [
-            {
-                company: "Staff Domain Inc.",
-                role: "IT Systems & Operations Immersion (6 Months)",
-                desc: "Completed enterprise internship delivering hands-on technical support, hardware/software deployment, enterprise IT infrastructure maintenance, and process automation."
-            },
-            {
-                company: "Freelance Engineering",
-                role: "Custom Systems & Data Solutions",
-                desc: "Delivered real-world client database solutions, automation scripts, and custom data processing workflows for micro and small businesses."
+                desc: "Credentials demonstrating structured data cleaning, statistical modeling fundamentals, data integrity principles, and data ethics.",
+                verifyUrl: "https://www.credly.com/users/gamboa-khin-andrei"
             }
         ],
 
         website: {
-            frontend: "Built with semantic HTML5, modular Vanilla CSS3 (glassmorphic aesthetic, custom animations), and ES6+ JavaScript.",
-            backend: "Runs on Vercel Serverless Functions (/api/submit-message.js).",
-            database: "Supabase PostgreSQL instance connected via connection pool (`pg` driver) for real-time page telemetry and message logging.",
-            email: "Integrated with Resend API for transactional email forwarding of contact inquiries directly to Khin.",
-            features: [
-                "Retractable glassmorphic left sidebar navbar with minimized rail mode and smooth scrollspy",
-                "Theme switcher with segmented sliding control supporting Dark and Light aesthetics",
-                "Built-in Web Audio API sound synthesizer engine for tactical tactile feedback",
-                "Live database-backed telemetry view counter with animated count-up numbers",
-                "Dedicated dual views: Khin Andrei Portfolio View & Data & Dev View",
-                "Integrated document viewer modal for viewing and downloading Khin's Resume & Cover Letter",
-                "Sticky Khin.ai minimal assistant bot!"
-            ]
+            version: "Portfolio V2 (2026 Edition)",
+            frontend: "Semantic HTML5, modular CSS3, and high-performance vanilla JavaScript (Zero bulky runtime frameworks).",
+            backend: "Supabase PostgreSQL Database for telemetry logs, Vercel Serverless Edge Functions, and Formspree SMTP API for email dispatch.",
+            database: "Supabase Cloud Database powering the live Realtime Analytics telemetric view counters and contact queues.",
+            email: "Formspree transactional SMTP pipeline sending validated inquiries directly to Khin's inbox with automated response copies."
         }
     };
 
     /* ==========================================================================
-       2. Natural Language Query Processor & Strict Guardrails
+       2. Strict Intent Classifier & Response Synthesizer
        ========================================================================== */
-    function processQuery(rawInput) {
-        const query = rawInput.toLowerCase().trim();
+    function processQuery(rawQuery) {
+        const query = rawQuery.toLowerCase().trim();
 
-        // 1. Greetings & Pleasantries
-        if (/^(hi|hello|hey|greetings|good morning|good afternoon|good evening|sup|yo)\b/i.test(query)) {
+        // 1. Greetings & Identity Inquiries
+        if (/^(hi|hello|hey|greetings|good day|sup|yo|hola)\b/i.test(query) || /^who are you\??$/i.test(query)) {
             return {
-                text: `Hello! I'm **khin.ai**, Khin Andrei's dedicated portfolio assistant. I can answer any questions about his skills, projects, certifications, experience, or this website.<br><br>What would you like to explore?`,
+                text: `Hello! I am <strong>khin.ai</strong>, Khin Andrei's specialized portfolio assistant.<br><br>I can provide fast, verified information regarding Khin's <strong>software development</strong>, <strong>data engineering projects</strong>, <strong>certifications</strong>, <strong>technical stack</strong>, and <strong>career background</strong>.<br><br>What would you like to explore?`,
                 actions: [
-                    { label: "Top Skills", action: "ask", query: "What are your top skills?" },
-                    { label: "Featured Projects", action: "ask", query: "Show me his projects" },
-                    { label: "Certifications", action: "ask", query: "What certifications do you have?" },
-                    { label: "Contact Khin", action: "ask", query: "How do I contact Khin?" }
+                    { label: "Who is Khin Andrei?", action: "ask", query: "Who is Khin Andrei?" },
+                    { label: "View Top Skills", action: "ask", query: "What are your top skills?" },
+                    { label: "See Featured Projects", action: "ask", query: "Show me your projects" }
                 ]
             };
         }
 
-        // 2. Who is Khin / Bio / About / Background
-        if (/who (is|are) (khin|khinandrei|you|sondre)|tell me about (khin|him|yourself)|about khin|introduce/i.test(query)) {
+        // 2. Who is Khin Andrei? (Bio / Background / Summary)
+        if (/who is (khin|andrei|sondre)|tell me about (khin|yourself|him)|bio|background|profile/i.test(query)) {
             return {
-                text: `**${KHIN_KNOWLEDGE.name}** (also known as *${KHIN_KNOWLEDGE.alias}*) is an **${KHIN_KNOWLEDGE.role}** and Computer Engineering graduate from **${KHIN_KNOWLEDGE.education.school}**, based in the ${KHIN_KNOWLEDGE.location}.<br><br>${KHIN_KNOWLEDGE.overview}<br><br><strong>Key Highlights:</strong><br>• <strong>${KHIN_KNOWLEDGE.stats.projectsShipped}</strong> Projects Shipped<br>• <strong>${KHIN_KNOWLEDGE.stats.technologies}</strong> Core Tech Stack<br>• <strong>${KHIN_KNOWLEDGE.stats.enterpriseImmersion}</strong> Enterprise Immersion at Staff Domain Inc.<br>• <strong>${KHIN_KNOWLEDGE.stats.certifications}</strong> Industry Credentials`,
+                text: `<strong>Khin Andrei Gamboa</strong> is a Computer Engineering graduate from Rizal Technological University (RTU), adaptable Software Developer, and Associate Data Engineer based in the Philippines.<br><br>He specializes in designing resilient ETL/ELT pipelines, architecting relational SQL databases, developing responsive web applications, and generating actionable business intelligence.<br><br>He has shipped <strong>8+ engineering projects</strong>, holds <strong>5+ industry credentials</strong> (including DataCamp Associate Data Engineer), and completed 6 months of enterprise systems immersion at Staff Domain Inc.`,
                 actions: [
-                    { label: "View Profile", action: "navigate", target: "#about" },
-                    { label: "Open Resume", action: "resume" },
-                    { label: "Career Milestones", action: "navigate", target: "#education" }
+                    { label: "View Experience", action: "navigate", target: "#education" },
+                    { label: "View Resume", action: "resume" },
+                    { label: "Contact Khin", action: "navigate", target: "#contact" }
                 ]
             };
         }
 
-        // 3. Resume / CV / Cover Letter / Download
-        if (/resume|cv|curriculum vitae|cover letter|download resume|view resume/i.test(query)) {
+        // 3. Resume / Curriculum Vitae
+        if (/resume|cv|curriculum vitae|download cv|hire him/i.test(query)) {
             return {
-                text: `You can view and download Khin's credentials directly:<br><br>• <strong>Resume:</strong> Full details on education, certifications, and technical stack.<br>• <strong>Cover Letter:</strong> Personalized narrative of his career mission and value proposition.<br><br>You can preview them in the built-in viewer or download the PDF:`,
+                text: `You can review and download Khin Andrei's official resume directly right here.<br><br>It highlights his <strong>DataCamp Associate Data Engineer certification</strong>, BS Computer Engineering degree, enterprise internship at Staff Domain Inc., and end-to-end data pipeline projects.`,
                 actions: [
-                    { label: "Open Resume in Viewer", action: "resume" },
-                    { label: "Download Resume PDF", action: "download", url: "./data/documents/resume/khin-andrei-gamboa-resume.pdf", filename: "khin-andrei-gamboa-resume.pdf" },
-                    { label: "Download Cover Letter", action: "download", url: "./data/documents/cover_letter/khin_andrei_gamboa_cover_letter.pdf", filename: "khin_andrei_gamboa_cover_letter.pdf" }
+                    { label: "Open Resume Viewport", action: "resume" },
+                    { label: "Direct PDF Download", action: "download", url: "./data/documents/resume/khin-andrei-gamboa-resume.pdf", filename: "Khin_Andrei_Gamboa_Resume.pdf" },
+                    { label: "Inquire via Email", action: "open_url", url: `mailto:${KHIN_KNOWLEDGE.email}` }
                 ]
             };
         }
 
         // 4. Skills & Technologies
-        if (/skills|technolog(y|ies)|stack|tools|languages|programming|what can (you|he) do|sql|python|etl|postgres|snowflake|power bi|tableau|docker/i.test(query)) {
+        if (/skill|tech stack|technolog(y|ies)|what (tools|languages|stack)|tools/i.test(query)) {
             if (/python/i.test(query)) {
                 return {
-                    text: `<strong>Python Expertise:</strong><br>Khin utilizes Python for data manipulation, ETL/ELT pipeline automation, data extraction via REST APIs, computer vision, and applied machine learning models. He holds the <strong>Cisco Python Essentials</strong> credentials.`,
+                    text: `<strong>Python Expertise:</strong><br>Python is Khin's primary language for data engineering, automation, and backend logic.<br>• Certified in <strong>Cisco Python Essentials 1 & 2</strong>.<br>• Builds automated ETL data pipelines, API integrations, and pandas/NumPy analytical workflows.<br>• Developed machine learning computer vision models in his <strong>FOVB-AIOT</strong> and <strong>AI Kilo Bot</strong> projects.`,
                     actions: [
-                        { label: "View Projects", action: "navigate", target: "#work" },
+                        { label: "See Python Projects", action: "navigate", target: "#work" },
                         { label: "Certifications", action: "navigate", target: "#certifications" }
                     ]
                 };
@@ -229,7 +209,7 @@
             }
 
             return {
-                text: `Khin's technical stack spans the full data lifecycle:<br><br>• <strong>Data Engineering:</strong> ${KHIN_KNOWLEDGE.skills.dataEngineering}<br>• <strong>Databases & Warehouses:</strong> ${KHIN_KNOWLEDGE.skills.databases}<br>• <strong>Programming & Scripting:</strong> ${KHIN_KNOWLEDGE.skills.programming}<br>• <strong>BI & Dashboards:</strong> ${KHIN_KNOWLEDGE.skills.analyticsBI}<br>• <strong>DevOps & Tools:</strong> ${KHIN_KNOWLEDGE.skills.toolsDevOps}`,
+                text: `Khin's technical stack spans the full data & software lifecycle:<br><br>• <strong>Data Engineering:</strong> ${KHIN_KNOWLEDGE.skills.dataEngineering}<br>• <strong>Databases & Warehouses:</strong> ${KHIN_KNOWLEDGE.skills.databases}<br>• <strong>Programming & Scripting:</strong> ${KHIN_KNOWLEDGE.skills.programming}<br>• <strong>BI & Dashboards:</strong> ${KHIN_KNOWLEDGE.skills.analyticsBI}<br>• <strong>DevOps & Tools:</strong> ${KHIN_KNOWLEDGE.skills.toolsDevOps}`,
                 actions: [
                     { label: "Explore Skills Marquee", action: "navigate", target: "#home" },
                     { label: "See Applied Projects", action: "navigate", target: "#work" }
@@ -309,7 +289,7 @@
         // 8. Experience / Internship / Career Milestones
         if (/experience|intern|internship|staff domain|job|freelance|career/i.test(query)) {
             return {
-                text: `<strong>Career Trajectory:</strong><br><br>• <strong>Staff Domain Inc. (6 Mos):</strong> Enterprise IT Systems & Operations immersion, focusing on enterprise reliability, process automation, and systems maintenance.<br>• <strong>Freelance Engineering:</strong> Delivered custom client database schemas, ETL pipelines, and reporting solutions.<br>• <strong>Target Roles:</strong> Associate Data Engineer, Junior IT Systems Specialist, Data Pipeline Specialist, and Data Analyst.`,
+                text: `<strong>Career Trajectory:</strong><br><br>• <strong>Staff Domain Inc. (6 Mos):</strong> Enterprise IT Systems & Operations immersion, focusing on enterprise reliability, process automation, and systems maintenance.<br>• <strong>Freelance Engineering:</strong> Delivered custom client database schemas, ETL pipelines, and reporting solutions.<br>• <strong>Target Roles:</strong> Software Developer, Associate Data Engineer, Junior IT Systems Specialist, Data Pipeline Specialist, and Data Analyst.`,
                 actions: [
                     { label: "Explore Trajectory Flow", action: "navigate", target: "#education" },
                     { label: "View Resume", action: "resume" }
@@ -364,12 +344,12 @@
     }
 
     /* ==========================================================================
-       3. DOM Generation & UI Controller
+       3. DOM Injection: Minimalist Modal Viewport & Floating Launcher
        ========================================================================== */
     function initKhinAiWidget() {
-        if (document.getElementById('khin-ai-widget')) return;
+        if (document.getElementById('khinAiModalOverlay')) return;
 
-        // Custom Vector SVG Logo inspired by Khin's logo with glowing AI star
+        // Custom Vector SVG Logo
         const KHIN_AI_LOGO_SVG = `
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
                 <defs>
@@ -379,105 +359,27 @@
                         <stop offset="100%" stop-color="#d63d00"/>
                     </linearGradient>
                 </defs>
-                <g fill="#ffffff">
-                    <!-- Left Chevron (<) -->
+                <g class="khin-ai-logo-monogram" fill="#ffffff">
                     <path d="M 172,62 L 270,62 L 110,248 L 214,442 L 158,474 L 8,252 Z" />
-                    <!-- Crossbar (-) Left -->
                     <polygon points="112,216 338,216 352,284 112,284" />
-                    <!-- Crossbar (-) Right -->
                     <polygon points="426,216 496,216 496,284 412,284" />
-                    <!-- Slanted Slash (/) -->
                     <path d="M 388,52 L 476,52 L 372,448 L 332,474 L 298,446 Z" />
                 </g>
-                <!-- AI Radiant Star ✦ -->
-                <g fill="url(#khinAiLogoOrange)">
+                <g class="khin-ai-logo-sparkle" fill="url(#khinAiLogoOrange)">
                     <path d="M 426,28 C 426,56 444,68 472,68 C 444,68 426,80 426,108 C 426,80 408,68 380,68 C 408,68 426,56 426,28 Z"/>
-                    <circle cx="426" cy="68" r="4.5" fill="#ffffff"/>
+                    <circle class="khin-ai-sparkle-core" cx="426" cy="68" r="4.5" fill="#ffffff"/>
                 </g>
             </svg>
         `;
 
-        // Create Widget HTML markup
+        // 1. Create Floating Launcher Trigger Button
         const widgetEl = document.createElement('div');
         widgetEl.id = 'khin-ai-widget';
         widgetEl.className = 'khin-ai-widget';
         widgetEl.setAttribute('aria-label', 'khin.ai Assistant');
 
         widgetEl.innerHTML = `
-            <!-- Chat Window Container -->
-            <div class="khin-ai-window" id="khinAiWindow" role="dialog" aria-modal="true" aria-label="khin.ai Chat">
-                <!-- Header -->
-                <div class="khin-ai-header">
-                    <div class="khin-ai-header-brand">
-                        <div class="khin-ai-header-avatar">
-                            ${KHIN_AI_LOGO_SVG}
-                        </div>
-                        <div class="khin-ai-header-titles">
-                            <span class="khin-ai-header-title">khin<span class="brand-ai">.ai</span></span>
-                            <span class="khin-ai-header-sub">
-                                <span class="khin-ai-pulse-dot"></span> Portfolio AI Assistant
-                            </span>
-                        </div>
-                    </div>
-                    <div class="khin-ai-header-actions">
-                        <button type="button" class="khin-ai-hdr-btn" id="khinAiResetBtn" title="Reset Conversation" aria-label="Reset Conversation">
-                            <i data-lucide="rotate-ccw" style="width: 15px; height: 15px;"></i>
-                        </button>
-                        <button type="button" class="khin-ai-hdr-btn" id="khinAiCloseBtn" title="Minimize Chat" aria-label="Minimize Chat">
-                            <i data-lucide="x" style="width: 17px; height: 17px;"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Chat Body / Messages Stream -->
-                <div class="khin-ai-body" id="khinAiBody">
-                    <!-- Welcome Hero Box -->
-                    <div class="khin-ai-welcome-box">
-                        <strong>Hello! I'm khin.ai 👋</strong><br>
-                        I'm Khin Andrei's dedicated portfolio AI assistant. Ask me anything about his skills, projects, certifications, background, or this website!
-                    </div>
-
-                    <!-- Quick Starter Topic Chips -->
-                    <div class="khin-ai-chips-section">
-                        <div class="khin-ai-chips-label">Suggested Questions</div>
-                        <div class="khin-ai-chips-track" id="khinAiChipsTrack">
-                            <button type="button" class="khin-ai-chip" data-query="Who is Khin Andrei?">Who is Khin?</button>
-                            <button type="button" class="khin-ai-chip" data-query="What are your top skills?">Top Skills</button>
-                            <button type="button" class="khin-ai-chip" data-query="Show me your projects">Featured Projects</button>
-                            <button type="button" class="khin-ai-chip" data-query="What certifications do you have?">Certifications</button>
-                            <button type="button" class="khin-ai-chip" data-query="How can I contact Khin?">Contact Khin</button>
-                            <button type="button" class="khin-ai-chip" data-query="Can I view your resume?">View Resume</button>
-                        </div>
-                    </div>
-
-                    <!-- Dynamic Message Stream -->
-                    <div id="khinAiStream" style="display: flex; flex-direction: column; gap: 12px;"></div>
-
-                    <!-- Typing Indicator -->
-                    <div id="khinAiTyping" class="khin-ai-msg bot" style="display: none;">
-                        <div class="khin-ai-msg-avatar">${KHIN_AI_LOGO_SVG}</div>
-                        <div class="khin-ai-bubble khin-ai-typing">
-                            <span class="khin-ai-dot"></span>
-                            <span class="khin-ai-dot"></span>
-                            <span class="khin-ai-dot"></span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Input Footer -->
-                <div class="khin-ai-footer">
-                    <form class="khin-ai-form" id="khinAiForm" autocomplete="off">
-                        <input type="text" id="khinAiInput" class="khin-ai-input" placeholder="Ask anything about Khin..." maxlength="300" required>
-                        <button type="submit" id="khinAiSendBtn" class="khin-ai-send-btn" title="Send message" aria-label="Send message">
-                            <i data-lucide="send" style="width: 16px; height: 16px;"></i>
-                        </button>
-                    </form>
-                    <div class="khin-ai-disclaimer">Specialized in Khin Andrei's work & portfolio</div>
-                </div>
-            </div>
-
-            <!-- Floating Launcher Trigger Button -->
-            <button type="button" class="khin-ai-launcher" id="khinAiLauncher" aria-label="Open khin.ai Chat" title="Open khin.ai Chat">
+            <button type="button" class="khin-ai-launcher" id="khinAiLauncher" aria-label="Open khin.ai Chat" title="Got questions? (Ctrl+Q)">
                 <div class="khin-ai-launcher-logo">
                     ${KHIN_AI_LOGO_SVG}
                 </div>
@@ -485,36 +387,96 @@
                     <span>khin<span class="brand-ai">.ai</span></span>
                     <span class="khin-ai-pulse-dot"></span>
                 </div>
-                <div class="khin-ai-launcher-close-icon">
-                    <i data-lucide="x" style="width: 20px; height: 20px;"></i>
-                </div>
             </button>
         `;
-
         document.body.appendChild(widgetEl);
 
-        // Re-run lucide icons on the new widget
+        // 2. Create Minimalist Modal Viewport (Matching Typing Test Viewport)
+        const modalOverlay = document.createElement('div');
+        modalOverlay.id = 'khinAiModalOverlay';
+        modalOverlay.className = 'khin-ai-modal-overlay';
+        modalOverlay.setAttribute('aria-modal', 'true');
+        modalOverlay.setAttribute('role', 'dialog');
+        modalOverlay.setAttribute('aria-label', 'khin.ai Assistant');
+        modalOverlay.setAttribute('aria-hidden', 'true');
+
+        modalOverlay.innerHTML = `
+            <div class="khin-ai-viewport-container">
+                <!-- Top Right Minimalist Exit Button -->
+                <button type="button" class="khin-ai-exit-btn" id="khinAiModalCloseBtn" aria-label="Close khin.ai" title="Exit [ESC or Ctrl+Q]">
+                    <i data-lucide="x"></i>
+                </button>
+
+                <!-- Minimalist Centered Workspace Body -->
+                <div class="khin-ai-minimal-body">
+                    <!-- Subtle Minimalist Telemetry Bar at top -->
+                    <div class="khin-ai-minimal-telemetry">
+                        <span class="khin-ai-telemetry-brand">khin<span class="brand-ai">.ai</span></span>
+                        <span class="khin-ai-telemetry-sep">·</span>
+                        <span class="khin-ai-telemetry-status"><span class="khin-ai-pulse-dot"></span> portfolio assistant</span>
+                    </div>
+
+                    <!-- Central Content Stage -->
+                    <div class="khin-ai-center-stage" id="khinAiCenterStage">
+                        <!-- Prompt & Input Zone: "Got questions?" that disappears when typing -->
+                        <div class="khin-ai-prompt-wrapper" id="khinAiPromptWrapper">
+                            <div class="khin-ai-got-questions-text" id="khinAiGotQuestionsText"><span class="khin-ai-cursor" id="khinAiCursor"></span>Got questions?</div>
+                            <input type="text" class="khin-ai-hero-input" id="khinAiHeroInput" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" aria-label="Ask a question about Khin">
+                        </div>
+
+                        <!-- Conversation Q&A Area (Shown after question is submitted) -->
+                        <div class="khin-ai-qa-area" id="khinAiQaArea" style="display: none;">
+                            <div class="khin-ai-user-query-badge" id="khinAiUserQueryBadge"></div>
+                            <div class="khin-ai-bot-answer-box" id="khinAiBotAnswerBox"></div>
+                        </div>
+                    </div>
+
+                    <!-- Minimal Status Hint (Matching Typing Test) -->
+                    <div class="khin-ai-status-hint" id="khinAiStatusHint">
+                        type your question · press enter to send · esc to exit · tab to reset
+                    </div>
+
+                    <!-- Minimalist Action Links: Pure Clickable Letters / Words -->
+                    <div class="khin-ai-action-links" id="khinAiActionLinks">
+                        <button type="button" class="khin-ai-letter-btn" data-query="Who is Khin Andrei?">who is khin?</button>
+                        <span class="khin-ai-letter-sep">/</span>
+                        <button type="button" class="khin-ai-letter-btn" data-query="What are your top skills?">skills</button>
+                        <span class="khin-ai-letter-sep">/</span>
+                        <button type="button" class="khin-ai-letter-btn" data-query="Show me your projects">projects</button>
+                        <span class="khin-ai-letter-sep">/</span>
+                        <button type="button" class="khin-ai-letter-btn" data-query="Can I view your resume?">resume</button>
+                        <span class="khin-ai-letter-sep">/</span>
+                        <button type="button" class="khin-ai-letter-btn" data-query="What certifications do you have?">certifications</button>
+                        <span class="khin-ai-letter-sep">/</span>
+                        <button type="button" class="khin-ai-letter-btn" data-query="How can I contact Khin?">contact</button>
+                    </div>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(modalOverlay);
+
+        // Instantiate lucide icons inside injected elements
         if (window.lucide && typeof window.lucide.createIcons === 'function') {
             window.lucide.createIcons();
         }
 
-        // Attach Event Listeners
-        setupEventListeners(widgetEl, KHIN_AI_LOGO_SVG);
+        // Wire Event Handlers
+        setupEventListeners(modalOverlay);
     }
 
     /* ==========================================================================
        4. Event Listeners & Interaction Wiring
        ========================================================================== */
-    function setupEventListeners(widgetEl, logoSvg) {
+    function setupEventListeners(modalOverlay) {
         const launcherBtn = document.getElementById('khinAiLauncher');
-        const closeBtn = document.getElementById('khinAiCloseBtn');
-        const resetBtn = document.getElementById('khinAiResetBtn');
-        const form = document.getElementById('khinAiForm');
-        const input = document.getElementById('khinAiInput');
-        const stream = document.getElementById('khinAiStream');
-        const typingEl = document.getElementById('khinAiTyping');
-        const bodyEl = document.getElementById('khinAiBody');
-        const chipsTrack = document.getElementById('khinAiChipsTrack');
+        const closeBtn = document.getElementById('khinAiModalCloseBtn');
+        const promptWrapper = document.getElementById('khinAiPromptWrapper');
+        const input = document.getElementById('khinAiHeroInput');
+        const qaArea = document.getElementById('khinAiQaArea');
+        const userQueryBadge = document.getElementById('khinAiUserQueryBadge');
+        const botAnswerBox = document.getElementById('khinAiBotAnswerBox');
+        const statusHint = document.getElementById('khinAiStatusHint');
+        const actionLinks = document.getElementById('khinAiActionLinks');
 
         function playSound(freq, duration) {
             if (typeof window.playUiSound === 'function') {
@@ -524,92 +486,158 @@
             }
         }
 
-        function toggleWidget() {
-            const isOpen = widgetEl.classList.toggle('is-open');
-            if (isOpen) {
-                playSound(680, 0.03);
-                setTimeout(() => {
-                    if (input) input.focus();
-                }, 200);
+        function openModal() {
+            if (!modalOverlay) return;
+
+            // Close typing test modal if active
+            const typingModal = document.getElementById('typingTestOverlay');
+            if (typingModal && typingModal.classList.contains('is-active')) {
+                typingModal.classList.remove('is-active');
+            }
+
+            modalOverlay.classList.add('is-active');
+            modalOverlay.setAttribute('aria-hidden', 'false');
+
+            if (typeof window.lockMainWebScroll === 'function') {
+                window.lockMainWebScroll();
+            }
+            if (window.lucide && typeof window.lucide.createIcons === 'function') {
+                window.lucide.createIcons();
+            }
+
+            playSound(720, 0.03);
+
+            setTimeout(() => {
+                if (input) input.focus();
+            }, 80);
+        }
+
+        function closeModal() {
+            if (!modalOverlay) return;
+            modalOverlay.classList.remove('is-active');
+            modalOverlay.setAttribute('aria-hidden', 'true');
+
+            if (typeof window.unlockMainWebScroll === 'function') {
+                window.unlockMainWebScroll();
+            }
+            playSound(540, 0.02);
+        }
+
+        function toggleModal() {
+            if (modalOverlay && modalOverlay.classList.contains('is-active')) {
+                closeModal();
             } else {
-                playSound(480, 0.03);
+                openModal();
             }
         }
 
-        launcherBtn.addEventListener('click', toggleWidget);
-        closeBtn.addEventListener('click', () => {
-            widgetEl.classList.remove('is-open');
-            playSound(480, 0.03);
-        });
+        // Launcher & Close buttons
+        if (launcherBtn) launcherBtn.addEventListener('click', toggleModal);
+        if (closeBtn) closeBtn.addEventListener('click', closeModal);
 
-        // Close on Escape key
-        window.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && widgetEl.classList.contains('is-open')) {
-                widgetEl.classList.remove('is-open');
+        // Click outside viewport container to close
+        modalOverlay.addEventListener('click', (e) => {
+            if (!e.target.closest('.khin-ai-viewport-container')) {
+                closeModal();
             }
         });
 
-        // Reset Conversation
-        resetBtn.addEventListener('click', () => {
-            if (stream) stream.innerHTML = '';
-            playSound(540, 0.04);
-            if (input) input.focus();
-        });
+        // "Got questions?" prompt disappearance on typing
+        if (input && promptWrapper) {
+            promptWrapper.addEventListener('click', () => {
+                if (input) input.focus();
+            });
 
-        // Chips click handlers
-        if (chipsTrack) {
-            chipsTrack.addEventListener('click', (e) => {
-                const chip = e.target.closest('.khin-ai-chip');
-                if (!chip) return;
-                const query = chip.getAttribute('data-query');
-                if (query) {
-                    handleUserQuery(query);
+            input.addEventListener('input', () => {
+                if (input.value.length > 0) {
+                    promptWrapper.classList.add('has-typed');
+                } else {
+                    promptWrapper.classList.remove('has-typed');
+                }
+            });
+
+            input.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    const text = input.value.trim();
+                    if (!text) return;
+                    handleUserQuery(text);
+                } else if (e.key === 'Tab') {
+                    e.preventDefault();
+                    resetConversation();
+                } else if (e.key === 'Escape') {
+                    e.preventDefault();
+                    closeModal();
                 }
             });
         }
 
-        // Form submit
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const text = input.value.trim();
-            if (!text) return;
-            input.value = '';
-            handleUserQuery(text);
+        // Auto-focus input on any typed character if modal is open
+        modalOverlay.addEventListener('keydown', (e) => {
+            if (input && document.activeElement !== input && !e.ctrlKey && !e.altKey && !e.metaKey) {
+                if (e.key.length === 1 || e.key === 'Backspace') {
+                    input.focus();
+                }
+            }
         });
 
-        function scrollToBottom() {
-            setTimeout(() => {
-                bodyEl.scrollTop = bodyEl.scrollHeight;
-            }, 60);
+        // Reset Conversation back to initial "Got questions?" screen
+        function resetConversation() {
+            if (qaArea) qaArea.style.display = 'none';
+            if (botAnswerBox) botAnswerBox.innerHTML = '';
+            if (userQueryBadge) userQueryBadge.innerHTML = '';
+            if (input) {
+                input.value = '';
+                input.placeholder = '';
+            }
+            if (promptWrapper) promptWrapper.classList.remove('has-typed');
+            if (statusHint) {
+                statusHint.innerHTML = 'type your question · press enter to send · esc to exit · tab to reset';
+            }
+            playSound(540, 0.02);
+            if (input) input.focus();
         }
 
+        // Process and handle user question
         function handleUserQuery(text) {
             playSound(780, 0.02);
+            if (input) {
+                input.value = '';
+                input.placeholder = 'Ask a follow-up question...';
+            }
+            if (promptWrapper) promptWrapper.classList.add('has-typed');
 
-            // 1. Append User Message Bubble
-            const userMsgEl = document.createElement('div');
-            userMsgEl.className = 'khin-ai-msg user';
-            userMsgEl.innerHTML = `<div class="khin-ai-bubble"><p>${escapeHtml(text)}</p></div>`;
-            stream.appendChild(userMsgEl);
-            scrollToBottom();
+            // 1. Show user query badge
+            if (userQueryBadge) {
+                userQueryBadge.innerHTML = `<i data-lucide="help-circle" style="width:14px;height:14px;"></i> <span>&ldquo;${escapeHtml(text)}&rdquo;</span>`;
+            }
 
-            // 2. Show Typing Indicator
-            typingEl.style.display = 'flex';
-            scrollToBottom();
+            // 2. Show QA area and typing dots
+            if (qaArea) qaArea.style.display = 'flex';
+            if (botAnswerBox) {
+                botAnswerBox.innerHTML = `
+                    <div class="khin-ai-typing-indicator">
+                        <span class="khin-ai-typing-dot"></span>
+                        <span class="khin-ai-typing-dot"></span>
+                        <span class="khin-ai-typing-dot"></span>
+                    </div>
+                `;
+            }
+            if (statusHint) {
+                statusHint.innerHTML = 'thinking... · press esc to exit';
+            }
+            if (window.lucide && typeof window.lucide.createIcons === 'function') {
+                window.lucide.createIcons();
+            }
 
-            // 3. Process Query with brief simulated natural latency
-            const thinkingTime = Math.min(800, Math.max(300, text.length * 15));
+            // 3. Process query with natural slight delay
+            const latency = Math.min(550, Math.max(220, text.length * 10));
             setTimeout(() => {
-                typingEl.style.display = 'none';
                 const res = processQuery(text);
-
-                // 4. Append Bot Message Bubble
-                const botMsgEl = document.createElement('div');
-                botMsgEl.className = 'khin-ai-msg bot';
 
                 let actionsHtml = '';
                 if (res.actions && res.actions.length > 0) {
-                    actionsHtml = `<div class="khin-ai-actions-row">` + 
+                    actionsHtml = `<div class="khin-ai-actions-row">` +
                         res.actions.map(act => {
                             if (act.action === 'ask') {
                                 return `<button type="button" class="khin-ai-action-btn" data-type="ask" data-query="${escapeHtml(act.query)}"><i data-lucide="message-circle" style="width:12px;height:12px;"></i> ${escapeHtml(act.label)}</button>`;
@@ -637,73 +665,128 @@
                     `</div>`;
                 }
 
-                botMsgEl.innerHTML = `
-                    <div class="khin-ai-msg-avatar">${logoSvg}</div>
-                    <div class="khin-ai-bubble">
-                        <p>${res.text}</p>
+                if (botAnswerBox) {
+                    botAnswerBox.innerHTML = `
+                        <div>${res.text}</div>
                         ${actionsHtml}
-                    </div>
-                `;
+                    `;
+                }
 
-                stream.appendChild(botMsgEl);
-
-                // Re-render lucide icons inside the new message
                 if (window.lucide && typeof window.lucide.createIcons === 'function') {
                     window.lucide.createIcons();
                 }
 
-                scrollToBottom();
                 playSound(640, 0.025);
-            }, thinkingTime);
+
+                if (statusHint) {
+                    statusHint.innerHTML = 'type another question · press enter to send · tab to clear · esc to exit';
+                }
+
+                if (input) input.focus();
+            }, latency);
         }
 
-        // Action Buttons Delegation inside Messages Stream
-        stream.addEventListener('click', (e) => {
-            const btn = e.target.closest('.khin-ai-action-btn');
-            if (!btn) return;
-            const type = btn.getAttribute('data-type');
+        // Action links (starter questions) click handling
+        if (actionLinks) {
+            actionLinks.addEventListener('click', (e) => {
+                const btn = e.target.closest('.khin-ai-letter-btn');
+                if (!btn) return;
+                const query = btn.getAttribute('data-query');
+                if (query) {
+                    handleUserQuery(query);
+                }
+            });
+        }
 
-            if (type === 'ask') {
-                const q = btn.getAttribute('data-query');
-                if (q) handleUserQuery(q);
-            } else if (type === 'navigate') {
-                const target = btn.getAttribute('data-target');
-                if (target) {
-                    const el = document.querySelector(target);
-                    if (el) {
-                        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                        if (target === '#contact') {
-                            const nameInp = document.getElementById('contact-name');
-                            if (nameInp) setTimeout(() => nameInp.focus(), 650);
+        // Action Buttons inside Bot Answer box
+        if (botAnswerBox) {
+            botAnswerBox.addEventListener('click', (e) => {
+                const btn = e.target.closest('.khin-ai-action-btn');
+                if (!btn) return;
+                const type = btn.getAttribute('data-type');
+
+                if (type === 'ask') {
+                    const q = btn.getAttribute('data-query');
+                    if (q) handleUserQuery(q);
+                } else if (type === 'navigate') {
+                    const target = btn.getAttribute('data-target');
+                    if (target) {
+                        closeModal();
+                        setTimeout(() => {
+                            const el = document.querySelector(target);
+                            if (el) {
+                                el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                if (target === '#contact') {
+                                    const nameInp = document.getElementById('contact-name');
+                                    if (nameInp) setTimeout(() => nameInp.focus(), 650);
+                                }
+                            }
+                        }, 250);
+                    }
+                } else if (type === 'resume') {
+                    closeModal();
+                    setTimeout(() => {
+                        if (typeof window.openDocumentViewport === 'function') {
+                            window.openDocumentViewport('resume');
+                        } else if (typeof window.openThemedViewport === 'function') {
+                            window.openThemedViewport('resume');
+                        } else {
+                            const resumeLink = document.querySelector('a[href*="khin-andrei-gamboa-resume.pdf"]');
+                            if (resumeLink) {
+                                resumeLink.click();
+                            } else {
+                                window.open('./data/documents/resume/khin-andrei-gamboa-resume.pdf', '_blank');
+                            }
                         }
-                    }
-                    // On mobile, close widget so user sees target
-                    if (window.innerWidth <= 600) {
-                        widgetEl.classList.remove('is-open');
-                    }
+                    }, 250);
+                } else if (type === 'theme') {
+                    const themeBtn = document.querySelector('.theme-seg-btn:not(.is-active)');
+                    if (themeBtn) themeBtn.click();
+                } else if (type === 'sound') {
+                    const soundBtn = document.getElementById('themeSoundToggleBtn');
+                    if (soundBtn) soundBtn.click();
                 }
-            } else if (type === 'resume') {
-                // Trigger website's built-in resume viewport if present, else fallback
-                if (typeof window.openDocumentViewport === 'function') {
-                    window.openDocumentViewport('resume');
-                } else if (typeof window.openThemedViewport === 'function') {
-                    window.openThemedViewport('resume');
-                } else {
-                    const resumeLink = document.querySelector('a[href*="khin-andrei-gamboa-resume.pdf"]');
-                    if (resumeLink) {
-                        resumeLink.click();
-                    } else {
-                        window.open('./data/documents/resume/khin-andrei-gamboa-resume.pdf', '_blank');
-                    }
+            });
+        }
+
+        // Global keydown listeners for Escape & Tab
+        document.addEventListener('keydown', (e) => {
+            if (!modalOverlay || !modalOverlay.classList.contains('is-active')) return;
+
+            if (e.key === 'Escape') {
+                e.preventDefault();
+                closeModal();
+                return;
+            }
+
+            if (e.key === 'Tab') {
+                e.preventDefault();
+                resetConversation();
+                return;
+            }
+
+            // Auto-focus input on any typed character if focus was elsewhere
+            if (input && document.activeElement !== input) {
+                if (e.key.length === 1 && !e.ctrlKey && !e.metaKey && !e.altKey) {
+                    input.focus();
                 }
-            } else if (type === 'theme') {
-                const themeBtn = document.querySelector('.theme-seg-btn:not(.is-active)');
-                if (themeBtn) themeBtn.click();
-            } else if (type === 'sound') {
-                const soundBtn = document.getElementById('themeSoundToggleBtn');
-                if (soundBtn) soundBtn.click();
             }
         });
+
+        // Expose public API on window
+        window.khinAi = {
+            open: openModal,
+            close: closeModal,
+            toggle: toggleModal,
+            isOpen: () => modalOverlay && modalOverlay.classList.contains('is-active'),
+            ask: (q) => {
+                openModal();
+                handleUserQuery(q);
+            },
+            reset: resetConversation
+        };
+        window.openKhinAiModal = openModal;
+        window.closeKhinAiModal = closeModal;
     }
 
     function escapeHtml(str) {

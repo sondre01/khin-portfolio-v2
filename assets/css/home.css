@@ -148,10 +148,11 @@ body.dark-mode .hero-center-img {
     padding: 0;
     opacity: 0;
     width: 100%;
-    max-width: clamp(280px, 30vw, 400px);
+    max-width: clamp(340px, 42vw, 620px);
     display: block;
     min-height: auto;
     text-align: left;
+    white-space: nowrap;
     line-height: 1.25;
     color: #ffffff;
     text-shadow: 0 4px 20px rgba(0,0,0,0.6);
@@ -176,6 +177,7 @@ body.dark-mode .hero-center-img {
 
 .hero-line.hero-intro-text-centered {
     text-align: center !important;
+    white-space: nowrap !important;
 }
 
 body.dark-mode .hero-line {
@@ -214,6 +216,80 @@ body.dark-mode .hero-line {
     animation: heroLettersRiseUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.95s forwards;
 }
 
+/* Allow 3D circular motion arc to render without clipping during centered intro */
+.hero-line-2.hero-roles-active {
+    overflow: visible !important;
+}
+
+/* ==========================================================================
+   Hero Roles 3D Circular Motion Flash Controller (Middle Intro)
+   ========================================================================== */
+
+.hero-role-wheel-container {
+    display: inline-block;
+    position: relative;
+    vertical-align: baseline;
+    perspective: 750px;
+    transform-style: preserve-3d;
+    overflow: visible;
+}
+
+.hero-role-item {
+    display: inline-block;
+    white-space: nowrap;
+    backface-visibility: hidden;
+    transform-origin: 50% 50% -28px;
+    will-change: transform, opacity, filter;
+}
+
+/* Incoming role entering along bottom vertical circular arc */
+.hero-role-item.role-circle-enter {
+    animation: roleEnterCircularArc 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Outgoing role exiting along top vertical circular arc */
+.hero-role-item.role-circle-exit {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform-origin: 50% 50% -28px;
+    animation: roleExitCircularArc 0.22s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes roleEnterCircularArc {
+    0% {
+        transform: translateY(85%) rotateX(-75deg) scale(0.88);
+        opacity: 0;
+        filter: blur(2px);
+    }
+    60% {
+        opacity: 0.9;
+    }
+    100% {
+        transform: translateY(0) rotateX(0deg) scale(1);
+        opacity: 1;
+        filter: blur(0);
+    }
+}
+
+@keyframes roleExitCircularArc {
+    0% {
+        transform: translateX(-50%) translateY(0) rotateX(0deg) scale(1);
+        opacity: 1;
+        filter: blur(0);
+    }
+    40% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateX(-50%) translateY(-85%) rotateX(75deg) scale(0.88);
+        opacity: 0;
+        filter: blur(2px);
+    }
+}
+
+
+
 .hero-container.hero-settled {
     gap: 6px !important;
 }
@@ -225,9 +301,10 @@ body.dark-mode .hero-line {
     animation: none !important;
     opacity: 1 !important;
     text-align: left !important;
+    white-space: nowrap !important;
     color: #ffffff !important;
     font-size: clamp(1.25rem, 2.4vw, 2.2rem) !important;
-    max-width: clamp(320px, 38vw, 520px) !important;
+    max-width: clamp(340px, 48vw, 720px) !important;
     line-height: 1.12 !important;
     margin: 0 !important;
     padding: 0 !important;
@@ -959,18 +1036,18 @@ body.dark-mode .scroll-explore {
 }
 
 .separator-line-1 {
-    font-size: clamp(1.4rem, 3.2vw, 2.6rem);
+    font-size: clamp(1.25rem, 3.2vw, 2.6rem);
     font-weight: 700;
     color: #ffffff;
-    line-height: 1.1;
+    line-height: 1.15;
     -webkit-font-smoothing: antialiased;
 }
 
 .separator-line-2 {
-    font-size: clamp(1.35rem, 3vw, 2.4rem);
+    font-size: clamp(1.2rem, 3vw, 2.4rem);
     font-weight: 700;
     color: #ffffff; /* Brand Monochrome White */
-    line-height: 1.1;
+    line-height: 1.15;
     text-shadow: 0 0 25px rgba(255, 255, 255, 0.25);
     -webkit-font-smoothing: antialiased;
 }
@@ -1232,11 +1309,12 @@ body.theme-light .card-avatar {
 
     .hero-line {
         font-family: 'Oswald', sans-serif !important;
-        font-size: clamp(1.3rem, 5.6vw, 1.7rem) !important;
+        font-size: clamp(1.1rem, 5vw, 1.6rem) !important;
         font-weight: 800 !important;
         line-height: 1.18 !important;
         max-width: 100% !important;
         letter-spacing: 0.025em !important;
+        white-space: nowrap !important;
         margin: 0 !important;
         padding: 0 !important;
         text-shadow: 0 2px 14px rgba(0, 0, 0, 0.9), 0 0 4px rgba(0, 0, 0, 0.7) !important;
@@ -1245,6 +1323,7 @@ body.theme-light .card-avatar {
     .hero-line.hero-intro-text-centered {
         text-align: center !important;
         margin: 0 auto !important;
+        white-space: nowrap !important;
     }
 
     /* Enlarge prominently when settled in bottom-left */
@@ -1271,6 +1350,10 @@ body.theme-light .card-avatar {
     body.light-mode .hero-line.hero-line-shifted {
         color: #0f172a !important;
         text-shadow: 0 1px 6px rgba(255, 255, 255, 0.95), 0 0 1px rgba(255, 255, 255, 0.8) !important;
+    }
+
+    .hero-role-item {
+        transform-origin: 50% 50% -20px;
     }
 }
 

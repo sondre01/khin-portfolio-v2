@@ -2491,11 +2491,11 @@ body.theme-light .data-dev-back-btn:hover {
 html.preview-scroll-locked,
 body.preview-scroll-locked {
     overflow: hidden !important;
-    height: 100% !important;
     touch-action: none !important;
 }
 
 body.preview-scroll-locked #khinandrei-portfolio-view,
+body.preview-scroll-locked #data-dev-view,
 body.preview-scroll-locked .left-sidebar-nav,
 body.preview-scroll-locked .header {
     filter: blur(6px);
