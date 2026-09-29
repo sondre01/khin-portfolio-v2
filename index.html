@@ -1551,16 +1551,31 @@
                     <div class="work-tab-pane active" id="builds-pane" role="tabpanel" aria-labelledby="work-tab-builds" data-tab-pane="builds">
                         <div class="projects-cards-grid" id="builds-grid">
                             <!-- Responsive Web Portfolio -->
-                            <div class="project-flip-card" data-card-theme="dark">
+                            <div class="project-flip-card" data-project-id="portfolio" data-card-theme="dark" role="button" tabindex="0" aria-label="Open Responsive Web Portfolio presentation">
                                 <div class="project-flip-card-inner">
-                                    <!-- Front Face: Minimal (Identification with Background Image) -->
-                                    <div class="project-card-front has-bg-image">
-                                        <div class="project-card-bg" style="background-image: url('data/image/profe-home.jpg'); background-position: center top;"></div>
-                                        <div class="project-card-overlay"></div>
+                                    <!-- Front Face: Minimal (Smooth Pattern & Bespoke Representation Symbol) -->
+                                    <div class="project-card-front">
+                                        <div class="project-card-pattern pattern-portfolio"></div>
+                                        <div class="project-symbol-container">
+                                            <div class="project-symbol-glyph">
+                                                <svg class="project-symbol-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <rect x="10" y="14" width="80" height="52" rx="4" stroke="currentColor" stroke-width="2" stroke-opacity="0.85"/>
+                                                    <line x1="10" y1="26" x2="90" y2="26" stroke="currentColor" stroke-width="1.5" stroke-opacity="0.4"/>
+                                                    <circle cx="18" cy="20" r="2" fill="currentColor" fill-opacity="0.6"/>
+                                                    <circle cx="25" cy="20" r="2" fill="currentColor" fill-opacity="0.4"/>
+                                                    <circle cx="32" cy="20" r="2" fill="currentColor" fill-opacity="0.4"/>
+                                                    <rect x="50" y="32" width="34" height="48" rx="3" fill="#0d1117" stroke="currentColor" stroke-width="2"/>
+                                                    <rect x="66" y="44" width="22" height="38" rx="2.5" fill="#0d1117" stroke="currentColor" stroke-width="1.8" stroke-dasharray="2 2"/>
+                                                    <path d="M20 38L27 44L20 50" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                    <line x1="32" y1="44" x2="44" y2="44" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                                    <path d="M42 66L38 80H62L58 66" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.6"/>
+                                                </svg>
+                                            </div>
+                                        </div>
                                         <div class="project-front-info">
-                                            <div class="project-front-meta">
-                                                <span class="project-role-badge">Lead Frontend &amp; Systems Developer</span>
-                                                <h4 class="project-front-title">Responsive Web Portfolio</h4>
+                                            <div class="project-click-hint">
+                                                <i data-lucide="layers"></i>
+                                                <span>Click to Inspect</span>
                                             </div>
                                         </div>
                                     </div>
@@ -1572,9 +1587,6 @@
                                                 <span class="project-role-badge">Lead Frontend &amp; Systems Developer</span>
                                                 <h4 class="project-back-title">Responsive Web Portfolio</h4>
                                             </div>
-                                            <a href="https://github.com/sondre01/khin-portfolio-v2" target="_blank" rel="noopener noreferrer" class="project-verify-btn" title="View Verified GitHub Repository" aria-label="GitHub Repository">
-                                                <i data-lucide="arrow-up-right"></i>
-                                            </a>
                                         </div>
                                         <div class="project-back-body">
                                             <p class="project-back-desc">Interactive personal portfolio and engineering telemetry showcase. Built with modern semantic HTML5, modular CSS3 architecture, responsive flexbox/grid viewports, and high-performance vanilla JavaScript. Features custom data visualizations, tabbed career telemetry, and high-contrast accessibility.</p>
@@ -1586,19 +1598,40 @@
                                                 <span class="work-tag">Vercel Deploy</span>
                                             </div>
                                         </div>
+                                        <div class="project-back-footer">
+                                            <div class="project-card-action-cue">
+                                                <i data-lucide="external-link"></i>
+                                                <span>Documentation • Images • Links</span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
 
                             <!-- Web-Based Ticketing System -->
-                            <div class="project-flip-card" data-card-theme="light">
+                            <div class="project-flip-card" data-project-id="ticketing" data-card-theme="light" role="button" tabindex="0" aria-label="Open Web-Based Ticketing System presentation">
                                 <div class="project-flip-card-inner">
-                                    <!-- Front Face: Minimal (Identification) -->
+                                    <!-- Front Face: Minimal (Smooth Pattern & Bespoke Representation Symbol) -->
                                     <div class="project-card-front">
+                                        <div class="project-card-pattern pattern-ticketing"></div>
+                                        <div class="project-symbol-container">
+                                            <div class="project-symbol-glyph">
+                                                <svg class="project-symbol-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M18 24C18 21.79 19.79 20 22 20H78C80.21 20 82 21.79 82 24V42C78 42 75 45 75 50C75 55 78 58 82 58V76C82 78.21 80.21 80 78 80H22C19.79 80 18 78.21 18 76V58C22 58 25 55 25 50C25 45 22 42 18 42V24Z" stroke="currentColor" stroke-width="2"/>
+                                                    <line x1="38" y1="20" x2="38" y2="80" stroke="currentColor" stroke-width="1.8" stroke-dasharray="4 4" stroke-opacity="0.6"/>
+                                                    <circle cx="28" cy="50" r="5" stroke="currentColor" stroke-width="1.8"/>
+                                                    <circle cx="28" cy="50" r="2" fill="currentColor"/>
+                                                    <line x1="46" y1="34" x2="72" y2="34" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                                    <line x1="46" y1="44" x2="66" y2="44" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-opacity="0.6"/>
+                                                    <line x1="46" y1="54" x2="74" y2="54" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-opacity="0.4"/>
+                                                    <rect x="46" y="62" width="26" height="10" rx="3" stroke="currentColor" stroke-width="1.5" stroke-opacity="0.75"/>
+                                                </svg>
+                                            </div>
+                                        </div>
                                         <div class="project-front-info">
-                                            <div class="project-front-meta">
-                                                <span class="project-role-badge">Data &amp; Queue Analytics Developer</span>
-                                                <h4 class="project-front-title">Web-Based Ticketing System</h4>
+                                            <div class="project-click-hint">
+                                                <i data-lucide="layers"></i>
+                                                <span>Click to Inspect</span>
                                             </div>
                                         </div>
                                     </div>
@@ -1610,9 +1643,6 @@
                                                 <span class="project-role-badge">Data &amp; Queue Analytics Developer</span>
                                                 <h4 class="project-back-title">Web-Based Ticketing System</h4>
                                             </div>
-                                            <a href="https://github.com/sondre01/khin-ticketing-system" target="_blank" rel="noopener noreferrer" class="project-verify-btn" title="View Verified GitHub Repository" aria-label="GitHub Repository">
-                                                <i data-lucide="arrow-up-right"></i>
-                                            </a>
                                         </div>
                                         <div class="project-back-body">
                                             <p class="project-back-desc">A clean, modular web application designed to streamline support ticket logs, customer service queue metrics, and database-driven real-time status notifications for performance analytics.</p>
@@ -1624,19 +1654,44 @@
                                                 <span class="work-tag">Vercel</span>
                                             </div>
                                         </div>
+                                        <div class="project-back-footer">
+                                            <div class="project-card-action-cue">
+                                                <i data-lucide="external-link"></i>
+                                                <span>Documentation • Images • Links</span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
 
                             <!-- Social Media ETL Pipeline -->
-                            <div class="project-flip-card" data-card-theme="dark">
+                            <div class="project-flip-card" data-project-id="etl" data-card-theme="dark" role="button" tabindex="0" aria-label="Open Social Media ETL Pipeline presentation">
                                 <div class="project-flip-card-inner">
-                                    <!-- Front Face: Minimal (Identification) -->
+                                    <!-- Front Face: Minimal (Smooth Pattern & Bespoke Representation Symbol) -->
                                     <div class="project-card-front">
+                                        <div class="project-card-pattern pattern-etl"></div>
+                                        <div class="project-symbol-container">
+                                            <div class="project-symbol-glyph">
+                                                <svg class="project-symbol-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <circle cx="16" cy="28" r="4" stroke="currentColor" stroke-width="1.8"/>
+                                                    <circle cx="16" cy="50" r="4" stroke="currentColor" stroke-width="1.8"/>
+                                                    <circle cx="16" cy="72" r="4" stroke="currentColor" stroke-width="1.8"/>
+                                                    <path d="M20 28H34C40 28 44 38 48 46" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                                                    <path d="M20 50H46" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                                                    <path d="M20 72H34C40 72 44 62 48 54" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                                                    <rect x="46" y="38" width="18" height="24" rx="4" stroke="currentColor" stroke-width="2"/>
+                                                    <path d="M51 46L55 50L59 46M51 54L55 50L59 54" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                    <line x1="64" y1="50" x2="70" y2="50" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                                    <ellipse cx="80" cy="36" rx="12" ry="5" stroke="currentColor" stroke-width="1.8"/>
+                                                    <path d="M68 36V64C68 66.8 73.4 69 80 69C86.6 69 92 66.8 92 64V36" stroke="currentColor" stroke-width="1.8"/>
+                                                    <path d="M68 50C68 52.8 73.4 55 80 55C86.6 55 92 52.8 92 50" stroke="currentColor" stroke-width="1.5" stroke-opacity="0.6"/>
+                                                </svg>
+                                            </div>
+                                        </div>
                                         <div class="project-front-info">
-                                            <div class="project-front-meta">
-                                                <span class="project-role-badge">Data Pipeline &amp; ETL Engineer</span>
-                                                <h4 class="project-front-title">Social Media ETL Pipeline</h4>
+                                            <div class="project-click-hint">
+                                                <i data-lucide="layers"></i>
+                                                <span>Click to Inspect</span>
                                             </div>
                                         </div>
                                     </div>
@@ -1648,9 +1703,6 @@
                                                 <span class="project-role-badge">Data Pipeline &amp; ETL Engineer</span>
                                                 <h4 class="project-back-title">Social Media ETL Pipeline</h4>
                                             </div>
-                                            <a href="https://github.com/sondre01/khin-social-media-etl-pipeline" target="_blank" rel="noopener noreferrer" class="project-verify-btn" title="View Verified GitHub Repository" aria-label="GitHub Repository">
-                                                <i data-lucide="arrow-up-right"></i>
-                                            </a>
                                         </div>
                                         <div class="project-back-body">
                                             <p class="project-back-desc">Automated data extraction, transformation, and ingestion pipeline for multi-channel social media metrics. Cleans and normalizes JSON payloads from REST APIs, enforces strict relational schema validation, and batches analytical warehouse storage for metric reporting.</p>
@@ -1663,6 +1715,12 @@
                                                 <span class="work-tag">Data Quality</span>
                                             </div>
                                         </div>
+                                        <div class="project-back-footer">
+                                            <div class="project-card-action-cue">
+                                                <i data-lucide="external-link"></i>
+                                                <span>Documentation • Images • Links</span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -1673,16 +1731,31 @@
                     <div class="work-tab-pane" id="collective-pane" role="tabpanel" aria-labelledby="work-tab-collective" data-tab-pane="collective">
                         <div class="projects-cards-grid" id="collective-grid">
                             <!-- FOVB-AIOT (Capstone) -->
-                            <div class="project-flip-card" data-card-theme="dark">
+                            <div class="project-flip-card" data-project-id="fovb" data-card-theme="dark" role="button" tabindex="0" aria-label="Open FOVB-AIOT Capstone presentation">
                                 <div class="project-flip-card-inner">
-                                    <!-- Front Face: Minimal (Identification with Background Image) -->
-                                    <div class="project-card-front has-bg-image">
-                                        <div class="project-card-bg" style="background-image: url('data/image/FOVB-AIOT.jpg'); background-position: center 55%;"></div>
-                                        <div class="project-card-overlay"></div>
+                                    <!-- Front Face: Minimal (Smooth Pattern & Bespoke Representation Symbol) -->
+                                    <div class="project-card-front">
+                                        <div class="project-card-pattern pattern-fovb"></div>
+                                        <div class="project-symbol-container">
+                                            <div class="project-symbol-glyph">
+                                                <svg class="project-symbol-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <circle cx="50" cy="50" r="38" stroke="currentColor" stroke-width="1.2" stroke-opacity="0.25" stroke-dasharray="4 4"/>
+                                                    <circle cx="50" cy="50" r="28" stroke="currentColor" stroke-width="1.5" stroke-opacity="0.5"/>
+                                                    <circle cx="50" cy="50" r="16" stroke="currentColor" stroke-width="1.8" stroke-opacity="0.8"/>
+                                                    <circle cx="50" cy="50" r="7" stroke="currentColor" stroke-width="2"/>
+                                                    <circle cx="50" cy="50" r="3" fill="currentColor"/>
+                                                    <path d="M16 50H32L38 34L44 66L50 50L56 38L62 58L68 50H84" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                                                    <circle cx="50" cy="18" r="3.5" stroke="currentColor" stroke-width="1.8"/>
+                                                    <circle cx="50" cy="82" r="3.5" stroke="currentColor" stroke-width="1.8"/>
+                                                    <circle cx="18" cy="50" r="3.5" stroke="currentColor" stroke-width="1.8"/>
+                                                    <circle cx="82" cy="50" r="3.5" stroke="currentColor" stroke-width="1.8"/>
+                                                </svg>
+                                            </div>
+                                        </div>
                                         <div class="project-front-info">
-                                            <div class="project-front-meta">
-                                                <span class="project-role-badge">Data &amp; Database Architect</span>
-                                                <h4 class="project-front-title">FOVB-AIOT (Capstone)</h4>
+                                            <div class="project-click-hint">
+                                                <i data-lucide="layers"></i>
+                                                <span>Click to Inspect</span>
                                             </div>
                                         </div>
                                     </div>
@@ -1694,9 +1767,6 @@
                                                 <span class="project-role-badge">Data &amp; Database Architect</span>
                                                 <h4 class="project-back-title">FOVB-AIOT (Capstone)</h4>
                                             </div>
-                                            <a href="https://github.com/sondre01/FOVB-AIoT" target="_blank" rel="noopener noreferrer" class="project-verify-btn" title="View Verified GitHub Repository" aria-label="GitHub Repository">
-                                                <i data-lucide="arrow-up-right"></i>
-                                            </a>
                                         </div>
                                         <div class="project-back-body">
                                             <p class="project-back-desc">A smart health kiosk measuring vitals (height via LiDAR, weight via Load Cell, heart rate, temperature) and digital BP (via computer vision). Integrates relational SQL database management for patient records and clean telemetry pipelines to feed machine learning risk predictions on a Flask portal.</p>
@@ -1711,26 +1781,42 @@
                                             </div>
                                         </div>
                                         <div class="project-back-footer">
-                                            <a href="./data/documents/FOVB-AIoT_Manuscript.pdf" target="_blank" class="doc-link-btn">
-                                                <i data-lucide="file-text" style="width: 12px; height: 12px;"></i>
-                                                <span>Read Manuscript</span>
-                                            </a>
+                                            <div class="project-card-action-cue">
+                                                <i data-lucide="external-link"></i>
+                                                <span>Documentation • Images • Links</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
                             <!-- AI Kilo Bot -->
-                            <div class="project-flip-card" data-card-theme="light">
+                            <div class="project-flip-card" data-project-id="aikilo" data-card-theme="light" role="button" tabindex="0" aria-label="Open AI Kilo Bot presentation">
                                 <div class="project-flip-card-inner">
-                                    <!-- Front Face: Minimal (Identification with Background Image) -->
-                                    <div class="project-card-front has-bg-image">
-                                        <div class="project-card-bg" style="background-image: url('data/image/aikilobot.png'); background-position: center top;"></div>
-                                        <div class="project-card-overlay"></div>
+                                    <!-- Front Face: Minimal (Smooth Pattern & Bespoke Representation Symbol) -->
+                                    <div class="project-card-front">
+                                        <div class="project-card-pattern pattern-aikilo"></div>
+                                        <div class="project-symbol-container">
+                                            <div class="project-symbol-glyph">
+                                                <svg class="project-symbol-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M24 34V24H34" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                    <path d="M66 24H76V34" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                    <path d="M24 54V64H34" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                    <path d="M66 64H76V54" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                    <circle cx="50" cy="44" r="10" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 3"/>
+                                                    <circle cx="50" cy="44" r="3" fill="currentColor"/>
+                                                    <line x1="50" y1="28" x2="50" y2="34" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                                                    <line x1="50" y1="54" x2="50" y2="60" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                                                    <path d="M20 74H80" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                                    <path d="M30 74L36 84H64L70 74" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-opacity="0.7"/>
+                                                    <line x1="44" y1="79" x2="56" y2="79" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                                </svg>
+                                            </div>
+                                        </div>
                                         <div class="project-front-info">
-                                            <div class="project-front-meta">
-                                                <span class="project-role-badge">Data Scientist &amp; IoT Engineer</span>
-                                                <h4 class="project-front-title">AI Kilo Bot</h4>
+                                            <div class="project-click-hint">
+                                                <i data-lucide="layers"></i>
+                                                <span>Click to Inspect</span>
                                             </div>
                                         </div>
                                     </div>
@@ -1742,9 +1828,6 @@
                                                 <span class="project-role-badge">Data Scientist &amp; IoT Engineer</span>
                                                 <h4 class="project-back-title">AI Kilo Bot</h4>
                                             </div>
-                                            <a href="https://github.com/sondre01/ai-kilo-bot" target="_blank" rel="noopener noreferrer" class="project-verify-btn" title="View Verified GitHub Repository" aria-label="GitHub Repository">
-                                                <i data-lucide="arrow-up-right"></i>
-                                            </a>
                                         </div>
                                         <div class="project-back-body">
                                             <p class="project-back-desc">An intelligent digital scale combining an overhead camera and Raspberry Pi load cell. Integrates real-time sensor data fusion and an ingestion pipeline to merge YOLO object classification with telemetry weight data for automated billing analytics.</p>
@@ -1757,21 +1840,41 @@
                                                 <span class="work-tag">HX711 Load Cell</span>
                                             </div>
                                         </div>
+                                        <div class="project-back-footer">
+                                            <div class="project-card-action-cue">
+                                                <i data-lucide="external-link"></i>
+                                                <span>Documentation • Images • Links</span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
 
                             <!-- RFID Tollgate System -->
-                            <div class="project-flip-card" data-card-theme="dark">
+                            <div class="project-flip-card" data-project-id="tollgate" data-card-theme="dark" role="button" tabindex="0" aria-label="Open RFID Tollgate System presentation">
                                 <div class="project-flip-card-inner">
-                                    <!-- Front Face: Minimal (Identification with Background Image) -->
-                                    <div class="project-card-front has-bg-image">
-                                        <div class="project-card-bg" style="background-image: url('data/image/tollgate.jpg'); background-position: center top;"></div>
-                                        <div class="project-card-overlay"></div>
+                                    <!-- Front Face: Minimal (Smooth Pattern & Bespoke Representation Symbol) -->
+                                    <div class="project-card-front">
+                                        <div class="project-card-pattern pattern-tollgate"></div>
+                                        <div class="project-symbol-container">
+                                            <div class="project-symbol-glyph">
+                                                <svg class="project-symbol-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M28 66C23 60 20 52 20 44C20 36 23 28 28 22" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                                                    <path d="M36 60C32.5 55 30 49.5 30 44C30 38.5 32.5 33 36 28" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                                    <path d="M44 54C42 50.5 40 47.5 40 44C40 40.5 42 37.5 44 34" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+                                                    <circle cx="50" cy="44" r="3.5" fill="currentColor"/>
+                                                    <rect x="58" y="24" width="8" height="56" rx="2" stroke="currentColor" stroke-width="1.8"/>
+                                                    <path d="M66 38L92 38" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+                                                    <line x1="72" y1="38" x2="74" y2="38" stroke="#0d1117" stroke-width="3.5"/>
+                                                    <line x1="82" y1="38" x2="84" y2="38" stroke="#0d1117" stroke-width="3.5"/>
+                                                    <path d="M52 80H72" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                                </svg>
+                                            </div>
+                                        </div>
                                         <div class="project-front-info">
-                                            <div class="project-front-meta">
-                                                <span class="project-role-badge">Database &amp; Systems Prototyper</span>
-                                                <h4 class="project-front-title">RFID Tollgate System</h4>
+                                            <div class="project-click-hint">
+                                                <i data-lucide="layers"></i>
+                                                <span>Click to Inspect</span>
                                             </div>
                                         </div>
                                     </div>
@@ -1795,21 +1898,49 @@
                                                 <span class="work-tag">C# Desktop UI</span>
                                             </div>
                                         </div>
+                                        <div class="project-back-footer">
+                                            <div class="project-card-action-cue">
+                                                <i data-lucide="external-link"></i>
+                                                <span>Documentation • Images • Links</span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
 
                             <!-- Xvidia Shop -->
-                            <div class="project-flip-card" data-card-theme="light">
+                            <div class="project-flip-card" data-project-id="xvidia" data-card-theme="light" role="button" tabindex="0" aria-label="Open Xvidia Shop presentation">
                                 <div class="project-flip-card-inner">
-                                    <!-- Front Face: Minimal (Identification with Background Image) -->
-                                    <div class="project-card-front has-bg-image">
-                                        <div class="project-card-bg" style="background-image: url('data/image/Xvidia%20Shop.jpg'); background-position: center 20%;"></div>
-                                        <div class="project-card-overlay"></div>
+                                    <!-- Front Face: Minimal (Smooth Pattern & Bespoke Representation Symbol) -->
+                                    <div class="project-card-front">
+                                        <div class="project-card-pattern pattern-xvidia"></div>
+                                        <div class="project-symbol-container">
+                                            <div class="project-symbol-glyph">
+                                                <svg class="project-symbol-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <rect x="32" y="32" width="36" height="36" rx="5" stroke="currentColor" stroke-width="2"/>
+                                                    <rect x="40" y="40" width="20" height="20" rx="3" stroke="currentColor" stroke-width="1.5" stroke-opacity="0.6"/>
+                                                    <circle cx="50" cy="50" r="4" fill="currentColor" fill-opacity="0.8"/>
+                                                    <line x1="40" y1="24" x2="40" y2="32" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                                                    <line x1="50" y1="22" x2="50" y2="32" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                                                    <line x1="60" y1="24" x2="60" y2="32" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                                                    <line x1="40" y1="68" x2="40" y2="76" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                                                    <line x1="50" y1="68" x2="50" y2="78" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                                                    <line x1="60" y1="68" x2="60" y2="76" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                                                    <path d="M32 44H20M20 44L14 36" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                                                    <circle cx="14" cy="36" r="3" stroke="currentColor" stroke-width="1.5"/>
+                                                    <path d="M32 56H22M22 56L16 64" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                                                    <circle cx="16" cy="64" r="3" stroke="currentColor" stroke-width="1.5"/>
+                                                    <path d="M68 44H80M80 44L86 36" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                                                    <circle cx="86" cy="36" r="3" stroke="currentColor" stroke-width="1.5"/>
+                                                    <path d="M68 56H78M78 56L84 64" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                                                    <circle cx="84" cy="64" r="3" stroke="currentColor" stroke-width="1.5"/>
+                                                </svg>
+                                            </div>
+                                        </div>
                                         <div class="project-front-info">
-                                            <div class="project-front-meta">
-                                                <span class="project-role-badge">Data Analyst &amp; DB Developer</span>
-                                                <h4 class="project-front-title">Xvidia Shop</h4>
+                                            <div class="project-click-hint">
+                                                <i data-lucide="layers"></i>
+                                                <span>Click to Inspect</span>
                                             </div>
                                         </div>
                                     </div>
@@ -1821,9 +1952,6 @@
                                                 <span class="project-role-badge">Data Analyst &amp; DB Developer</span>
                                                 <h4 class="project-back-title">Xvidia Shop</h4>
                                             </div>
-                                            <a href="https://github.com/sondre01/xvidia-tech-hub" target="_blank" rel="noopener noreferrer" class="project-verify-btn" title="View Verified GitHub Repository" aria-label="GitHub Repository">
-                                                <i data-lucide="arrow-up-right"></i>
-                                            </a>
                                         </div>
                                         <div class="project-back-body">
                                             <p class="project-back-desc">Dual inventory and repair queue service manager ledger. Implements relational SQL storage to track component stock levels, structured diagnostic status logs, and historical customer profiles for service reporting.</p>
@@ -1834,26 +1962,41 @@
                                             </div>
                                         </div>
                                         <div class="project-back-footer">
-                                            <a href="./data/documents/Xvidia_Documentation.pdf" target="_blank" class="doc-link-btn">
-                                                <i data-lucide="file-text" style="width: 12px; height: 12px;"></i>
-                                                <span>Read Manual</span>
-                                            </a>
+                                            <div class="project-card-action-cue">
+                                                <i data-lucide="external-link"></i>
+                                                <span>Documentation • Images • Links</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
                             <!-- GG Resto POS Dashboard -->
-                            <div class="project-flip-card" data-card-theme="light">
+                            <div class="project-flip-card" data-project-id="resto" data-card-theme="light" role="button" tabindex="0" aria-label="Open GG Resto POS Dashboard presentation">
                                 <div class="project-flip-card-inner">
-                                    <!-- Front Face: Minimal (Identification with Background Image) -->
-                                    <div class="project-card-front has-bg-image">
-                                        <div class="project-card-bg" style="background-image: url('data/image/GG%20Resto%20POS%20Dashboard.jpg'); background-position: center top;"></div>
-                                        <div class="project-card-overlay"></div>
+                                    <!-- Front Face: Minimal (Smooth Pattern & Bespoke Representation Symbol) -->
+                                    <div class="project-card-front">
+                                        <div class="project-card-pattern pattern-resto"></div>
+                                        <div class="project-symbol-container">
+                                            <div class="project-symbol-glyph">
+                                                <svg class="project-symbol-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <rect x="18" y="18" width="64" height="46" rx="4" stroke="currentColor" stroke-width="2"/>
+                                                    <line x1="18" y1="28" x2="82" y2="28" stroke="currentColor" stroke-width="1.5" stroke-opacity="0.4"/>
+                                                    <rect x="26" y="44" width="8" height="14" rx="1.5" fill="currentColor" fill-opacity="0.5"/>
+                                                    <rect x="38" y="36" width="8" height="22" rx="1.5" fill="currentColor" fill-opacity="0.7"/>
+                                                    <rect x="50" y="40" width="8" height="18" rx="1.5" fill="currentColor" fill-opacity="0.6"/>
+                                                    <rect x="62" y="32" width="8" height="26" rx="1.5" fill="currentColor" fill-opacity="0.9"/>
+                                                    <path d="M30 40L42 32L54 36L66 26" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                                                    <path d="M44 64L40 76H60L56 64" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-opacity="0.7"/>
+                                                    <rect x="24" y="76" width="52" height="10" rx="2" stroke="currentColor" stroke-width="1.8"/>
+                                                    <circle cx="50" cy="81" r="1.5" fill="currentColor"/>
+                                                </svg>
+                                            </div>
+                                        </div>
                                         <div class="project-front-info">
-                                            <div class="project-front-meta">
-                                                <span class="project-role-badge">Database Developer</span>
-                                                <h4 class="project-front-title">GG Resto POS Dashboard</h4>
+                                            <div class="project-click-hint">
+                                                <i data-lucide="layers"></i>
+                                                <span>Click to Inspect</span>
                                             </div>
                                         </div>
                                     </div>
@@ -1865,9 +2008,6 @@
                                                 <span class="project-role-badge">Database Developer</span>
                                                 <h4 class="project-back-title">GG Resto POS Dashboard</h4>
                                             </div>
-                                            <a href="https://github.com/sondre01/gg-restobar-pos" target="_blank" rel="noopener noreferrer" class="project-verify-btn" title="View Verified GitHub Repository" aria-label="GitHub Repository">
-                                                <i data-lucide="arrow-up-right"></i>
-                                            </a>
                                         </div>
                                         <div class="project-back-body">
                                             <p class="project-back-desc">Cashier and management desktop program. Features a robust relational database schema, automated SQL backup pipelines, and a manager analytics dashboard processing sales reports and real-time inventory metrics.</p>
@@ -1878,6 +2018,12 @@
                                                 <span class="work-tag">Automated Backup</span>
                                                 <span class="work-tag">MySQL</span>
                                                 <span class="work-tag">JDBC API</span>
+                                            </div>
+                                        </div>
+                                        <div class="project-back-footer">
+                                            <div class="project-card-action-cue">
+                                                <i data-lucide="external-link"></i>
+                                                <span>Documentation • Images • Links</span>
                                             </div>
                                         </div>
                                     </div>
@@ -2594,9 +2740,69 @@
             </div>
         </header>
 
-        <!-- Viewport PDF Container -->
+        <!-- Viewport PDF & Architecture Spec Container -->
         <div class="doc-vp-body">
             <iframe id="docVpIframe" class="doc-vp-iframe" src="./data/documents/resume/khin-andrei-gamboa-resume.pdf#toolbar=0&navpanes=0" type="application/pdf" title="Document Viewer"></iframe>
+            <div id="projectSpecContainer" class="project-spec-container" style="display: none;"></div>
+        </div>
+    </div>
+
+    <!-- Elevated Project Presentation Sheet ("Above the Main Web") -->
+    <div id="project-presentation-overlay" class="doc-white-tab-overlay project-presentation-overlay" aria-modal="true" role="dialog" aria-label="Project Actions Menu">
+        <!-- Project Context Header -->
+        <div class="project-pres-header">
+            <span class="project-pres-role" id="projectPresRole">PROJECT DOMAIN</span>
+            <h3 class="project-pres-title" id="projectPresTitle">Project Name</h3>
+        </div>
+
+        <!-- Top Exit Button -->
+        <button type="button" class="doc-tab-exit-btn" id="projectPresCloseBtn" aria-label="Exit project presentation and return to website" title="Exit [ESC]">
+            <i data-lucide="x"></i>
+        </button>
+
+        <!-- Presentation Body: 3 Massive Oswald Words -->
+        <div class="doc-tab-body">
+            <nav class="project-pres-vertical-menu project-pres-menu" aria-label="Project Actions">
+                <button type="button" class="doc-word-btn" id="projectActionDoc" data-action="doc">
+                    DOCUMENTATION
+                </button>
+                <button type="button" class="doc-word-btn" id="projectActionImages" data-action="images">
+                    IMAGES
+                </button>
+                <button type="button" class="doc-word-btn" id="projectActionRepoWeb" data-action="repo-web">
+                    REPOSITORY OR WEBSITES
+                </button>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Project Image Viewport Modal (Clean & Themed) -->
+    <div id="project-image-viewport" class="custom-doc-viewport project-image-viewport" aria-modal="true" role="dialog" aria-label="Project Image Viewport">
+        <header class="doc-vp-topbar">
+            <!-- Back to project presentation -->
+            <button type="button" class="doc-vp-back-btn" id="projectImageBackBtn" aria-label="Back to project" title="Back to project">
+                <i data-lucide="arrow-left" style="width: 17px; height: 17px;"></i>
+                <span>Back</span>
+            </button>
+
+            <h3 class="doc-vp-title" id="projectImageTitle">PROJECT IMAGES</h3>
+
+            <div class="doc-vp-actions">
+                <a id="projectImageDownloadBtn" href="#" target="_blank" class="doc-vp-download-btn" title="Open Full High-Res Image">
+                    <i data-lucide="external-link" style="width: 15px; height: 15px;"></i>
+                    <span>Full Res</span>
+                </a>
+                <button type="button" class="doc-vp-close-btn" id="projectImageCloseBtn" aria-label="Close image viewport" title="Close [ESC]">
+                    <i data-lucide="x" style="width: 18px; height: 18px;"></i>
+                </button>
+            </div>
+        </header>
+
+        <div class="doc-vp-body project-image-body">
+            <div class="project-image-stage">
+                <img id="projectPreviewPhoto" class="project-preview-photo" src="" alt="Project Proof Image">
+                <p id="projectImageCaption" class="project-image-caption"></p>
+            </div>
         </div>
     </div>
 
@@ -2714,13 +2920,17 @@
             const customDocViewport = document.getElementById('custom-doc-viewport');
             const whiteTabOverlay = document.getElementById('doc-white-tab-overlay');
             const khinAiModal = document.getElementById('khinAiModalOverlay');
+            const projectPresOverlay = document.getElementById('project-presentation-overlay');
+            const projectImageViewport = document.getElementById('project-image-viewport');
 
             const isTypingOpen = typingModal && typingModal.classList.contains('is-active');
             const isDocVpOpen = customDocViewport && customDocViewport.classList.contains('active');
             const isWhiteTabOpen = whiteTabOverlay && whiteTabOverlay.classList.contains('active');
             const isKhinAiOpen = khinAiModal && khinAiModal.classList.contains('is-active');
+            const isProjectPresOpen = projectPresOverlay && projectPresOverlay.classList.contains('active');
+            const isProjectImageOpen = projectImageViewport && projectImageViewport.classList.contains('active');
 
-            if (!isTypingOpen && !isDocVpOpen && !isWhiteTabOpen && !isKhinAiOpen) {
+            if (!isTypingOpen && !isDocVpOpen && !isWhiteTabOpen && !isKhinAiOpen && !isProjectPresOpen && !isProjectImageOpen) {
                 document.body.classList.remove('preview-scroll-locked');
                 document.documentElement.classList.remove('preview-scroll-locked');
                 document.body.style.overflow = '';
@@ -2736,7 +2946,7 @@
             if (!document.body.classList.contains('preview-scroll-locked')) return;
 
             // Allow internal scrolling inside the modal's scrollable elements
-            const scrollableTarget = e.target.closest('.doc-tab-body, .doc-white-tab-overlay, .khin-ai-qa-area, .khin-ai-bot-answer-box, .khin-ai-viewport-container');
+            const scrollableTarget = e.target.closest('.doc-tab-body, .doc-white-tab-overlay, .khin-ai-qa-area, .khin-ai-bot-answer-box, .khin-ai-viewport-container, .project-spec-container, .project-image-body');
             if (scrollableTarget) {
                 if (scrollableTarget.scrollHeight > scrollableTarget.clientHeight) {
                     return;
@@ -2748,6 +2958,9 @@
 
         window.addEventListener('wheel', preventMainScrollDuringPreview, { passive: false });
         window.addEventListener('touchmove', preventMainScrollDuringPreview, { passive: false });
+
+        // Global state for document viewport source tracking ('docs' or 'project')
+        window._activeDocViewportSource = 'docs';
 
         // ==========================================================================
         // Documents System: 3-Bars Menu -> White Tab Overlay -> Themed Viewport
@@ -2763,6 +2976,7 @@
             const docVpIframe = document.getElementById('docVpIframe');
             const docVpActiveTitle = document.getElementById('docVpActiveTitle');
             const docVpDownloadBtn = document.getElementById('docVpDownloadBtn');
+            const projectSpecContainer = document.getElementById('projectSpecContainer');
 
             const documentsData = {
                 resume: {
@@ -2797,8 +3011,19 @@
             }
 
             function closeEverything() {
-                if (customDocViewport) customDocViewport.classList.remove('active');
+                if (customDocViewport) {
+                    customDocViewport.classList.remove('active');
+                    if (docVpIframe) docVpIframe.src = 'about:blank';
+                }
+                if (projectSpecContainer) {
+                    projectSpecContainer.style.display = 'none';
+                    projectSpecContainer.innerHTML = '';
+                }
                 if (whiteTabOverlay) whiteTabOverlay.classList.remove('active');
+                const projectPresOverlay = document.getElementById('project-presentation-overlay');
+                if (projectPresOverlay) projectPresOverlay.classList.remove('active');
+                const projectImageViewport = document.getElementById('project-image-viewport');
+                if (projectImageViewport) projectImageViewport.classList.remove('active');
                 if (docBackdrop) docBackdrop.classList.remove('active');
                 window.unlockMainWebScroll();
             }
@@ -2807,18 +3032,28 @@
                 const doc = documentsData[docKey];
                 if (!doc) return;
 
+                if (projectSpecContainer) {
+                    projectSpecContainer.style.display = 'none';
+                    projectSpecContainer.innerHTML = '';
+                }
                 if (docVpIframe) {
+                    docVpIframe.style.display = 'block';
                     docVpIframe.src = doc.url + '#toolbar=0&navpanes=0';
                 }
                 if (docVpActiveTitle) docVpActiveTitle.textContent = doc.title;
                 if (docVpDownloadBtn) {
+                    docVpDownloadBtn.style.display = 'inline-flex';
                     docVpDownloadBtn.href = doc.url;
                     docVpDownloadBtn.download = doc.downloadName;
+                    docVpDownloadBtn.target = '_self';
+                    const dlSpan = docVpDownloadBtn.querySelector('span');
+                    if (dlSpan) dlSpan.textContent = 'Download';
                 }
             }
 
             function openThemedViewport(docKey) {
                 if (!customDocViewport) return;
+                window._activeDocViewportSource = 'docs';
                 setViewportDocument(docKey);
                 if (docBackdrop) docBackdrop.classList.add('active');
                 customDocViewport.classList.add('active');
@@ -2831,8 +3066,15 @@
             function closeThemedViewportToDocs() {
                 if (!customDocViewport) return;
                 customDocViewport.classList.remove('active');
-                // Ensure white tab overlay & backdrop remain visible behind viewport
-                if (whiteTabOverlay) {
+                if (docVpIframe) docVpIframe.src = 'about:blank';
+                if (projectSpecContainer) {
+                    projectSpecContainer.style.display = 'none';
+                    projectSpecContainer.innerHTML = '';
+                }
+
+                if (window._activeDocViewportSource === 'project' && typeof window.reopenProjectPresentation === 'function') {
+                    window.reopenProjectPresentation();
+                } else if (whiteTabOverlay) {
                     whiteTabOverlay.classList.add('active');
                     if (docBackdrop) docBackdrop.classList.add('active');
                     window.lockMainWebScroll();
@@ -2851,24 +3093,23 @@
                     const isPastBanner = separatorBanner && (separatorBanner.getBoundingClientRect().top <= 130);
 
                     if (isMobile && isPastBanner) {
-                        // Once scrolled to/past End-To-End Software Development, Data, Analytics & AI on mobile, 3-bar accesses the sidebar!
                         if (typeof window.toggleMobileSidebarNav === 'function') {
                             window.toggleMobileSidebarNav();
                         }
                     } else {
-                        // At top or on desktop, 3-bar accesses Resume & Cover Letter
                         openWhiteTab();
                     }
                 });
             }
             window.openDocumentViewport = openThemedViewport;
             window.openWhiteTabDocs = openWhiteTab;
+            window.closeAllDocumentModals = closeEverything;
             if (docTabCloseBtn) {
                 docTabCloseBtn.addEventListener('click', closeWhiteTab);
             }
 
-            // Clickable Words: RESUME & COVER LETTER -> Open Customized Viewport
-            document.querySelectorAll('.doc-word-btn').forEach(btn => {
+            // Clickable Words inside White Tab (RESUME & COVER LETTER)
+            document.querySelectorAll('#doc-white-tab-overlay .doc-word-btn').forEach(btn => {
                 btn.addEventListener('click', function() {
                     const target = this.getAttribute('data-doc-target') || 'resume';
                     openThemedViewport(target);
@@ -2883,29 +3124,53 @@
                 docVpCloseBtn.addEventListener('click', closeEverything);
             }
 
-            // Backdrop click handler (clicking the blurred space around the curvy box closes)
+            // Backdrop click handler
             if (docBackdrop) {
                 docBackdrop.addEventListener('click', function(e) {
                     if (e.target !== docBackdrop) return;
+                    const projectImageViewport = document.getElementById('project-image-viewport');
+                    const projectPresOverlay = document.getElementById('project-presentation-overlay');
+
                     if (customDocViewport && customDocViewport.classList.contains('active')) {
                         closeThemedViewportToDocs();
+                    } else if (projectImageViewport && projectImageViewport.classList.contains('active')) {
+                        if (typeof window.closeProjectImageViewportToPres === 'function') {
+                            window.closeProjectImageViewportToPres();
+                        }
+                    } else if (projectPresOverlay && projectPresOverlay.classList.contains('active')) {
+                        if (typeof window.closeProjectPresentation === 'function') {
+                            window.closeProjectPresentation();
+                        }
                     } else if (whiteTabOverlay && whiteTabOverlay.classList.contains('active')) {
                         closeWhiteTab();
                     }
                 });
             }
 
-            // Outside click (clicking in the corner space revealing the main website) to close
+            // Outside click (mousedown) to close
             document.addEventListener('mousedown', function(e) {
-                if (whiteTabOverlay && whiteTabOverlay.classList.contains('active')) {
-                    if (customDocViewport && customDocViewport.classList.contains('active')) {
-                        if (!customDocViewport.contains(e.target) && (!navDocsBtn || !navDocsBtn.contains(e.target))) {
-                            closeThemedViewportToDocs();
+                const projectImageViewport = document.getElementById('project-image-viewport');
+                const projectPresOverlay = document.getElementById('project-presentation-overlay');
+
+                if (customDocViewport && customDocViewport.classList.contains('active')) {
+                    if (!customDocViewport.contains(e.target) && (!navDocsBtn || !navDocsBtn.contains(e.target))) {
+                        closeThemedViewportToDocs();
+                    }
+                } else if (projectImageViewport && projectImageViewport.classList.contains('active')) {
+                    if (!projectImageViewport.contains(e.target)) {
+                        if (typeof window.closeProjectImageViewportToPres === 'function') {
+                            window.closeProjectImageViewportToPres();
                         }
-                    } else {
-                        if (!whiteTabOverlay.contains(e.target) && (!navDocsBtn || !navDocsBtn.contains(e.target))) {
-                            closeWhiteTab();
+                    }
+                } else if (projectPresOverlay && projectPresOverlay.classList.contains('active')) {
+                    if (!projectPresOverlay.contains(e.target) && !e.target.closest('.project-flip-card')) {
+                        if (typeof window.closeProjectPresentation === 'function') {
+                            window.closeProjectPresentation();
                         }
+                    }
+                } else if (whiteTabOverlay && whiteTabOverlay.classList.contains('active')) {
+                    if (!whiteTabOverlay.contains(e.target) && (!navDocsBtn || !navDocsBtn.contains(e.target))) {
+                        closeWhiteTab();
                     }
                 }
             });
@@ -2913,13 +3178,515 @@
             // Keyboard accessibility (ESC)
             window.addEventListener('keydown', function(e) {
                 if (e.key === 'Escape' || e.key === 'Esc') {
+                    const projectImageViewport = document.getElementById('project-image-viewport');
+                    const projectPresOverlay = document.getElementById('project-presentation-overlay');
+
                     if (customDocViewport && customDocViewport.classList.contains('active')) {
                         closeThemedViewportToDocs();
+                    } else if (projectImageViewport && projectImageViewport.classList.contains('active')) {
+                        if (typeof window.closeProjectImageViewportToPres === 'function') {
+                            window.closeProjectImageViewportToPres();
+                        }
+                    } else if (projectPresOverlay && projectPresOverlay.classList.contains('active')) {
+                        if (typeof window.closeProjectPresentation === 'function') {
+                            window.closeProjectPresentation();
+                        }
                     } else if (whiteTabOverlay && whiteTabOverlay.classList.contains('active')) {
                         closeWhiteTab();
                     }
                 }
             });
+        })();
+
+        // ==========================================================================
+        // Project Presentation Modal System (Documentation, Images, Repository)
+        // ==========================================================================
+        (function initProjectPresentationSystem() {
+            const docBackdrop = document.getElementById('doc-backdrop-overlay');
+            const projectPresOverlay = document.getElementById('project-presentation-overlay');
+            const projectPresRole = document.getElementById('projectPresRole');
+            const projectPresTitle = document.getElementById('projectPresTitle');
+            const projectPresCloseBtn = document.getElementById('projectPresCloseBtn');
+            const actionDocBtn = document.getElementById('projectActionDoc');
+            const actionImagesBtn = document.getElementById('projectActionImages');
+            const actionRepoWebBtn = document.getElementById('projectActionRepoWeb');
+
+            const customDocViewport = document.getElementById('custom-doc-viewport');
+            const docVpIframe = document.getElementById('docVpIframe');
+            const docVpActiveTitle = document.getElementById('docVpActiveTitle');
+            const docVpDownloadBtn = document.getElementById('docVpDownloadBtn');
+            const projectSpecContainer = document.getElementById('projectSpecContainer');
+
+            const projectImageViewport = document.getElementById('project-image-viewport');
+            const projectImageBackBtn = document.getElementById('projectImageBackBtn');
+            const projectImageCloseBtn = document.getElementById('projectImageCloseBtn');
+            const projectImageTitle = document.getElementById('projectImageTitle');
+            const projectPreviewPhoto = document.getElementById('projectPreviewPhoto');
+            const projectImageCaption = document.getElementById('projectImageCaption');
+            const projectImageDownloadBtn = document.getElementById('projectImageDownloadBtn');
+
+            const projectsData = {
+                portfolio: {
+                    id: 'portfolio',
+                    title: 'Responsive Web Portfolio',
+                    role: 'Frontend & Systems Developer',
+                    desc: 'Single-page responsive portfolio featuring dark/light dynamic theme switching, 3D CSS flip animations, interactive Typing Test terminal, customized document viewport, and Gemini AI assistant integration.',
+                    repoUrl: 'https://github.com/sondre01/khin-portfolio-v2',
+                    websiteUrl: 'https://sondre01.github.io/khin-portfolio-v2/',
+                    imageUrl: 'data/image/profe-home.jpg',
+                    imageCaption: 'Responsive Web Portfolio - Engineering showcase and terminal-grade interface featuring smooth animations and data systems architecture.',
+                    docType: 'spec',
+                    docTech: ['HTML5 / CSS3', 'JavaScript (ES6+)', 'Web Animations API', 'Lucide Icons', 'Gemini AI API', 'GitHub Pages'],
+                    docModules: [
+                        {
+                            title: 'Modular DOM & Dynamic Theming Engine',
+                            desc: 'Orchestrates dynamic CSS custom property themes (Light, Night, Default) persisted via LocalStorage with real-time UI synchronization.'
+                        },
+                        {
+                            title: 'Interactive Systems Integration',
+                            desc: 'Features an interactive typing speed terminal, embedded PDF and technical specification viewers, and intelligent portfolio AI chat engine.'
+                        },
+                        {
+                            title: 'Responsive 3D Card Architecture',
+                            desc: 'Implements hardware-accelerated 3D transforms with custom geometric vector badges representing distinct technical disciplines.'
+                        }
+                    ]
+                },
+                ticketing: {
+                    id: 'ticketing',
+                    title: 'Web-Based Ticketing System',
+                    role: 'Full-Stack Software Engineer',
+                    desc: 'Enterprise IT support ticketing system featuring secure JWT authentication, role-based access control (RBAC), real-time ticket triage, and automated notifications.',
+                    repoUrl: 'https://github.com/sondre01/khin-ticketing-system',
+                    websiteUrl: 'https://github.com/sondre01/khin-ticketing-system',
+                    imageUrl: 'data/picture_ref/Screenshot 2026-09-16 080245.png',
+                    imageCaption: 'Web-Based Ticketing System - Enterprise corporate account dashboard, user management table, and live ticket triage interface.',
+                    docType: 'spec',
+                    docTech: ['Node.js', 'Express.js', 'PostgreSQL / MySQL', 'JWT Authentication', 'REST API Architecture', 'Responsive UI'],
+                    docModules: [
+                        {
+                            title: 'RBAC & Authentication Security',
+                            desc: 'Role-based access controls isolating Super Admin, Corporate Accounts, and Support Personnel with signed token sessions.'
+                        },
+                        {
+                            title: 'Ticket Lifecycle & Triage',
+                            desc: 'Structured ticketing pipelines with priority queues, automated SLA timestamping, internal notes, and audit logs.'
+                        },
+                        {
+                            title: 'Corporate Account Administration',
+                            desc: 'Centralized registry managing enterprise client credentials, company domains, and departmental ticket volume metrics.'
+                        }
+                    ]
+                },
+                etl: {
+                    id: 'etl',
+                    title: 'Social Media ETL Pipeline',
+                    role: 'Data Engineer',
+                    desc: 'Automated end-to-end data pipeline extracting, transforming, and loading social media engagement metrics into analytics-ready schemas with scheduling.',
+                    repoUrl: 'https://github.com/sondre01/khin-social-media-etl-pipeline',
+                    websiteUrl: 'https://github.com/sondre01/khin-social-media-etl-pipeline',
+                    imageUrl: 'data/image/profe-home.jpg',
+                    imageCaption: 'Social Media ETL Pipeline - Architecture and automated data ingestion workflows extracting engagement metrics into analytics schemas.',
+                    docType: 'spec',
+                    docTech: ['Python', 'Pandas', 'Apache Airflow', 'PostgreSQL', 'Docker', 'Parquet', 'CRON Scheduling'],
+                    docModules: [
+                        {
+                            title: 'Multi-Source Data Ingestion',
+                            desc: 'Extracts multi-platform post engagement, follower growth, and interaction telemetry via resilient REST API connectors.'
+                        },
+                        {
+                            title: 'Data Transformation & Cleansing',
+                            desc: 'Applies schema validation, timestamp normalization, deduplication, and sentiment aggregation using vectorized Pandas routines.'
+                        },
+                        {
+                            title: 'Warehouse Ingestion & Scheduling',
+                            desc: 'Orchestrates automated DAG executions loading structured data into PostgreSQL partitions optimized for analytical query execution.'
+                        }
+                    ]
+                },
+                fovb: {
+                    id: 'fovb',
+                    title: 'FOVB-AIOT (Capstone)',
+                    role: 'Lead Systems & AI Engineer',
+                    desc: 'Edge-computed AIoT system integrating computer vision and IoT sensor fusion for agricultural environmental control and crop disease monitoring.',
+                    repoUrl: 'https://github.com/sondre01/FOVB-AIoT',
+                    websiteUrl: 'https://github.com/sondre01/FOVB-AIoT',
+                    imageUrl: 'data/image/FOVB-AIOT.jpg',
+                    imageCaption: 'FOVB-AIOT Hardware Deployment - Raspberry Pi 4 edge compute module with camera rig and environmental telemetry sensor array.',
+                    docType: 'pdf',
+                    docUrl: './data/documents/FOVB-AIoT_Manuscript.pdf',
+                    downloadName: 'FOVB-AIoT_Manuscript.pdf',
+                    docTech: ['Raspberry Pi 4', 'Python', 'OpenCV', 'YOLO Object Detection', 'IoT Sensor Array', 'MQTT / SQLite'],
+                    docModules: [
+                        {
+                            title: 'Edge Computer Vision Inferencing',
+                            desc: 'Real-time deep learning classification pipeline detecting crop abnormalities directly on edge hardware.'
+                        },
+                        {
+                            title: 'Microclimatic Sensor Fusion',
+                            desc: 'Continuously monitors ambient temperature, humidity, and soil moisture levels to evaluate environmental stress.'
+                        },
+                        {
+                            title: 'Automated Actuation Feedback',
+                            desc: 'Autonomous micro-irrigation and ventilation triggering based on threshold rules and model classification confidence.'
+                        }
+                    ]
+                },
+                aikilo: {
+                    id: 'aikilo',
+                    title: 'AI Kilo Bot',
+                    role: 'Machine Learning & Robotics Developer',
+                    desc: 'Autonomous vision-guided robotics platform combining real-time object classification, telemetry telemetry streaming, and edge inferencing.',
+                    repoUrl: 'https://github.com/sondre01/ai-kilo-bot',
+                    websiteUrl: 'https://github.com/sondre01/ai-kilo-bot',
+                    imageUrl: 'data/image/aikilobot.png',
+                    imageCaption: 'AI Kilo Bot - Mobile robotics platform with integrated stereoscopic vision sensors and on-device ML inferencing.',
+                    docType: 'spec',
+                    docTech: ['Python', 'TensorFlow Lite', 'OpenCV', 'ROS (Robot Operating System)', 'Arduino / Motor Drivers'],
+                    docModules: [
+                        {
+                            title: 'Vision-Guided Navigation',
+                            desc: 'Onboard camera processing frames at 30 FPS to identify obstacle contours and calculate steering trajectories.'
+                        },
+                        {
+                            title: 'Lightweight Edge Neural Inferencing',
+                            desc: 'Quantized MobileNet classification executing on compact microcomputing hardware for instantaneous response.'
+                        },
+                        {
+                            title: 'Telemetry Telemetry & Control',
+                            desc: 'Low-latency serial communication link between inference engine and hardware motor controllers.'
+                        }
+                    ]
+                },
+                tollgate: {
+                    id: 'tollgate',
+                    title: 'RFID Tollgate System',
+                    role: 'Embedded Systems Developer',
+                    desc: 'Automated RFID vehicular toll collection system with real-time balance debiting, barrier servo motor control, and database transit transaction logging.',
+                    repoUrl: 'https://github.com/sondre01',
+                    websiteUrl: 'https://github.com/sondre01',
+                    imageUrl: 'data/image/tollgate.jpg',
+                    imageCaption: 'RFID Automated Tollgate - Microcontroller interface with high-frequency RFID reader and servo gate actuator.',
+                    docType: 'spec',
+                    docTech: ['C++', 'Arduino / ESP32', 'RFID RC522 Reader', 'PWM Servo Control', 'Serial Data Logging', 'SQLite / MySQL'],
+                    docModules: [
+                        {
+                            title: 'High-Frequency RFID Scanning',
+                            desc: 'Instantaneous vehicle transponder identification and credential validation via ISO 14443A protocol.'
+                        },
+                        {
+                            title: 'Automated Servo Gate Actuation',
+                            desc: 'Precision PWM motor controller governing barrier raise, timeout holding, and safety lowering cycles.'
+                        },
+                        {
+                            title: 'Transaction Accounting & Audit Logs',
+                            desc: 'Real-time fare balance deduction and persistent transit logs for auditing and reporting.'
+                        }
+                    ]
+                },
+                xvidia: {
+                    id: 'xvidia',
+                    title: 'Xvidia Shop',
+                    role: 'Data Analyst & DB Developer',
+                    desc: 'Dual inventory and repair queue service manager ledger with normalized relational database storage for component tracking, diagnostic status logs, and customer profiles.',
+                    repoUrl: 'https://github.com/sondre01/xvidia-tech-hub',
+                    websiteUrl: 'https://github.com/sondre01/xvidia-tech-hub',
+                    imageUrl: 'data/image/Xvidia Shop.jpg',
+                    imageCaption: 'Xvidia Shop Desktop Ledger - WinForms UI and relational database management system for inventory control.',
+                    docType: 'pdf',
+                    docUrl: './data/documents/Xvidia_Documentation.pdf',
+                    downloadName: 'Xvidia_Documentation.pdf',
+                    docTech: ['C# (.NET WinForms)', 'SQL Database', '3NF Normalization', 'Relational Schemas', 'Transaction Management'],
+                    docModules: [
+                        {
+                            title: 'Normalized Database Architecture',
+                            desc: '3NF schema eliminating inventory redundancies and ensuring ACID transaction consistency across sales and service tickets.'
+                        },
+                        {
+                            title: 'Repair Queue Diagnostic Tracking',
+                            desc: 'Step-by-step diagnostic logging, technician assignment, and customer communication lifecycle management.'
+                        },
+                        {
+                            title: 'Component Stock Reorder Metrics',
+                            desc: 'Automated threshold alerts when hardware inventory falls below safe operating levels.'
+                        }
+                    ]
+                },
+                resto: {
+                    id: 'resto',
+                    title: 'GG Resto POS Dashboard',
+                    role: 'Database Developer',
+                    desc: 'Cashier and management desktop program with normalized relational database schema, automated SQL backup pipelines, and a manager analytics dashboard.',
+                    repoUrl: 'https://github.com/sondre01/gg-restobar-pos',
+                    websiteUrl: 'https://github.com/sondre01/gg-restobar-pos',
+                    imageUrl: 'data/image/GG Resto POS Dashboard.jpg',
+                    imageCaption: 'GG Resto POS Analytics Dashboard - Desktop point-of-sale interface with real-time financial reporting and inventory tracking.',
+                    docType: 'spec',
+                    docTech: ['Java (Swing UI)', 'MySQL Database', 'JDBC API', 'Automated SQL Backup', 'Data Aggregation & Reporting'],
+                    docModules: [
+                        {
+                            title: 'High-Volume Order Processing',
+                            desc: 'Rapid terminal order entry with table status tracking, split billing, and instantaneous receipt generation.'
+                        },
+                        {
+                            title: 'Sales & Inventory Aggregation',
+                            desc: 'Real-time calculation of daily gross margins, top-performing menu items, and ingredient depletion curves.'
+                        },
+                        {
+                            title: 'Automated Database Dump Engine',
+                            desc: 'Scheduled cron and on-demand relational SQL dumps protecting transactional financial records against data corruption.'
+                        }
+                    ]
+                }
+            };
+
+            let currentProject = null;
+
+            function renderProjectSpecHtml(project) {
+                return `
+                    <div class="project-spec-content">
+                        <div class="spec-badge-row">
+                            <span class="spec-header-badge">${project.role}</span>
+                            <span class="spec-header-badge">TECHNICAL SPECIFICATION</span>
+                        </div>
+                        
+                        <h2 class="spec-main-title">${project.title}</h2>
+                        
+                        <div class="spec-section-card">
+                            <h4 class="spec-section-heading">
+                                <i data-lucide="layers" style="width: 18px; height: 18px;"></i>
+                                <span>System Architecture & Overview</span>
+                            </h4>
+                            <p class="spec-narrative">${project.desc}</p>
+                        </div>
+                        
+                        <div class="spec-section-card">
+                            <h4 class="spec-section-heading">
+                                <i data-lucide="cpu" style="width: 18px; height: 18px;"></i>
+                                <span>Core Technical Modules</span>
+                            </h4>
+                            <div style="display: flex; flex-direction: column; gap: 14px; margin-top: 10px;">
+                                ${project.docModules.map(m => `
+                                    <div style="padding: 12px 14px; background: rgba(0,0,0,0.03); border-radius: 8px; border-left: 3px solid currentColor;">
+                                        <strong style="display: block; font-family: 'Inter', sans-serif; font-size: 0.92rem; margin-bottom: 4px;">${m.title}</strong>
+                                        <p style="margin: 0; font-size: 0.86rem; opacity: 0.85; line-height: 1.5;">${m.desc}</p>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+
+                        <div class="spec-section-card">
+                            <h4 class="spec-section-heading">
+                                <i data-lucide="code-2" style="width: 18px; height: 18px;"></i>
+                                <span>Technology Stack & Tooling</span>
+                            </h4>
+                            <div class="spec-tech-pills">
+                                ${project.docTech.map(t => `<span class="spec-tech-pill">${t}</span>`).join('')}
+                            </div>
+                        </div>
+
+                        <div class="spec-section-card" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px;">
+                            <div>
+                                <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; text-transform: uppercase; opacity: 0.7;">Verified Repository & Links</span>
+                                <div style="font-weight: 600; font-size: 0.9rem; margin-top: 2px;">${project.repoUrl}</div>
+                            </div>
+                            <a href="${project.websiteUrl || project.repoUrl}" target="_blank" rel="noopener noreferrer" class="doc-vp-download-btn" style="text-decoration: none;">
+                                <i data-lucide="external-link" style="width: 15px; height: 15px;"></i>
+                                <span>Visit Repository / Website</span>
+                            </a>
+                        </div>
+                    </div>
+                `;
+            }
+
+            function openProjectPresentation(projectId) {
+                const project = projectsData[projectId];
+                if (!project) return;
+                currentProject = project;
+                window._activeProjectData = project;
+
+                if (projectPresRole) projectPresRole.textContent = project.role.toUpperCase();
+                if (projectPresTitle) projectPresTitle.textContent = project.title;
+
+                if (docBackdrop) docBackdrop.classList.add('active');
+                if (projectPresOverlay) projectPresOverlay.classList.add('active');
+                window.lockMainWebScroll();
+
+                if (window.lucide && typeof window.lucide.createIcons === 'function') {
+                    window.lucide.createIcons();
+                }
+            }
+
+            function reopenProjectPresentation() {
+                if (!currentProject) return;
+                if (projectPresOverlay) projectPresOverlay.classList.add('active');
+                if (docBackdrop) docBackdrop.classList.add('active');
+                window.lockMainWebScroll();
+                if (window.lucide && typeof window.lucide.createIcons === 'function') {
+                    window.lucide.createIcons();
+                }
+            }
+            window.reopenProjectPresentation = reopenProjectPresentation;
+
+            function closeProjectPresentation() {
+                if (projectPresOverlay) projectPresOverlay.classList.remove('active');
+                if (!customDocViewport || !customDocViewport.classList.contains('active')) {
+                    if (!projectImageViewport || !projectImageViewport.classList.contains('active')) {
+                        if (docBackdrop) docBackdrop.classList.remove('active');
+                    }
+                }
+                window.unlockMainWebScroll();
+            }
+            window.closeProjectPresentation = closeProjectPresentation;
+
+            function openProjectDocumentation() {
+                if (!currentProject) return;
+                const project = currentProject;
+
+                if (projectPresOverlay) projectPresOverlay.classList.remove('active');
+                window._activeDocViewportSource = 'project';
+
+                if (docVpActiveTitle) {
+                    docVpActiveTitle.textContent = project.title.toUpperCase();
+                }
+
+                if (project.docType === 'pdf' && project.docUrl) {
+                    if (docVpIframe) {
+                        docVpIframe.style.display = 'block';
+                        docVpIframe.src = project.docUrl + '#toolbar=0&navpanes=0';
+                    }
+                    if (projectSpecContainer) {
+                        projectSpecContainer.style.display = 'none';
+                        projectSpecContainer.innerHTML = '';
+                    }
+                    if (docVpDownloadBtn) {
+                        docVpDownloadBtn.style.display = 'inline-flex';
+                        docVpDownloadBtn.href = project.docUrl;
+                        docVpDownloadBtn.download = project.downloadName || `${project.id}-doc.pdf`;
+                        docVpDownloadBtn.target = '_self';
+                        const dlSpan = docVpDownloadBtn.querySelector('span');
+                        if (dlSpan) dlSpan.textContent = 'Download PDF';
+                    }
+                } else {
+                    if (docVpIframe) {
+                        docVpIframe.style.display = 'none';
+                        docVpIframe.src = 'about:blank';
+                    }
+                    if (projectSpecContainer) {
+                        projectSpecContainer.style.display = 'block';
+                        projectSpecContainer.innerHTML = renderProjectSpecHtml(project);
+                    }
+                    if (docVpDownloadBtn) {
+                        docVpDownloadBtn.style.display = 'inline-flex';
+                        docVpDownloadBtn.href = project.websiteUrl || project.repoUrl;
+                        docVpDownloadBtn.removeAttribute('download');
+                        docVpDownloadBtn.target = '_blank';
+                        const dlSpan = docVpDownloadBtn.querySelector('span');
+                        if (dlSpan) dlSpan.textContent = 'Visit Repo';
+                    }
+                }
+
+                if (docBackdrop) docBackdrop.classList.add('active');
+                if (customDocViewport) customDocViewport.classList.add('active');
+                window.lockMainWebScroll();
+
+                if (window.lucide && typeof window.lucide.createIcons === 'function') {
+                    window.lucide.createIcons();
+                }
+            }
+
+            function openProjectImageViewport() {
+                if (!currentProject) return;
+                const project = currentProject;
+
+                if (projectPresOverlay) projectPresOverlay.classList.remove('active');
+
+                if (projectImageTitle) {
+                    projectImageTitle.textContent = `${project.title.toUpperCase()} - PREVIEW`;
+                }
+                if (projectPreviewPhoto) {
+                    projectPreviewPhoto.src = project.imageUrl;
+                    projectPreviewPhoto.alt = `${project.title} Preview`;
+                }
+                if (projectImageCaption) {
+                    projectImageCaption.textContent = project.imageCaption;
+                }
+                if (projectImageDownloadBtn) {
+                    projectImageDownloadBtn.href = project.imageUrl;
+                }
+
+                if (docBackdrop) docBackdrop.classList.add('active');
+                if (projectImageViewport) projectImageViewport.classList.add('active');
+                window.lockMainWebScroll();
+
+                if (window.lucide && typeof window.lucide.createIcons === 'function') {
+                    window.lucide.createIcons();
+                }
+            }
+
+            function closeProjectImageViewportToPres() {
+                if (projectImageViewport) projectImageViewport.classList.remove('active');
+                reopenProjectPresentation();
+            }
+            window.closeProjectImageViewportToPres = closeProjectImageViewportToPres;
+
+            function openProjectRepoOrWebsite() {
+                if (!currentProject) return;
+                const project = currentProject;
+                const targetUrl = project.websiteUrl || project.repoUrl;
+                if (targetUrl) {
+                    window.open(targetUrl, '_blank', 'noopener,noreferrer');
+                }
+            }
+
+            // Bind triggers on all project cards (builds grid and collective grid)
+            document.querySelectorAll('.project-flip-card').forEach(card => {
+                card.addEventListener('click', function(e) {
+                    if (e.target.closest('a') && !e.target.closest('.project-card-action-cue')) {
+                        return;
+                    }
+                    const projectId = this.getAttribute('data-project-id');
+                    if (projectId && projectsData[projectId]) {
+                        openProjectPresentation(projectId);
+                    }
+                });
+
+                card.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        const projectId = this.getAttribute('data-project-id');
+                        if (projectId && projectsData[projectId]) {
+                            openProjectPresentation(projectId);
+                        }
+                    }
+                });
+            });
+
+            // Action words click listeners
+            if (actionDocBtn) {
+                actionDocBtn.addEventListener('click', openProjectDocumentation);
+            }
+            if (actionImagesBtn) {
+                actionImagesBtn.addEventListener('click', openProjectImageViewport);
+            }
+            if (actionRepoWebBtn) {
+                actionRepoWebBtn.addEventListener('click', openProjectRepoOrWebsite);
+            }
+            if (projectPresCloseBtn) {
+                projectPresCloseBtn.addEventListener('click', closeProjectPresentation);
+            }
+
+            // Image Viewport navigation
+            if (projectImageBackBtn) {
+                projectImageBackBtn.addEventListener('click', closeProjectImageViewportToPres);
+            }
+            if (projectImageCloseBtn) {
+                projectImageCloseBtn.addEventListener('click', function() {
+                    if (typeof window.closeAllDocumentModals === 'function') {
+                        window.closeAllDocumentModals();
+                    }
+                });
+            }
         })();
 
         // About Me Modal logic

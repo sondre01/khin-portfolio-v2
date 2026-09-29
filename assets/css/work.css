@@ -957,66 +957,137 @@ body.theme-light .exp-chip:hover {
     background-color: transparent;
     pointer-events: none;
     transform: none;
+    overflow: hidden;
 }
 
-/* Default front styling for cards without background images */
-.project-card-front:not(.has-bg-image) {
-    background: radial-gradient(circle at 80% 80%, rgba(0, 0, 0, 0.06) 0%, transparent 70%);
-    opacity: 1;
-    transition: opacity 0.55s ease;
-}
-
-.project-flip-card[data-card-theme="dark"] .project-card-front:not(.has-bg-image) {
-    background: radial-gradient(circle at 80% 80%, rgba(56, 189, 248, 0.12) 0%, rgba(30, 58, 138, 0.2) 40%, transparent 70%);
-}
-
-.project-flip-card:hover .project-card-front:not(.has-bg-image),
-.project-flip-card.is-revealed .project-card-front:not(.has-bg-image) {
-    opacity: 0;
-}
-
-/* Background image: Adjusted higher to utilize space below header; Zooms in, blurs smoothly, and dissolves on hover */
-.project-card-bg {
+/* Smooth Minimalist Pattern Base Layer */
+.project-card-pattern {
     position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    top: 15%;
+    inset: 0;
     width: 100%;
-    height: 85%;
-    background-size: cover;
-    background-position: center top;
-    background-repeat: no-repeat;
+    height: 100%;
     z-index: 1;
-    transform: scale(1);
-    transform-origin: center bottom;
-    filter: blur(0px);
-    -webkit-filter: blur(0px);
-    opacity: 1;
-    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1),
-                filter 0.55s ease,
-                opacity 0.5s ease;
-    will-change: transform, opacity, filter;
-    mask-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.4) 3%, black 8%, black 100%);
-    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.4) 3%, black 8%, black 100%);
-}
-
-/* On hover / revealed: Exactly like reference video, picture zooms in, blurs smoothly, and dissolves */
-.project-flip-card:hover .project-card-bg,
-.project-flip-card.is-revealed .project-card-bg {
-    transform: scale(1.18);
-    filter: blur(18px);
-    -webkit-filter: blur(18px);
-    opacity: 0;
+    opacity: 0.85;
+    transition: opacity 0.5s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     pointer-events: none;
 }
 
-/* Card overlay: Disabled */
-.project-card-overlay {
-    display: none !important;
+.project-flip-card:hover .project-card-pattern,
+.project-flip-card.is-revealed .project-card-pattern {
+    opacity: 0.35;
+    transform: scale(1.04);
 }
 
-/* Front Info wrapper */
+/* Individual Smooth Minimalist Patterns (Non-repetitive domain signatures) */
+.pattern-portfolio {
+    background-image: 
+        radial-gradient(circle at 50% 40%, rgba(56, 189, 248, 0.12) 0%, transparent 65%),
+        linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 100% 100%, 28px 28px, 28px 28px;
+}
+
+.pattern-ticketing {
+    background-image: 
+        radial-gradient(circle at 50% 35%, rgba(250, 204, 21, 0.08) 0%, transparent 65%),
+        linear-gradient(45deg, rgba(0, 0, 0, 0.035) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(0, 0, 0, 0.035) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, rgba(0, 0, 0, 0.035) 75%),
+        linear-gradient(-45deg, transparent 75%, rgba(0, 0, 0, 0.035) 75%);
+    background-size: 100% 100%, 32px 32px, 32px 32px, 32px 32px, 32px 32px;
+}
+
+.pattern-etl {
+    background-image: 
+        radial-gradient(circle at 65% 45%, rgba(99, 102, 241, 0.14) 0%, transparent 65%),
+        repeating-linear-gradient(0deg, transparent, transparent 23px, rgba(255, 255, 255, 0.04) 23px, rgba(255, 255, 255, 0.04) 24px),
+        repeating-linear-gradient(90deg, transparent, transparent 47px, rgba(255, 255, 255, 0.025) 47px, rgba(255, 255, 255, 0.025) 48px);
+    background-size: 100% 100%, auto, auto;
+}
+
+.pattern-fovb {
+    background-image: 
+        radial-gradient(circle at 50% 45%, rgba(20, 184, 166, 0.15) 0%, transparent 65%),
+        radial-gradient(circle at 50% 45%, transparent 35px, rgba(255, 255, 255, 0.04) 36px, transparent 37px),
+        radial-gradient(circle at 50% 45%, transparent 75px, rgba(255, 255, 255, 0.03) 76px, transparent 77px),
+        radial-gradient(circle at 50% 45%, transparent 115px, rgba(255, 255, 255, 0.02) 116px, transparent 117px);
+    background-size: 100% 100%, auto, auto, auto;
+}
+
+.pattern-aikilo {
+    background-image: 
+        radial-gradient(circle at 50% 40%, rgba(249, 115, 22, 0.08) 0%, transparent 60%),
+        linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+    background-size: 100% 100%, 34px 34px, 34px 34px;
+}
+
+.pattern-tollgate {
+    background-image: 
+        radial-gradient(circle at 55% 45%, rgba(14, 165, 233, 0.14) 0%, transparent 60%),
+        repeating-linear-gradient(45deg, transparent, transparent 19px, rgba(255, 255, 255, 0.03) 19px, rgba(255, 255, 255, 0.03) 20px);
+    background-size: 100% 100%, auto;
+}
+
+.pattern-xvidia {
+    background-image: 
+        radial-gradient(circle at 50% 45%, rgba(139, 92, 246, 0.08) 0%, transparent 60%),
+        linear-gradient(to right, rgba(0, 0, 0, 0.035) 2px, transparent 2px),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.035) 2px, transparent 2px);
+    background-size: 100% 100%, 42px 42px, 42px 42px;
+}
+
+.pattern-resto {
+    background-image: 
+        radial-gradient(circle at 50% 40%, rgba(16, 185, 129, 0.08) 0%, transparent 65%),
+        repeating-linear-gradient(0deg, transparent, transparent 18px, rgba(0, 0, 0, 0.03) 18px, rgba(0, 0, 0, 0.03) 19px);
+    background-size: 100% 100%, auto;
+}
+
+/* Bespoke Minimalist Vector Representation Symbol Container */
+.project-symbol-container {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    pointer-events: none;
+    padding-bottom: 24px;
+    box-sizing: border-box;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+}
+
+.project-symbol-glyph {
+    width: 124px;
+    height: 124px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--card-text-primary, #121212);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+    will-change: transform, opacity;
+}
+
+.project-symbol-svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.15));
+}
+
+.project-flip-card[data-card-theme="dark"] .project-symbol-svg {
+    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.55));
+}
+
+.project-flip-card:hover .project-symbol-glyph,
+.project-flip-card.is-revealed .project-symbol-glyph {
+    transform: scale(1.1) translateY(-6px);
+    opacity: 0.18;
+}
+
+/* Front Info (Click Hint) */
 .project-front-info {
     position: relative;
     z-index: 4;
@@ -1025,7 +1096,43 @@ body.theme-light .exp-chip:hover {
     justify-content: flex-end;
     margin-top: auto;
     width: 100%;
+    padding: 18px 16px;
+    box-sizing: border-box;
+    transition: opacity 0.35s ease;
 }
+
+.project-flip-card:hover .project-front-info,
+.project-flip-card.is-revealed .project-front-info {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.project-click-hint {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: var(--card-text-primary, #121212);
+    opacity: 0.65;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.project-click-hint svg,
+.project-click-hint i {
+    width: 13px;
+    height: 13px;
+}
+
+.project-flip-card:hover .project-click-hint {
+    opacity: 1;
+    transform: translateX(2px);
+}
+
+
 
 /* Front meta is hidden to prevent duplicate text; header is fixed permanently at the top */
 .project-front-meta {
@@ -1817,5 +1924,295 @@ body.theme-light .project-flip-card .project-card-back .doc-link-btn:hover i,
 body.theme-light .project-flip-card .project-card-back .doc-link-btn:hover svg {
     color: #ffffff !important;
     stroke: #ffffff !important;
+}
+
+/* ==========================================================================
+   PROJECT PRESENTATION OVERLAY ("Above the Main Web")
+   ========================================================================== */
+.project-presentation-overlay {
+    /* Inherits .doc-white-tab-overlay positioning, rounded 30px corners, shadows */
+}
+
+.project-pres-header {
+    position: absolute;
+    top: 32px;
+    left: 48px;
+    right: 110px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    z-index: 40;
+    pointer-events: none;
+    text-align: left;
+}
+
+.project-pres-role {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.76rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #121212;
+    opacity: 0.65;
+}
+
+.project-pres-title {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(1.1rem, 2.2vw, 1.45rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: #121212;
+    margin: 0;
+}
+
+/* Project Presentation Action Words */
+.project-pres-vertical-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 6px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.project-pres-menu .doc-word-btn {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(2.2rem, 5.2vw, 4.8rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    text-transform: uppercase;
+    color: #000000 !important;
+    -webkit-text-fill-color: #000000 !important;
+    -webkit-text-stroke: 1.5px #000000;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+}
+
+.project-pres-menu .doc-word-btn:hover {
+    transform: scale(1.05);
+    color: #000000 !important;
+    -webkit-text-fill-color: #000000 !important;
+}
+
+.project-pres-vertical-menu:hover .doc-word-btn:not(:hover) {
+    opacity: 0.28;
+}
+
+/* Light Mode Overrides for Project Presentation Overlay */
+body.theme-light .project-presentation-overlay {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.14) !important;
+}
+
+body.theme-light .project-pres-role {
+    color: #ffffff !important;
+    opacity: 0.7;
+}
+
+body.theme-light .project-pres-title {
+    color: #ffffff !important;
+}
+
+body.theme-light .project-pres-menu .doc-word-btn {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    -webkit-text-stroke: 1.5px #ffffff !important;
+}
+
+body.theme-light .project-pres-menu .doc-word-btn:hover {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+body.theme-light .project-pres-vertical-menu:hover .doc-word-btn:not(:hover) {
+    opacity: 0.32;
+}
+
+/* ==========================================================================
+   PROJECT IMAGE VIEWPORT MODAL
+   ========================================================================== */
+.project-image-viewport {
+    /* Inherits .custom-doc-viewport */
+}
+
+.project-image-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 36px 28px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    width: 100%;
+    height: 100%;
+}
+
+.project-image-stage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 980px;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+}
+
+.project-preview-photo {
+    max-width: 100%;
+    max-height: 66vh;
+    object-fit: contain;
+    border-radius: 14px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.project-image-caption {
+    margin-top: 18px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.96rem;
+    font-weight: 500;
+    line-height: 1.6;
+    color: inherit;
+    opacity: 0.88;
+    max-width: 740px;
+}
+
+/* ==========================================================================
+   TECHNICAL SPECIFICATION VIEWPORT (Inside #custom-doc-viewport)
+   ========================================================================== */
+.project-spec-container {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    padding: 44px 52px;
+    box-sizing: border-box;
+    -webkit-overflow-scrolling: touch;
+}
+
+.project-spec-content {
+    max-width: 880px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.spec-badge-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.spec-header-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    background: rgba(0, 0, 0, 0.07);
+    border-radius: 6px;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.spec-main-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(2.2rem, 4.8vw, 3.4rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    line-height: 1.08;
+    margin: 0;
+}
+
+.spec-section-card {
+    background: rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    padding: 24px 26px;
+}
+
+.spec-section-heading {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.12rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin: 0 0 12px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.spec-narrative {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.98rem;
+    line-height: 1.7;
+    opacity: 0.92;
+    margin: 0;
+}
+
+.spec-tech-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 14px;
+}
+
+.spec-tech-pill {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+body.theme-light .spec-header-badge,
+body.theme-light .spec-section-card {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.14);
+}
+
+body.theme-light .spec-tech-pill {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.18);
+    color: #ffffff;
+}
+
+/* Card Action Cue in Back Footer */
+.project-card-action-cue {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--card-text-primary, #121212);
+    padding: 8px 12px;
+    background: var(--card-tag-bg);
+    border: 1px solid var(--card-tag-border);
+    border-radius: 6px;
+    width: 100%;
+    justify-content: center;
+    box-sizing: border-box;
+    transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+
+.project-flip-card:hover .project-card-action-cue {
+    background-color: var(--card-btn-hover-bg);
+    color: var(--card-btn-hover-text);
+    border-color: var(--card-btn-hover-bg);
 }
 
