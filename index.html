@@ -1598,12 +1598,7 @@
                                                 <span class="work-tag">Vercel Deploy</span>
                                             </div>
                                         </div>
-                                        <div class="project-back-footer">
-                                            <div class="project-card-action-cue">
-                                                <i data-lucide="external-link"></i>
-                                                <span>Documentation • Images • Links</span>
-                                            </div>
-                                        </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -1654,12 +1649,7 @@
                                                 <span class="work-tag">Vercel</span>
                                             </div>
                                         </div>
-                                        <div class="project-back-footer">
-                                            <div class="project-card-action-cue">
-                                                <i data-lucide="external-link"></i>
-                                                <span>Documentation • Images • Links</span>
-                                            </div>
-                                        </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -1715,12 +1705,7 @@
                                                 <span class="work-tag">Data Quality</span>
                                             </div>
                                         </div>
-                                        <div class="project-back-footer">
-                                            <div class="project-card-action-cue">
-                                                <i data-lucide="external-link"></i>
-                                                <span>Documentation • Images • Links</span>
-                                            </div>
-                                        </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -1780,12 +1765,7 @@
                                                 <span class="work-tag">Computer Vision</span>
                                             </div>
                                         </div>
-                                        <div class="project-back-footer">
-                                            <div class="project-card-action-cue">
-                                                <i data-lucide="external-link"></i>
-                                                <span>Documentation • Images • Links</span>
-                                            </div>
-                                        </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -1840,12 +1820,7 @@
                                                 <span class="work-tag">HX711 Load Cell</span>
                                             </div>
                                         </div>
-                                        <div class="project-back-footer">
-                                            <div class="project-card-action-cue">
-                                                <i data-lucide="external-link"></i>
-                                                <span>Documentation • Images • Links</span>
-                                            </div>
-                                        </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -1898,12 +1873,7 @@
                                                 <span class="work-tag">C# Desktop UI</span>
                                             </div>
                                         </div>
-                                        <div class="project-back-footer">
-                                            <div class="project-card-action-cue">
-                                                <i data-lucide="external-link"></i>
-                                                <span>Documentation • Images • Links</span>
-                                            </div>
-                                        </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -1961,12 +1931,7 @@
                                                 <span class="work-tag">Data Normalization</span>
                                             </div>
                                         </div>
-                                        <div class="project-back-footer">
-                                            <div class="project-card-action-cue">
-                                                <i data-lucide="external-link"></i>
-                                                <span>Documentation • Images • Links</span>
-                                            </div>
-                                        </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -2020,12 +1985,7 @@
                                                 <span class="work-tag">JDBC API</span>
                                             </div>
                                         </div>
-                                        <div class="project-back-footer">
-                                            <div class="project-card-action-cue">
-                                                <i data-lucide="external-link"></i>
-                                                <span>Documentation • Images • Links</span>
-                                            </div>
-                                        </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -2764,13 +2724,13 @@
         <div class="doc-tab-body">
             <nav class="project-pres-vertical-menu project-pres-menu" aria-label="Project Actions">
                 <button type="button" class="doc-word-btn" id="projectActionDoc" data-action="doc">
-                    DOCUMENTATION
+                    DOCUMENT
                 </button>
                 <button type="button" class="doc-word-btn" id="projectActionImages" data-action="images">
                     IMAGES
                 </button>
-                <button type="button" class="doc-word-btn" id="projectActionRepoWeb" data-action="repo-web">
-                    REPOSITORY OR WEBSITES
+                <button type="button" class="doc-word-btn" id="projectActionRepoWeb" data-action="interface">
+                    INTERFACE
                 </button>
             </nav>
         </div>
@@ -3642,7 +3602,7 @@
             // Bind triggers on all project cards (builds grid and collective grid)
             document.querySelectorAll('.project-flip-card').forEach(card => {
                 card.addEventListener('click', function(e) {
-                    if (e.target.closest('a') && !e.target.closest('.project-card-action-cue')) {
+                    if (e.target.closest('a')) {
                         return;
                     }
                     const projectId = this.getAttribute('data-project-id');
