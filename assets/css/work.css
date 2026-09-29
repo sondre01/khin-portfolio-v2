@@ -1044,47 +1044,238 @@ body.theme-light .exp-chip:hover {
     background-size: 100% 100%, auto;
 }
 
-/* Bespoke Minimalist Vector Representation Symbol Container */
+/* ==========================================================================
+   TECHNICAL BLUEPRINT WATERMARK (Modern Asymmetric Bleed & Crop Aesthetic)
+   - Sized 270px–310px and positioned absolutely with uneven edge bleed
+   - Card container has overflow: hidden; position: relative;
+   - Asymmetric, card-specific anchor positions & subtle rotational tilts
+   - Low opacity (10%–12% resting, 4% on hover) for subtle schematic effect
+   - vector-effect: non-scaling-stroke preserves razor-sharp architectural line weights
+   ========================================================================== */
 .project-symbol-container {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    overflow: hidden;
     z-index: 2;
     pointer-events: none;
-    padding-bottom: 24px;
     box-sizing: border-box;
-    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
 }
 
 .project-symbol-glyph {
-    width: 124px;
-    height: 124px;
+    position: absolute;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--card-text-primary, #121212);
-    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+    pointer-events: none;
     will-change: transform, opacity;
+    transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.45s ease;
 }
 
+/* Blueprint Watermark Stroke & Vector Line System */
 .project-symbol-svg {
     width: 100%;
     height: 100%;
-    filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.15));
+    display: block;
+    overflow: visible;
+    filter: none !important;
 }
 
-.project-flip-card[data-card-theme="dark"] .project-symbol-svg {
-    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.55));
+.project-symbol-svg path,
+.project-symbol-svg rect,
+.project-symbol-svg circle,
+.project-symbol-svg line,
+.project-symbol-svg polyline,
+.project-symbol-svg polygon {
+    vector-effect: non-scaling-stroke;
+    stroke-width: 1.5px;
+}
+
+/* Watermark Subtle Opacity: 10%–12% resting, 4% on hover */
+.project-flip-card[data-card-theme="dark"] .project-symbol-glyph {
+    color: #ffffff;
+    opacity: 0.12;
+}
+
+.project-flip-card[data-card-theme="light"] .project-symbol-glyph,
+.project-flip-card:not([data-card-theme="dark"]) .project-symbol-glyph {
+    color: #000000;
+    opacity: 0.10;
 }
 
 .project-flip-card:hover .project-symbol-glyph,
 .project-flip-card.is-revealed .project-symbol-glyph {
-    transform: scale(1.1) translateY(-6px);
-    opacity: 0.18;
+    opacity: 0.04;
+}
+
+/* Light Mode Watermark Tint Override */
+body.theme-light .project-symbol-glyph {
+    color: #0a0a0a !important;
+    opacity: 0.10 !important;
+}
+
+body.theme-light .project-flip-card:hover .project-symbol-glyph,
+body.theme-light .project-flip-card.is-revealed .project-symbol-glyph {
+    opacity: 0.04 !important;
+}
+
+/* --------------------------------------------------------------------------
+   ASYMMETRIC, CARD-SPECIFIC WATERMARK ANCHOR POSITIONS (Bleed & Crop)
+   -------------------------------------------------------------------------- */
+
+/* 1. Portfolio: Bottom-Right Spill / Bleed Off-Canvas */
+.project-flip-card[data-project-id="portfolio"] .project-symbol-glyph {
+    width: 285px;
+    height: 285px;
+    right: -60px;
+    bottom: -50px;
+    transform: rotate(-10deg);
+}
+.project-flip-card[data-project-id="portfolio"]:hover .project-symbol-glyph,
+.project-flip-card[data-project-id="portfolio"].is-revealed .project-symbol-glyph {
+    transform: rotate(-6deg) scale(1.05) translate(8px, 8px);
+}
+
+/* 2. Ticketing: Top-Right Diagonal Bleed */
+.project-flip-card[data-project-id="ticketing"] .project-symbol-glyph {
+    width: 275px;
+    height: 275px;
+    right: -55px;
+    top: -45px;
+    transform: rotate(14deg);
+}
+.project-flip-card[data-project-id="ticketing"]:hover .project-symbol-glyph,
+.project-flip-card[data-project-id="ticketing"].is-revealed .project-symbol-glyph {
+    transform: rotate(18deg) scale(1.05) translate(8px, -8px);
+}
+
+/* 3. Social Media ETL: Center-Right Tilted Axis Bleed */
+.project-flip-card[data-project-id="etl"] .project-symbol-glyph {
+    width: 315px;
+    height: 315px;
+    right: -75px;
+    top: 38%;
+    transform: translateY(-50%) rotate(-14deg);
+}
+.project-flip-card[data-project-id="etl"]:hover .project-symbol-glyph,
+.project-flip-card[data-project-id="etl"].is-revealed .project-symbol-glyph {
+    transform: translateY(-50%) rotate(-10deg) scale(1.05) translate(10px, 0);
+}
+
+/* 4. FOVB-AIOT: Bottom-Left Concentric Scan Bleed */
+.project-flip-card[data-project-id="fovb"] .project-symbol-glyph {
+    width: 300px;
+    height: 300px;
+    left: -70px;
+    bottom: -50px;
+    transform: rotate(12deg);
+}
+.project-flip-card[data-project-id="fovb"]:hover .project-symbol-glyph,
+.project-flip-card[data-project-id="fovb"].is-revealed .project-symbol-glyph {
+    transform: rotate(8deg) scale(1.05) translate(-8px, 8px);
+}
+
+/* 5. AI Kilo Bot: Top-Left Robotics Crosshair Bleed */
+.project-flip-card[data-project-id="aikilo"] .project-symbol-glyph {
+    width: 280px;
+    height: 280px;
+    left: -50px;
+    top: -40px;
+    transform: rotate(-12deg);
+}
+.project-flip-card[data-project-id="aikilo"]:hover .project-symbol-glyph,
+.project-flip-card[data-project-id="aikilo"].is-revealed .project-symbol-glyph {
+    transform: rotate(-8deg) scale(1.05) translate(-8px, -8px);
+}
+
+/* 6. RFID Tollgate: Center-Left Tilted Barrier Bleed */
+.project-flip-card[data-project-id="tollgate"] .project-symbol-glyph {
+    width: 315px;
+    height: 315px;
+    left: -80px;
+    top: 42%;
+    transform: translateY(-50%) rotate(18deg);
+}
+.project-flip-card[data-project-id="tollgate"]:hover .project-symbol-glyph,
+.project-flip-card[data-project-id="tollgate"].is-revealed .project-symbol-glyph {
+    transform: translateY(-50%) rotate(22deg) scale(1.05) translate(-10px, 0);
+}
+
+/* 7. Xvidia Shop: Bottom-Right Circuit Die Bleed */
+.project-flip-card[data-project-id="xvidia"] .project-symbol-glyph {
+    width: 290px;
+    height: 290px;
+    right: -55px;
+    bottom: -40px;
+    transform: rotate(15deg);
+}
+.project-flip-card[data-project-id="xvidia"]:hover .project-symbol-glyph,
+.project-flip-card[data-project-id="xvidia"].is-revealed .project-symbol-glyph {
+    transform: rotate(19deg) scale(1.05) translate(8px, 8px);
+}
+
+/* 8. GG Resto POS: Top-Right Analytics Chart Bleed */
+.project-flip-card[data-project-id="resto"] .project-symbol-glyph {
+    width: 295px;
+    height: 295px;
+    right: -45px;
+    top: -55px;
+    transform: rotate(-12deg);
+}
+.project-flip-card[data-project-id="resto"]:hover .project-symbol-glyph,
+.project-flip-card[data-project-id="resto"].is-revealed .project-symbol-glyph {
+    transform: rotate(-8deg) scale(1.05) translate(8px, -8px);
+}
+
+/* Responsive adjustments for mobile viewports */
+@media (max-width: 768px) {
+    .project-flip-card[data-project-id="portfolio"] .project-symbol-glyph {
+        width: 235px;
+        height: 235px;
+        right: -45px;
+        bottom: -35px;
+    }
+    .project-flip-card[data-project-id="ticketing"] .project-symbol-glyph {
+        width: 225px;
+        height: 225px;
+        right: -40px;
+        top: -30px;
+    }
+    .project-flip-card[data-project-id="etl"] .project-symbol-glyph {
+        width: 255px;
+        height: 255px;
+        right: -55px;
+    }
+    .project-flip-card[data-project-id="fovb"] .project-symbol-glyph {
+        width: 245px;
+        height: 245px;
+        left: -50px;
+        bottom: -35px;
+    }
+    .project-flip-card[data-project-id="aikilo"] .project-symbol-glyph {
+        width: 230px;
+        height: 230px;
+        left: -40px;
+        top: -30px;
+    }
+    .project-flip-card[data-project-id="tollgate"] .project-symbol-glyph {
+        width: 255px;
+        height: 255px;
+        left: -60px;
+    }
+    .project-flip-card[data-project-id="xvidia"] .project-symbol-glyph {
+        width: 235px;
+        height: 235px;
+        right: -40px;
+        bottom: -30px;
+    }
+    .project-flip-card[data-project-id="resto"] .project-symbol-glyph {
+        width: 240px;
+        height: 240px;
+        right: -35px;
+        top: -40px;
+    }
 }
 
 /* Front Info (Click Hint) */
