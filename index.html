@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="assets/css/home.css?v=20260929_03">
     <link rel="stylesheet" href="assets/css/index.css?v=20260929_02">
     <link rel="stylesheet" href="assets/css/khin-ai.css?v=20260929_03">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
     <style>
         /* Dark Mode Project Cards Dual-Theme */
         body.dark-mode .project-flip-card[data-card-theme="light"],
@@ -2791,21 +2792,631 @@
     </footer>
     </div><!-- End #khinandrei-portfolio-view -->
 
-    <!-- DATA & DEV DEDICATED IN-PAGE TAB VIEW (Blank / Coming Soon) -->
+    <!-- DATA & DEV DEDICATED IN-PAGE TAB VIEW (Interactive Engineering Lab) -->
     <div id="data-dev-view" class="data-dev-view" style="display: none;">
-        <div class="data-dev-blank-screen">
-            <div class="data-dev-status-tag">
-                <span class="data-dev-beacon"></span>
-                <span>IN DEVELOPMENT</span>
-            </div>
-            <h1 class="data-dev-heading">DATA &amp; DEV</h1>
-            <p class="data-dev-lead">In Development &bull; Coming Soon</p>
-            <p class="data-dev-sub">This section is currently being built. Stay tuned for data experiments, tools, and engineering showcases.</p>
-            <div class="data-dev-actions">
+        <div class="data-dev-lab-container">
+            <!-- Top Bar -->
+            <div class="lab-top-bar">
                 <button type="button" class="data-dev-back-btn" id="dataDevBackBtn">
                     <i data-lucide="arrow-left" style="width: 15px; height: 15px;"></i>
                     <span>Back to Portfolio</span>
                 </button>
+                <div class="data-dev-status-tag">
+                    <span class="data-dev-beacon"></span>
+                    <span>LIVE LAB &bull; TELEMETRY ACTIVE</span>
+                </div>
+            </div>
+
+            <!-- Hero Intro Header -->
+            <div class="lab-hero-header">
+                <h1 class="lab-main-title">DATA &amp; DEV LAB</h1>
+                <p class="lab-lead-text">Engineering Workstation, Development Environment &amp; Core Tech Stacks</p>
+                <p class="lab-sub-text">A comprehensive breakdown of my daily programming setup, Linux terminal workflows, primary software frameworks, database engines, and full-stack engineering tools.</p>
+            </div>
+
+            <!-- Neofetch Developer Telemetry Terminal -->
+            <div class="lab-terminal-box">
+                <div class="lab-terminal-header">
+                    <div class="lab-terminal-dots">
+                        <span class="dot dot-red"></span>
+                        <span class="dot dot-yellow"></span>
+                        <span class="dot dot-green"></span>
+                    </div>
+                    <div class="lab-terminal-title">
+                        <i data-lucide="terminal" style="width: 14px; height: 14px;"></i>
+                        <span>khin@dev-station: ~ (neofetch)</span>
+                    </div>
+                    <span class="lab-terminal-badge">WSL2 x86_64</span>
+                </div>
+                <div class="lab-terminal-body">
+                    <div class="terminal-col-logo">
+                        <pre class="terminal-ascii-art">
+       /\
+      /  \
+     /\   \
+    /      \
+   /   ,,   \
+  /   |  |  -\
+ /_-''    ''-_\</pre>
+                        <div class="terminal-ascii-label">KHIN @ WSL2-DEV</div>
+                    </div>
+                    <div class="terminal-col-specs">
+                        <div class="spec-row">
+                            <span class="spec-key">User</span>
+                            <span class="spec-sep">:</span>
+                            <span class="spec-val">khin@portfolio-station</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-key">Host OS</span>
+                            <span class="spec-sep">:</span>
+                            <span class="spec-val">Microsoft Windows 11 Pro (23H2 x64)</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-key">Subsystem</span>
+                            <span class="spec-sep">:</span>
+                            <span class="spec-val">WSL2 &bull; Ubuntu 22.04.4 LTS (Linux 5.15)</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-key">Shell Environment</span>
+                            <span class="spec-sep">:</span>
+                            <span class="spec-val">Zsh / Bash + Starship Prompt &bull; PowerShell 7</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-key">Primary Editor</span>
+                            <span class="spec-sep">:</span>
+                            <span class="spec-val">Visual Studio Code &bull; Antigravity Agentic IDE</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-key">Terminal</span>
+                            <span class="spec-sep">:</span>
+                            <span class="spec-val">Windows Terminal &bull; JetBrains Mono Nerd Font</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-key">Containers</span>
+                            <span class="spec-sep">:</span>
+                            <span class="spec-val">Docker Engine 26.x &bull; Docker Compose v2</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-key">Package Managers</span>
+                            <span class="spec-sep">:</span>
+                            <span class="spec-val">npm &bull; pnpm &bull; pip &bull; apt</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-key">Database Clients</span>
+                            <span class="spec-sep">:</span>
+                            <span class="spec-val">Azure Data Studio &bull; DBeaver &bull; pgAdmin 4</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-key">Version Control</span>
+                            <span class="spec-sep">:</span>
+                            <span class="spec-val">Git 2.44 &bull; GitHub CLI (gh) &bull; SSH Auth</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category Filter Navigation Strip -->
+            <div class="lab-nav-filter-wrapper">
+                <div class="lab-nav-filter-group" role="tablist" aria-label="Tooling Filter">
+                    <button type="button" class="lab-filter-btn is-active" data-filter="all">
+                        <span>All Tooling &amp; Stacks</span>
+                        <span class="filter-count">24</span>
+                    </button>
+                    <button type="button" class="lab-filter-btn" data-filter="dev-setup">
+                        <span>Dev Setup &amp; OS</span>
+                        <span class="filter-count">5</span>
+                    </button>
+                    <button type="button" class="lab-filter-btn" data-filter="tech-stack">
+                        <span>Core Tech Stacks</span>
+                        <span class="filter-count">7</span>
+                    </button>
+                    <button type="button" class="lab-filter-btn" data-filter="data-infra">
+                        <span>Data &amp; Databases</span>
+                        <span class="filter-count">6</span>
+                    </button>
+                    <button type="button" class="lab-filter-btn" data-filter="workflow">
+                        <span>Workflow &amp; Cloud</span>
+                        <span class="filter-count">6</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Cards Grid (24 Cards) -->
+            <div class="lab-cards-grid" id="labCardsGrid">
+                <!-- ================= DEV SETUP & OS (5 CARDS) ================= -->
+                <div class="lab-card" data-category="dev-setup">
+                    <div class="lab-card-top">
+                        <div class="lab-card-icon-wrap">
+                            <i class="devicon-vscode-plain colored"></i>
+                        </div>
+                        <span class="lab-card-badge">Primary Editor</span>
+                    </div>
+                    <div class="lab-card-info">
+                        <span class="lab-card-category">Dev Setup &amp; OS</span>
+                        <h3 class="lab-card-name">VS Code &amp; AGY IDE</h3>
+                        <p class="lab-card-desc">Visual Studio Code configured with vim motions, Live Server, Tailwind CSS IntelliSense, ESLint, Prettier, and agentic pair-programming workflows.</p>
+                    </div>
+                    <div class="lab-card-tags">
+                        <span class="lab-tag">#editor</span>
+                        <span class="lab-tag">#extensions</span>
+                        <span class="lab-tag">#productivity</span>
+                        <span class="lab-tag">#custom-keybinds</span>
+                    </div>
+                </div>
+
+                <div class="lab-card" data-category="dev-setup">
+                    <div class="lab-card-top">
+                        <div class="lab-card-icon-wrap">
+                            <i class="devicon-ubuntu-plain colored"></i>
+                        </div>
+                        <span class="lab-card-badge">Linux Subsystem</span>
+                    </div>
+                    <div class="lab-card-info">
+                        <span class="lab-card-category">Dev Setup &amp; OS</span>
+                        <h3 class="lab-card-name">Ubuntu 22.04 LTS (WSL2)</h3>
+                        <p class="lab-card-desc">High-performance Linux kernel running natively on Windows 11. Enables seamless POSIX toolchains, system services, and Linux scripting.</p>
+                    </div>
+                    <div class="lab-card-tags">
+                        <span class="lab-tag">#linux</span>
+                        <span class="lab-tag">#wsl2</span>
+                        <span class="lab-tag">#posix</span>
+                        <span class="lab-tag">#kernel-bridge</span>
+                    </div>
+                </div>
+
+                <div class="lab-card" data-category="dev-setup">
+                    <div class="lab-card-top">
+                        <div class="lab-card-icon-wrap">
+                            <i class="devicon-bash-plain colored"></i>
+                        </div>
+                        <span class="lab-card-badge">CLI &amp; Shell</span>
+                    </div>
+                    <div class="lab-card-info">
+                        <span class="lab-card-category">Dev Setup &amp; OS</span>
+                        <h3 class="lab-card-name">Terminal, Zsh &amp; PowerShell</h3>
+                        <p class="lab-card-desc">Windows Terminal customized with Starship prompt, oh-my-zsh, fast directory navigation, custom aliases, and JetBrains Mono Nerd Font.</p>
+                    </div>
+                    <div class="lab-card-tags">
+                        <span class="lab-tag">#cli</span>
+                        <span class="lab-tag">#starship</span>
+                        <span class="lab-tag">#zsh</span>
+                        <span class="lab-tag">#powershell-7</span>
+                    </div>
+                </div>
+
+                <div class="lab-card" data-category="dev-setup">
+                    <div class="lab-card-top">
+                        <div class="lab-card-icon-wrap">
+                            <i class="devicon-git-plain colored"></i>
+                        </div>
+                        <span class="lab-card-badge">Version Control</span>
+                    </div>
+                    <div class="lab-card-info">
+                        <span class="lab-card-category">Dev Setup &amp; OS</span>
+                        <h3 class="lab-card-name">Git &amp; GitHub CLI (gh)</h3>
+                        <p class="lab-card-desc">Granular commit hygiene, feature branching, rebase workflows, pull request reviews, automated GitHub Actions, and SSH key management.</p>
+                    </div>
+                    <div class="lab-card-tags">
+                        <span class="lab-tag">#git</span>
+                        <span class="lab-tag">#version-control</span>
+                        <span class="lab-tag">#github-cli</span>
+                        <span class="lab-tag">#trunk-flow</span>
+                    </div>
+                </div>
+
+                <div class="lab-card" data-category="dev-setup">
+                    <div class="lab-card-top">
+                        <div class="lab-card-icon-wrap">
+                            <i data-lucide="monitor"></i>
+                        </div>
+                        <span class="lab-card-badge">Workstation Setup</span>
+                    </div>
+                    <div class="lab-card-info">
+                        <span class="lab-card-category">Dev Setup &amp; OS</span>
+                        <h3 class="lab-card-name">Multi-Display Engineering Rig</h3>
+                        <p class="lab-card-desc">Multi-monitor workspace arranged for simultaneous live web previews, terminal log monitoring, documentation, and database schema inspection.</p>
+                    </div>
+                    <div class="lab-card-tags">
+                        <span class="lab-tag">#dual-display</span>
+                        <span class="lab-tag">#ergonomics</span>
+                        <span class="lab-tag">#workflow</span>
+                        <span class="lab-tag">#focus</span>
+                    </div>
+                </div>
+
+                <!-- ================= CORE TECH STACKS (7 CARDS) ================= -->
+                <div class="lab-card" data-category="tech-stack">
+                    <div class="lab-card-top">
+                        <div class="lab-card-icon-wrap">
+                            <i class="devicon-javascript-plain colored"></i>
+                        </div>
+                        <span class="lab-card-badge">Core Language</span>
+                    </div>
+                    <div class="lab-card-info">
+                        <span class="lab-card-category">Core Tech Stacks</span>
+                        <h3 class="lab-card-name">JavaScript (ES6+)</h3>
+                        <p class="lab-card-desc">Asynchronous programming (Promises, async/await), DOM manipulation, Web Audio API, Canvas rendering, and event-driven architecture.</p>
+                    </div>
+                    <div class="lab-card-tags">
+                        <span class="lab-tag">#es6-plus</span>
+                        <span class="lab-tag">#async-await</span>
+                        <span class="lab-tag">#dom-api</span>
+                        <span class="lab-tag">#vanilla-js</span>
+                    </div>
+                </div>
+
+                <div class="lab-card" data-category="tech-stack">
+                    <div class="lab-card-top">
+                        <div class="lab-card-icon-wrap">
+                            <i class="devicon-typescript-plain colored"></i>
+                        </div>
+                        <span class="lab-card-badge">Type Safety</span>
+                    </div>
+                    <div class="lab-card-info">
+                        <span class="lab-card-category">Core Tech Stacks</span>
+                        <h3 class="lab-card-name">TypeScript</h3>
+                        <p class="lab-card-desc">Strongly typed frontend and backend interfaces, generics, discriminated unions, static type checking, and compile-time defect reduction.</p>
+                    </div>
+                    <div class="lab-card-tags">
+                        <span class="lab-tag">#types</span>
+                        <span class="lab-tag">#generics</span>
+                        <span class="lab-tag">#interfaces</span>
+                        <span class="lab-tag">#clean-code</span>
+                    </div>
+                </div>
+
+                <div class="lab-card" data-category="tech-stack">
+                    <div class="lab-card-top">
+                        <div class="lab-card-icon-wrap">
+                            <i class="devicon-react-original colored"></i>
+                        </div>
+                        <span class="lab-card-badge">Frontend Library</span>
+                    </div>
+                    <div class="lab-card-info">
+                        <span class="lab-card-category">Core Tech Stacks</span>
+                        <h3 class="lab-card-name">React &amp; Component Systems</h3>
+                        <p class="lab-card-desc">Modular component architecture, custom hooks, reactive state flows, Virtual DOM reconciliation, and modern single-page applications.</p>
+                    </div>
+                    <div class="lab-card-tags">
+                        <span class="lab-tag">#react</span>
+                        <span class="lab-tag">#components</span>
+                        <span class="lab-tag">#hooks</span>
+                        <span class="lab-tag">#spa</span>
+                    </div>
+                </div>
+
+                <div class="lab-card" data-category="tech-stack">
+                    <div class="lab-card-top">
+                        <div class="lab-card-icon-wrap">
+                            <i class="devicon-nodejs-plain colored"></i>
+                        </div>
+                        <span class="lab-card-badge">Backend Runtime</span>
+                    </div>
+                    <div class="lab-card-info">
+                        <span class="lab-card-category">Core Tech Stacks</span>
+                        <h3 class="lab-card-name">Node.js &amp; Express.js</h3>
+                        <p class="lab-card-desc">Event-loop server execution, RESTful API endpoint routing, middleware pipelines, JWT authentication, and asynchronous I/O handlers.</p>
+                    </div>
+                    <div class="lab-card-tags">
+                        <span class="lab-tag">#node</span>
+                        <span class="lab-tag">#express</span>
+                        <span class="lab-tag">#rest-api</span>
+                        <span class="lab-tag">#backend</span>
+                    </div>
+                </div>
+
+                <div class="lab-card" data-category="tech-stack">
+                    <div class="lab-card-top">
+                        <div class="lab-card-icon-wrap">
+                            <i class="devicon-python-plain colored"></i>
+                        </div>
+                        <span class="lab-card-badge">Scripting &amp; Logic</span>
+                    </div>
+                    <div class="lab-card-info">
+                        <span class="lab-card-category">Core Tech Stacks</span>
+                        <h3 class="lab-card-name">Python 3 Engine</h3>
+                        <p class="lab-card-desc">General-purpose backend development, automated data scraping, ETL pipelines, procedural file handling, and algorithmic problem-solving.</p>
+                    </div>
+                    <div class="lab-card-tags">
+                        <span class="lab-tag">#python3</span>
+                        <span class="lab-tag">#automation</span>
+                        <span class="lab-tag">#etl</span>
+                        <span class="lab-tag">#scripting</span>
+                    </div>
+                </div>
+
+                <div class="lab-card" data-category="tech-stack">
+                    <div class="lab-card-top">
+                        <div class="lab-card-icon-wrap">
+                            <i class="devicon-html5-plain colored"></i>
+                        </div>
+                        <span class="lab-card-badge">Markup &amp; A11y</span>
+                    </div>
+                    <div class="lab-card-info">
+                        <span class="lab-card-category">Core Tech Stacks</span>
+                        <h3 class="lab-card-name">Semantic HTML5 &amp; Accessibility</h3>
+                        <p class="lab-card-desc">Accessible document landmarks, ARIA attributes, semantic hierarchy, search engine optimization, and valid W3C markup.</p>
+                    </div>
+                    <div class="lab-card-tags">
+                        <span class="lab-tag">#html5</span>
+                        <span class="lab-tag">#a11y</span>
+                        <span class="lab-tag">#semantic</span>
+                        <span class="lab-tag">#seo-friendly</span>
+                    </div>
+                </div>
+
+                <div class="lab-card" data-category="tech-stack">
+                    <div class="lab-card-top">
+                        <div class="lab-card-icon-wrap">
+                            <i class="devicon-tailwindcss-plain colored"></i>
+                        </div>
+                        <span class="lab-card-badge">Styling System</span>
+                    </div>
+                    <div class="lab-card-info">
+                        <span class="lab-card-category">Core Tech Stacks</span>
+                        <h3 class="lab-card-name">CSS3, Grid &amp; Tailwind</h3>
+                        <p class="lab-card-desc">Responsive fluid layouts, CSS custom variables, cubic-bezier micro-animations, glassmorphism, and utility-first styling systems.</p>
+                    </div>
+                    <div class="lab-card-tags">
+                        <span class="lab-tag">#flexbox</span>
+                        <span class="lab-tag">#css-grid</span>
+                        <span class="lab-tag">#tailwind</span>
+                        <span class="lab-tag">#glassmorphism</span>
+                    </div>
+                </div>
+
+                <!-- ================= DATA & DATABASES (6 CARDS) ================= -->
+                <div class="lab-card" data-category="data-infra">
+                    <div class="lab-card-top">
+                        <div class="lab-card-icon-wrap">
+                            <i class="devicon-postgresql-plain colored"></i>
+                        </div>
+                        <span class="lab-card-badge">Relational DBMS</span>
+                    </div>
+                    <div class="lab-card-info">
+                        <span class="lab-card-category">Data &amp; Databases</span>
+                        <h3 class="lab-card-name">PostgreSQL &amp; Relational SQL</h3>
+                        <p class="lab-card-desc">Enterprise relational schema design, ACID compliance, complex multi-table JOINs, indexing strategies, CTEs, and schema migrations.</p>
+                    </div>
+                    <div class="lab-card-tags">
+                        <span class="lab-tag">#postgresql</span>
+                        <span class="lab-tag">#sql</span>
+                        <span class="lab-tag">#indexing</span>
+                        <span class="lab-tag">#acid-compliant</span>
+                    </div>
+                </div>
+
+                <div class="lab-card" data-category="data-infra">
+                    <div class="lab-card-top">
+                        <div class="lab-card-icon-wrap">
+                            <i class="devicon-mysql-plain colored"></i>
+                        </div>
+                        <span class="lab-card-badge">Relational Engine</span>
+                    </div>
+                    <div class="lab-card-info">
+                        <span class="lab-card-category">Data &amp; Databases</span>
+                        <h3 class="lab-card-name">MySQL Database Server</h3>
+                        <p class="lab-card-desc">Structured transactional databases, referential integrity, foreign key relations, stored procedures, and normalized schemas.</p>
+                    </div>
+                    <div class="lab-card-tags">
+                        <span class="lab-tag">#mysql</span>
+                        <span class="lab-tag">#relational</span>
+                        <span class="lab-tag">#foreign-keys</span>
+                        <span class="lab-tag">#crud</span>
+                    </div>
+                </div>
+
+                <div class="lab-card" data-category="data-infra">
+                    <div class="lab-card-top">
+                        <div class="lab-card-icon-wrap">
+                            <i class="devicon-mongodb-plain colored"></i>
+                        </div>
+                        <span class="lab-card-badge">Document Store</span>
+                    </div>
+                    <div class="lab-card-info">
+                        <span class="lab-card-category">Data &amp; Databases</span>
+                        <h3 class="lab-card-name">MongoDB &amp; NoSQL Stores</h3>
+                        <p class="lab-card-desc">Flexible document-oriented JSON data modeling, aggregation pipelines, dynamic schemas, and fast unstructured data storage.</p>
+                    </div>
+                    <div class="lab-card-tags">
+                        <span class="lab-tag">#nosql</span>
+                        <span class="lab-tag">#mongodb</span>
+                        <span class="lab-tag">#json-docs</span>
+                        <span class="lab-tag">#aggregation</span>
+                    </div>
+                </div>
+
+                <div class="lab-card" data-category="data-infra">
+                    <div class="lab-card-top">
+                        <div class="lab-card-icon-wrap">
+                            <i class="devicon-pandas-plain colored"></i>
+                        </div>
+                        <span class="lab-card-badge">Data Analytics</span>
+                    </div>
+                    <div class="lab-card-info">
+                        <span class="lab-card-category">Data &amp; Databases</span>
+                        <h3 class="lab-card-name">Pandas &amp; NumPy Analytics</h3>
+                        <p class="lab-card-desc">High-performance tabular data wrangling, data cleaning, matrix computations, imputation of missing values, and exploratory data analysis.</p>
+                    </div>
+                    <div class="lab-card-tags">
+                        <span class="lab-tag">#pandas</span>
+                        <span class="lab-tag">#numpy</span>
+                        <span class="lab-tag">#data-wrangling</span>
+                        <span class="lab-tag">#eda</span>
+                    </div>
+                </div>
+
+                <div class="lab-card" data-category="data-infra">
+                    <div class="lab-card-top">
+                        <div class="lab-card-icon-wrap">
+                            <i class="devicon-supabase-plain colored"></i>
+                        </div>
+                        <span class="lab-card-badge">Cloud BaaS</span>
+                    </div>
+                    <div class="lab-card-info">
+                        <span class="lab-card-category">Data &amp; Databases</span>
+                        <h3 class="lab-card-name">Supabase (Postgres &amp; Realtime)</h3>
+                        <p class="lab-card-desc">Managed cloud Postgres, Row Level Security (RLS) policies, instant auto-generated REST/GraphQL APIs, Realtime WebSockets, and OAuth.</p>
+                    </div>
+                    <div class="lab-card-tags">
+                        <span class="lab-tag">#supabase</span>
+                        <span class="lab-tag">#cloud-postgres</span>
+                        <span class="lab-tag">#rls</span>
+                        <span class="lab-tag">#websockets</span>
+                    </div>
+                </div>
+
+                <div class="lab-card" data-category="data-infra">
+                    <div class="lab-card-top">
+                        <div class="lab-card-icon-wrap">
+                            <i data-lucide="database"></i>
+                        </div>
+                        <span class="lab-card-badge">Data Clients</span>
+                    </div>
+                    <div class="lab-card-info">
+                        <span class="lab-card-category">Data &amp; Databases</span>
+                        <h3 class="lab-card-name">Azure Data Studio &amp; DBeaver</h3>
+                        <p class="lab-card-desc">Visual query profiling, server diagnostics, schema reverse engineering, ERD diagram inspection, and direct SQL execution consoles.</p>
+                    </div>
+                    <div class="lab-card-tags">
+                        <span class="lab-tag">#dbeaver</span>
+                        <span class="lab-tag">#azure-data-studio</span>
+                        <span class="lab-tag">#query-plan</span>
+                        <span class="lab-tag">#erd-viewer</span>
+                    </div>
+                </div>
+
+                <!-- ================= WORKFLOW & CLOUD (6 CARDS) ================= -->
+                <div class="lab-card" data-category="workflow">
+                    <div class="lab-card-top">
+                        <div class="lab-card-icon-wrap">
+                            <i class="devicon-docker-plain colored"></i>
+                        </div>
+                        <span class="lab-card-badge">Containerization</span>
+                    </div>
+                    <div class="lab-card-info">
+                        <span class="lab-card-category">Workflow &amp; Cloud</span>
+                        <h3 class="lab-card-name">Docker Engine &amp; Compose</h3>
+                        <p class="lab-card-desc">Reproducible containerized environments, multi-container stacks via compose, image size optimization, and port bindings.</p>
+                    </div>
+                    <div class="lab-card-tags">
+                        <span class="lab-tag">#docker</span>
+                        <span class="lab-tag">#containers</span>
+                        <span class="lab-tag">#compose</span>
+                        <span class="lab-tag">#reproducible</span>
+                    </div>
+                </div>
+
+                <div class="lab-card" data-category="workflow">
+                    <div class="lab-card-top">
+                        <div class="lab-card-icon-wrap">
+                            <i class="devicon-postman-plain colored"></i>
+                        </div>
+                        <span class="lab-card-badge">API Testing</span>
+                    </div>
+                    <div class="lab-card-info">
+                        <span class="lab-card-category">Workflow &amp; Cloud</span>
+                        <h3 class="lab-card-name">Postman &amp; REST Client</h3>
+                        <p class="lab-card-desc">API endpoint testing, request payloads, header customization, mock servers, and automated integration collection testing.</p>
+                    </div>
+                    <div class="lab-card-tags">
+                        <span class="lab-tag">#postman</span>
+                        <span class="lab-tag">#api-testing</span>
+                        <span class="lab-tag">#rest-client</span>
+                        <span class="lab-tag">#assertions</span>
+                    </div>
+                </div>
+
+                <div class="lab-card" data-category="workflow">
+                    <div class="lab-card-top">
+                        <div class="lab-card-icon-wrap">
+                            <i class="devicon-vercel-original colored"></i>
+                        </div>
+                        <span class="lab-card-badge">Hosting &amp; Edge</span>
+                    </div>
+                    <div class="lab-card-info">
+                        <span class="lab-card-category">Workflow &amp; Cloud</span>
+                        <h3 class="lab-card-name">Vercel &amp; Cloud Edge CDN</h3>
+                        <p class="lab-card-desc">Automated zero-config CI/CD pipelines, preview deployments, global edge networks, and DNS domain routing.</p>
+                    </div>
+                    <div class="lab-card-tags">
+                        <span class="lab-tag">#vercel</span>
+                        <span class="lab-tag">#ci-cd</span>
+                        <span class="lab-tag">#edge-network</span>
+                        <span class="lab-tag">#production</span>
+                    </div>
+                </div>
+
+                <div class="lab-card" data-category="workflow">
+                    <div class="lab-card-top">
+                        <div class="lab-card-icon-wrap">
+                            <i class="devicon-figma-plain colored"></i>
+                        </div>
+                        <span class="lab-card-badge">UI/UX Design</span>
+                    </div>
+                    <div class="lab-card-info">
+                        <span class="lab-card-category">Workflow &amp; Cloud</span>
+                        <h3 class="lab-card-name">Figma Design Translation</h3>
+                        <p class="lab-card-desc">Wireframing interactive concepts, extracting design tokens, translating UI component states to responsive code, and user flow mapping.</p>
+                    </div>
+                    <div class="lab-card-tags">
+                        <span class="lab-tag">#figma</span>
+                        <span class="lab-tag">#ui-ux</span>
+                        <span class="lab-tag">#design-tokens</span>
+                        <span class="lab-tag">#prototyping</span>
+                    </div>
+                </div>
+
+                <div class="lab-card" data-category="workflow">
+                    <div class="lab-card-top">
+                        <div class="lab-card-icon-wrap">
+                            <i class="devicon-chrome-plain colored"></i>
+                        </div>
+                        <span class="lab-card-badge">Diagnostics</span>
+                    </div>
+                    <div class="lab-card-info">
+                        <span class="lab-card-category">Workflow &amp; Cloud</span>
+                        <h3 class="lab-card-name">Chrome DevTools Profiler</h3>
+                        <p class="lab-card-desc">Network waterfall analysis, Lighthouse performance audits, memory leak detection, breakpoint debugging, and DOM inspection.</p>
+                    </div>
+                    <div class="lab-card-tags">
+                        <span class="lab-tag">#devtools</span>
+                        <span class="lab-tag">#profiling</span>
+                        <span class="lab-tag">#network-waterfall</span>
+                        <span class="lab-tag">#audits</span>
+                    </div>
+                </div>
+
+                <div class="lab-card" data-category="workflow">
+                    <div class="lab-card-top">
+                        <div class="lab-card-icon-wrap">
+                            <i data-lucide="bot"></i>
+                        </div>
+                        <span class="lab-card-badge">AI Acceleration</span>
+                    </div>
+                    <div class="lab-card-info">
+                        <span class="lab-card-category">Workflow &amp; Cloud</span>
+                        <h3 class="lab-card-name">Agentic AI Pair-Programming</h3>
+                        <p class="lab-card-desc">Leveraging modern LLMs and agentic assistants (Antigravity CLI / Gemini) for test generation, code reviews, and architecture planning.</p>
+                    </div>
+                    <div class="lab-card-tags">
+                        <span class="lab-tag">#agentic-ai</span>
+                        <span class="lab-tag">#llm</span>
+                        <span class="lab-tag">#efficiency</span>
+                        <span class="lab-tag">#code-review</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lab Bottom Bar -->
+            <div class="lab-bottom-bar">
+                <button type="button" class="data-dev-back-btn" id="dataDevBottomBackBtn">
+                    <i data-lucide="arrow-left" style="width: 15px; height: 15px;"></i>
+                    <span>Back to Main Portfolio</span>
+                </button>
+                <p class="lab-bottom-text">
+                    Want to discuss architecture or start a collaboration? <a href="#contact" id="dataDevContactLink">Get in touch &rarr;</a>
+                </p>
             </div>
         </div>
     </div><!-- End #data-dev-view -->
@@ -5539,13 +6150,61 @@
                 });
             }
 
-            // Data & Dev Back to Portfolio button inside the blank screen
+            // Data & Dev Back to Portfolio buttons & Contact link
             if (dataDevBackBtn) {
                 dataDevBackBtn.addEventListener('click', (e) => {
                     e.preventDefault();
                     showKhinAndreiView('#home');
                 });
             }
+
+            const dataDevBottomBackBtn = document.getElementById('dataDevBottomBackBtn');
+            if (dataDevBottomBackBtn) {
+                dataDevBottomBackBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    showKhinAndreiView('#home');
+                });
+            }
+
+            const dataDevContactLink = document.getElementById('dataDevContactLink');
+            if (dataDevContactLink) {
+                dataDevContactLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    showKhinAndreiView('#contact');
+                });
+            }
+
+            // Data & Dev Lab Category Filter System
+            const labFilterBtns = document.querySelectorAll('.lab-filter-btn');
+            const labCards = document.querySelectorAll('.lab-card');
+
+            labFilterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const filter = btn.getAttribute('data-filter') || 'all';
+
+                    // Update active button state
+                    labFilterBtns.forEach(b => b.classList.remove('is-active'));
+                    btn.classList.add('is-active');
+
+                    // Subtle audio feedback
+                    if (typeof playUiSound === 'function') {
+                        playUiSound(680, 0.02);
+                    }
+
+                    // Filter lab cards
+                    labCards.forEach(card => {
+                        const cardCategory = card.getAttribute('data-category');
+                        if (filter === 'all' || cardCategory === filter) {
+                            card.style.display = 'flex';
+                            card.style.animation = 'none';
+                            void card.offsetWidth;
+                            card.style.animation = 'dataDevFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
 
             // Smooth scroll handler for all sidebar links + Data & Dev view switching
             document.querySelectorAll('.left-sidebar-nav a[href^="#"]').forEach(link => {
