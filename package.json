@@ -1,5 +1,9 @@
 {
   "type": "module",
+  "scripts": {
+    "start": "python3 -m http.server 5501",
+    "dev": "python3 -m http.server 5501"
+  },
   "dependencies": {
     "pg": "^8.11.3"
   }

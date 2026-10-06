@@ -17,7 +17,7 @@
     const KHIN_KNOWLEDGE = {
         name: "Khin Andrei Gamboa",
         alias: "Sondre",
-        role: "Aspiring Software Developer / Associate Data Engineer",
+        role: "Aspiring Full-Stack Developer, Software Engineer & Data Specialist",
         location: "Philippines",
         email: "gamboa.khinandrei@gmail.com",
         linkedin: "https://www.linkedin.com/in/khinandreigamboa",
@@ -31,7 +31,7 @@
             summary: "Graduate of Computer Engineering at Rizal Technological University with a strong academic foundation in computing architecture, algorithmic data manipulation, systems hardware, and distributed networking."
         },
 
-        overview: "Khin Andrei is a Computer Engineering graduate, adaptable Software Developer, and Data Engineer based in the Philippines. He builds end-to-end software and data solutions across the complete engineering lifecycle—from developing responsive applications and engineering resilient ETL/ELT pipelines to extracting strategic analytical insights, designing interactive business intelligence dashboards, and developing applied AI models.",
+        overview: "Khin Andrei is a Computer Engineering graduate and aspiring Full-Stack Developer, Software Engineer, and Data Specialist based in the Philippines. He builds end-to-end software and data solutions across the complete engineering lifecycle—from developing responsive web applications and reliable software systems to architecting databases and extracting analytical insights.",
 
         stats: {
             projectsShipped: "8",
@@ -149,7 +149,7 @@
         // 2. Who is Khin Andrei? (Bio / Background / Summary)
         if (/who is (khin|andrei|sondre)|tell me about (khin|yourself|him)|bio|background|profile/i.test(query)) {
             return {
-                text: `<strong>Khin Andrei Gamboa</strong> is a Computer Engineering graduate from Rizal Technological University (RTU), adaptable Software Developer, and Associate Data Engineer based in the Philippines.<br><br>He specializes in designing resilient ETL/ELT pipelines, architecting relational SQL databases, developing responsive web applications, and generating actionable business intelligence.<br><br>He has shipped <strong>8+ engineering projects</strong>, holds <strong>5+ industry credentials</strong> (including DataCamp Associate Data Engineer), and completed 6 months of enterprise systems immersion at Staff Domain Inc.`,
+                text: `<strong>Khin Andrei Gamboa</strong> is a Computer Engineering graduate from Rizal Technological University (RTU), aspiring Full-Stack Developer, Software Engineer, and Data Specialist based in the Philippines.<br><br>He specializes in developing responsive web applications, robust software systems, and data-driven solutions.<br><br>He has shipped <strong>8+ engineering projects</strong>, holds <strong>5+ industry credentials</strong>, and completed 6 months of enterprise systems immersion at Staff Domain Inc.`,
                 actions: [
                     { label: "View Experience", action: "navigate", target: "#education" },
                     { label: "View Resume", action: "resume" },
@@ -218,7 +218,13 @@
         }
 
         // 5. Projects
-        if (/project|portfolio|work|built|early bird|earlybird|job hunt|job scraper|ticket|ticketing|fovb|kilo bot|etl pipeline|tollgate|xvidia|resto|pos/i.test(query)) {
+        if (/project|portfolio|work|built|early bird|earlybird|job hunt|job scraper|ticket|ticketing|pasabuy|us goods|fovb|kilo bot|etl pipeline|tollgate|xvidia|resto|pos/i.test(query)) {
+            if (/pasabuy|us goods/i.test(query)) {
+                return {
+                    text: `<strong>US Goods Pasabuy</strong><br><em>Role: Full-Stack Developer</em><br><br>Full-stack web-based e-commerce platform dedicated to US goods pasabuy and overseas shopping requests. Features product catalog browsing, custom item pasabuy order requests, currency conversion, cart and checkout workflows, order tracking, and automated customer transaction notifications.`,
+                    actions: [{ label: "View in Projects Section", action: "navigate", target: "#work" }]
+                };
+            }
             if (/early bird|earlybird|job hunt|job scraper/i.test(query)) {
                 return {
                     text: `<strong>Khin Early Bird (Ongoing Solo Build)</strong><br><em>Role: Lead AI & Automation Engineer</em><br><br>Automated daily job crawler ingesting live postings from LinkedIn, Jobstreet, and Indeed. Uses Gemini AI to parse unstructured descriptions, scores candidate qualification alignment across Dev, IT, and Data roles, strictly segregates OJT/internships from full-time jobs, and dispatches automated daily alerts to gamboa.khinandrei@gmail.com.`,
@@ -272,7 +278,7 @@
             }
 
             return {
-                text: `Khin has shipped and is actively building <strong>featured solo & collective systems</strong>:<br><br>1. <strong>Khin Early Bird</strong> (Gemini AI, Multi-Source Job Hunt Crawler, Daily Email Digests)<br>2. <strong>Web-Based Ticketing System</strong> (Node.js, RBAC, Vercel Live)<br>3. <strong>Social Media ETL Pipeline</strong> (Python, PostgreSQL, Data Ingestion)<br>4. <strong>FOVB-AIOT Capstone</strong> (Cloud Telemetry, Computer Vision)<br>5. <strong>AI Kilo Bot</strong> (Robotic Sorting & Machine Learning)<br>6. <strong>RFID Tollgate System</strong> (Relational DB & Hardware Interfacing)<br>7. <strong>Xvidia Shop</strong> (E-Commerce SQL Analytics)<br>8. <strong>GG Resto POS Dashboard</strong> (Restaurant Revenue Analytics)`,
+                text: `Khin has shipped and is actively building <strong>featured solo & collective systems</strong>:<br><br>1. <strong>US Goods Pasabuy</strong> (Full-Stack Web, E-Commerce, Order & Checkout Workflows)<br>2. <strong>Khin Early Bird</strong> (Gemini AI, Multi-Source Job Hunt Crawler, Daily Email Alerts)<br>3. <strong>Web-Based Ticketing System</strong> (Node.js, RBAC, Vercel Live)<br>4. <strong>Social Media ETL Pipeline</strong> (Python, PostgreSQL, Data Ingestion)<br>5. <strong>FOVB-AIOT Capstone</strong> (Cloud Telemetry, Computer Vision)<br>6. <strong>AI Kilo Bot</strong> (Robotic Sorting & Machine Learning)<br>7. <strong>RFID Tollgate System</strong> (Relational DB & Hardware Interfacing)<br>8. <strong>Xvidia Shop</strong> (E-Commerce SQL Analytics)<br>9. <strong>GG Resto POS Dashboard</strong> (Restaurant Revenue Analytics)`,
                 actions: [
                     { label: "Jump to Projects Section", action: "navigate", target: "#work" }
                 ]

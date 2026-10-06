@@ -1056,6 +1056,14 @@ body.theme-light .exp-chip:hover {
     background-size: 100% 100%, 30px 30px, 30px 30px, 30px 30px, 30px 30px;
 }
 
+.pattern-pasabuy {
+    background-image: 
+        radial-gradient(circle at 50% 40%, rgba(245, 158, 11, 0.09) 0%, transparent 65%),
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 100% 100%, 28px 28px, 28px 28px;
+}
+
 
 /* ==========================================================================
    TECHNICAL BLUEPRINT WATERMARK (Modern Asymmetric Bleed & Crop Aesthetic)
@@ -1254,6 +1262,19 @@ body.theme-light .project-flip-card.is-revealed .project-symbol-glyph {
     transform: rotate(14deg) scale(1.05) translate(8px, -6px);
 }
 
+/* 10. US Goods Pasabuy: Asymmetric Cargo & Shopping Bleed */
+.project-flip-card[data-project-id="pasabuy"] .project-symbol-glyph {
+    width: 290px;
+    height: 290px;
+    right: -45px;
+    bottom: -40px;
+    transform: rotate(-8deg);
+}
+.project-flip-card[data-project-id="pasabuy"]:hover .project-symbol-glyph,
+.project-flip-card[data-project-id="pasabuy"].is-revealed .project-symbol-glyph {
+    transform: rotate(-12deg) scale(1.05) translate(6px, -6px);
+}
+
 /* Responsive adjustments for mobile viewports */
 @media (max-width: 768px) {
     .project-flip-card[data-project-id="portfolio"] .project-symbol-glyph {
@@ -1307,6 +1328,12 @@ body.theme-light .project-flip-card.is-revealed .project-symbol-glyph {
         height: 235px;
         right: -40px;
         top: -35px;
+    }
+    .project-flip-card[data-project-id="pasabuy"] .project-symbol-glyph {
+        width: 230px;
+        height: 230px;
+        right: -35px;
+        bottom: -30px;
     }
 }
 
