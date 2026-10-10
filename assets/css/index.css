@@ -1067,32 +1067,8 @@ body.theme-light .doc-word-btn:hover {
     -webkit-text-fill-color: #ffffff !important;
 }
 
-body.theme-light .doc-vertical-menu:hover .doc-word-item:not(:hover) .doc-word-btn,
-body.theme-light .doc-vertical-menu:hover .doc-word-item:not(:hover) .doc-word-subtabs,
-body.theme-light .doc-vertical-menu:hover > .doc-word-btn:not(:hover) {
+body.theme-light .doc-vertical-menu:hover .doc-word-btn:not(:hover) {
     opacity: 0.35 !important;
-}
-
-body.theme-light .doc-word-item:hover .doc-word-btn {
-    opacity: 1 !important;
-}
-
-body.theme-light .doc-word-subtabs {
-    background: rgba(255, 255, 255, 0.08) !important;
-    border-color: rgba(255, 255, 255, 0.2) !important;
-}
-
-body.theme-light .doc-word-subtab-btn {
-    color: rgba(255, 255, 255, 0.7) !important;
-}
-
-body.theme-light .doc-word-subtab-btn:hover {
-    color: #ffffff !important;
-    background: rgba(255, 255, 255, 0.16) !important;
-}
-
-body.theme-light .doc-word-subtab-separator {
-    color: rgba(255, 255, 255, 0.35) !important;
 }
 
 /* Resume Preview Container in Light Mode */
@@ -3138,79 +3114,12 @@ body.theme-light .doc-backdrop-overlay {
 }
 
 /* Subtle editorial dim on sibling when hovering */
-.doc-vertical-menu:hover .doc-word-item:not(:hover) .doc-word-btn,
-.doc-vertical-menu:hover .doc-word-item:not(:hover) .doc-word-subtabs,
-.doc-vertical-menu:hover > .doc-word-btn:not(:hover) {
+.doc-vertical-menu:hover .doc-word-btn:not(:hover) {
     opacity: 0.3;
-}
-
-.doc-word-item:hover .doc-word-btn {
-    opacity: 1 !important;
 }
 
 .doc-word-btn:active {
     transform: scale(0.98);
-}
-
-/* Document Word Item & Resume Role Subtabs in White Tab Sheet */
-.doc-word-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    width: 100%;
-}
-
-.doc-word-subtabs {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    margin-top: -4px;
-    margin-bottom: 6px;
-    padding: 4px 14px;
-    border-radius: 9999px;
-    background: rgba(0, 0, 0, 0.05);
-    border: 1px solid rgba(0, 0, 0, 0.12);
-    transition: transform 0.2s ease, opacity 0.2s ease;
-}
-
-.doc-word-subtab-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: transparent;
-    border: none;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 0.8px;
-    color: rgba(0, 0, 0, 0.65);
-    cursor: pointer;
-    padding: 4px 10px;
-    border-radius: 9999px;
-    transition: all 0.2s ease;
-    text-transform: uppercase;
-}
-
-.doc-word-subtab-btn svg,
-.doc-word-subtab-btn i {
-    width: 13px;
-    height: 13px;
-    stroke: currentColor;
-    stroke-width: 2.2px;
-}
-
-.doc-word-subtab-btn:hover {
-    color: #000000;
-    background: rgba(0, 0, 0, 0.08);
-    transform: translateY(-1px);
-}
-
-.doc-word-subtab-separator {
-    color: rgba(0, 0, 0, 0.3);
-    font-size: 0.8rem;
-    user-select: none;
 }
 
 /* ==========================================================================
@@ -3516,14 +3425,5 @@ body.theme-light .doc-backdrop-overlay {
     .doc-vp-role-tab i {
         width: 12px;
         height: 12px;
-    }
-    .doc-word-subtabs {
-        padding: 3px 10px;
-        gap: 6px;
-        margin-top: -2px;
-    }
-    .doc-word-subtab-btn {
-        font-size: 0.72rem;
-        padding: 3px 6px;
     }
 }

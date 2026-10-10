@@ -3490,22 +3490,9 @@
         <!-- White Tab Body: Vertically Listed Words -->
         <div class="doc-tab-body">
             <nav class="doc-vertical-menu" aria-label="Documents Menu">
-                <div class="doc-word-item">
-                    <button type="button" class="doc-word-btn" data-doc-target="resume" id="docBtnResume">
-                        RESUME
-                    </button>
-                    <div class="doc-word-subtabs" aria-label="Resume Target Roles">
-                        <button type="button" class="doc-word-subtab-btn" data-doc-target="resume_data" title="Data Roles Resume">
-                            <i data-lucide="database"></i>
-                            <span>Data</span>
-                        </button>
-                        <span class="doc-word-subtab-separator">•</span>
-                        <button type="button" class="doc-word-subtab-btn" data-doc-target="resume_dev" title="Development Roles Resume">
-                            <i data-lucide="code"></i>
-                            <span>Dev</span>
-                        </button>
-                    </div>
-                </div>
+                <button type="button" class="doc-word-btn" data-doc-target="resume" id="docBtnResume">
+                    RESUME
+                </button>
                 <button type="button" class="doc-word-btn" data-doc-target="cover_letter" id="docBtnCover">
                     COVER LETTER
                 </button>
@@ -4019,15 +4006,6 @@
             document.querySelectorAll('#doc-white-tab-overlay .doc-word-btn').forEach(btn => {
                 btn.addEventListener('click', function() {
                     const target = this.getAttribute('data-doc-target') || 'resume';
-                    openThemedViewport(target);
-                });
-            });
-
-            // Subtab buttons under Resume in White Tab (Data & Dev)
-            document.querySelectorAll('#doc-white-tab-overlay .doc-word-subtab-btn').forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    const target = this.getAttribute('data-doc-target') || 'resume_data';
                     openThemedViewport(target);
                 });
             });
