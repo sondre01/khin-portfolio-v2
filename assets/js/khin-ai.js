@@ -161,10 +161,11 @@
         // 3. Resume / Curriculum Vitae
         if (/resume|cv|curriculum vitae|download cv|hire him/i.test(query)) {
             return {
-                text: `You can review and download Khin Andrei's official resume directly right here.<br><br>It highlights his <strong>DataCamp Associate Data Engineer certification</strong>, BS Computer Engineering degree, enterprise internship at Staff Domain Inc., and end-to-end data pipeline projects.`,
+                text: `You can review and download Khin Andrei's official resume directly right here.<br><br>He has tailored resumes for both <strong>Data Engineering / Analytics</strong> and <strong>Software Development / Full-Stack</strong> roles.`,
                 actions: [
                     { label: "Open Resume Viewport", action: "resume" },
-                    { label: "Direct PDF Download", action: "download", url: "./data/documents/resume/khin-andrei-gamboa-resume.pdf", filename: "Khin_Andrei_Gamboa_Resume.pdf" },
+                    { label: "Download Data Resume", action: "download", url: "./data/documents/resume/khin_andrei_gamboa_resume_data.pdf", filename: "khin_andrei_gamboa_resume_data.pdf" },
+                    { label: "Download Dev Resume", action: "download", url: "./data/documents/resume/khin_andrei_gamboa_resume_dev.pdf", filename: "khin_andrei_gamboa_resume_dev.pdf" },
                     { label: "Inquire via Email", action: "open_url", url: `mailto:${KHIN_KNOWLEDGE.email}` }
                 ]
             };
@@ -752,11 +753,11 @@
                         } else if (typeof window.openThemedViewport === 'function') {
                             window.openThemedViewport('resume');
                         } else {
-                            const resumeLink = document.querySelector('a[href*="khin-andrei-gamboa-resume.pdf"]');
+                            const resumeLink = document.querySelector('a[href*="resume_data.pdf"]') || document.querySelector('a[href*="resume"]');
                             if (resumeLink) {
                                 resumeLink.click();
                             } else {
-                                window.open('./data/documents/resume/khin-andrei-gamboa-resume.pdf', '_blank');
+                                window.open('./data/documents/resume/khin_andrei_gamboa_resume_data.pdf', '_blank');
                             }
                         }
                     }, 250);
